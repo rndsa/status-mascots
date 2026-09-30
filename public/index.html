@@ -559,7 +559,7 @@
     <!-- Intro -->
     <div class="page-intro">
       <h2 class="page-title">Pilih Karakter Maskot</h2>
-      <p class="page-subtitle">Ada 11 karakter maskot original yang super lucu. Tiap karakter punya set ekspresi reaksi lengkap untuk kode status HTTP (termasuk animasi geleng-geleng saat 409 Conflict!).</p>
+      <p class="page-subtitle">Koleksi 11 karakter maskot vektor animasi SVG untuk respon kode status HTTP dan API. Tiap karakter memiliki set ekspresi unik untuk mewakili state aplikasi.</p>
     </div>
 
     <!-- Character Picker Pills -->
@@ -582,7 +582,7 @@
           <span class="stage-char-tag" id="stage-char-tag">Astro Bot &bull; conflict</span>
         </div>
         <div class="status-pill-list" id="stage-status-pills"></div>
-        <div class="stage-desc" id="stage-desc">Astro Bot geleng-geleng kepala cepat (> <) pas nama atau resource udah terpakai.</div>
+        <div class="stage-desc" id="stage-desc">Ekspresi panik ketika terjadi konflik resource atau data sudah terpakai.</div>
         <div class="json-box" id="stage-json">{
   "status": 409,
   "error": "Conflict",
@@ -635,7 +635,7 @@
           { code: 401, name: "Unauthorized", cat: "4xx", file: "401-unauthorized.svg", desc: "Tameng kunci dan visor gembok merah kedip-kedip.", json: { status: 401, error: "Unauthorized" } },
           { code: 403, name: "Forbidden", cat: "4xx", file: "403-forbidden.svg", desc: "Mata datar stern (- -) dan sirine darurat merah.", json: { status: 403, error: "Forbidden" } },
           { code: 404, name: "Not Found", cat: "4xx", file: "404-not-found.svg", desc: "Senter sorot celingukan mencari data yang hilang.", json: { status: 404, error: "Not Found" } },
-          { code: 409, name: "Conflict (Geleng!)", cat: "4xx", file: "409-conflict.svg", desc: "GELENG-GELENG kepala cepat (> <) panik dengan tetesan keringat!", json: { status: 409, error: "Conflict", message: "Name already taken" } },
+          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Mata silang (> <) dan tetesan keringat saat terjadi konflik data.", json: { status: 409, error: "Conflict", message: "Name already taken" } },
           { code: 429, name: "Rate Limit", cat: "4xx", file: "429-rate-limit.svg", desc: "Helm merah ngos-ngosan dengan kipas pendingin berputar kencang.", json: { status: 429, error: "Too Many Requests" } },
           { code: 500, name: "Server Error", cat: "5xx", file: "500-internal-error.svg", desc: "Helm retak berasap dan mata spiral pusing (@ @).", json: { status: 500, error: "Internal Crash" } },
           { code: 503, name: "Maintenance", cat: "5xx", file: "503-maintenance.svg", desc: "Helm proyek kuning memegang kunci inggris siap reparasi.", json: { status: 503, error: "Maintenance" } }
@@ -650,7 +650,7 @@
           { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Hantu imut mengambang melayang ceria dan pipi pink.", json: { status: 200, success: true } },
           { code: 400, name: "Bad Request", cat: "4xx", file: "400-bad-request.svg", desc: "Pipi tersipu malu menutup wajah bingung tanda tanya.", json: { status: 400, error: "Bad Request" } },
           { code: 404, name: "Not Found", cat: "4xx", file: "404-not-found.svg", desc: "Hantu transparan memudar pelan mencari keberadaan.", json: { status: 404, error: "Ghost Missing" } },
-          { code: 409, name: "Conflict (Geleng!)", cat: "4xx", file: "409-conflict.svg", desc: "GELENG-GELENG badan meliuk-liuk nangis air mata anime (T_T)!", json: { status: 409, error: "Conflict" } },
+          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Hantu menangis dengan air mata anime (T_T) saat resource bentrok.", json: { status: 409, error: "Conflict" } },
           { code: 500, name: "Server Error", cat: "5xx", file: "500-internal-error.svg", desc: "Ketakutan berteriak histeris mata melotot merah OOO!", json: { status: 500, error: "Spooked Crash" } }
         ]
       },
@@ -662,7 +662,7 @@
         reactions: [
           { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Kucing oren tersenyum manis :3 dengan ekor bergoyang.", json: { status: 200, message: "Purrfect" } },
           { code: 404, name: "Not Found", cat: "4xx", file: "404-not-found.svg", desc: "Ngintip dari dalam kardus kosong bertuliskan 404.", json: { status: 404, error: "Empty Box" } },
-          { code: 409, name: "Conflict (Geleng!)", cat: "4xx", file: "409-conflict.svg", desc: "GELENG KEPALA telinga datar marah mendesis (> <)!", json: { status: 409, error: "Hiss Conflict" } },
+          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Telinga datar marah mendesis (> <) saat resource bentrok.", json: { status: 409, error: "Hiss Conflict" } },
           { code: 500, name: "Server Error", cat: "5xx", file: "500-internal-error.svg", desc: "Terlilit kabel server merah ruwet pusing matanya silang.", json: { status: 500, error: "Knotted Cables" } }
         ]
       },
@@ -673,7 +673,7 @@
         preview: "/mascots/blob/200-ok.svg",
         reactions: [
           { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Slime hijau kenyal membal-membal ceria glossy (^ ^).", json: { status: 200, message: "Jelly Bounce" } },
-          { code: 409, name: "Conflict (Geleng!)", cat: "4xx", file: "409-conflict.svg", desc: "GELENG-GELENG bergoyang miring kiri-kanan merah panik!", json: { status: 409, error: "Jelly Conflict" } },
+          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Jelly berubah merah panik saat data duplikat.", json: { status: 409, error: "Jelly Conflict" } },
           { code: 500, name: "Server Error", cat: "5xx", file: "500-internal-error.svg", desc: "Lumer gepeng di lantai jadi genangan air mata silang.", json: { status: 500, error: "Splattered" } }
         ]
       },
@@ -685,7 +685,7 @@
         reactions: [
           { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Dino kecil hijau melompat gembira dengan gigi taring imut.", json: { status: 200, message: "Rawr OK" } },
           { code: 404, name: "Not Found", cat: "4xx", file: "404-not-found.svg", desc: "Gak bisa garuk kepala karena tangannya terlalu pendek.", json: { status: 404, error: "Short Arms 404" } },
-          { code: 409, name: "Conflict (Geleng!)", cat: "4xx", file: "409-conflict.svg", desc: "GELENG KEPALA mengaum kesal (> <) hentak-hentak kaki!", json: { status: 409, error: "Dino Conflict" } }
+          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Dino mengaum kesal (> <) hentak-hentak kaki saat nama bentrok.", json: { status: 409, error: "Dino Conflict" } }
         ]
       },
       {
@@ -696,7 +696,7 @@
         reactions: [
           { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Bebek kuning santai berenang pakai kacamata hitam keren.", json: { status: 200, message: "Debugging Pass" } },
           { code: 404, name: "Not Found", cat: "4xx", file: "404-not-found.svg", desc: "Menyelam kepala di bawah air, pantat & kaki mengayuh di atas.", json: { status: 404, error: "Diving Not Found" } },
-          { code: 409, name: "Conflict (Geleng!)", cat: "4xx", file: "409-conflict.svg", desc: "GELENG PARUH kwek-kwek marah paruh terbuka lebar!", json: { status: 409, error: "Quack Conflict" } }
+          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Kwek-kwek marah paruh terbuka lebar saat validasi bentrok.", json: { status: 409, error: "Quack Conflict" } }
         ]
       },
       {
@@ -707,7 +707,7 @@
         reactions: [
           { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Alien hijau di dalam kubah UFO melambaikan tangan.", json: { status: 200, message: "Abduction OK" } },
           { code: 404, name: "Not Found", cat: "4xx", file: "404-not-found.svg", desc: "Tersesat di luar angkasa gelap mencari koordinat bumi.", json: { status: 404, error: "Lost in Space" } },
-          { code: 409, name: "Conflict (Geleng!)", cat: "4xx", file: "409-conflict.svg", desc: "UFO oleng putar-putar miring panik sirine merah!", json: { status: 409, error: "UFO Conflict" } }
+          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "UFO oleng miring panik sirine merah berkedip.", json: { status: 409, error: "UFO Conflict" } }
         ]
       },
       {
@@ -717,7 +717,7 @@
         preview: "/mascots/coffee/200-ok.svg",
         reactions: [
           { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Cangkir kopi mengepul hangat tersenyum manis.", json: { status: 200, message: "Fresh Brew" } },
-          { code: 409, name: "Conflict (Geleng!)", cat: "4xx", file: "409-conflict.svg", desc: "GELENG-GELENG tumpah kopi muncrat ke mana-mana (> <)!", json: { status: 409, error: "Coffee Spill" } },
+          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Kopi tumpah muncrat ke mana-mana (> <) saat overflow.", json: { status: 409, error: "Coffee Spill" } },
           { code: 429, name: "Rate Limit", cat: "4xx", file: "429-rate-limit.svg", desc: "Kebanyakan kafein gemetar bergetar hebat mata melotot!", json: { status: 429, error: "Over-Caffeinated" } }
         ]
       },
@@ -729,7 +729,7 @@
         reactions: [
           { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Beruang cokelat makan sepotong madu manis senyum ramah.", json: { status: 200, message: "Sweet Honey" } },
           { code: 404, name: "Not Found", cat: "4xx", file: "404-not-found.svg", desc: "Tertidur pulas hibernasi di goa kosong Zzz...", json: { status: 404, error: "Hibernating" } },
-          { code: 409, name: "Conflict (Geleng!)", cat: "4xx", file: "409-conflict.svg", desc: "GELENG KEPALA telapak tangan melambai NO NO (> <)!", json: { status: 409, error: "Bear Conflict" } }
+          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Telapak tangan melambai NO NO (> <) saat resource dipakai.", json: { status: 409, error: "Bear Conflict" } }
         ]
       },
       {
@@ -740,7 +740,7 @@
         reactions: [
           { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Awan putih empuk tersenyum diintip matahari cerah.", json: { status: 200, message: "Clear Sky" } },
           { code: 404, name: "Not Found", cat: "4xx", file: "404-not-found.svg", desc: "Awan tertiup angin kencang hingga hilang tak berbekas.", json: { status: 404, error: "Dispersed" } },
-          { code: 409, name: "Conflict (Geleng!)", cat: "4xx", file: "409-conflict.svg", desc: "GELENG-GELENG awan badai petir kilat menyambar (> <)!", json: { status: 409, error: "Thunder Conflict" } }
+          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Awan badai gelap dengan petir kilat menyambar (> <).", json: { status: 409, error: "Thunder Conflict" } }
         ]
       },
       {
@@ -750,7 +750,7 @@
         preview: "/mascots/monkey/200-ok.svg",
         reactions: [
           { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Monyet ceria makan pisang kuning jempol mantap.", json: { status: 200, message: "Banana OK" } },
-          { code: 409, name: "Conflict (Geleng!)", cat: "4xx", file: "409-conflict.svg", desc: "GELENG KEPALA tutup telinga gak mau denger NO NO!", json: { status: 409, error: "Chimp Conflict" } },
+          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Tutup telinga panik gak mau dengar saat terjadi konflik.", json: { status: 409, error: "Chimp Conflict" } },
           { code: 500, name: "Server Error", cat: "5xx", file: "500-internal-error.svg", desc: "Banting laptop terbelah dua keluar percikan api!", json: { status: 500, error: "Monkey Crash" } }
         ]
       }

@@ -6,7 +6,7 @@
 [![Format: Pure SVG + CSS](https://img.shields.io/badge/Format-Pure%20CSS%20Keyframes-ff70a6.svg)]()
 [![Author: ren](https://img.shields.io/badge/Author-ren%20(%40rskl411_)-ff70a6.svg)](https://instagram.com/rskl411_)
 
-> Koleksi 11 karakter maskot animasi vektor SVG mandiri untuk merespon kode status HTTP dan API. Tiap karakter memiliki set ekspresi unik (sukses, not found, error, dan animasi geleng-geleng saat conflict) tanpa dependensi eksternal.
+> Koleksi 11 karakter maskot animasi vektor SVG mandiri untuk merespon kode status HTTP dan API. Tiap karakter memiliki set ekspresi unik untuk mewakili state aplikasi tanpa dependensi eksternal.
 
 ---
 
@@ -23,9 +23,7 @@
   8. **Muggy (Caffeine Mug)**: Cangkir kopi hangat mengepul, kopi tumpah muncrat ke mana-mana, dan getar hebat over-caffeinated.
   9. **Kuma (Honey Bear)**: Beruang cokelat makan madu, hibernasi di goa kosong, dan telapak tangan melambai NO-NO.
   10. **Nimbus (Fluffy Cloud)**: Awan empuk senyum matahari, awan tertiup angin pudar, dan badai petir kilat menyambar.
-  11. **Chimp (Code Monkey)**: Monyet makan pisang jempol mantap, tutup telinga geleng kepala, dan banting laptop terbelah dua.
-* **Animasi Geleng-Geleng Kepala Khusus 409 Conflict**:
-  * Tiap karakter dibekali respon fisik khas saat terjadi duplikasi nama/subdomain (Astro geleng cepat + tetesan keringat, Kucing mendesis telinga datar, Hantu nangis T_T, Monyet tutup telinga no-no).
+  11. **Chimp (Code Monkey)**: Monyet makan pisang jempol mantap, tutup telinga saat error, dan banting laptop terbelah dua.
 * **Animasi Murni CSS Keyframes (Zero Dependency)**:
   * Semua gerakan tertanam murni di dalam kode SVG. Tidak membutuhkan JavaScript, Lottie, GIF berat, maupun library eksternal.
 * **Tampilan Showcase Cue by Manus**:
@@ -48,7 +46,7 @@
 Gunakan URL raw GitHub dengan format `mascots/<character>/<status>.svg`:
 
 ```html
-<!-- Astro Bot Geleng-Geleng (409 Conflict) -->
+<!-- Astro Bot (409 Conflict) -->
 <img src="https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/robot/409-conflict.svg" width="120" height="120" alt="Robot 409 Conflict" />
 
 <!-- Boofy Ghost (200 OK) -->

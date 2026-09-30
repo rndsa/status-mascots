@@ -10,10 +10,10 @@
         75% { transform: translateX(-3px) rotate(-2deg); }
         100% { transform: translateX(0) rotate(0deg); }
       }
-      .bot-geleng { animation: headShakeAnim 0.75s ease-in-out infinite; transform-origin: 60px 85px; }
+      .bot-conflict { animation: headShakeAnim 0.75s ease-in-out infinite; transform-origin: 60px 85px; }
     </style>
   </defs>
-  <g class="bot-geleng">
+  <g class="bot-conflict">
     <!-- Antenna Red -->
     <line x1="60" y1="32" x2="60" y2="12" stroke="#3a3f50" stroke-width="4" stroke-linecap="round"/>
     <circle cx="60" cy="10" r="5" fill="#ff4d4d"/>
