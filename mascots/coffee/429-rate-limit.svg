@@ -1,19 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mug-hot-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+  </defs>
   <style>
-    @keyframes cafeJitter {
-      0%, 100% { transform: translate(0, 0); }
-      25% { transform: translate(-3px, 2px); }
-      75% { transform: translate(3px, -2px); }
+    @keyframes pantingBreath {
+      0%, 100% { transform: scale(1, 1); }
+      50% { transform: scale(1.05, 0.95); }
     }
-    .jitter { animation: cafeJitter 0.15s infinite; }
+    .head-pant { animation: pantingBreath 0.5s ease-in-out infinite; transform-origin: 80px 145px; }
   </style>
-  <g class="jitter">
-    <rect x="45" y="60" width="65" height="58" rx="12" fill="#fde047" stroke="#ca8a04" stroke-width="2.5"/>
-    <!-- Giant dilated pupils -->
-    <circle cx="65" cy="85" r="8" fill="#431407"/>
-    <circle cx="85" cy="85" r="8" fill="#431407"/>
-    <circle cx="67" cy="83" r="2.5" fill="#ffffff"/>
-    <circle cx="87" cy="83" r="2.5" fill="#ffffff"/>
+
+  <ellipse cx="76" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="head-pant">
+    <path d="M 118 64 C 142 64 142 98 118 98" fill="none" stroke="#ea580c" stroke-width="8" stroke-linecap="round"/>
+
+    <rect x="28" y="44" width="94" height="84" rx="28" fill="url(#mug-hot-grad)" stroke="#c2410c" stroke-width="2.5"/>
+
+    <!-- Exhausted spiral eyes -->
+    <path d="M 58 82 A 3 3 0 1 1 54 85 A 5 5 0 1 1 61 83" fill="none" stroke="#7c2d12" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 94 82 A 3 3 0 1 1 90 85 A 5 5 0 1 1 97 83" fill="none" stroke="#7c2d12" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Open mouth with tongue out -->
+    <ellipse cx="76" cy="98" rx="6" ry="5" fill="#7c2d12"/>
+    <path d="M 74 100 Q 76 108 78 100 Z" fill="#f43f5e"/>
+
+    <ellipse cx="44" cy="94" rx="7" ry="4" fill="#f97316" opacity="0.7"/>
+    <ellipse cx="106" cy="94" rx="7" ry="4" fill="#f97316" opacity="0.7"/>
   </g>
-  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#ca8a04" text-anchor="middle">CAFFEINE OVERDOSE</text>
+  <text x="76" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#ea580c" text-anchor="middle">OVERHEAT 429</text>
 </svg>

@@ -1,9 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <rect x="45" y="60" width="65" height="58" rx="12" fill="#fdba74" stroke="#c2410c" stroke-width="2"/>
-  <!-- Disgusted face -->
-  <line x1="60" y1="82" x2="70" y2="86" stroke="#431407" stroke-width="3"/>
-  <line x1="90" y1="82" x2="80" y2="86" stroke="#431407" stroke-width="3"/>
-  <path d="M 70 96 Q 75 90 80 96" fill="none" stroke="#431407" stroke-width="2.5"/>
-  <text x="115" y="55" font-family="sans-serif" font-size="20" font-weight="900" fill="#ea580c">?</text>
-  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#c2410c" text-anchor="middle">SALTY BREW (400)</text>
+  <defs>
+    <linearGradient id="mug-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <filter id="mug-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#c2410c" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <style>
+    @keyframes tiltMug {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-16deg); }
+    }
+    @keyframes qmarkBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px) rotate(4deg); }
+    }
+    .head-tilt { animation: tiltMug 2.6s ease-in-out infinite; transform-origin: 80px 145px; }
+    .qmark-box { animation: qmarkBob 2s ease-in-out infinite; transform-origin: 130px 30px; }
+  </style>
+
+  <ellipse cx="76" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="qmark-box">
+    <ellipse cx="130" cy="30" rx="14" ry="14" fill="#141722" stroke="#f97316" stroke-width="2"/>
+    <text x="130" y="38" font-family="-apple-system, sans-serif" font-size="20" font-weight="900" fill="#f97316" text-anchor="middle">?</text>
+  </g>
+
+  <g class="head-tilt">
+    <path d="M 118 64 C 142 64 142 98 118 98" fill="none" stroke="#ea580c" stroke-width="8" stroke-linecap="round"/>
+    <path d="M 118 64 C 142 64 142 98 118 98" fill="none" stroke="#fed7aa" stroke-width="4" stroke-linecap="round"/>
+
+    <rect x="28" y="44" width="94" height="84" rx="28" fill="url(#mug-grad)" stroke="#ea580c" stroke-width="2.5" filter="url(#mug-glow)"/>
+
+    <!-- Puzzled Eyes: Left spiral @, Right dot . -->
+    <path d="M 58 80 A 4 4 0 1 1 54 84 A 7 7 0 1 1 63 82" fill="none" stroke="#431407" stroke-width="2.8" stroke-linecap="round"/>
+    <ellipse cx="94" cy="84" rx="6" ry="8" fill="#431407"/>
+    <circle cx="96" cy="82" r="2.2" fill="#ffffff"/>
+
+    <circle cx="76" cy="96" r="4.5" fill="#431407"/>
+  </g>
 </svg>
