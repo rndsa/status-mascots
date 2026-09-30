@@ -1,53 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="g-body" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="ghost-head-grad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#fee2e2"/>
+      <stop offset="100%" stop-color="#e0e7ff"/>
     </linearGradient>
   </defs>
   <style>
     @keyframes terrorShiver {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      15% { transform: translate(-3px, 2px) scale(1.03); }
-      30% { transform: translate(3px, -2px) scale(0.97); }
-      45% { transform: translate(-2px, -3px) scale(1.02); }
-      60% { transform: translate(3px, 2px) scale(0.98); }
-      75% { transform: translate(-3px, -1px) scale(1.01); }
+      0%, 100% { transform: translate(0, 0); }
+      20% { transform: translate(-3px, 2px); }
+      40% { transform: translate(3px, -2px); }
+      60% { transform: translate(-2px, -2px); }
+      80% { transform: translate(2px, 2px); }
     }
-    @keyframes shockLightning {
+    @keyframes lightningFlick {
       0%, 100% { opacity: 0; }
       50% { opacity: 1; }
     }
-    .ghost-spooked { animation: terrorShiver 0.25s infinite; transform-origin: 80px 80px; }
-    .zap { animation: shockLightning 0.5s infinite; }
+    .head-terror { animation: terrorShiver 0.25s infinite; transform-origin: 80px 145px; }
+    .lightning { animation: lightningFlick 0.3s infinite; }
   </style>
 
-  <!-- Electric Shock sparks behind -->
-  <g class="zap">
-    <polygon points="35,45 42,55 38,57 45,70 36,60 40,58" fill="#facc15"/>
-    <polygon points="125,45 118,55 122,57 115,70 124,60 120,58" fill="#facc15"/>
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <!-- Electric lightning cracks -->
+  <g class="lightning">
+    <polyline points="28,40 36,52 30,56 40,70" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
+    <polyline points="132,40 124,52 130,56 120,70" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
   </g>
 
-  <!-- Spooked Shivering Boofy -->
-  <g class="ghost-spooked">
-    <path d="M 46 72 C 46 38 60 28 80 28 C 100 28 114 38 114 72 C 114 104 122 125 110 128 C 98 131 92 118 80 118 C 68 118 62 131 50 128 C 38 125 46 104 46 72 Z"
-          fill="url(#g-body)" stroke="#ef4444" stroke-width="2.5"/>
+  <g class="head-terror">
+    <path d="M 32 80 C 32 46 54 28 80 28 C 106 28 128 46 128 80 C 128 114 116 132 100 132 C 90 132 86 124 80 124 C 74 124 70 132 60 132 C 44 132 32 114 32 80 Z" 
+          fill="url(#ghost-head-grad)" stroke="#ef4444" stroke-width="2.5"/>
 
-    <!-- Giant Shocked Eyes O_O with Red Iris -->
-    <circle cx="66" cy="64" r="9" fill="#ef4444"/>
-    <circle cx="66" cy="64" r="6" fill="#1e1b4b"/>
-    <circle cx="68" cy="62" r="2.5" fill="#ffffff"/>
+    <!-- Wide Spooked Eyes O_O -->
+    <ellipse cx="62" cy="74" rx="9" ry="12" fill="#ef4444"/>
+    <circle cx="64" cy="71" r="3" fill="#ffffff"/>
 
-    <circle cx="94" cy="64" r="9" fill="#ef4444"/>
-    <circle cx="94" cy="64" r="6" fill="#1e1b4b"/>
-    <circle cx="96" cy="62" r="2.5" fill="#ffffff"/>
+    <ellipse cx="98" cy="74" rx="9" ry="12" fill="#ef4444"/>
+    <circle cx="100" cy="71" r="3" fill="#ffffff"/>
 
-    <!-- Screaming Huge O Mouth -->
-    <ellipse cx="80" cy="80" rx="7" ry="11" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
-
-    <!-- Hands on cheeks in horror -->
-    <ellipse cx="50" cy="74" rx="6" ry="7" fill="#ffffff" stroke="#ef4444" stroke-width="1.8" transform="rotate(-30 50 74)"/>
-    <ellipse cx="110" cy="74" rx="6" ry="7" fill="#ffffff" stroke="#ef4444" stroke-width="1.8" transform="rotate(30 110 74)"/>
+    <!-- Screaming gaping mouth -->
+    <ellipse cx="80" cy="98" rx="10" ry="14" fill="#1e1b4b"/>
   </g>
-  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">PANIC CRASH (500)</text>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">PANIC 500</text>
 </svg>

@@ -1,47 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="g-body" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="ghost-head-grad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#ede9fe"/>
+      <stop offset="100%" stop-color="#e0e7ff"/>
     </linearGradient>
   </defs>
   <style>
     @keyframes ghostFade {
-      0%, 100% { opacity: 0.95; transform: translateY(0); }
-      50% { opacity: 0.25; transform: translateY(-8px); }
+      0%, 100% { opacity: 0.95; }
+      50% { opacity: 0.28; }
     }
-    @keyframes sweepGlass {
-      0%, 100% { transform: rotate(-18deg); }
-      50% { transform: rotate(18deg); }
+    @keyframes lookLR {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
     }
-    .ghost-fader { animation: ghostFade 3s ease-in-out infinite; }
-    .glass-sweep { animation: sweepGlass 2s ease-in-out infinite; transform-origin: 105px 95px; }
+    .head-fade { animation: ghostFade 3s ease-in-out infinite; }
+    .eyes-look { animation: lookLR 2.6s ease-in-out infinite; }
   </style>
 
-  <g class="ghost-fader">
-    <!-- Detective Cap on Head -->
-    <path d="M 60 38 Q 80 26 100 38 L 105 40 Q 80 34 55 40 Z" fill="#78350f" stroke="#451a03" stroke-width="1.5"/>
-    <ellipse cx="80" cy="34" rx="18" ry="7" fill="#92400e"/>
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
 
-    <!-- Ghost Body -->
-    <path d="M 46 72 C 46 38 60 28 80 28 C 100 28 114 38 114 72 C 114 104 122 125 110 128 C 98 131 92 118 80 118 C 68 118 62 131 50 128 C 38 125 46 104 46 72 Z"
-          fill="url(#g-body)" stroke="#cbd5e1" stroke-width="2"/>
+  <g class="head-fade">
+    <!-- Detective Sherlock Hat -->
+    <path d="M 44 42 C 44 26 116 26 116 42 Z" fill="#78350f"/>
+    <ellipse cx="80" cy="42" rx="42" ry="6" fill="#92400e"/>
 
-    <!-- Searching Eyes looking left & right -->
-    <ellipse cx="68" cy="65" rx="5" ry="6.5" fill="#2e1065"/>
-    <circle cx="66" cy="63" r="2" fill="#ffffff"/>
-    <ellipse cx="92" cy="65" rx="5" ry="6.5" fill="#2e1065"/>
-    <circle cx="90" cy="63" r="2" fill="#ffffff"/>
+    <path d="M 32 80 C 32 46 54 28 80 28 C 106 28 128 46 128 80 C 128 114 116 132 100 132 C 90 132 86 124 80 124 C 74 124 70 132 60 132 C 44 132 32 114 32 80 Z" 
+          fill="url(#ghost-head-grad)" stroke="#c7d2fe" stroke-width="2.5"/>
 
-    <!-- Confused Small Mouth -->
-    <ellipse cx="80" cy="74" rx="2.5" ry="3.5" fill="#2e1065"/>
+    <!-- Eyes looking left & right -->
+    <g class="eyes-look">
+      <ellipse cx="64" cy="78" rx="7" ry="9" fill="#1e1b4b"/>
+      <circle cx="66" cy="75" r="2.5" fill="#ffffff"/>
 
-    <!-- Magnifying Glass held in hand -->
-    <g class="glass-sweep">
-      <line x1="95" y1="88" x2="118" y2="108" stroke="#78350f" stroke-width="4" stroke-linecap="round"/>
-      <circle cx="92" cy="85" r="14" fill="#67e8f9" opacity="0.3" stroke="#eab308" stroke-width="2.5"/>
-      <path d="M 85 80 Q 92 78 96 82" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="96" cy="78" rx="7" ry="9" fill="#1e1b4b"/>
+      <circle cx="98" cy="75" r="2.5" fill="#ffffff"/>
     </g>
+
+    <ellipse cx="80" cy="92" rx="3.5" ry="4.5" fill="#1e1b4b"/>
   </g>
-  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#a78bfa" text-anchor="middle">VANISHED (404)</text>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#64748b" text-anchor="middle">VANISHED (404)</text>
 </svg>

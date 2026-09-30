@@ -1,39 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="g-puddle" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="ghost-hot-grad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#ddd6fe"/>
+      <stop offset="100%" stop-color="#fed7aa"/>
     </linearGradient>
   </defs>
   <style>
-    @keyframes puddleBreathe {
+    @keyframes pantingHead {
       0%, 100% { transform: scale(1, 1); }
-      50% { transform: scale(1.05, 0.95); }
+      50% { transform: scale(1.06, 0.94); }
     }
-    @keyframes sweatDripGhost {
-      0% { transform: translateY(0); opacity: 0; }
-      50% { opacity: 0.9; }
-      100% { transform: translateY(14px); opacity: 0; }
-    }
-    .puddle-ghost { animation: puddleBreathe 2s ease-in-out infinite; transform-origin: 80px 115px; }
-    .drip { animation: sweatDripGhost 1.4s infinite; }
+    .head-pant { animation: pantingHead 0.5s ease-in-out infinite; transform-origin: 80px 145px; }
   </style>
 
-  <!-- Exhausted Melted Puddle -->
-  <g class="puddle-ghost">
-    <path d="M 32 118 C 25 115 32 95 55 98 C 72 88 88 88 105 98 C 128 95 135 115 128 118 C 115 128 45 128 32 118 Z"
-          fill="url(#g-puddle)" stroke="#a78bfa" stroke-width="2"/>
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
 
-    <!-- Exhausted Spiral Eyes (@ @) -->
-    <path d="M 62 104 A 3 3 0 1 1 58 107 A 5 5 0 1 1 65 105" fill="none" stroke="#4c1d95" stroke-width="1.8" stroke-linecap="round"/>
-    <path d="M 98 104 A 3 3 0 1 1 94 107 A 5 5 0 1 1 101 105" fill="none" stroke="#4c1d95" stroke-width="1.8" stroke-linecap="round"/>
+  <g class="head-pant">
+    <path d="M 32 80 C 32 46 54 28 80 28 C 106 28 128 46 128 80 C 128 114 116 132 100 132 C 90 132 86 124 80 124 C 74 124 70 132 60 132 C 44 132 32 114 32 80 Z" 
+          fill="url(#ghost-hot-grad)" stroke="#f97316" stroke-width="2.5"/>
 
-    <!-- Open panting mouth with tiny tongue -->
-    <path d="M 76 108 Q 80 115 84 108" fill="none" stroke="#4c1d95" stroke-width="2"/>
-    <circle cx="80" cy="112" r="2.5" fill="#f43f5e"/>
+    <!-- Exhausted spiral eyes -->
+    <path d="M 64 76 A 3 3 0 1 1 60 79 A 5 5 0 1 1 67 77" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 96 76 A 3 3 0 1 1 92 79 A 5 5 0 1 1 99 77" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round"/>
 
-    <!-- Floating Sweat drop -->
-    <path d="M 106 82 Q 110 88 106 91 Q 102 88 106 82 Z" fill="#38bdf8" class="drip"/>
+    <!-- Panting open mouth with tongue out -->
+    <ellipse cx="80" cy="92" rx="6" ry="5" fill="#ea580c"/>
+    <path d="M 78 94 Q 80 102 82 94 Z" fill="#f43f5e"/>
+
+    <!-- Hot red cheeks -->
+    <ellipse cx="50" cy="88" rx="7" ry="4" fill="#f97316" opacity="0.7"/>
+    <ellipse cx="110" cy="88" rx="7" ry="4" fill="#f97316" opacity="0.7"/>
   </g>
-  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#a78bfa" text-anchor="middle">COOLED DOWN (429)</text>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#ea580c" text-anchor="middle">OVERHEAT 429</text>
 </svg>

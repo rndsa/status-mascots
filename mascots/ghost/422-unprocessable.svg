@@ -1,43 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <style>
-    @keyframes rgbCyan {
-      0%, 100% { transform: translate(0, 0); opacity: 0.6; }
-      50% { transform: translate(-5px, 2px); opacity: 0.8; }
+    @keyframes rgbShiftCyan {
+      0%, 100% { transform: translate(-3px, 0); opacity: 0.7; }
+      50% { transform: translate(3px, -2px); opacity: 0.3; }
     }
-    @keyframes rgbMagenta {
-      0%, 100% { transform: translate(0, 0); opacity: 0.6; }
-      50% { transform: translate(5px, -2px); opacity: 0.8; }
+    @keyframes rgbShiftMagenta {
+      0%, 100% { transform: translate(3px, 0); opacity: 0.7; }
+      50% { transform: translate(-3px, 2px); opacity: 0.3; }
     }
-    @keyframes glitchShake {
+    @keyframes glitchJitter {
       0%, 100% { transform: translate(0, 0); }
       25% { transform: translate(-2px, 1px); }
       75% { transform: translate(2px, -1px); }
     }
-    .cyan-layer { animation: rgbCyan 0.25s infinite ease-in-out; }
-    .magenta-layer { animation: rgbMagenta 0.25s infinite ease-in-out; }
-    .ghost-main { animation: glitchShake 0.15s infinite; }
+    .rgb-cyan { animation: rgbShiftCyan 0.2s infinite; }
+    .rgb-magenta { animation: rgbShiftMagenta 0.2s infinite; }
+    .head-glitch { animation: glitchJitter 0.15s infinite; }
   </style>
 
-  <!-- Cyan Glitch Ghost Layer -->
-  <g class="cyan-layer">
-    <path d="M 46 72 C 46 38 60 28 80 28 C 100 28 114 38 114 72 C 114 104 122 125 110 128 C 98 131 92 118 80 118 C 68 118 62 131 50 128 C 38 125 46 104 46 72 Z"
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <!-- Cyan Ghost Offset -->
+  <g class="rgb-cyan">
+    <path d="M 32 80 C 32 46 54 28 80 28 C 106 28 128 46 128 80 C 128 114 116 132 100 132 C 90 132 86 124 80 124 C 74 124 70 132 60 132 C 44 132 32 114 32 80 Z" 
           fill="none" stroke="#06b6d4" stroke-width="2.5"/>
   </g>
 
-  <!-- Magenta Glitch Ghost Layer -->
-  <g class="magenta-layer">
-    <path d="M 46 72 C 46 38 60 28 80 28 C 100 28 114 38 114 72 C 114 104 122 125 110 128 C 98 131 92 118 80 118 C 68 118 62 131 50 128 C 38 125 46 104 46 72 Z"
+  <!-- Magenta Ghost Offset -->
+  <g class="rgb-magenta">
+    <path d="M 32 80 C 32 46 54 28 80 28 C 106 28 128 46 128 80 C 128 114 116 132 100 132 C 90 132 86 124 80 124 C 74 124 70 132 60 132 C 44 132 32 114 32 80 Z" 
           fill="none" stroke="#ec4899" stroke-width="2.5"/>
   </g>
 
-  <!-- Main Ghost Body -->
-  <g class="ghost-main">
-    <path d="M 46 72 C 46 38 60 28 80 28 C 100 28 114 38 114 72 C 114 104 122 125 110 128 C 98 131 92 118 80 118 C 68 118 62 131 50 128 C 38 125 46 104 46 72 Z"
-          fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
-    <!-- Glitched eyes -->
-    <rect x="62" y="62" width="12" height="5" fill="#2e1065"/>
-    <rect x="86" y="62" width="12" height="5" fill="#2e1065"/>
-    <rect x="74" y="74" width="12" height="3" fill="#ec4899"/>
+  <!-- Main Glitched Head -->
+  <g class="head-glitch">
+    <path d="M 32 80 C 32 46 54 28 80 28 C 106 28 128 46 128 80 C 128 114 116 132 100 132 C 90 132 86 124 80 124 C 74 124 70 132 60 132 C 44 132 32 114 32 80 Z" 
+          fill="#f8fafc" stroke="#a855f7" stroke-width="2.5"/>
+
+    <!-- Pixelated Glitch Eyes -->
+    <rect x="54" y="74" width="16" height="5" fill="#a855f7"/>
+    <rect x="58" y="70" width="8" height="14" fill="#06b6d4"/>
+
+    <rect x="90" y="74" width="16" height="5" fill="#ec4899"/>
+    <rect x="94" y="78" width="8" height="12" fill="#a855f7"/>
   </g>
-  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#8b5cf6" text-anchor="middle">SEMANTIC GLITCH</text>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#a855f7" text-anchor="middle">PARSER GLITCH (422)</text>
 </svg>
