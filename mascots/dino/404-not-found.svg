@@ -1,18 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="dino-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#bef264"/>
+      <stop offset="100%" stop-color="#65a30d"/>
+    </linearGradient>
+  </defs>
   <style>
-    @keyframes dinoDig {
-      0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(-10deg); }
+    @keyframes dinoFade {
+      0%, 100% { opacity: 0.95; }
+      50% { opacity: 0.25; }
     }
-    .dig { animation: dinoDig 1.5s infinite; }
+    @keyframes lookLR {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+    .head-fade { animation: dinoFade 3s ease-in-out infinite; }
+    .eyes-roam { animation: lookLR 2.6s ease-in-out infinite; }
   </style>
 
-  <!-- Hole in ground with dirt flying -->
-  <ellipse cx="80" cy="120" rx="40" ry="12" fill="#451a03"/>
-  <g class="dig">
-    <!-- Dino head inside hole, tail sticking up -->
-    <ellipse cx="80" cy="100" rx="24" ry="30" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
-    <path d="M 80 75 Q 70 50 60 45" fill="none" stroke="#16a34a" stroke-width="7" stroke-linecap="round"/>
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="head-fade">
+    <!-- Detective Hat -->
+    <path d="M 44 42 C 44 26 116 26 116 42 Z" fill="#78350f"/>
+    <ellipse cx="80" cy="42" rx="42" ry="6" fill="#92400e"/>
+
+    <path d="M 32 80 C 32 48 52 38 80 38 C 114 38 128 54 128 80 C 128 106 122 128 96 128 C 76 128 68 124 56 124 C 42 124 32 108 32 80 Z" 
+          fill="url(#dino-grad)" stroke="#4d7c0f" stroke-width="2.5"/>
+
+    <!-- Roaming eyes searching -->
+    <g class="eyes-roam">
+      <ellipse cx="62" cy="80" rx="7" ry="9" fill="#14532d"/>
+      <circle cx="64" cy="77" r="2.5" fill="#ffffff"/>
+
+      <ellipse cx="98" cy="80" rx="7" ry="9" fill="#14532d"/>
+      <circle cx="100" cy="77" r="2.5" fill="#ffffff"/>
+    </g>
+
+    <ellipse cx="86" cy="96" rx="3.5" ry="4.5" fill="#14532d"/>
   </g>
-  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#ca8a04" text-anchor="middle">DIGGING 404</text>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#64748b" text-anchor="middle">SEARCHING (404)</text>
 </svg>

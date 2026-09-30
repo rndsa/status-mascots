@@ -1,11 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <!-- Dino panting with tongue out -->
-  <ellipse cx="75" cy="105" rx="32" ry="24" fill="#86efac" stroke="#ef4444" stroke-width="2"/>
-  <circle cx="85" cy="75" r="22" fill="#86efac" stroke="#ef4444" stroke-width="2"/>
-  <ellipse cx="94" cy="72" rx="4" ry="2.5" fill="#ef4444"/>
-  <ellipse cx="98" cy="85" rx="4" ry="7" fill="#f43f5e"/>
-  <!-- Sweat droplets -->
-  <circle cx="70" cy="55" r="3" fill="#38bdf8"/>
-  <circle cx="108" cy="62" r="3" fill="#38bdf8"/>
-  <text x="80" y="142" font-family="monospace" font-size="9" font-weight="bold" fill="#ef4444" text-anchor="middle">STAMINA DEPLETED</text>
+  <defs>
+    <linearGradient id="dino-hot-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes pantingBreath {
+      0%, 100% { transform: scale(1, 1); }
+      50% { transform: scale(1.05, 0.95); }
+    }
+    .head-pant { animation: pantingBreath 0.5s ease-in-out infinite; transform-origin: 80px 145px; }
+  </style>
+
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="head-pant">
+    <polygon points="40,46 48,22 60,42" fill="#f97316"/>
+    <polygon points="62,38 72,16 84,36" fill="#f97316"/>
+    <polygon points="86,38 96,20 106,42" fill="#f97316"/>
+
+    <path d="M 32 80 C 32 48 52 38 80 38 C 114 38 128 54 128 80 C 128 106 122 128 96 128 C 76 128 68 124 56 124 C 42 124 32 108 32 80 Z" 
+          fill="url(#dino-hot-grad)" stroke="#c2410c" stroke-width="2.5"/>
+
+    <!-- Exhausted spiral eyes -->
+    <path d="M 62 80 A 3 3 0 1 1 58 83 A 5 5 0 1 1 65 81" fill="none" stroke="#7c2d12" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 98 80 A 3 3 0 1 1 94 83 A 5 5 0 1 1 101 81" fill="none" stroke="#7c2d12" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Panting open mouth with tongue lolling out -->
+    <ellipse cx="86" cy="98" rx="8" ry="6" fill="#7c2d12"/>
+    <path d="M 82 100 Q 86 110 90 100 Z" fill="#f43f5e"/>
+
+    <ellipse cx="48" cy="94" rx="7" ry="4" fill="#f97316" opacity="0.7"/>
+    <ellipse cx="110" cy="98" rx="6" ry="3.5" fill="#f97316" opacity="0.7"/>
+  </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#ea580c" text-anchor="middle">OVERHEAT 429</text>
 </svg>
