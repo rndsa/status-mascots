@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <style>
+      @keyframes blinkLock {
+        0%, 100% { fill: #ffb800; }
+        50% { fill: #ff4d4d; }
+      }
+      .lock-fill { animation: blinkLock 1.8s ease-in-out infinite; }
+    </style>
+  </defs>
+  <!-- Helmet -->
+  <rect x="24" y="28" width="72" height="66" rx="24" fill="#1e2430" stroke="#323b4e" stroke-width="2"/>
+  <!-- Visor -->
+  <rect x="30" y="36" width="60" height="42" rx="14" fill="#0b0d12"/>
+  <!-- Keyhole Logo -->
+  <g class="lock-fill">
+    <circle cx="60" cy="53" r="5"/>
+    <polygon points="57,55 63,55 65,65 55,65"/>
+  </g>
+  <!-- Little Lock Shield -->
+  <path d="M60 84 C48 84, 46 94, 60 102 C74 94, 72 84, 60 84 Z" fill="#ffd043"/>
+</svg>

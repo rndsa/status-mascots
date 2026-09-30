@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <style>
+      @keyframes ghostFade {
+        0%, 100% { opacity: 0.85; transform: translateY(0px); }
+        50% { opacity: 0.35; transform: translateY(-7px); }
+      }
+      .bot-ghost { animation: ghostFade 2.6s ease-in-out infinite; transform-origin: center; }
+    </style>
+  </defs>
+  <g class="bot-ghost">
+    <!-- Semi-transparent Body -->
+    <path d="M30 46 C30 26, 90 26, 90 46 L90 84 Q78 76 66 84 Q54 76 42 84 Q34 78 30 84 Z" fill="#e2e8f0" opacity="0.75"/>
+    <!-- Cute Sleepy Eyes (- -) -->
+    <line x1="42" y1="52" x2="52" y2="52" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+    <line x1="68" y1="52" x2="78" y2="52" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="60" cy="62" r="2.5" fill="#94a3b8"/>
+  </g>
+</svg>

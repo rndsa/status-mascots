@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Status Mascots — Cute Animated SVGs for HTTP Codes by ren</title>
+  <style>
+    :root {
+      --bg: #090a0d;
+      --surface: #12141a;
+      --surface-subtle: #191c24;
+      --surface-hover: #222634;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.18);
+      --text: #f4f4f6;
+      --text-muted: #8b8f9e;
+      --accent: #3477d4;
+      --accent-green: #3cd47b;
+      --accent-coral: #ff4d4d;
+      --accent-yellow: #ffd043;
+      --accent-cyan: #00f0ff;
+      --radius-card: 20px;
+      --radius-pill: 100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 24px;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+    }
+
+    .brand-title {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-by {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+    }
+
+    .brand-by a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+    }
+
+    .header-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-pill:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+    }
+
+    /* Live Interactive Playground Banner */
+    .playground-banner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 24px 28px;
+      margin-bottom: 36px;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 32px;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (max-width: 820px) {
+      .playground-banner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .play-left {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .play-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .play-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .preset-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .preset-btn {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .preset-btn:hover, .preset-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Playground Live Screen */
+    .play-right {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .play-avatar {
+      width: 110px;
+      height: 110px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .play-avatar img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .play-console {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .status-badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      width: fit-content;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+    }
+
+    .badge-2xx { background: rgba(60, 212, 123, 0.15); color: var(--accent-green); }
+    .badge-4xx { background: rgba(255, 77, 77, 0.15); color: var(--accent-coral); }
+    .badge-5xx { background: rgba(255, 208, 67, 0.15); color: var(--accent-yellow); }
+
+    .play-json {
+      background: #0d0f15;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 11px;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    /* Controls: Filter & Search */
+    .controls-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .tabs-group {
+      display: flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 4px;
+      gap: 2px;
+    }
+
+    .tab-item {
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease;
+    }
+
+    .tab-item.active {
+      background: var(--surface-subtle);
+      color: var(--text);
+    }
+
+    .search-input {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 13px;
+      padding: 10px 18px;
+      outline: none;
+      width: 260px;
+      transition: border-color 0.15s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+    }
+
+    /* Mascot Grid */
+    .mascot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .mascot-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+
+    .mascot-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    }
+
+    .mascot-card-img {
+      width: 90px;
+      height: 90px;
+      margin-bottom: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    .mascot-card:hover .mascot-card-img {
+      transform: scale(1.08);
+    }
+
+    .mascot-card-code {
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .mascot-card-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .mascot-card-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 14px;
+      flex: 1;
+    }
+
+    .btn-card-copy {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-card-copy:hover {
+      background: var(--surface-hover);
+      color: var(--text);
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      max-width: 560px;
+      width: 100%;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    .btn-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding-top: 48px;
+      font-size: 13px;
+      color: #636779;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <img class="brand-logo" src="/mascots/200-ok.svg" alt="Astro Bot">
+        <div>
+          <div class="brand-title">Status Mascots</div>
+          <div class="brand-by">by <a href="https://instagram.com/rskl411_" target="_blank">ren (@rskl411_)</a> &bull; Production Ready SVGs</div>
+        </div>
+      </div>
+      <div class="header-links">
+        <a class="btn-pill" href="https://github.com/rndsa/status-mascots" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Live Interactive Playground -->
+    <section class="playground-banner">
+      <div class="play-left">
+        <div class="play-title">Live Response Simulation</div>
+        <div class="play-desc">Pilih skenario API response buat liat reaksi live animasi maskot dan payload JSON-nya:</div>
+        <div class="preset-btns">
+          <button class="preset-btn active" onclick="loadSimulation('200')">200 Success</button>
+          <button class="preset-btn" onclick="loadSimulation('409')">409 Conflict (Geleng!)</button>
+          <button class="preset-btn" onclick="loadSimulation('401')">401 Unauthorized</button>
+          <button class="preset-btn" onclick="loadSimulation('404')">404 Not Found</button>
+          <button class="preset-btn" onclick="loadSimulation('429')">429 Rate Limit</button>
+          <button class="preset-btn" onclick="loadSimulation('500')">500 Server Crash</button>
+        </div>
+      </div>
+
+      <div class="play-right">
+        <div class="play-avatar" id="play-img-box">
+          <img id="play-avatar-img" src="/mascots/200-ok.svg" alt="Preview">
+        </div>
+        <div class="play-console">
+          <div class="status-badge-live badge-2xx" id="play-badge">200 OK</div>
+          <div class="play-json" id="play-json-box">{
+  "status": 200,
+  "message": "Subdomain registered successfully",
+  "data": {
+    "domain": "carry.axjet.xyz",
+    "edge": "anycast"
+  }
+}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter & Search Controls -->
+    <div class="controls-bar">
+      <div class="tabs-group">
+        <div class="tab-item active" onclick="filterCategory('all', this)">All (14)</div>
+        <div class="tab-item" onclick="filterCategory('2xx', this)">2xx Success</div>
+        <div class="tab-item" onclick="filterCategory('4xx', this)">4xx Client Errors</div>
+        <div class="tab-item" onclick="filterCategory('5xx', this)">5xx Server Errors</div>
+      </div>
+
+      <input type="text" class="search-input" id="search-input" placeholder="Search code (e.g. 409, conflict, timeout)..." oninput="handleSearch()">
+    </div>
+
+    <!-- Mascot Grid -->
+    <div class="mascot-grid" id="grid">
+      <!-- Items generated dynamically -->
+    </div>
+
+    <!-- Details Modal -->
+    <div class="modal-overlay" id="modal" onclick="closeModal(event)">
+      <div class="modal-card" onclick="event.stopPropagation()">
+        <button class="btn-close" onclick="closeModalDirect()">&times;</button>
+        <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 20px;">
+          <img id="modal-img" style="width: 100px; height: 100px;" src="" alt="">
+          <div>
+            <div id="modal-code" style="font-family: monospace; font-size: 18px; font-weight: 700;"></div>
+            <div id="modal-title" style="font-size: 16px; font-weight: 600; color: var(--text-muted); margin-top: 4px;"></div>
+          </div>
+        </div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;" id="modal-desc"></div>
+        <label style="font-size: 12px; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 6px;">HTML EMBED CODE</label>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px; font-family: monospace; font-size: 12px; color: var(--accent-cyan); word-break: break-all; margin-bottom: 16px;" id="modal-snippet"></div>
+        <button class="btn-pill" style="width: 100%; justify-content: center; background: #ffffff; color: #090a0d;" onclick="copyModalSnippet()">Copy Embed Code</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      by ren &bull; <a href="https://instagram.com/rskl411_" target="_blank">@rskl411_</a> &bull; GitHub: <a href="https://github.com/rndsa/status-mascots" target="_blank">rndsa/status-mascots</a> &bull; MIT License
+    </footer>
+  </div>
+
+  <script>
+    const mascots = [
+      {
+        code: 200,
+        name: "OK",
+        cat: "2xx",
+        title: "Happy Astro Bot",
+        desc: "Karakter Astro Bot tersenyum ceria dengan antena cyan kedip-kedip saat request berhasil.",
+        file: "200-ok.svg",
+        json: { status: 200, success: true, message: "Request processed successfully" }
+      },
+      {
+        code: 201,
+        name: "Created",
+        cat: "2xx",
+        title: "Party Sprout Bot",
+        desc: "Mascot dengan topi pesta & confetti melompat gembira merayakan resource baru berhasil dibuat.",
+        file: "201-created.svg",
+        json: { status: 201, success: true, message: "Resource created", id: "res_98f412a" }
+      },
+      {
+        code: 204,
+        name: "No Content",
+        cat: "2xx",
+        title: "Ghost Bot",
+        desc: "Karakter hantu transparan mengambang tenang saat request sukses tanpa body return.",
+        file: "204-nocontent.svg",
+        json: { status: 204, message: "Empty body" }
+      },
+      {
+        code: 400,
+        name: "Bad Request",
+        cat: "4xx",
+        title: "Puzzled Bot",
+        desc: "Mascot miringin kepala bingung dengan tanda tanya saat parameter/format request invalid.",
+        file: "400-badrequest.svg",
+        json: { status: 400, error: "Bad Request", message: "Missing required parameter 'target'" }
+      },
+      {
+        code: 401,
+        name: "Unauthorized",
+        cat: "4xx",
+        title: "Keyhole Guard Bot",
+        desc: "Penjaga dengan visor gembok berkedip kuning saat token otentikasi kosong atau salah.",
+        file: "401-unauthorized.svg",
+        json: { status: 401, error: "Unauthorized", message: "Invalid or expired secret key" }
+      },
+      {
+        code: 403,
+        name: "Forbidden",
+        cat: "4xx",
+        title: "Security Shield Bot",
+        desc: "Mascot mata silang stern & sirine merah saat akses ke domain/resource ditolak.",
+        file: "403-forbidden.svg",
+        json: { status: 403, error: "Forbidden", message: "Action restricted by administrative policy" }
+      },
+      {
+        code: 404,
+        name: "Not Found",
+        cat: "4xx",
+        title: "Detective Bot",
+        desc: "Detektif topi tweed celingukan lirik kiri-kanan dengan kaca pembesar mencari data yang hilang.",
+        file: "404-notfound.svg",
+        json: { status: 404, error: "Not Found", message: "Subdomain or endpoint does not exist" }
+      },
+      {
+        code: 409,
+        name: "Conflict",
+        cat: "4xx",
+        title: "GELENG-GELENG Astro Bot",
+        desc: "Astro Bot geleng-geleng kepala cepat dengan mata sedih (> <) dan tetesan keringat pas nama udah kepake.",
+        file: "409-conflict.svg",
+        json: { status: 409, error: "Conflict", message: "Subdomain 'carry.axjet.xyz' is already claimed" }
+      },
+      {
+        code: 418,
+        name: "I'm a Teapot",
+        cat: "4xx",
+        title: "Cute Teapot Bot",
+        desc: "Mascot teko imut bersiul mengeluarkan kepulan uap hangat.",
+        file: "418-teapot.svg",
+        json: { status: 418, message: "I'm a teapot, short and stout" }
+      },
+      {
+        code: 422,
+        name: "Unprocessable Entity",
+        cat: "4xx",
+        title: "Glitch Wire Bot",
+        desc: "Mascot glitch dengan kabel ruwet & mata spiral bergetar saat payload gagal divalidasi.",
+        file: "422-unprocessable.svg",
+        json: { status: 422, error: "Unprocessable", message: "IP address '999.999.999.999' is invalid" }
+      },
+      {
+        code: 429,
+        name: "Too Many Requests",
+        cat: "4xx",
+        title: "Overheat Fan Bot",
+        desc: "Mascot kepanasan ngos-ngosan dengan kipas pendingin muter kencang saat kena rate limit.",
+        file: "429-ratelimit.svg",
+        json: { status: 429, error: "Rate Limit Exceeded", retry_after_sec: 60 }
+      },
+      {
+        code: 500,
+        name: "Internal Server Error",
+        cat: "5xx",
+        title: "Crash Smoke Bot",
+        desc: "Helm retak berasap & mata spiral pusing muter saat server backend mengalami error fatal.",
+        file: "500-error.svg",
+        json: { status: 500, error: "Internal Server Error", trace_id: "err_98f12b" }
+      },
+      {
+        code: 502,
+        name: "Bad Gateway",
+        cat: "5xx",
+        title: "Disconnected Plug Bot",
+        desc: "Kabel terputus dengan percikan api biru saat upstream origin server tidak merespons.",
+        file: "502-badgateway.svg",
+        json: { status: 502, error: "Bad Gateway", message: "Upstream server connection refused" }
+      },
+      {
+        code: 503,
+        name: "Service Unavailable",
+        cat: "5xx",
+        title: "Maintenance Builder Bot",
+        desc: "Helm proyek kuning dengan kunci inggris saat sistem sedang dalam perbaikan rutin.",
+        file: "503-maintenance.svg",
+        json: { status: 503, error: "Maintenance", estimated_recovery: "15 minutes" }
+      }
+    ];
+
+    let currentCat = 'all';
+
+    function renderGrid(items) {
+      const grid = document.getElementById('grid');
+      grid.innerHTML = items.map(m => {
+        const badgeClass = m.cat === '2xx' ? 'badge-2xx' : (m.cat === '4xx' ? 'badge-4xx' : 'badge-5xx');
+        return `
+          <div class="mascot-card" onclick="openModal(${m.code})">
+            <img class="mascot-card-img" src="/mascots/${m.file}" alt="${m.title}">
+            <div class="status-badge-live ${badgeClass} mascot-card-code">${m.code} ${m.name}</div>
+            <div class="mascot-card-title">${m.title}</div>
+            <div class="mascot-card-desc">${m.desc}</div>
+            <button class="btn-card-copy" onclick="event.stopPropagation(); copyDirect('${m.file}')">Copy SVG URL</button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterCategory(cat, el) {
+      currentCat = cat;
+      document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      applyFilters();
+    }
+
+    function handleSearch() {
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const q = document.getElementById('search-input').value.toLowerCase().trim();
+      const filtered = mascots.filter(m => {
+        const matchCat = (currentCat === 'all') || (m.cat === currentCat);
+        const matchQ = !q || m.code.toString().includes(q) || m.name.toLowerCase().includes(q) || m.title.toLowerCase().includes(q) || m.desc.toLowerCase().includes(q);
+        return matchCat && matchQ;
+      });
+      renderGrid(filtered);
+    }
+
+    function loadSimulation(code) {
+      document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const m = mascots.find(item => item.code == code) || mascots[0];
+      const img = document.getElementById('play-avatar-img');
+      const badge = document.getElementById('play-badge');
+      const jsonBox = document.getElementById('play-json-box');
+
+      img.src = `/mascots/${m.file}`;
+      badge.innerText = `${m.code} ${m.name}`;
+      badge.className = `status-badge-live ${m.cat === '2xx' ? 'badge-2xx' : (m.cat === '4xx' ? 'badge-4xx' : 'badge-5xx')}`;
+      jsonBox.innerText = JSON.stringify(m.json, null, 2);
+    }
+
+    function openModal(code) {
+      const m = mascots.find(item => item.code == code);
+      if (!m) return;
+      document.getElementById('modal-img').src = `/mascots/${m.file}`;
+      document.getElementById('modal-code').innerText = `${m.code} ${m.name}`;
+      document.getElementById('modal-title').innerText = m.title;
+      document.getElementById('modal-desc').innerText = m.desc;
+      
+      const snippet = `<img src="https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/${m.file}" width="120" height="120" alt="${m.code} ${m.name}" />`;
+      document.getElementById('modal-snippet').innerText = snippet;
+      document.getElementById('modal').classList.add('open');
+    }
+
+    function closeModalDirect() {
+      document.getElementById('modal').classList.remove('open');
+    }
+
+    function closeModal(e) {
+      if (e.target.id === 'modal') closeModalDirect();
+    }
+
+    function copyDirect(file) {
+      const url = `https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/${file}`;
+      navigator.clipboard.writeText(url);
+      alert('Copied raw SVG URL to clipboard!');
+    }
+
+    function copyModalSnippet() {
+      const text = document.getElementById('modal-snippet').innerText;
+      navigator.clipboard.writeText(text);
+      alert('Copied embed snippet!');
+    }
+
+    // Initial Render
+    renderGrid(mascots);
+  </script>
+</body>
+</html>

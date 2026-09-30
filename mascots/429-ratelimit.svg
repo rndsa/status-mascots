@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <style>
+      @keyframes fanSpin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes puffSteam {
+        0%, 100% { opacity: 0.2; transform: translateY(0); }
+        50% { opacity: 1; transform: translateY(-6px); }
+      }
+      .fan-blade { animation: fanSpin 0.3s linear infinite; transform-origin: 60px 18px; }
+      .heat-steam { animation: puffSteam 1s ease-in-out infinite; }
+    </style>
+  </defs>
+  <!-- Cooling Fan on head -->
+  <line x1="60" y1="28" x2="60" y2="18" stroke="#475569" stroke-width="3"/>
+  <g class="fan-blade">
+    <ellipse cx="60" cy="18" rx="14" ry="4" fill="#38bdf8"/>
+    <ellipse cx="60" cy="18" rx="4" ry="14" fill="#38bdf8"/>
+    <circle cx="60" cy="18" r="3" fill="#0284c7"/>
+  </g>
+  <!-- Hot Red Helmet -->
+  <rect x="24" y="28" width="72" height="66" rx="24" fill="#fee2e2" stroke="#ef4444" stroke-width="2.5"/>
+  <!-- Visor -->
+  <rect x="30" y="36" width="60" height="42" rx="14" fill="#180c0e"/>
+  <!-- Panting / Exhausted Eyes -->
+  <line x1="38" y1="52" x2="50" y2="58" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+  <line x1="82" y1="52" x2="70" y2="58" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+  <!-- Open Panting Mouth -->
+  <ellipse cx="60" cy="64" rx="6" ry="4" fill="#ef4444"/>
+  <!-- Thermometer Badge -->
+  <text class="heat-steam" x="18" y="24" font-size="14">🔥</text>
+  <text class="heat-steam" x="90" y="24" font-size="14">🔥</text>
+</svg>

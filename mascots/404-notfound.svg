@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <style>
+      @keyframes lookAround {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-6px); }
+        75% { transform: translateX(6px); }
+      }
+      .pupils { animation: lookAround 2.4s ease-in-out infinite; }
+    </style>
+  </defs>
+  <!-- Detective Cap -->
+  <ellipse cx="60" cy="28" rx="40" ry="10" fill="#3e3933"/>
+  <rect x="34" y="16" width="52" height="16" rx="8" fill="#4a443e"/>
+  <!-- Helmet -->
+  <rect x="24" y="28" width="72" height="66" rx="24" fill="#ffffff" stroke="#e1e4ea" stroke-width="2"/>
+  <!-- Visor -->
+  <rect x="30" y="36" width="60" height="42" rx="14" fill="#10131a"/>
+  <!-- Eyes with wandering pupils -->
+  <circle cx="44" cy="56" r="7" fill="#ffffff"/>
+  <circle cx="76" cy="56" r="7" fill="#ffffff"/>
+  <g class="pupils">
+    <circle cx="44" cy="56" r="3.5" fill="#10131a"/>
+    <circle cx="76" cy="56" r="3.5" fill="#10131a"/>
+  </g>
+  <!-- Magnifying Glass -->
+  <circle cx="82" cy="74" r="10" stroke="#ffd043" stroke-width="3" fill="none"/>
+  <line x1="89" y1="81" x2="100" y2="92" stroke="#8b5e34" stroke-width="4" stroke-linecap="round"/>
+</svg>
