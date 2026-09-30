@@ -1,8 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <!-- Flat Deflated Rubber Duck -->
-  <path d="M 35 115 C 35 105 50 100 80 100 C 110 100 130 105 130 115 C 130 125 110 128 80 128 C 50 128 35 125 35 115 Z" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
-  <ellipse cx="115" cy="108" rx="8" ry="4" fill="#f97316"/>
-  <line x1="95" y1="102" x2="103" y2="108" stroke="#ef4444" stroke-width="2"/>
-  <line x1="103" y1="102" x2="95" y2="108" stroke="#ef4444" stroke-width="2"/>
-  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">DEFLATED (500)</text>
+  <defs>
+    <linearGradient id="duck-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="100%" stop-color="#eab308"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes terrorShiver {
+      0%, 100% { transform: translate(0, 0); }
+      20% { transform: translate(-3px, 2px); }
+      40% { transform: translate(3px, -2px); }
+      60% { transform: translate(-2px, -2px); }
+      80% { transform: translate(2px, 2px); }
+    }
+    @keyframes sparkFlick {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+    .head-terror { animation: terrorShiver 0.25s infinite; transform-origin: 80px 145px; }
+    .sparks { animation: sparkFlick 0.3s infinite; }
+  </style>
+
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <!-- Sparks -->
+  <g class="sparks">
+    <polyline points="24,36 32,48 26,52 36,66" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
+    <polyline points="136,36 128,48 134,52 124,66" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <g class="head-terror">
+    <rect x="28" y="40" width="104" height="90" rx="45" fill="url(#duck-grad)" stroke="#ef4444" stroke-width="2.5"/>
+
+    <!-- Wide Spooked Eyes O_O -->
+    <ellipse cx="60" cy="76" rx="9" ry="12" fill="#ef4444"/>
+    <circle cx="62" cy="73" r="3" fill="#ffffff"/>
+
+    <ellipse cx="98" cy="76" rx="9" ry="12" fill="#ef4444"/>
+    <circle cx="100" cy="73" r="3" fill="#ffffff"/>
+
+    <!-- Gaping open quack beak -->
+    <ellipse cx="80" cy="100" rx="14" ry="16" fill="#7c2d12"/>
+    <ellipse cx="80" cy="100" rx="10" ry="12" fill="#ea580c"/>
+  </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">CRASH (500)</text>
 </svg>

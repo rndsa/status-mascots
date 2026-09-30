@@ -1,13 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <!-- Fast Jet Ski Duck with Speed Lines -->
-  <line x1="20" y1="95" x2="45" y2="95" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
-  <line x1="15" y1="105" x2="40" y2="105" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
-  <line x1="25" y1="115" x2="50" y2="115" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="duck-hot-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes pantingBreath {
+      0%, 100% { transform: scale(1, 1); }
+      50% { transform: scale(1.05, 0.95); }
+    }
+    .head-pant { animation: pantingBreath 0.5s ease-in-out infinite; transform-origin: 80px 145px; }
+  </style>
 
-  <ellipse cx="85" cy="105" rx="36" ry="20" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
-  <circle cx="108" cy="80" r="18" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
-  <ellipse cx="128" cy="84" rx="10" ry="5" fill="#f97316"/>
-  <!-- Blown back glasses -->
-  <rect x="105" y="75" width="20" height="8" rx="2" fill="#0f172a"/>
-  <text x="80" y="142" font-family="monospace" font-size="9" font-weight="bold" fill="#0284c7" text-anchor="middle">SPEED OVERFLOW</text>
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="head-pant">
+    <rect x="28" y="40" width="104" height="90" rx="45" fill="url(#duck-hot-grad)" stroke="#ea580c" stroke-width="2.5"/>
+
+    <!-- Exhausted spiral eyes -->
+    <path d="M 60 80 A 3 3 0 1 1 56 83 A 5 5 0 1 1 63 81" fill="none" stroke="#7c2d12" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 98 80 A 3 3 0 1 1 94 83 A 5 5 0 1 1 101 81" fill="none" stroke="#7c2d12" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Open beak with tongue out -->
+    <ellipse cx="80" cy="98" rx="18" ry="10" fill="#ea580c"/>
+    <path d="M 78 100 Q 80 110 82 100 Z" fill="#f43f5e"/>
+
+    <ellipse cx="44" cy="94" rx="7" ry="4" fill="#f97316" opacity="0.7"/>
+    <ellipse cx="116" cy="94" rx="7" ry="4" fill="#f97316" opacity="0.7"/>
+  </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#ea580c" text-anchor="middle">OVERHEAT 429</text>
 </svg>

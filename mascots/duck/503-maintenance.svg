@@ -1,13 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <!-- Captain / Sailor Hat on Duck -->
-  <path d="M 85 54 L 115 54 L 110 44 L 90 44 Z" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
-  <rect x="80" y="54" width="40" height="4" fill="#0f172a"/>
-  <!-- Duck -->
-  <ellipse cx="75" cy="105" rx="36" ry="24" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
-  <circle cx="95" cy="72" r="22" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
-  <ellipse cx="118" cy="76" rx="10" ry="6" fill="#f97316"/>
-  <circle cx="102" cy="68" r="4" fill="#0f172a"/>
-  <!-- Wooden Oar Paddle -->
-  <line x1="50" y1="125" x2="100" y2="85" stroke="#78350f" stroke-width="4"/>
-  <ellipse cx="46" cy="128" rx="8" ry="12" fill="#b45309" transform="rotate(-30 46 128)"/>
+  <defs>
+    <linearGradient id="duck-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="100%" stop-color="#eab308"/>
+    </linearGradient>
+    <linearGradient id="beak-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes workNod {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    .head-work { animation: workNod 1.8s ease-in-out infinite; }
+  </style>
+
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="head-work">
+    <rect x="28" y="40" width="104" height="90" rx="45" fill="url(#duck-grad)" stroke="#ca8a04" stroke-width="2.5"/>
+
+    <!-- Worker Headband (Hachimaki) with Red Sun -->
+    <path d="M 28 58 Q 80 50 132 58 L 132 66 Q 80 58 28 66 Z" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+    <circle cx="80" cy="61" r="4.5" fill="#ef4444"/>
+
+    <!-- Confident smiling eyes (^ ^) -->
+    <path d="M 52 80 Q 62 68 72 80" fill="none" stroke="#451a03" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M 88 80 Q 98 68 108 80" fill="none" stroke="#451a03" stroke-width="4.5" stroke-linecap="round"/>
+
+    <ellipse cx="80" cy="98" rx="18" ry="10" fill="url(#beak-grad)" stroke="#c2410c" stroke-width="2"/>
+  </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#eab308" text-anchor="middle">MAINTENANCE (503)</text>
 </svg>

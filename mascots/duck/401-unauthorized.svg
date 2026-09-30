@@ -1,12 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <!-- Red Buoy Barrier with Lock -->
-  <circle cx="120" cy="105" r="14" fill="#ef4444" stroke="#991b1b" stroke-width="2"/>
-  <rect x="114" y="98" width="12" height="12" rx="2" fill="#ffffff"/>
-  <circle cx="120" cy="98" r="4" fill="none" stroke="#ffffff" stroke-width="2"/>
+  <defs>
+    <linearGradient id="duck-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="100%" stop-color="#eab308"/>
+    </linearGradient>
+    <linearGradient id="beak-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <filter id="duck-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#ef4444" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <style>
+    @keyframes duckNoShake {
+      0%, 100% { transform: rotate(0deg); }
+      20% { transform: rotate(-10deg); }
+      40% { transform: rotate(10deg); }
+      60% { transform: rotate(-7deg); }
+      80% { transform: rotate(7deg); }
+    }
+    .head-no { animation: duckNoShake 1.4s ease-in-out infinite; transform-origin: 80px 145px; }
+  </style>
 
-  <!-- Duck Stopped -->
-  <ellipse cx="65" cy="105" rx="32" ry="22" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
-  <circle cx="82" cy="75" r="18" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
-  <ellipse cx="100" cy="78" rx="8" ry="5" fill="#f97316"/>
-  <line x1="78" y1="72" x2="86" y2="72" stroke="#0f172a" stroke-width="2"/>
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="head-no">
+    <!-- Red padlock -->
+    <rect x="72" y="14" width="16" height="13" rx="3" fill="#ef4444"/>
+    <path d="M 75 14 L 75 9 C 75 4 85 4 85 9 L 85 14" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+
+    <rect x="28" y="40" width="104" height="90" rx="45" fill="url(#duck-grad)" stroke="#ef4444" stroke-width="2.5" filter="url(#duck-glow)"/>
+
+    <!-- Squinting warning eyes -->
+    <line x1="52" y1="78" x2="68" y2="78" stroke="#ef4444" stroke-width="3.8" stroke-linecap="round"/>
+    <line x1="92" y1="78" x2="108" y2="78" stroke="#ef4444" stroke-width="3.8" stroke-linecap="round"/>
+
+    <ellipse cx="80" cy="98" rx="18" ry="10" fill="url(#beak-grad)" stroke="#ef4444" stroke-width="2"/>
+  </g>
 </svg>
