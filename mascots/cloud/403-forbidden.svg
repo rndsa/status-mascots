@@ -1,6 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <!-- Extreme Storm Warning Sign -->
-  <circle cx="80" cy="75" r="45" fill="#fef2f2" stroke="#ef4444" stroke-width="5"/>
-  <polygon points="80,45 88,68 80,72 86,95 72,75 80,72" fill="#ef4444"/>
-  <text x="80" y="142" font-family="monospace" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">TORNADO ALERT</text>
+  <defs>
+    <linearGradient id="cloud-dark-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <filter id="cloud-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#ef4444" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <style>
+    @keyframes sternCloud {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    .head-stern { animation: sternCloud 2s ease-in-out infinite; }
+  </style>
+
+  <ellipse cx="80" cy="142" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="head-stern">
+    <path d="M 38 98 C 22 98 18 78 32 66 C 30 46 52 38 68 44 C 80 30 106 30 118 46 C 134 46 142 64 134 80 C 144 94 130 108 116 108 L 42 108 Z" 
+          fill="url(#cloud-dark-grad)" stroke="#ef4444" stroke-width="2.5" filter="url(#cloud-glow)"/>
+
+    <!-- Stern flat line eyes (- -) -->
+    <line x1="52" y1="78" x2="68" y2="78" stroke="#ef4444" stroke-width="4.5" stroke-linecap="round"/>
+    <line x1="92" y1="78" x2="108" y2="78" stroke="#ef4444" stroke-width="4.5" stroke-linecap="round"/>
+
+    <line x1="74" y1="92" x2="86" y2="92" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <line x1="24" y1="138" x2="136" y2="138" stroke="#ef4444" stroke-width="2" stroke-dasharray="6 3"/>
 </svg>
