@@ -1,64 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="body-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="astro-head-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
       <stop offset="100%" stop-color="#e2e8f0"/>
     </linearGradient>
-    <linearGradient id="visor-glass" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="astro-visor-glass" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#0f172a"/>
       <stop offset="100%" stop-color="#020617"/>
     </linearGradient>
-    <radialGradient id="torch-beam" cx="0%" cy="50%" r="100%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
-    </radialGradient>
+    <filter id="astro-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#020617" flood-opacity="0.25"/>
+    </filter>
   </defs>
   <style>
-    @keyframes sweepBeam {
-      0%, 100% { transform: rotate(-10deg); }
-      50% { transform: rotate(14deg); }
-    }
-    @keyframes eyesLook {
-      0%, 100% { transform: translateX(-4px); }
-      50% { transform: translateX(5px); }
-    }
     @keyframes radarSpin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-    .torch-sweep { animation: sweepBeam 3s ease-in-out infinite; transform-origin: 108px 116px; }
-    .eyes-searching { animation: eyesLook 2.4s ease-in-out infinite; }
-    .radar-dish { animation: radarSpin 3s linear infinite; transform-origin: 80px 22px; }
+    @keyframes eyesLookLR {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+    .radar-sweep { animation: radarSpin 3s linear infinite; transform-origin: 80px 20px; }
+    .eyes-roam { animation: eyesLookLR 2.8s ease-in-out infinite; }
   </style>
 
-  <!-- Antenna with Mini Radar Dish -->
-  <rect x="78" y="24" width="4" height="20" rx="2" fill="#94a3b8"/>
-  <g class="radar-dish">
-    <ellipse cx="80" cy="22" rx="9" ry="3" fill="#38bdf8"/>
-    <circle cx="80" cy="20" r="2.5" fill="#ffffff"/>
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <!-- Antenna with Radar Dish -->
+  <rect x="78" y="16" width="4" height="24" rx="2" fill="#94a3b8"/>
+  <ellipse cx="80" cy="16" rx="14" ry="5" fill="#64748b"/>
+  <g class="radar-sweep">
+    <line x1="80" y1="16" x2="94" y2="16" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
   </g>
 
-  <!-- Helmet -->
-  <rect x="38" y="40" width="84" height="72" rx="28" fill="url(#body-grad)" stroke="#cbd5e1" stroke-width="2.5"/>
-  <rect x="47" y="52" width="66" height="44" rx="18" fill="url(#visor-glass)"/>
+  <rect x="22" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
+  <rect x="130" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
 
-  <!-- Eyes Searching Left and Right -->
-  <g class="eyes-searching">
-    <ellipse cx="66" cy="73" rx="6" ry="7" fill="#38bdf8"/>
-    <circle cx="68.5" cy="71" r="2.5" fill="#ffffff"/>
-    <ellipse cx="94" cy="73" rx="6" ry="7" fill="#38bdf8"/>
-    <circle cx="96.5" cy="71" r="2.5" fill="#ffffff"/>
-    <!-- Small O mouth -->
-    <circle cx="80" cy="83" r="3" fill="none" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="28" y="38" width="104" height="92" rx="34" fill="url(#astro-head-grad)" stroke="#cbd5e1" stroke-width="2.5" filter="url(#astro-shadow)"/>
+  <rect x="38" y="54" width="84" height="60" rx="24" fill="url(#astro-visor-glass)"/>
+
+  <!-- Roaming Eyes Looking Left & Right -->
+  <g class="eyes-roam">
+    <ellipse cx="62" cy="84" rx="7" ry="8.5" fill="#38bdf8"/>
+    <circle cx="64" cy="82" r="2.5" fill="#ffffff"/>
+
+    <ellipse cx="98" cy="84" rx="7" ry="8.5" fill="#38bdf8"/>
+    <circle cx="100" cy="82" r="2.5" fill="#ffffff"/>
   </g>
 
-  <!-- Torso -->
-  <rect x="63" y="112" width="34" height="22" rx="10" fill="url(#body-grad)" stroke="#cbd5e1" stroke-width="2"/>
-  <ellipse cx="50" cy="120" rx="5.5" ry="7" fill="#94a3b8"/>
-
-  <!-- Sweeping Flashlight Beam -->
-  <g class="torch-sweep">
-    <polygon points="112,116 156,92 156,140" fill="url(#torch-beam)"/>
-    <rect x="104" y="111" width="14" height="8" rx="2" fill="#f59e0b"/>
-  </g>
+  <!-- Small confused mouth -->
+  <ellipse cx="80" cy="96" rx="3.5" ry="4.5" fill="#38bdf8"/>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#64748b" text-anchor="middle">SEARCHING 404</text>
 </svg>

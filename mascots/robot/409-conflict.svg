@@ -1,67 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="body-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="astro-head-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
       <stop offset="100%" stop-color="#fee2e2"/>
     </linearGradient>
-    <linearGradient id="visor-glass" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="astro-visor-glass" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#0f172a"/>
       <stop offset="100%" stop-color="#020617"/>
     </linearGradient>
+    <filter id="astro-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#020617" flood-opacity="0.25"/>
+    </filter>
   </defs>
   <style>
     @keyframes shockWobble {
-      0%, 100% { transform: translateX(0) rotate(0deg); }
-      15% { transform: translateX(-7px) rotate(-6deg); }
-      30% { transform: translateX(7px) rotate(5deg); }
-      45% { transform: translateX(-5px) rotate(-4deg); }
-      60% { transform: translateX(4px) rotate(3deg); }
-      75% { transform: translateX(-2px); }
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      15% { transform: rotate(-8deg) scale(1.03); }
+      30% { transform: rotate(8deg) scale(0.97); }
+      45% { transform: rotate(-6deg) scale(1.02); }
+      60% { transform: rotate(5deg) scale(0.98); }
+      75% { transform: rotate(-3deg) scale(1.01); }
     }
-    @keyframes sweatDrip {
-      0% { transform: translateY(-4px) scale(0.6); opacity: 0; }
-      40% { opacity: 1; transform: translateY(2px) scale(1); }
-      100% { transform: translateY(14px) scale(0.5); opacity: 0; }
+    @keyframes sweatFall {
+      0% { transform: translateY(0); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(18px); opacity: 0; }
     }
-    .head-shock { animation: shockWobble 1s ease-in-out infinite; transform-origin: 80px 105px; }
-    .sweat-drop { animation: sweatDrip 1.4s infinite; transform-origin: 124px 50px; }
+    .head-shock { animation: shockWobble 0.75s ease-in-out infinite; transform-origin: 80px 145px; }
+    .sweat-drip { animation: sweatFall 1.2s infinite; }
   </style>
 
-  <g>
-    <!-- Shock Recoil Group -->
-    <g class="head-shock">
-      <!-- Antenna with Distressed Red LED -->
-      <rect x="78" y="24" width="4" height="20" rx="2" fill="#94a3b8"/>
-      <circle cx="80" cy="22" r="7" fill="#f87171"/>
-      <circle cx="82" cy="20" r="2.5" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
 
-      <!-- Helmet -->
-      <rect x="38" y="40" width="84" height="72" rx="28" fill="url(#body-grad)" stroke="#f87171" stroke-width="2.5"/>
-      <rect x="47" y="52" width="66" height="44" rx="18" fill="url(#visor-glass)"/>
+  <g class="head-shock">
+    <rect x="78" y="14" width="4" height="26" rx="2" fill="#94a3b8"/>
+    <circle cx="80" cy="14" r="8" fill="#f87171"/>
 
-      <!-- Squeezed X X Eyes (> <) -->
-      <line x1="58" y1="68" x2="70" y2="78" stroke="#f87171" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="70" y1="68" x2="58" y2="78" stroke="#f87171" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="90" y1="68" x2="102" y2="78" stroke="#f87171" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="102" y1="68" x2="90" y2="78" stroke="#f87171" stroke-width="3.5" stroke-linecap="round"/>
+    <rect x="22" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
+    <rect x="130" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
 
-      <!-- Sad Wavy Mouth -->
-      <path d="M 74 86 Q 80 81 86 86" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"/>
+    <rect x="28" y="38" width="104" height="92" rx="34" fill="url(#astro-head-grad)" stroke="#ef4444" stroke-width="2.5" filter="url(#astro-shadow)"/>
+    <rect x="38" y="54" width="84" height="60" rx="24" fill="url(#astro-visor-glass)"/>
 
-      <!-- Blush -->
-      <ellipse cx="55" cy="85" rx="5" ry="3" fill="#f87171" opacity="0.5"/>
-      <ellipse cx="105" cy="85" rx="5" ry="3" fill="#f87171" opacity="0.5"/>
+    <!-- Angry Squeezed X Eyes (> <) -->
+    <path d="M 50 76 L 62 84 L 50 92" fill="none" stroke="#ef4444" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 110 76 L 98 84 L 110 92" fill="none" stroke="#ef4444" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Panicked quivering mouth -->
+    <path d="M 72 95 Q 76 90 80 95 Q 84 100 88 95" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Giant Anime Sweat Droplet -->
+    <g class="sweat-drip" transform="translate(122, 60)">
+      <path d="M 0 -8 Q 6 0 0 5 Q -6 0 0 -8 Z" fill="#38bdf8"/>
     </g>
-
-    <!-- Anime Sweat Drop -->
-    <g class="sweat-drop">
-      <path d="M 125 46 Q 130 54 125 58 Q 120 54 125 46 Z" fill="#38bdf8"/>
-    </g>
-
-    <!-- Torso -->
-    <rect x="63" y="112" width="34" height="22" rx="10" fill="url(#body-grad)" stroke="#cbd5e1" stroke-width="2"/>
-    <!-- Panicked Flailing Hands -->
-    <ellipse cx="48" cy="116" rx="6.5" ry="6" fill="#94a3b8" transform="rotate(-15 48 116)"/>
-    <ellipse cx="112" cy="116" rx="6.5" ry="6" fill="#94a3b8" transform="rotate(15 112 116)"/>
   </g>
 </svg>

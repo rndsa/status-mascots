@@ -1,92 +1,87 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="body-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="astro-head-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
       <stop offset="100%" stop-color="#e2e8f0"/>
     </linearGradient>
-    <linearGradient id="visor-glass" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="astro-visor-glass" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#0f172a"/>
       <stop offset="100%" stop-color="#020617"/>
     </linearGradient>
+    <linearGradient id="hat-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <filter id="astro-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#020617" flood-opacity="0.25"/>
+    </filter>
   </defs>
   <style>
     @keyframes happyJump {
       0%, 100% { transform: translateY(0) scale(1, 1); }
-      30% { transform: translateY(3px) scale(1.05, 0.95); }
-      60% { transform: translateY(-14px) scale(0.96, 1.04) rotate(2deg); }
-      80% { transform: translateY(-6px) scale(1.02, 0.98); }
+      30% { transform: translateY(6px) scale(1.08, 0.92); }
+      55% { transform: translateY(-16px) scale(0.94, 1.06); }
+      75% { transform: translateY(-2px) scale(1.02, 0.98); }
     }
-    @keyframes pompomWiggle {
+    @keyframes pomWobble {
       0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(15deg); }
+      50% { transform: rotate(18deg); }
     }
-    @keyframes confetti1 {
-      0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
-      40% { opacity: 1; }
-      100% { transform: translate(-22px, -24px) rotate(180deg) scale(1); opacity: 0; }
+    @keyframes burstL {
+      0% { transform: translate(0, 0) scale(0); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translate(-18px, -20px) scale(1.2); opacity: 0; }
     }
-    @keyframes confetti2 {
-      0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
-      40% { opacity: 1; }
-      100% { transform: translate(25px, -26px) rotate(-140deg) scale(1); opacity: 0; }
+    @keyframes burstR {
+      0% { transform: translate(0, 0) scale(0); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translate(18px, -20px) scale(1.2); opacity: 0; }
     }
-    @keyframes handsUp {
-      0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(12deg); }
-    }
-    .bot-jump { animation: happyJump 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; transform-origin: center bottom; }
-    .pom-pom { animation: pompomWiggle 1.5s infinite; transform-origin: 80px 14px; }
-    .cf-left { animation: confetti1 1.8s ease-out infinite; transform-origin: 40px 50px; }
-    .cf-right { animation: confetti2 1.8s ease-out infinite 0.2s; transform-origin: 120px 50px; }
-    .arm-cheer-l { animation: handsUp 1.5s infinite; transform-origin: 52px 110px; }
-    .arm-cheer-r { animation: handsUp 1.5s infinite reverse; transform-origin: 108px 110px; }
+    .head-jump { animation: happyJump 1.8s cubic-bezier(0.28, 0.84, 0.42, 1) infinite; transform-origin: 80px 145px; }
+    .pom-pom { animation: pomWobble 1.8s ease-in-out infinite; transform-origin: 80px 10px; }
+    .conf-l { animation: burstL 1.8s infinite; transform-origin: 35px 40px; }
+    .conf-r { animation: burstR 1.8s infinite 0.1s; transform-origin: 125px 40px; }
   </style>
 
-  <!-- Shadow -->
-  <ellipse cx="80" cy="148" rx="24" ry="4" fill="#000000" opacity="0.15"/>
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
 
-  <!-- Confetti particles -->
-  <g class="cf-left">
-    <circle cx="36" cy="48" r="3.5" fill="#f43f5e"/>
-    <rect x="25" y="36" width="5" height="5" rx="1.5" fill="#3b82f6"/>
-  </g>
-  <g class="cf-right">
-    <circle cx="124" cy="42" r="3" fill="#10b981"/>
-    <polygon points="132,32 136,40 128,39" fill="#f59e0b"/>
-    <rect x="135" y="52" width="6" height="4" rx="1" fill="#ec4899"/>
-  </g>
-
-  <g class="bot-jump">
+  <g class="head-jump">
     <!-- Party Hat -->
-    <polygon points="80,12 67,39 93,39" fill="#f59e0b"/>
-    <path d="M 69 32 L 87 23" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M 72 38 L 91 30" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round"/>
-    <!-- Pom-Pom -->
-    <circle cx="80" cy="11" r="5" fill="#ec4899" class="pom-pom"/>
+    <polygon points="80,14 62,42 98,42" fill="url(#hat-grad)"/>
+    <circle cx="80" cy="12" r="5.5" fill="#facc15" class="pom-pom"/>
+    <line x1="68" y1="32" x2="92" y2="32" stroke="#ffffff" stroke-width="2.5"/>
+
+    <!-- Ear nodes -->
+    <rect x="22" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
+    <rect x="130" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
 
     <!-- Helmet -->
-    <rect x="38" y="38" width="84" height="72" rx="28" fill="url(#body-grad)" stroke="#cbd5e1" stroke-width="2.5"/>
-    <rect x="47" y="50" width="66" height="44" rx="18" fill="url(#visor-glass)"/>
+    <rect x="28" y="38" width="104" height="92" rx="34" fill="url(#astro-head-grad)" stroke="#cbd5e1" stroke-width="2.5" filter="url(#astro-shadow)"/>
 
-    <!-- Star Shaped Sparkling Eyes -->
-    <path d="M 66 65 L 68 70 L 73 70 L 69 73 L 71 78 L 66 75 L 61 78 L 63 73 L 59 70 L 64 70 Z" fill="#38bdf8"/>
-    <path d="M 94 65 L 96 70 L 101 70 L 97 73 L 99 78 L 94 75 L 89 78 L 91 73 L 87 70 L 92 70 Z" fill="#38bdf8"/>
+    <!-- Visor -->
+    <rect x="38" y="54" width="84" height="60" rx="24" fill="url(#astro-visor-glass)"/>
 
-    <!-- Wide Happy Open Mouth -->
-    <path d="M 75 80 Q 80 88 85 80 Z" fill="#f43f5e"/>
-    <ellipse cx="55" cy="85" rx="5" ry="3" fill="#f43f5e" opacity="0.7"/>
-    <ellipse cx="105" cy="85" rx="5" ry="3" fill="#f43f5e" opacity="0.7"/>
+    <!-- Joyful Eyes (^ ^) -->
+    <path d="M 52 85 Q 62 72 72 85" fill="none" stroke="#38bdf8" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M 88 85 Q 98 72 108 85" fill="none" stroke="#38bdf8" stroke-width="4.5" stroke-linecap="round"/>
 
-    <!-- Torso -->
-    <rect x="63" y="112" width="34" height="22" rx="10" fill="url(#body-grad)" stroke="#cbd5e1" stroke-width="2"/>
-    <circle cx="80" cy="122" r="3.5" fill="#10b981"/>
+    <!-- Rosy Blushes -->
+    <ellipse cx="48" cy="100" rx="6" ry="3.5" fill="#f43f5e" opacity="0.6"/>
+    <ellipse cx="112" cy="100" rx="6" ry="3.5" fill="#f43f5e" opacity="0.6"/>
 
-    <!-- Cheering Hands Raised High -->
-    <g class="arm-cheer-l">
-      <ellipse cx="48" cy="102" rx="5.5" ry="8" fill="#94a3b8" transform="rotate(-30 48 102)"/>
-    </g>
-    <g class="arm-cheer-r">
-      <ellipse cx="112" cy="102" rx="5.5" ry="8" fill="#94a3b8" transform="rotate(30 112 102)"/>
-    </g>
+    <!-- Joyful Smile :D -->
+    <path d="M 74 93 Q 80 103 86 93 Z" fill="#38bdf8"/>
+  </g>
+
+  <!-- Confetti particle bursts -->
+  <g class="conf-l">
+    <circle cx="32" cy="38" r="3.5" fill="#38bdf8"/>
+    <rect x="24" y="48" width="5" height="5" rx="1" fill="#facc15" transform="rotate(25 26 50)"/>
+    <polygon points="38,26 40,30 44,31 40,33 38,37 36,33 32,31 36,30" fill="#f472b6"/>
+  </g>
+  <g class="conf-r">
+    <circle cx="128" cy="38" r="3.5" fill="#a78bfa"/>
+    <rect x="132" y="48" width="5" height="5" rx="1" fill="#34d399" transform="rotate(-30 134 50)"/>
+    <polygon points="122,26 124,30 128,31 124,33 122,37 120,33 116,31 120,30" fill="#facc15"/>
   </g>
 </svg>

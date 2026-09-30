@@ -1,60 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="body-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="astro-head-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
       <stop offset="100%" stop-color="#e2e8f0"/>
     </linearGradient>
-    <linearGradient id="visor-glass" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#020617"/>
+    <linearGradient id="astro-visor-amber" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a0f0f"/>
+      <stop offset="100%" stop-color="#0a0505"/>
     </linearGradient>
+    <filter id="astro-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#020617" flood-opacity="0.25"/>
+    </filter>
   </defs>
   <style>
+    @keyframes headShakeNo {
+      0%, 100% { transform: rotate(0deg); }
+      20% { transform: rotate(-10deg); }
+      40% { transform: rotate(10deg); }
+      60% { transform: rotate(-7deg); }
+      80% { transform: rotate(7deg); }
+    }
     @keyframes lockFlash {
-      0%, 100% { fill: #f59e0b; }
-      50% { fill: #ef4444; }
+      0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 3px #f87171); }
+      50% { opacity: 0.3; filter: none; }
     }
-    @keyframes denyShake {
-      0%, 100% { transform: translateX(0); }
-      20% { transform: translateX(-4px); }
-      40% { transform: translateX(4px); }
-      60% { transform: translateX(-3px); }
-      80% { transform: translateX(2px); }
-    }
-    .lock-anim { animation: lockFlash 1.6s infinite ease-in-out; }
-    .shield-shake { animation: denyShake 2s infinite; }
+    .head-no { animation: headShakeNo 1.4s ease-in-out infinite; transform-origin: 80px 145px; }
+    .padlock { animation: lockFlash 1.4s infinite; }
   </style>
 
-  <!-- Antenna -->
-  <rect x="78" y="24" width="4" height="20" rx="2" fill="#94a3b8"/>
-  <circle cx="80" cy="22" r="7" fill="#ef4444"/>
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
 
-  <!-- Helmet -->
-  <rect x="38" y="40" width="84" height="72" rx="28" fill="url(#body-grad)" stroke="#cbd5e1" stroke-width="2.5"/>
-  <rect x="47" y="52" width="66" height="44" rx="18" fill="url(#visor-glass)"/>
+  <g class="head-no">
+    <!-- Amber warning antenna -->
+    <rect x="78" y="14" width="4" height="26" rx="2" fill="#94a3b8"/>
+    <circle cx="80" cy="14" r="8" fill="#f87171"/>
 
-  <!-- Keyhole on Screen with Warning Flash -->
-  <g class="lock-anim">
-    <circle cx="80" cy="70" r="7"/>
-    <polygon points="75,72 85,72 87,83 73,83"/>
-  </g>
+    <rect x="22" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
+    <rect x="130" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
 
-  <!-- Stern Guard Eyebrows -->
-  <line x1="56" y1="63" x2="68" y2="67" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="104" y1="63" x2="92" y2="67" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+    <rect x="28" y="38" width="104" height="92" rx="34" fill="url(#astro-head-grad)" stroke="#fca5a5" stroke-width="2.5" filter="url(#astro-shadow)"/>
+    <rect x="38" y="54" width="84" height="60" rx="24" fill="url(#astro-visor-amber)" stroke="#ef4444" stroke-width="1.5"/>
 
-  <!-- Torso -->
-  <rect x="63" y="112" width="34" height="22" rx="10" fill="url(#body-grad)" stroke="#cbd5e1" stroke-width="2"/>
+    <!-- Glowing Padlock in Visor Center -->
+    <g class="padlock">
+      <rect x="71" y="78" width="18" height="15" rx="3" fill="#ef4444"/>
+      <path d="M 75 78 L 75 72 C 75 66 85 66 85 72 L 85 78" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="80" cy="84" r="2" fill="#ffffff"/>
+      <line x1="80" y1="86" x2="80" y2="89" stroke="#ffffff" stroke-width="1.5"/>
+    </g>
 
-  <!-- Golden Key Held and Rejected -->
-  <g class="shield-shake">
-    <ellipse cx="50" cy="120" rx="5.5" ry="7" fill="#94a3b8"/>
-    <!-- Golden Key with Red Prohibition Cross -->
-    <path d="M 104 116 L 126 100" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/>
-    <circle cx="126" cy="100" r="6" fill="none" stroke="#f59e0b" stroke-width="3"/>
-    <line x1="110" y1="112" x2="114" y2="116" stroke="#f59e0b" stroke-width="3"/>
-    <!-- Red No Circle -->
-    <circle cx="118" cy="108" r="13" fill="none" stroke="#ef4444" stroke-width="2.5"/>
-    <line x1="109" y1="117" x2="127" y2="99" stroke="#ef4444" stroke-width="2.5"/>
+    <!-- Squinting warning eyes -->
+    <line x1="48" y1="74" x2="62" y2="74" stroke="#f87171" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="98" y1="74" x2="112" y2="74" stroke="#f87171" stroke-width="3.5" stroke-linecap="round"/>
   </g>
 </svg>

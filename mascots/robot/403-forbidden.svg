@@ -1,48 +1,51 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="body-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="astro-head-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
       <stop offset="100%" stop-color="#e2e8f0"/>
     </linearGradient>
-    <linearGradient id="visor-glass" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#020617"/>
+    <linearGradient id="astro-visor-dark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#180505"/>
+      <stop offset="100%" stop-color="#050202"/>
     </linearGradient>
+    <filter id="astro-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#020617" flood-opacity="0.25"/>
+    </filter>
   </defs>
   <style>
-    @keyframes sirenSpin {
-      0%, 100% { fill: #ef4444; filter: drop-shadow(0 0 5px #ef4444); }
-      50% { fill: #fee2e2; filter: none; }
+    @keyframes sirenSpinLight {
+      0%, 100% { fill: #ef4444; filter: drop-shadow(0 0 8px #ef4444); }
+      50% { fill: #7f1d1d; filter: none; }
     }
-    @keyframes barrierPulse {
-      0%, 100% { opacity: 0.8; }
-      50% { opacity: 0.3; }
+    @keyframes sternVibe {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
     }
-    .siren-beacon { animation: sirenSpin 0.7s infinite; }
-    .barrier-grid { animation: barrierPulse 1.4s ease-in-out infinite; }
+    .siren-top { animation: sirenSpinLight 0.6s infinite ease-in-out; }
+    .head-stern { animation: sternVibe 2s ease-in-out infinite; }
   </style>
 
-  <!-- Flashing Siren Dome -->
-  <path d="M 72 32 L 88 32 L 85 18 Q 80 16 75 18 Z" class="siren-beacon"/>
-  <rect x="70" y="32" width="20" height="6" rx="2" fill="#475569"/>
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
 
-  <!-- Helmet -->
-  <rect x="38" y="40" width="84" height="72" rx="28" fill="url(#body-grad)" stroke="#ef4444" stroke-width="2.5"/>
-  <rect x="47" y="52" width="66" height="44" rx="18" fill="url(#visor-glass)"/>
+  <g class="head-stern">
+    <!-- Siren Light Beacon on top -->
+    <path d="M 72 26 L 88 26 L 85 14 L 75 14 Z" class="siren-top"/>
+    <rect x="70" y="26" width="20" height="5" rx="1.5" fill="#475569"/>
 
-  <!-- Flat Strict Eyes (- -) -->
-  <line x1="58" y1="72" x2="72" y2="72" stroke="#ef4444" stroke-width="4.5" stroke-linecap="round"/>
-  <line x1="88" y1="72" x2="102" y2="72" stroke="#ef4444" stroke-width="4.5" stroke-linecap="round"/>
-  <line x1="75" y1="84" x2="85" y2="84" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+    <rect x="22" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
+    <rect x="130" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
 
-  <!-- Laser Barrier Stripes in Front -->
-  <g class="barrier-grid">
-    <line x1="30" y1="102" x2="130" y2="102" stroke="#ef4444" stroke-width="2" stroke-dasharray="6 4"/>
-    <line x1="30" y1="128" x2="130" y2="128" stroke="#ef4444" stroke-width="2" stroke-dasharray="6 4"/>
+    <rect x="28" y="38" width="104" height="92" rx="34" fill="url(#astro-head-grad)" stroke="#f87171" stroke-width="2.5" filter="url(#astro-shadow)"/>
+    <rect x="38" y="54" width="84" height="60" rx="24" fill="url(#astro-visor-dark)" stroke="#dc2626" stroke-width="1.5"/>
+
+    <!-- Stern flat line eyes (- -) -->
+    <line x1="52" y1="80" x2="68" y2="80" stroke="#ef4444" stroke-width="4.5" stroke-linecap="round"/>
+    <line x1="92" y1="80" x2="108" y2="80" stroke="#ef4444" stroke-width="4.5" stroke-linecap="round"/>
+
+    <!-- Flat stern mouth -->
+    <line x1="74" y1="96" x2="86" y2="96" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Visor Laser Scan Bar -->
+    <line x1="42" y1="88" x2="118" y2="88" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.7"/>
   </g>
-
-  <!-- Torso and Crossed Stop Arms -->
-  <rect x="63" y="112" width="34" height="22" rx="10" fill="url(#body-grad)" stroke="#ef4444" stroke-width="2"/>
-  <line x1="52" y1="126" x2="108" y2="114" stroke="#ef4444" stroke-width="5" stroke-linecap="round"/>
-  <line x1="52" y1="114" x2="108" y2="126" stroke="#ef4444" stroke-width="5" stroke-linecap="round"/>
 </svg>

@@ -1,55 +1,53 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="body-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="astro-head-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#f3e8ff"/>
     </linearGradient>
+    <linearGradient id="astro-visor-glass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <filter id="astro-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#020617" flood-opacity="0.25"/>
+    </filter>
   </defs>
   <style>
     @keyframes glitchJitter {
       0%, 100% { transform: translate(0, 0); }
-      10% { transform: translate(-3px, 1px); }
-      30% { transform: translate(3px, -2px); }
-      50% { transform: translate(-2px, -1px); }
-      70% { transform: translate(2px, 2px); }
-      90% { transform: translate(-1px, 2px); }
+      20% { transform: translate(-3px, 1px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-2px, -1px); }
+      80% { transform: translate(3px, 2px); }
     }
-    @keyframes scanline {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(44px); }
+    @keyframes scanlineDrop {
+      0% { transform: translateY(54px); }
+      100% { transform: translateY(114px); }
     }
-    .bot-glitch { animation: glitchJitter 0.35s infinite; }
-    .scan-bar { animation: scanline 1.2s linear infinite; }
+    .head-glitch { animation: glitchJitter 0.25s infinite; }
+    .scanline { animation: scanlineDrop 1s linear infinite; }
   </style>
 
-  <g class="bot-glitch">
-    <!-- Jittered Antenna -->
-    <rect x="78" y="24" width="4" height="20" rx="2" fill="#94a3b8"/>
-    <circle cx="80" cy="22" r="7" fill="#a855f7"/>
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
 
-    <!-- Helmet -->
-    <rect x="38" y="40" width="84" height="72" rx="28" fill="url(#body-grad)" stroke="#a855f7" stroke-width="2.5"/>
+  <g class="head-glitch">
+    <rect x="78" y="14" width="4" height="26" rx="2" fill="#94a3b8"/>
+    <circle cx="80" cy="14" r="8" fill="#c084fc"/>
 
-    <!-- Visor with Glitch Scanline -->
-    <g>
-      <rect x="47" y="52" width="66" height="44" rx="18" fill="#0f172a"/>
-      <!-- Scanline bar -->
-      <rect x="47" y="52" width="66" height="5" fill="#a855f7" opacity="0.4" class="scan-bar"/>
-    </g>
+    <rect x="22" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
+    <rect x="130" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
 
-    <!-- Glitched Eyes -->
-    <line x1="58" y1="72" x2="72" y2="72" stroke="#a855f7" stroke-width="4" stroke-dasharray="3 2"/>
-    <circle cx="94" cy="72" r="6" fill="none" stroke="#a855f7" stroke-width="2.5"/>
-    <circle cx="94" cy="72" r="2" fill="#a855f7"/>
+    <rect x="28" y="38" width="104" height="92" rx="34" fill="url(#astro-head-grad)" stroke="#c084fc" stroke-width="2.5" filter="url(#astro-shadow)"/>
+    <rect x="38" y="54" width="84" height="60" rx="24" fill="url(#astro-visor-glass)"/>
 
-    <!-- Static Noise Dots -->
-    <circle cx="60" cy="82" r="1.5" fill="#a855f7"/>
-    <circle cx="68" cy="85" r="1.5" fill="#a855f7"/>
-    <circle cx="98" cy="83" r="1.5" fill="#a855f7"/>
+    <!-- Glitched pixel eyes -->
+    <rect x="52" y="80" width="16" height="5" fill="#c084fc"/>
+    <rect x="56" y="75" width="8" height="15" fill="#c084fc"/>
+    <rect x="92" y="80" width="16" height="5" fill="#38bdf8"/>
+    <rect x="96" y="85" width="8" height="10" fill="#38bdf8"/>
 
-    <!-- Torso -->
-    <rect x="63" y="112" width="34" height="22" rx="10" fill="url(#body-grad)" stroke="#a855f7" stroke-width="2"/>
-    <ellipse cx="50" cy="120" rx="5.5" ry="7" fill="#94a3b8"/>
-    <ellipse cx="110" cy="120" rx="5.5" ry="7" fill="#94a3b8"/>
+    <!-- Scanline beam sweeping down visor -->
+    <rect x="38" y="0" width="84" height="4" fill="#c084fc" opacity="0.6" class="scanline"/>
   </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#c084fc" text-anchor="middle">PARSER GLITCH</text>
 </svg>
