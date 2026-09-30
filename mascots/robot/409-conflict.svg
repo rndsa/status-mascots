@@ -1,56 +1,67 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="r-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="body-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#fee2e2"/>
+    </linearGradient>
+    <linearGradient id="visor-glass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
     </linearGradient>
   </defs>
   <style>
-    @keyframes headShake {
-      0% { transform: translateX(0) rotate(0deg); }
-      15% { transform: translateX(-10px) rotate(-9deg); }
-      30% { transform: translateX(9px) rotate(8deg); }
-      45% { transform: translateX(-7px) rotate(-6deg); }
-      60% { transform: translateX(6px) rotate(5deg); }
-      75% { transform: translateX(-3px) rotate(-2deg); }
-      100% { transform: translateX(0) rotate(0deg); }
+    @keyframes shockWobble {
+      0%, 100% { transform: translateX(0) rotate(0deg); }
+      15% { transform: translateX(-7px) rotate(-6deg); }
+      30% { transform: translateX(7px) rotate(5deg); }
+      45% { transform: translateX(-5px) rotate(-4deg); }
+      60% { transform: translateX(4px) rotate(3deg); }
+      75% { transform: translateX(-2px); }
     }
     @keyframes sweatDrip {
-      0% { transform: translateY(-5px) scale(0.7); opacity: 0; }
-      40% { opacity: 1; transform: translateY(0px) scale(1); }
-      100% { transform: translateY(12px) scale(0.6); opacity: 0; }
+      0% { transform: translateY(-4px) scale(0.6); opacity: 0; }
+      40% { opacity: 1; transform: translateY(2px) scale(1); }
+      100% { transform: translateY(14px) scale(0.5); opacity: 0; }
     }
-    .shake-head { animation: headShake 0.9s ease-in-out infinite; transform-origin: 80px 105px; }
-    .sweat { animation: sweatDrip 1.2s infinite; transform-origin: 125px 50px; }
+    .head-shock { animation: shockWobble 1s ease-in-out infinite; transform-origin: 80px 105px; }
+    .sweat-drop { animation: sweatDrip 1.4s infinite; transform-origin: 124px 50px; }
   </style>
+
   <g>
-    <!-- Shaking Head -->
-    <g class="shake-head">
-      <!-- Antenna with distressed red led -->
-      <rect x="78" y="27" width="4" height="18" rx="2" fill="#94a3b8"/>
-      <circle cx="80" cy="24" r="6" fill="#f87171"/>
-      <!-- Head -->
-      <rect x="38" y="40" width="84" height="70" rx="26" fill="url(#r-grad)" stroke="#f87171" stroke-width="2.5"/>
-      <rect x="47" y="52" width="66" height="42" rx="16" fill="#0f172a"/>
+    <!-- Shock Recoil Group -->
+    <g class="head-shock">
+      <!-- Antenna with Distressed Red LED -->
+      <rect x="78" y="24" width="4" height="20" rx="2" fill="#94a3b8"/>
+      <circle cx="80" cy="22" r="7" fill="#f87171"/>
+      <circle cx="82" cy="20" r="2.5" fill="#ffffff" opacity="0.8"/>
+
+      <!-- Helmet -->
+      <rect x="38" y="40" width="84" height="72" rx="28" fill="url(#body-grad)" stroke="#f87171" stroke-width="2.5"/>
+      <rect x="47" y="52" width="66" height="44" rx="18" fill="url(#visor-glass)"/>
+
       <!-- Squeezed X X Eyes (> <) -->
-      <line x1="58" y1="67" x2="70" y2="77" stroke="#f87171" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="70" y1="67" x2="58" y2="77" stroke="#f87171" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="90" y1="67" x2="102" y2="77" stroke="#f87171" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="102" y1="67" x2="90" y2="77" stroke="#f87171" stroke-width="3.5" stroke-linecap="round"/>
-      <!-- Sad wavy mouth -->
-      <path d="M 74 85 Q 80 81 86 85" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"/>
-      <!-- Distressed Blush -->
-      <ellipse cx="55" cy="84" rx="5" ry="3" fill="#f87171" opacity="0.6"/>
-      <ellipse cx="105" cy="84" rx="5" ry="3" fill="#f87171" opacity="0.6"/>
+      <line x1="58" y1="68" x2="70" y2="78" stroke="#f87171" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="70" y1="68" x2="58" y2="78" stroke="#f87171" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="90" y1="68" x2="102" y2="78" stroke="#f87171" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="102" y1="68" x2="90" y2="78" stroke="#f87171" stroke-width="3.5" stroke-linecap="round"/>
+
+      <!-- Sad Wavy Mouth -->
+      <path d="M 74 86 Q 80 81 86 86" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"/>
+
+      <!-- Blush -->
+      <ellipse cx="55" cy="85" rx="5" ry="3" fill="#f87171" opacity="0.5"/>
+      <ellipse cx="105" cy="85" rx="5" ry="3" fill="#f87171" opacity="0.5"/>
     </g>
-    <!-- Sweat Drop (Anime Panic) -->
-    <g class="sweat">
+
+    <!-- Anime Sweat Drop -->
+    <g class="sweat-drop">
       <path d="M 125 46 Q 130 54 125 58 Q 120 54 125 46 Z" fill="#38bdf8"/>
     </g>
-    <!-- Body -->
-    <rect x="62" y="112" width="36" height="24" rx="10" fill="url(#r-grad)" stroke="#cbd5e1" stroke-width="2"/>
-    <!-- Hands flailing no-no -->
-    <ellipse cx="48" cy="115" rx="7" ry="6" fill="#94a3b8" transform="rotate(-20 48 115)"/>
-    <ellipse cx="112" cy="115" rx="7" ry="6" fill="#94a3b8" transform="rotate(20 112 115)"/>
+
+    <!-- Torso -->
+    <rect x="63" y="112" width="34" height="22" rx="10" fill="url(#body-grad)" stroke="#cbd5e1" stroke-width="2"/>
+    <!-- Panicked Flailing Hands -->
+    <ellipse cx="48" cy="116" rx="6.5" ry="6" fill="#94a3b8" transform="rotate(-15 48 116)"/>
+    <ellipse cx="112" cy="116" rx="6.5" ry="6" fill="#94a3b8" transform="rotate(15 112 116)"/>
   </g>
 </svg>

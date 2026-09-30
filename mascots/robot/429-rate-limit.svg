@@ -4,35 +4,53 @@
       <stop offset="0%" stop-color="#fee2e2"/>
       <stop offset="100%" stop-color="#fca5a5"/>
     </linearGradient>
+    <linearGradient id="visor-glass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
   </defs>
   <style>
-    @keyframes spin-fan { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    @keyframes pant { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
-    .fan { animation: spin-fan 0.3s linear infinite; transform-origin: 80px 24px; }
-    .bot-pant { animation: pant 0.6s ease-in-out infinite; }
+    @keyframes spinFan {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes pantingBreath {
+      0%, 100% { transform: translateY(0) scaleY(1); }
+      50% { transform: translateY(3px) scaleY(0.96); }
+    }
+    .cooling-fan { animation: spinFan 0.25s linear infinite; transform-origin: 80px 22px; }
+    .bot-pant { animation: pantingBreath 0.6s ease-in-out infinite; transform-origin: center bottom; }
   </style>
+
   <g class="bot-pant">
-    <!-- Spinning Cooling Fan on Antenna -->
-    <rect x="78" y="27" width="4" height="18" rx="2" fill="#94a3b8"/>
-    <g class="fan">
-      <circle cx="80" cy="24" r="3" fill="#0f172a"/>
-      <ellipse cx="80" cy="17" rx="2" ry="6" fill="#38bdf8"/>
-      <ellipse cx="80" cy="31" rx="2" ry="6" fill="#38bdf8"/>
-      <ellipse cx="73" cy="24" rx="6" ry="2" fill="#38bdf8"/>
-      <ellipse cx="87" cy="24" rx="6" ry="2" fill="#38bdf8"/>
+    <!-- Spinning Fan on Top -->
+    <rect x="78" y="24" width="4" height="18" rx="2" fill="#94a3b8"/>
+    <g class="cooling-fan">
+      <circle cx="80" cy="22" r="3.5" fill="#0f172a"/>
+      <ellipse cx="80" cy="15" rx="2.5" ry="6" fill="#38bdf8"/>
+      <ellipse cx="80" cy="29" rx="2.5" ry="6" fill="#38bdf8"/>
+      <ellipse cx="73" cy="22" rx="6" ry="2.5" fill="#38bdf8"/>
+      <ellipse cx="87" cy="22" rx="6" ry="2.5" fill="#38bdf8"/>
     </g>
-    <!-- Steaming Overheated Head -->
-    <rect x="38" y="40" width="84" height="70" rx="26" fill="url(#hot-grad)" stroke="#ef4444" stroke-width="2.5"/>
-    <rect x="47" y="52" width="66" height="42" rx="16" fill="#0f172a"/>
+
+    <!-- Red Hot Steaming Helmet -->
+    <rect x="38" y="40" width="84" height="72" rx="28" fill="url(#hot-grad)" stroke="#ef4444" stroke-width="2.5"/>
+    <rect x="47" y="52" width="66" height="44" rx="18" fill="url(#visor-glass)"/>
+
     <!-- Exhausted Swirly Eyes -->
-    <path d="M 61 72 Q 66 67 71 72 Q 66 77 61 72" fill="none" stroke="#ef4444" stroke-width="2.5"/>
-    <path d="M 89 72 Q 94 67 99 72 Q 94 77 89 72" fill="none" stroke="#ef4444" stroke-width="2.5"/>
-    <!-- Panting Tongue Out -->
-    <ellipse cx="80" cy="85" rx="5" ry="3" fill="#f43f5e"/>
-    <!-- Sweat drops everywhere -->
+    <path d="M 61 73 Q 66 68 71 73 Q 66 78 61 73" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+    <path d="M 89 73 Q 94 68 99 73 Q 94 78 89 73" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+
+    <!-- Panting Open Tongue -->
+    <ellipse cx="80" cy="85" rx="5" ry="3.5" fill="#f43f5e"/>
+
+    <!-- Sweat Beads -->
     <circle cx="50" cy="50" r="3" fill="#38bdf8"/>
     <circle cx="110" cy="52" r="3.5" fill="#38bdf8"/>
-    <!-- Body -->
-    <rect x="62" y="112" width="36" height="24" rx="10" fill="url(#hot-grad)" stroke="#ef4444" stroke-width="2"/>
+
+    <!-- Torso -->
+    <rect x="63" y="112" width="34" height="22" rx="10" fill="url(#hot-grad)" stroke="#ef4444" stroke-width="2"/>
+    <ellipse cx="50" cy="120" rx="5.5" ry="7" fill="#94a3b8"/>
+    <ellipse cx="110" cy="120" rx="5.5" ry="7" fill="#94a3b8"/>
   </g>
 </svg>

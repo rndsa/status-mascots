@@ -1,53 +1,112 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="r-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="body-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
       <stop offset="100%" stop-color="#e2e8f0"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.25"/>
+    <linearGradient id="visor-glass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#020617" flood-opacity="0.3"/>
     </filter>
   </defs>
   <style>
-    @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-7px); } }
-    @keyframes wink { 0%, 90%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
-    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.3); opacity: 1; } }
-    @keyframes ear-wiggle { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(8deg); } }
-    .bot { animation: float 3s ease-in-out infinite; transform-origin: center bottom; }
-    .eye-wink { transform-origin: 94px 74px; animation: wink 4s infinite; }
-    .led { animation: pulse 1.8s infinite; transform-origin: 80px 24px; }
-    .ear-r { transform-origin: 122px 75px; animation: ear-wiggle 2.5s ease-in-out infinite; }
+    /* Physics floating & breathing */
+    @keyframes hoverFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(1.5deg); }
+    }
+    @keyframes antennaWobble {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-6deg); }
+      75% { transform: rotate(6deg); }
+    }
+    @keyframes pulseLed {
+      0%, 100% { fill: #38bdf8; filter: drop-shadow(0 0 2px #38bdf8); }
+      50% { fill: #0284c7; filter: none; }
+    }
+    @keyframes waveHand {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-28deg); }
+    }
+    @keyframes eyeBlink {
+      0%, 92%, 100% { transform: scaleY(1); }
+      96% { transform: scaleY(0.08); }
+    }
+    @keyframes heartFloat {
+      0% { transform: translate(0, 0) scale(0.6); opacity: 0; }
+      50% { opacity: 0.9; }
+      100% { transform: translate(12px, -18px) scale(1.1); opacity: 0; }
+    }
+    .astro-hover { animation: hoverFloat 3.2s ease-in-out infinite; transform-origin: center bottom; }
+    .antenna-wobble { animation: antennaWobble 2.4s ease-in-out infinite; transform-origin: 80px 42px; }
+    .led-glow { animation: pulseLed 2s infinite ease-in-out; }
+    .hand-wave { animation: waveHand 1.6s ease-in-out infinite; transform-origin: 110px 114px; }
+    .eye-blink-l { animation: eyeBlink 3.8s infinite; transform-origin: 66px 74px; }
+    .heart-bubble { animation: heartFloat 2.4s ease-out infinite; transform-origin: 104px 50px; }
   </style>
-  <g class="bot">
-    <!-- Antenna -->
-    <rect x="78" y="27" width="4" height="18" rx="2" fill="#94a3b8"/>
-    <circle cx="80" cy="24" r="6" fill="#38bdf8" class="led"/>
-    <!-- Ears -->
-    <rect x="33" y="66" width="7" height="18" rx="3.5" fill="#94a3b8"/>
-    <rect x="120" y="66" width="7" height="18" rx="3.5" fill="#94a3b8" class="ear-r"/>
-    <!-- Head / Helmet -->
-    <rect x="38" y="40" width="84" height="70" rx="26" fill="url(#r-grad)" stroke="#cbd5e1" stroke-width="2.5" filter="url(#shadow)"/>
-    <!-- Visor -->
-    <rect x="47" y="52" width="66" height="42" rx="16" fill="#0f172a"/>
-    <rect x="52" y="56" width="56" height="14" rx="7" fill="#1e293b" opacity="0.6"/>
-    <!-- Eyes (Cute Happy Winking) -->
-    <!-- Left Eye: Happy Arc -->
-    <path d="M 59 75 Q 66 65 73 75" fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round"/>
-    <!-- Right Eye: Winking Sparkle -->
-    <g class="eye-wink">
-      <ellipse cx="94" cy="74" rx="6" ry="7.5" fill="#38bdf8"/>
-      <circle cx="96" cy="71" r="2.5" fill="#ffffff"/>
+
+  <!-- Shadow on floor -->
+  <ellipse cx="80" cy="148" rx="26" ry="5" fill="#000000" opacity="0.18"/>
+
+  <!-- Character Group with Floating Physics -->
+  <g class="astro-hover">
+    <!-- Antenna with Spring Motion -->
+    <g class="antenna-wobble">
+      <rect x="78" y="24" width="4" height="20" rx="2" fill="#94a3b8"/>
+      <circle cx="80" cy="22" r="7" class="led-glow"/>
+      <circle cx="82" cy="20" r="2.5" fill="#ffffff" opacity="0.8"/>
     </g>
-    <!-- Kawaii Cheeks -->
-    <ellipse cx="55" cy="85" rx="5" ry="3" fill="#f43f5e" opacity="0.7"/>
-    <ellipse cx="105" cy="85" rx="5" ry="3" fill="#f43f5e" opacity="0.7"/>
-    <!-- Tiny Smile -->
-    <path d="M 76 81 Q 80 85 84 81" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
-    <!-- Body Chibi -->
-    <rect x="62" y="112" width="36" height="24" rx="10" fill="url(#r-grad)" stroke="#cbd5e1" stroke-width="2"/>
-    <circle cx="80" cy="122" r="4" fill="#38bdf8"/>
-    <!-- Hands waving -->
-    <ellipse cx="54" cy="120" rx="5" ry="7" fill="#94a3b8"/>
-    <ellipse cx="106" cy="116" rx="5" ry="7" fill="#94a3b8" transform="rotate(-20 106 116)"/>
+
+    <!-- Side Audio Cups / Ears -->
+    <rect x="33" y="66" width="7" height="20" rx="3.5" fill="#94a3b8"/>
+    <rect x="120" y="66" width="7" height="20" rx="3.5" fill="#94a3b8"/>
+
+    <!-- Helmet / Head Base -->
+    <rect x="38" y="40" width="84" height="72" rx="28" fill="url(#body-grad)" stroke="#cbd5e1" stroke-width="2.5" filter="url(#soft-shadow)"/>
+
+    <!-- Glass Visor -->
+    <rect x="47" y="52" width="66" height="44" rx="18" fill="url(#visor-glass)"/>
+    <!-- Glass Curved Reflection -->
+    <path d="M 52 56 Q 80 50 108 56 Q 106 68 54 68 Z" fill="#ffffff" opacity="0.08"/>
+
+    <!-- LED Animated Eyes -->
+    <!-- Left Eye (Blinking arc) -->
+    <g class="eye-blink-l">
+      <path d="M 58 75 Q 66 65 74 75" fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round"/>
+    </g>
+    <!-- Right Eye (Cute Winking Eye) -->
+    <g>
+      <ellipse cx="94" cy="73" rx="6" ry="7.5" fill="#38bdf8"/>
+      <circle cx="96.5" cy="70" r="2.5" fill="#ffffff"/>
+    </g>
+
+    <!-- Soft Kawaii Pink Blush -->
+    <ellipse cx="55" cy="85" rx="5" ry="3" fill="#f43f5e" opacity="0.6"/>
+    <ellipse cx="105" cy="85" rx="5" ry="3" fill="#f43f5e" opacity="0.6"/>
+
+    <!-- Cute Smiling Mouth -->
+    <path d="M 76 81 Q 80 86 84 81" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Chibi Torso Body -->
+    <rect x="63" y="112" width="34" height="22" rx="10" fill="url(#body-grad)" stroke="#cbd5e1" stroke-width="2"/>
+    <circle cx="80" cy="122" r="3.5" fill="#38bdf8"/>
+
+    <!-- Left Hand Resting -->
+    <ellipse cx="52" cy="118" rx="5" ry="7" fill="#94a3b8"/>
+
+    <!-- Right Hand Waving -->
+    <g class="hand-wave">
+      <ellipse cx="112" cy="112" rx="5.5" ry="8" fill="#94a3b8"/>
+      <!-- Tiny Thumb -->
+      <circle cx="109" cy="107" r="2.5" fill="#94a3b8"/>
+    </g>
+
+    <!-- Floating Sparkle / Heart -->
+    <g class="heart-bubble">
+      <path d="M 105 45 C 105 42 101 40 98 43 C 95 40 91 42 91 45 C 91 49 98 54 98 54 C 98 54 105 49 105 45 Z" fill="#ec4899"/>
+    </g>
   </g>
 </svg>

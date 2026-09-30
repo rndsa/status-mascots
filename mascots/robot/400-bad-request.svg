@@ -1,38 +1,71 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="r-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="body-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
       <stop offset="100%" stop-color="#e2e8f0"/>
     </linearGradient>
+    <linearGradient id="visor-glass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
   </defs>
   <style>
-    @keyframes tilt { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-12deg); } }
-    @keyframes q-float { 0%, 100% { transform: translateY(0) rotate(5deg); } 50% { transform: translateY(-6px) rotate(-5deg); } }
-    .bot-head { animation: tilt 2.8s ease-in-out infinite; transform-origin: 80px 105px; }
-    .q-mark { animation: q-float 2.2s ease-in-out infinite; transform-origin: 125px 35px; }
+    @keyframes headTilt {
+      0%, 100% { transform: rotate(0deg); }
+      40% { transform: rotate(-13deg); }
+      70% { transform: rotate(-8deg); }
+    }
+    @keyframes qFloat {
+      0%, 100% { transform: translateY(0) rotate(6deg); }
+      50% { transform: translateY(-7px) rotate(-6deg); }
+    }
+    @keyframes earDroop {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(3px); }
+    }
+    .head-tilt-group { animation: headTilt 2.8s ease-in-out infinite; transform-origin: 80px 105px; }
+    .q-bubble { animation: qFloat 2.2s ease-in-out infinite; transform-origin: 125px 36px; }
+    .ear-l { animation: earDroop 2.8s ease-in-out infinite; }
   </style>
-  <g class="bot-head">
-    <!-- Antenna tilted -->
-    <rect x="78" y="27" width="4" height="18" rx="2" fill="#94a3b8"/>
-    <circle cx="80" cy="24" r="6" fill="#f59e0b"/>
-    <!-- Head -->
-    <rect x="38" y="40" width="84" height="70" rx="26" fill="url(#r-grad)" stroke="#cbd5e1" stroke-width="2.5"/>
-    <rect x="47" y="52" width="66" height="42" rx="16" fill="#0f172a"/>
+
+  <!-- Floating Question Mark Bubble -->
+  <g class="q-bubble">
+    <ellipse cx="125" cy="36" rx="14" ry="14" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="125" y="44" font-family="-apple-system, sans-serif" font-size="22" font-weight="900" fill="#d97706" text-anchor="middle">?</text>
+  </g>
+
+  <!-- Torso & Arms (Stable base) -->
+  <rect x="63" y="112" width="34" height="22" rx="10" fill="url(#body-grad)" stroke="#cbd5e1" stroke-width="2"/>
+  <ellipse cx="50" cy="120" rx="5.5" ry="7" fill="#94a3b8"/>
+  <ellipse cx="110" cy="116" rx="5.5" ry="7" fill="#94a3b8" transform="rotate(-15 110 116)"/>
+
+  <!-- Tilting Head Group -->
+  <g class="head-tilt-group">
+    <!-- Antenna Tilted with yellow LED -->
+    <rect x="78" y="24" width="4" height="20" rx="2" fill="#94a3b8"/>
+    <circle cx="80" cy="22" r="7" fill="#f59e0b"/>
+    <circle cx="82" cy="20" r="2.5" fill="#ffffff" opacity="0.8"/>
+
+    <!-- Side Ears -->
+    <rect x="33" y="66" width="7" height="20" rx="3.5" fill="#94a3b8" class="ear-l"/>
+    <rect x="120" y="66" width="7" height="20" rx="3.5" fill="#94a3b8"/>
+
+    <!-- Helmet -->
+    <rect x="38" y="40" width="84" height="72" rx="28" fill="url(#body-grad)" stroke="#cbd5e1" stroke-width="2.5"/>
+    <rect x="47" y="52" width="66" height="44" rx="18" fill="url(#visor-glass)"/>
+
     <!-- Confused Asymmetrical Eyes -->
-    <circle cx="66" cy="72" r="7" fill="#f59e0b"/>
-    <circle cx="68" cy="70" r="2.5" fill="#ffffff"/>
+    <!-- Left Eye: Big Round Wondering -->
+    <circle cx="66" cy="73" r="7" fill="#f59e0b"/>
+    <circle cx="68.5" cy="71" r="2.5" fill="#ffffff"/>
+    <!-- Right Eye: Squinting Half-Arc -->
     <ellipse cx="94" cy="73" rx="4" ry="4" fill="#f59e0b"/>
-    <!-- Wavy mouth -->
-    <path d="M 74 83 Q 77 80 80 83 T 86 83" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Wavy Squiggly Mouth -->
+    <path d="M 74 83 Q 77 80 80 83 Q 83 86 86 83" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Puzzled Blush -->
     <ellipse cx="55" cy="85" rx="5" ry="3" fill="#f59e0b" opacity="0.4"/>
     <ellipse cx="105" cy="85" rx="5" ry="3" fill="#f59e0b" opacity="0.4"/>
-  </g>
-  <!-- Body -->
-  <rect x="62" y="114" width="36" height="24" rx="10" fill="url(#r-grad)" stroke="#cbd5e1" stroke-width="2"/>
-  <ellipse cx="50" cy="120" rx="6" ry="8" fill="#94a3b8"/>
-  <ellipse cx="110" cy="120" rx="6" ry="8" fill="#94a3b8"/>
-  <!-- Floating Question Mark -->
-  <g class="q-mark">
-    <text x="122" y="40" font-family="-apple-system, sans-serif" font-size="28" font-weight="900" fill="#f59e0b">?</text>
   </g>
 </svg>
