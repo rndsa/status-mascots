@@ -1,29 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="blob-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#34d399"/>
+    <linearGradient id="jelly-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6ee7b7"/>
       <stop offset="100%" stop-color="#059669"/>
     </linearGradient>
   </defs>
   <style>
-    @keyframes sinkHole {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(12px); }
+    @keyframes jellyFade {
+      0%, 100% { opacity: 0.95; }
+      50% { opacity: 0.25; }
     }
-    .sink { animation: sinkHole 2.5s ease-in-out infinite; }
+    @keyframes lookLR {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+    .head-fade { animation: jellyFade 3s ease-in-out infinite; }
+    .eyes-roam { animation: lookLR 2.6s ease-in-out infinite; }
   </style>
 
-  <!-- Dark Hole on floor -->
-  <ellipse cx="80" cy="120" rx="42" ry="12" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
 
-  <!-- Slime sinking into hole -->
-  <g class="sink">
-    <path d="M 52 118 C 50 110 52 98 62 88 C 72 78 88 78 98 88 C 108 98 110 110 108 118 Z" fill="url(#blob-grad)"/>
-    <!-- Peeking eyes -->
-    <circle cx="72" cy="100" r="4.5" fill="#064e3b"/>
-    <circle cx="74" cy="98" r="1.5" fill="#ffffff"/>
-    <circle cx="88" cy="100" r="4.5" fill="#064e3b"/>
-    <circle cx="90" cy="98" r="1.5" fill="#ffffff"/>
+  <g class="head-fade">
+    <!-- Detective Cap -->
+    <path d="M 44 42 C 44 26 116 26 116 42 Z" fill="#78350f"/>
+    <ellipse cx="80" cy="42" rx="42" ry="6" fill="#92400e"/>
+
+    <path d="M 32 85 C 32 46 54 32 80 32 C 106 32 128 46 128 85 C 128 118 116 130 96 130 C 84 130 80 124 74 124 C 68 124 64 130 52 130 C 36 130 32 118 32 85 Z" 
+          fill="url(#jelly-grad)" stroke="#10b981" stroke-width="2.5"/>
+
+    <!-- Roaming eyes -->
+    <g class="eyes-roam">
+      <ellipse cx="62" cy="84" rx="7" ry="9" fill="#064e3b"/>
+      <circle cx="64" cy="81" r="2.5" fill="#ffffff"/>
+
+      <ellipse cx="98" cy="84" rx="7" ry="9" fill="#064e3b"/>
+      <circle cx="100" cy="81" r="2.5" fill="#ffffff"/>
+    </g>
+
+    <ellipse cx="80" cy="96" rx="3.5" ry="4.5" fill="#064e3b"/>
   </g>
-  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#94a3b8" text-anchor="middle">404 SUNK</text>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#64748b" text-anchor="middle">VANISHED (404)</text>
 </svg>

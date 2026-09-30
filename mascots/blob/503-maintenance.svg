@@ -1,12 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <!-- Slime molded into a Traffic Safety Cone -->
-  <polygon points="80,35 45,120 115,120" fill="#f97316" stroke="#ea580c" stroke-width="2.5"/>
-  <polygon points="70,60 90,60 95,75 65,75" fill="#ffffff"/>
-  <polygon points="62,85 98,85 104,100 56,100" fill="#ffffff"/>
-  <!-- Base -->
-  <ellipse cx="80" cy="122" rx="42" ry="8" fill="#ea580c"/>
-  <!-- Cute Face on Cone -->
-  <circle cx="74" cy="92" r="3.5" fill="#7c2d12"/>
-  <circle cx="86" cy="92" r="3.5" fill="#7c2d12"/>
-  <path d="M 78 96 Q 80 98 82 96" fill="none" stroke="#7c2d12" stroke-width="2"/>
+  <defs>
+    <linearGradient id="jelly-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes workNod {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    .head-work { animation: workNod 1.8s ease-in-out infinite; }
+  </style>
+
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="head-work">
+    <path d="M 32 85 C 32 46 54 32 80 32 C 106 32 128 46 128 85 C 128 118 116 130 96 130 C 84 130 80 124 74 124 C 68 124 64 130 52 130 C 36 130 32 118 32 85 Z" 
+          fill="url(#jelly-grad)" stroke="#10b981" stroke-width="2.5"/>
+
+    <!-- Worker Headband (Hachimaki) with Red Sun -->
+    <path d="M 32 60 Q 80 54 128 60 L 128 68 Q 80 62 32 68 Z" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+    <circle cx="80" cy="63" r="4.5" fill="#ef4444"/>
+
+    <!-- Confident smiling eyes (^ ^) -->
+    <path d="M 52 82 Q 62 70 72 82" fill="none" stroke="#064e3b" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M 88 82 Q 98 70 108 82" fill="none" stroke="#064e3b" stroke-width="4.5" stroke-linecap="round"/>
+
+    <path d="M 74 94 Q 80 100 86 94" fill="none" stroke="#064e3b" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#eab308" text-anchor="middle">MAINTENANCE (503)</text>
 </svg>
