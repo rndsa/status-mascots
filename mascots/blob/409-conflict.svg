@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="blob-red" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f87171"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes jellyShake {
+      0% { transform: skewX(0deg); }
+      20% { transform: skewX(-14deg) scaleY(0.9); }
+      40% { transform: skewX(12deg) scaleY(0.92); }
+      60% { transform: skewX(-10deg) scaleY(0.9); }
+      80% { transform: skewX(8deg) scaleY(0.92); }
+      100% { transform: skewX(0deg); }
+    }
+    .jelly-c { animation: jellyShake 0.75s ease-in-out infinite; transform-origin: 80px 125px; }
+  </style>
+  <g class="jelly-c">
+    <path d="M 45 115 C 35 115 35 90 48 70 C 60 50 100 50 112 70 C 125 90 125 115 115 115 C 95 125 65 125 45 115 Z" fill="url(#blob-red)" stroke="#991b1b" stroke-width="2.5"/>
+    <!-- Squeezed (> <) Eyes -->
+    <line x1="60" y1="80" x2="72" y2="88" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="72" y1="80" x2="60" y2="88" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="88" y1="80" x2="100" y2="88" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="100" y1="80" x2="88" y2="88" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Wavy sad jelly mouth -->
+    <path d="M 74 96 Q 80 91 86 96" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Sweat drop -->
+    <path d="M 115 58 Q 120 64 115 68 Q 110 64 115 58 Z" fill="#38bdf8"/>
+  </g>
+</svg>

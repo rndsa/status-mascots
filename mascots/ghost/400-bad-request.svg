@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="g-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e0e7ff"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes shy-wiggle { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-8deg); } }
+    .ghost-body { animation: shy-wiggle 2s ease-in-out infinite; transform-origin: 80px 120px; }
+  </style>
+  <g class="ghost-body">
+    <path d="M 45 75 C 45 45 60 35 80 35 C 100 35 115 45 115 75 C 115 105 120 125 108 128 C 98 130 92 120 80 120 C 68 120 62 130 52 128 C 40 125 45 105 45 75 Z" fill="url(#g-grad)" stroke="#cbd5e1" stroke-width="2.5"/>
+    <!-- Confused Spiral Eyes -->
+    <circle cx="68" cy="65" r="5" fill="none" stroke="#6366f1" stroke-width="2"/>
+    <ellipse cx="92" cy="65" rx="3" ry="5" fill="#6366f1"/>
+    <!-- O mouth -->
+    <circle cx="80" cy="74" r="3.5" fill="#6366f1"/>
+    <!-- Shy hands on cheeks -->
+    <ellipse cx="50" cy="75" rx="6" ry="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <ellipse cx="110" cy="75" rx="6" ry="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <ellipse cx="60" cy="76" rx="6" ry="4" fill="#f43f5e" opacity="0.7"/>
+    <ellipse cx="100" cy="76" rx="6" ry="4" fill="#f43f5e" opacity="0.7"/>
+    <!-- Question mark -->
+    <text x="120" y="42" font-family="sans-serif" font-size="24" font-weight="900" fill="#6366f1">?</text>
+  </g>
+</svg>

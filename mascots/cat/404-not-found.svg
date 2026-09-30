@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="box-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes peek { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+    .kitty-peek { animation: peek 2.5s ease-in-out infinite; }
+  </style>
+  <g>
+    <!-- Cat peeking from behind box -->
+    <g class="kitty-peek">
+      <polygon points="62,40 72,60 55,60" fill="#f97316"/>
+      <polygon points="98,40 105,60 88,60" fill="#f97316"/>
+      <circle cx="80" cy="65" r="24" fill="#fb923c"/>
+      <!-- Big Curious Round Eyes -->
+      <circle cx="72" cy="62" r="5" fill="#1e1b4b"/>
+      <circle cx="74" cy="60" r="2" fill="#ffffff"/>
+      <circle cx="88" cy="62" r="5" fill="#1e1b4b"/>
+      <circle cx="90" cy="60" r="2" fill="#ffffff"/>
+      <!-- Paws on box edge -->
+      <circle cx="65" cy="80" r="6" fill="#fed7aa"/>
+      <circle cx="95" cy="80" r="6" fill="#fed7aa"/>
+    </g>
+    <!-- Cardboard Box with 404 label -->
+    <rect x="36" y="80" width="88" height="58" rx="6" fill="url(#box-grad)" stroke="#78350f" stroke-width="2"/>
+    <rect x="52" y="95" width="56" height="22" rx="4" fill="#fef3c7"/>
+    <text x="80" y="111" font-family="monospace" font-size="14" font-weight="900" fill="#92400e" text-anchor="middle">404 EMPTY</text>
+  </g>
+</svg>

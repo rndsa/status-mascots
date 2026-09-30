@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mug-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes steam { 0% { transform: translateY(0) scaleX(0.8); opacity: 0; } 50% { opacity: 0.8; } 100% { transform: translateY(-14px) scaleX(1.2); opacity: 0; } }
+    .st-1 { animation: steam 2.2s infinite; transform-origin: 70px 45px; }
+    .st-2 { animation: steam 2.2s infinite 0.7s; transform-origin: 90px 45px; }
+  </style>
+  <g>
+    <!-- Steaming clouds -->
+    <path d="M 68 45 Q 64 35 72 25" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" class="st-1"/>
+    <path d="M 88 45 Q 94 35 86 25" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" class="st-2"/>
+    <!-- Mug Body -->
+    <rect x="52" y="55" width="56" height="60" rx="14" fill="url(#mug-grad)" stroke="#cbd5e1" stroke-width="2.5"/>
+    <!-- Handle -->
+    <path d="M 108 65 C 122 65 122 95 108 95" fill="none" stroke="#cbd5e1" stroke-width="5" stroke-linecap="round"/>
+    <!-- Coffee rim surface -->
+    <ellipse cx="80" cy="55" rx="26" ry="6" fill="#78350f"/>
+    <!-- Kawaii Mug Face -->
+    <circle cx="70" cy="80" r="4" fill="#0f172a"/>
+    <circle cx="71" cy="78" r="1.5" fill="#ffffff"/>
+    <circle cx="90" cy="80" r="4" fill="#0f172a"/>
+    <circle cx="91" cy="78" r="1.5" fill="#ffffff"/>
+    <path d="M 76 88 Q 80 92 84 88" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+    <ellipse cx="64" cy="86" rx="4" ry="2.5" fill="#f43f5e" opacity="0.6"/>
+    <ellipse cx="96" cy="86" rx="4" ry="2.5" fill="#f43f5e" opacity="0.6"/>
+  </g>
+</svg>

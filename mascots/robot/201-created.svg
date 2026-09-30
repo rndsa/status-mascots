@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="r-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes jump { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-12px) rotate(2deg); } }
+    @keyframes pop { 0% { transform: scale(0.6); opacity: 0; } 50% { opacity: 1; } 100% { transform: scale(1.2); opacity: 0; } }
+    .bot { animation: jump 1.6s ease-in-out infinite; transform-origin: center bottom; }
+    .confetti-1 { animation: pop 1.6s infinite 0.1s; transform-origin: 30px 40px; }
+    .confetti-2 { animation: pop 1.6s infinite 0.4s; transform-origin: 130px 35px; }
+  </style>
+  <g class="bot">
+    <!-- Party Hat -->
+    <polygon points="80,12 68,39 92,39" fill="#f59e0b"/>
+    <circle cx="80" cy="11" r="4" fill="#ec4899"/>
+    <!-- Head -->
+    <rect x="38" y="38" width="84" height="70" rx="26" fill="url(#r-grad)" stroke="#cbd5e1" stroke-width="2.5"/>
+    <rect x="47" y="50" width="66" height="42" rx="16" fill="#0f172a"/>
+    <!-- Happy Star Eyes -->
+    <path d="M 66 65 L 68 71 L 74 71 L 69 75 L 71 81 L 66 77 L 61 81 L 63 75 L 58 71 L 64 71 Z" fill="#38bdf8"/>
+    <path d="M 94 65 L 96 71 L 102 71 L 97 75 L 99 81 L 94 77 L 89 81 L 91 75 L 86 71 L 92 71 Z" fill="#38bdf8"/>
+    <!-- Open Happy Mouth -->
+    <path d="M 76 81 Q 80 88 84 81 Z" fill="#f43f5e"/>
+    <ellipse cx="55" cy="85" rx="5" ry="3" fill="#f43f5e" opacity="0.8"/>
+    <ellipse cx="105" cy="85" rx="5" ry="3" fill="#f43f5e" opacity="0.8"/>
+    <!-- Body -->
+    <rect x="62" y="110" width="36" height="24" rx="10" fill="url(#r-grad)" stroke="#cbd5e1" stroke-width="2"/>
+    <!-- Cheering Hands up -->
+    <ellipse cx="48" cy="104" rx="6" ry="9" fill="#94a3b8" transform="rotate(-35 48 104)"/>
+    <ellipse cx="112" cy="104" rx="6" ry="9" fill="#94a3b8" transform="rotate(35 112 104)"/>
+  </g>
+  <!-- Confetti -->
+  <circle cx="28" cy="40" r="3.5" fill="#ec4899" class="confetti-1"/>
+  <rect x="125" y="32" width="6" height="6" rx="2" fill="#3b82f6" class="confetti-2"/>
+  <polygon points="135,50 140,55 133,57" fill="#10b981" class="confetti-1"/>
+</svg>

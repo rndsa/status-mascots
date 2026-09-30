@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="blob-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes bounce-jelly {
+      0%, 100% { transform: scale(1, 1) translateY(0); }
+      30% { transform: scale(1.15, 0.85) translateY(4px); }
+      60% { transform: scale(0.9, 1.12) translateY(-10px); }
+    }
+    .jelly { animation: bounce-jelly 1.8s ease-in-out infinite; transform-origin: 80px 125px; }
+  </style>
+  <g class="jelly">
+    <!-- Jelly Body -->
+    <path d="M 45 115 C 35 115 35 90 48 70 C 60 50 100 50 112 70 C 125 90 125 115 115 115 C 95 125 65 125 45 115 Z" fill="url(#blob-grad)" stroke="#047857" stroke-width="2.5"/>
+    <!-- Glossy Highlight -->
+    <ellipse cx="65" cy="65" rx="14" ry="7" fill="#ffffff" opacity="0.6" transform="rotate(-30 65 65)"/>
+    <!-- Happy Anime Eyes (^ ^) -->
+    <path d="M 62 88 Q 68 80 74 88" fill="none" stroke="#064e3b" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 86 88 Q 92 80 98 88" fill="none" stroke="#064e3b" stroke-width="3" stroke-linecap="round"/>
+    <!-- Blush -->
+    <ellipse cx="57" cy="94" rx="5" ry="3" fill="#f43f5e" opacity="0.6"/>
+    <ellipse cx="103" cy="94" rx="5" ry="3" fill="#f43f5e" opacity="0.6"/>
+    <circle cx="80" cy="93" r="3" fill="#064e3b"/>
+  </g>
+</svg>

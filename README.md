@@ -1,120 +1,94 @@
-# Status Mascots — Animated SVG HTTP Status Library
+# Status Mascots — 11 Characters Animated SVG Library
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/badge/Status-Production%20Ready-00d992.svg)]()
-[![Assets: 14 SVGs](https://img.shields.io/badge/Assets-14%20Animated%20SVGs-38bdf8.svg)]()
+[![Assets: 11 Characters](https://img.shields.io/badge/Mascots-11%20Characters-38bdf8.svg)]()
 [![Format: Pure SVG + CSS](https://img.shields.io/badge/Format-Pure%20CSS%20Keyframes-ff70a6.svg)]()
 [![Author: ren](https://img.shields.io/badge/Author-ren%20(%40rskl411_)-ff70a6.svg)](https://instagram.com/rskl411_)
 
-> Production-ready collection of 14 cute animated vector SVG mascots mapped to HTTP status codes and API responses, featuring an interactive live preview playground and zero-dependency web embeds.
+> Koleksi 11 karakter maskot animasi vektor SVG mandiri untuk merespon kode status HTTP dan API. Tiap karakter memiliki set ekspresi unik (sukses, not found, error, dan animasi geleng-geleng saat conflict) tanpa dependensi eksternal.
 
 ---
 
 ## ⚡ Kelebihan & Fitur Utama
 
-* **14 Karakter Maskot Unik & Responsif**:
-  * Meliputi respon sukses, client error, hingga server failure (`200 OK`, `201 Created`, `204 No Content`, `400 Bad Request`, `401 Unauthorized`, `403 Forbidden`, `404 Not Found`, `409 Conflict`, `418 Teapot`, `422 Unprocessable`, `429 Rate Limit`, `500 Server Error`, `502 Bad Gateway`, `503 Maintenance`).
+* **11 Karakter Maskot Unik & Kaya Ekspresi**:
+  1. **Astro Bot (Robot Chibi)**: 10 status lengkap (`200`, `201`, `400`, `401`, `403`, `404`, `409`, `429`, `500`, `503`).
+  2. **Boofy (Cyber Ghost)**: Hantu imut melayang dengan ekspresi tersipu, memudar, nangis air mata anime, dan teriak kaget.
+  3. **Paws (Cyber Neko)**: Kucing oren dengan ekor bergoyang, ngintip dari kardus 404, mendesis cakar saat conflict, dan terlilit kabel merah.
+  4. **Jelly (Slime Blob)**: Slime hijau kenyal membal-membal, goyang miring merah panik, dan lumer gepeng jadi genangan.
+  5. **Rexy (Baby T-Rex)**: Dino hijau melompat gembira, garuk kepala gak nyampe karena tangan kependekan, dan mengaum kesal.
+  6. **Quack (Debugging Rubber Duck)**: Bebek kacamata hitam berenang santai, nyelam pantat ke atas, dan kwek-kwek marah paruh terbuka.
+  7. **Cosmo (Alien in UFO)**: Alien hijau di piring terbang, tersesat di luar angkasa, dan UFO oleng putar-putar sirine merah.
+  8. **Muggy (Caffeine Mug)**: Cangkir kopi hangat mengepul, kopi tumpah muncrat ke mana-mana, dan getar hebat over-caffeinated.
+  9. **Kuma (Honey Bear)**: Beruang cokelat makan madu, hibernasi di goa kosong, dan telapak tangan melambai NO-NO.
+  10. **Nimbus (Fluffy Cloud)**: Awan empuk senyum matahari, awan tertiup angin pudar, dan badai petir kilat menyambar.
+  11. **Chimp (Code Monkey)**: Monyet makan pisang jempol mantap, tutup telinga geleng kepala, dan banting laptop terbelah dua.
+* **Animasi Geleng-Geleng Kepala Khusus 409 Conflict**:
+  * Tiap karakter dibekali respon fisik khas saat terjadi duplikasi nama/subdomain (Astro geleng cepat + tetesan keringat, Kucing mendesis telinga datar, Hantu nangis T_T, Monyet tutup telinga no-no).
 * **Animasi Murni CSS Keyframes (Zero Dependency)**:
-  * Seluruh animasi (geleng-geleng kepala, lompat gembira, uap teko, percikan kabel putus, kipas pendingin) tertanam langsung di dalam file SVG tanpa perlu JavaScript atau library animasi eksternal.
-* **Astro Bot Geleng-Geleng (`409 Conflict`)**:
-  * Karakter maskot Astro Bot dengan animasi realistis geleng-geleng kepala cepat (`headShake`), antena berkedip merah, dan tetesan keringat saat subdo/akun/resource sudah terpakai.
-* **Tampilan Showcase SwiftUI / Cue by Manus**:
-  * Dashboard interaktif dark-theme (`#090A0D`) dengan simulator live response, pencarian status code instan, dan preview payload JSON real-time.
-* **Ringan & Instan di CDN**:
-  * Rata-rata ukuran file hanya 1–2 KB per SVG, bisa di-embed langsung via tag `<img>`, SVG inline, maupun komponen React/Vue.
+  * Semua gerakan tertanam murni di dalam kode SVG. Tidak membutuhkan JavaScript, Lottie, GIF berat, maupun library eksternal.
+* **Tampilan Showcase Cue by Manus**:
+  * Clean dark slate (`#0c0d12`), rounded cards 22px, selector pil interaktif, dan simulator JSON real-time.
 
 ---
 
 ## ⚠️ Kekurangan & Batasan Sistem
 
-* **Dukungan Render Gambar SVG Non-Browser**:
-  * Beberapa image viewer offline lawas atau parser PDF statis mungkin tidak merender animasi CSS di dalam SVG (animasi tampil maksimal di browser modern, web apps, dan mobile webviews).
-* **Efek Interaktif Terbatas pada `<img>`**:
-  * Jika disisipkan menggunakan tag `<img src="...">`, animasi loop CSS tetap berjalan normal, namun event hover interaktif antar-layer memerlukan embedding via inline `<svg>` atau tag `<object>`.
+* **Dukungan Parser Statis Non-Browser**:
+  * Aplikasi viewer gambar offline lawas atau PDF engine mungkin hanya menampilkan frame pertama SVG tanpa menjalankan loop animasi CSS `@keyframes`.
+* **Ukuran Skala pada Container Eksternal**:
+  * Agar proporsi terjaga tajam dan responsif, disarankan menetapkan atribut `width` dan `height` (contoh: 120x120) saat menyematkan tag `<img>`.
 
 ---
 
 ## 🚀 Cara Pakai & Panduan Integrasi
 
 ### 1. Direct Embed via Tag HTML
-Gunakan URL raw GitHub langsung di web frontend lu:
+Gunakan URL raw GitHub dengan format `mascots/<character>/<status>.svg`:
 
 ```html
-<!-- 409 Conflict (Astro Bot Geleng-Geleng) -->
-<img src="https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/409-conflict.svg" width="120" height="120" alt="409 Conflict" />
+<!-- Astro Bot Geleng-Geleng (409 Conflict) -->
+<img src="https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/robot/409-conflict.svg" width="120" height="120" alt="Robot 409 Conflict" />
 
-<!-- 200 OK (Happy Astro Bot) -->
-<img src="https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/200-ok.svg" width="120" height="120" alt="200 OK" />
+<!-- Boofy Ghost (200 OK) -->
+<img src="https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/ghost/200-ok.svg" width="120" height="120" alt="Ghost 200 OK" />
 
-<!-- 429 Too Many Requests (Overheat Fan Bot) -->
-<img src="https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/429-ratelimit.svg" width="120" height="120" alt="429 Rate Limit" />
+<!-- Paws Cyber Cat (404 Not Found) -->
+<img src="https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/cat/404-not-found.svg" width="120" height="120" alt="Cat 404 Not Found" />
 ```
 
-### 2. Komponen React / Next.js
+### 2. Komponen Dinamis React / Next.js
 
 ```jsx
-export function StatusMascot({ code }) {
-  const fileMap = {
-    200: "200-ok.svg",
-    400: "400-badrequest.svg",
-    401: "401-unauthorized.svg",
-    403: "403-forbidden.svg",
-    404: "404-notfound.svg",
-    409: "409-conflict.svg",
-    429: "429-ratelimit.svg",
-    500: "500-error.svg",
-    503: "503-maintenance.svg"
+export function StatusMascot({ character = "robot", code = 200 }) {
+  const getFile = (char, status) => {
+    if (status === 200) return "200-ok.svg";
+    if (status === 404) return "404-not-found.svg";
+    if (status === 409) return "409-conflict.svg";
+    if (status === 500) return "500-internal-error.svg";
+    return "200-ok.svg";
   };
 
-  const filename = fileMap[code] || "200-ok.svg";
+  const filename = getFile(character, code);
+  const src = `https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/${character}/${filename}`;
+
   return (
-    <img
-      src={`https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/${filename}`}
-      alt={`HTTP ${code}`}
-      width={120}
-      height={120}
+    <img 
+      src={src} 
+      width={120} 
+      height={120} 
+      alt={`${character} status ${code}`}
+      style={{ userSelect: "none" }}
     />
   );
 }
 ```
 
-### 3. Menjalankan Live Showcase Lokal
-
-```bash
-# Clone repository
-git clone https://github.com/rndsa/status-mascots.git
-cd status-mascots
-
-# Jalankan server
-node server.js
-# Buka di browser: http://127.0.0.1:4848
-```
-
 ---
 
-## 📋 Katalog Maskot & HTTP Status Codes
+## 📄 Lisensi & Kredit
 
-| Status Code | Karakter | Perilaku & Animasi |
-|---|---|---|
-| `200 OK` | **Happy Astro Bot** | Nafas ngambang halus, kedip mata cyan `(^ ^)`, antena pulsing |
-| `201 Created` | **Party Sprout Bot** | Topi pesta, lompat gembira, letupan confetti warna-warni |
-| `204 No Content` | **Ghost Bot** | Hantu mengambang transparan, memudar halus naik-turun |
-| `400 Bad Request` | **Puzzled Bot** | Miringin kepala penasaran, tanda tanya kuning melayang |
-| `401 Unauthorized` | **Keyhole Guard Bot** | Visor gembok kuning-merah berkedip, shield pengaman |
-| `403 Forbidden` | **Security Shield Bot** | Mata merah stern `(- -)`, sirine atas kepala, akses ditolak |
-| `404 Not Found` | **Detective Bot** | Topi detektif tweed, kaca pembesar celingukan lirik kiri-kanan |
-| `409 Conflict` | **GELENG-GELENG Bot** | Geleng-geleng kepala cepat (`headShake`), mata silang `(> <)`, keringat |
-| `418 Teapot` | **Cute Teapot Bot** | Teko imut bersiul, kepulan uap hangat naik dari corong |
-| `422 Unprocessable` | **Glitch Wire Bot** | Mata spiral bergetar, kabel ruwet merah, getaran glitch |
-| `429 Rate Limit` | **Overheat Fan Bot** | Helm merah membara, kipas pendingin muter kencang, uap panas |
-| `500 Server Error` | **Crash Smoke Bot** | Helm retak keluar asap, mata spiral pusing `(@ @)` |
-| `502 Bad Gateway` | **Disconnected Plug Bot** | Dua ujung kabel terlepas dengan percikan api biru listrik |
-| `503 Maintenance` | **Builder Bot** | Helm proyek kuning, memegang kunci inggris siap servis |
-
----
-
-## 📄 Lisensi & Kontributor
-
-* **Lisensi**: MIT License
-* **Author**: [ren](https://instagram.com/rskl411_) • GitHub: [@rndsa](https://github.com/rndsa)
-* Seluruh hak cipta dilindungi (c) 2026 ren.
+* Lisensi: [MIT License](LICENSE)
+* Author: **ren** ([@rskl411_](https://instagram.com/rskl411_))
+* GitHub Repo: [rndsa/status-mascots](https://github.com/rndsa/status-mascots)

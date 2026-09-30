@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="r-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes lock-blink { 0%, 100% { fill: #f59e0b; opacity: 1; } 50% { fill: #ef4444; opacity: 0.8; } }
+    .lock-led { animation: lock-blink 1.5s infinite; }
+  </style>
+  <g>
+    <!-- Antenna with warning lock ring -->
+    <rect x="78" y="27" width="4" height="18" rx="2" fill="#94a3b8"/>
+    <circle cx="80" cy="24" r="6" fill="#ef4444"/>
+    <!-- Head -->
+    <rect x="38" y="40" width="84" height="70" rx="26" fill="url(#r-grad)" stroke="#cbd5e1" stroke-width="2.5"/>
+    <rect x="47" y="52" width="66" height="42" rx="16" fill="#0f172a"/>
+    <!-- Keyhole Icon on Visor -->
+    <g class="lock-led">
+      <circle cx="80" cy="69" r="6"/>
+      <polygon points="76,71 84,71 86,81 74,81"/>
+    </g>
+    <!-- Guard stern eyebrows -->
+    <line x1="56" y1="62" x2="68" y2="67" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="104" y1="62" x2="92" y2="67" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Body -->
+    <rect x="62" y="112" width="36" height="24" rx="10" fill="url(#r-grad)" stroke="#cbd5e1" stroke-width="2"/>
+    <!-- Shield in hand -->
+    <ellipse cx="50" cy="120" rx="6" ry="8" fill="#94a3b8"/>
+    <polygon points="106,108 122,112 120,126 106,134 98,124" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5"/>
+    <text x="105" y="125" font-family="sans-serif" font-size="10" font-weight="bold" fill="#ffffff">KEY</text>
+  </g>
+</svg>

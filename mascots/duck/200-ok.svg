@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="duck-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="100%" stop-color="#eab308"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes duck-float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-6px) rotate(3deg); } }
+    .ducky { animation: duck-float 2.2s ease-in-out infinite; transform-origin: 80px 110px; }
+  </style>
+  <g class="ducky">
+    <!-- Body -->
+    <ellipse cx="75" cy="105" rx="36" ry="24" fill="url(#duck-grad)" stroke="#ca8a04" stroke-width="2"/>
+    <!-- Tail upturn -->
+    <path d="M 40 105 Q 35 95 44 95" fill="none" stroke="#ca8a04" stroke-width="4" stroke-linecap="round"/>
+    <!-- Head -->
+    <circle cx="95" cy="72" r="22" fill="url(#duck-grad)" stroke="#ca8a04" stroke-width="2"/>
+    <!-- Beak Orange -->
+    <ellipse cx="118" cy="76" rx="10" ry="6" fill="#f97316"/>
+    <!-- Big Anime Eye -->
+    <circle cx="102" cy="68" r="5" fill="#0f172a"/>
+    <circle cx="104" cy="66" r="2" fill="#ffffff"/>
+    <ellipse cx="94" cy="78" rx="4" ry="2.5" fill="#f43f5e" opacity="0.6"/>
+    <!-- Cool Sunglasses -->
+    <rect x="90" y="64" width="24" height="10" rx="3" fill="#0f172a"/>
+    <line x1="90" y1="67" x2="80" y2="70" stroke="#0f172a" stroke-width="2"/>
+    <!-- Water ripples -->
+    <path d="M 35 125 Q 80 135 125 125" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

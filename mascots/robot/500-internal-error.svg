@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="crash-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes smoke { 0% { transform: translateY(0) scale(0.6); opacity: 0; } 50% { opacity: 0.8; } 100% { transform: translateY(-16px) scale(1.2); opacity: 0; } }
+    @keyframes spiral { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .smoke-1 { animation: smoke 2s infinite; transform-origin: 60px 30px; }
+    .smoke-2 { animation: smoke 2s infinite 0.7s; transform-origin: 95px 25px; }
+    .dizzy-l { animation: spiral 3s linear infinite; transform-origin: 66px 72px; }
+    .dizzy-r { animation: spiral 3s linear infinite; transform-origin: 94px 72px; }
+  </style>
+  <g>
+    <!-- Smoke puffs -->
+    <circle cx="60" cy="30" r="8" fill="#94a3b8" class="smoke-1"/>
+    <circle cx="95" cy="25" r="10" fill="#cbd5e1" class="smoke-2"/>
+    <!-- Broken bent antenna with sparks -->
+    <line x1="78" y1="42" x2="86" y2="28" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+    <polygon points="86,28 92,24 88,32 94,30" fill="#facc15"/>
+    <!-- Cracked Head -->
+    <rect x="38" y="40" width="84" height="70" rx="26" fill="url(#crash-grad)" stroke="#ef4444" stroke-width="2.5"/>
+    <path d="M 60 40 L 66 52 L 62 60" stroke="#f87171" stroke-width="2" fill="none"/>
+    <rect x="47" y="52" width="66" height="42" rx="16" fill="#020617"/>
+    <!-- Dizzy Spirals Eyes (@ @) -->
+    <g class="dizzy-l">
+      <path d="M 66 67 A 5 5 0 1 0 71 72 A 3 3 0 1 0 68 70" fill="none" stroke="#f87171" stroke-width="2"/>
+    </g>
+    <g class="dizzy-r">
+      <path d="M 94 67 A 5 5 0 1 0 99 72 A 3 3 0 1 0 96 70" fill="none" stroke="#f87171" stroke-width="2"/>
+    </g>
+    <!-- Glitched Mouth -->
+    <path d="M 72 84 L 76 81 L 80 85 L 84 81 L 88 84" fill="none" stroke="#f87171" stroke-width="2"/>
+    <!-- Body -->
+    <rect x="62" y="112" width="36" height="24" rx="10" fill="url(#crash-grad)" stroke="#ef4444" stroke-width="2"/>
+  </g>
+</svg>
