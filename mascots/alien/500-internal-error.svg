@@ -1,14 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <!-- Crashed UFO in Crater with Smoke -->
-  <ellipse cx="80" cy="115" rx="45" ry="15" fill="#1e293b"/>
-  <!-- Half buried saucer -->
-  <g transform="rotate(-25 80 100)">
-    <ellipse cx="80" cy="100" rx="42" ry="14" fill="#475569" stroke="#ef4444" stroke-width="2"/>
-    <!-- Cracked Dome -->
-    <path d="M 65 92 C 65 75 95 75 95 92 Z" fill="#67e8f9" opacity="0.6"/>
-    <line x1="75" y1="80" x2="85" y2="88" stroke="#ffffff" stroke-width="2"/>
+  <defs>
+    <linearGradient id="alien-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e9d5ff"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes terrorShiver {
+      0%, 100% { transform: translate(0, 0); }
+      20% { transform: translate(-3px, 2px); }
+      40% { transform: translate(3px, -2px); }
+      60% { transform: translate(-2px, -2px); }
+      80% { transform: translate(2px, 2px); }
+    }
+    @keyframes sparkFlick {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+    .head-terror { animation: terrorShiver 0.25s infinite; transform-origin: 80px 145px; }
+    .sparks { animation: sparkFlick 0.3s infinite; }
+  </style>
+
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <!-- Sparks -->
+  <g class="sparks">
+    <polyline points="24,36 32,48 26,52 36,66" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
+    <polyline points="136,36 128,48 134,52 124,66" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
   </g>
-  <circle cx="95" cy="65" r="8" fill="#64748b" opacity="0.6"/>
-  <circle cx="105" cy="50" r="12" fill="#64748b" opacity="0.4"/>
-  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">CRASH LANDING (500)</text>
+
+  <g class="head-terror">
+    <path d="M 32 72 C 32 40 50 36 80 36 C 110 36 128 40 128 72 C 128 104 112 128 80 128 C 48 128 32 104 32 72 Z" 
+          fill="url(#alien-grad)" stroke="#ef4444" stroke-width="2.5"/>
+
+    <!-- Wide Spooked Eyes O_O -->
+    <ellipse cx="60" cy="74" rx="9" ry="12" fill="#ef4444"/>
+    <circle cx="62" cy="71" r="3" fill="#ffffff"/>
+
+    <ellipse cx="98" cy="74" rx="9" ry="12" fill="#ef4444"/>
+    <circle cx="100" cy="71" r="3" fill="#ffffff"/>
+
+    <!-- Screaming mouth -->
+    <ellipse cx="80" cy="98" rx="9" ry="12" fill="#2e1065"/>
+  </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">CRASH (500)</text>
 </svg>

@@ -1,10 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <!-- Empty Space Asteroid with Scan Beam -->
-  <circle cx="80" cy="120" r="25" fill="#334155"/>
-  <polygon points="80,75 55,115 105,115" fill="#38bdf8" opacity="0.3"/>
+  <defs>
+    <linearGradient id="alien-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e9d5ff"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes alienFade {
+      0%, 100% { opacity: 0.95; }
+      50% { opacity: 0.25; }
+    }
+    @keyframes lookLR {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+    .head-fade { animation: alienFade 3s ease-in-out infinite; }
+    .eyes-roam { animation: lookLR 2.6s ease-in-out infinite; }
+  </style>
 
-  <!-- Tiny UFO scanning -->
-  <ellipse cx="80" cy="65" rx="30" ry="10" fill="#64748b"/>
-  <circle cx="80" cy="58" r="8" fill="#67e8f9" opacity="0.8"/>
-  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#38bdf8" text-anchor="middle">EMPTY VOID (404)</text>
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="head-fade">
+    <!-- Detective Hat -->
+    <path d="M 44 42 C 44 26 116 26 116 42 Z" fill="#78350f"/>
+    <ellipse cx="80" cy="42" rx="42" ry="6" fill="#92400e"/>
+
+    <path d="M 32 72 C 32 40 50 36 80 36 C 110 36 128 40 128 72 C 128 104 112 128 80 128 C 48 128 32 104 32 72 Z" 
+          fill="url(#alien-grad)" stroke="#9333ea" stroke-width="2.5"/>
+
+    <!-- Roaming eyes -->
+    <g class="eyes-roam">
+      <ellipse cx="60" cy="78" rx="7" ry="10" fill="#2e1065"/>
+      <circle cx="62" cy="75" r="2.5" fill="#ffffff"/>
+
+      <ellipse cx="98" cy="78" rx="7" ry="10" fill="#2e1065"/>
+      <circle cx="100" cy="75" r="2.5" fill="#ffffff"/>
+    </g>
+
+    <ellipse cx="80" cy="94" rx="3.5" ry="4.5" fill="#2e1065"/>
+  </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#64748b" text-anchor="middle">SEARCHING (404)</text>
 </svg>

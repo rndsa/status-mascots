@@ -1,17 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="alien-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e9d5ff"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <filter id="alien-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#ef4444" flood-opacity="0.3"/>
+    </filter>
+  </defs>
   <style>
-    @keyframes saucerCrash {
-      0%, 100% { transform: translateX(0); }
-      50% { transform: translateX(4px); }
+    @keyframes shockAlien {
+      0%, 100% { transform: rotate(0deg); }
+      15% { transform: rotate(-8deg); }
+      30% { transform: rotate(8deg); }
+      45% { transform: rotate(-6deg); }
+      60% { transform: rotate(5deg); }
+      75% { transform: rotate(-3deg); }
     }
-    .crash { animation: saucerCrash 0.6s infinite; }
+    @keyframes sweatFall {
+      0% { transform: translateY(0); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(18px); opacity: 0; }
+    }
+    .head-shock { animation: shockAlien 0.75s ease-in-out infinite; transform-origin: 80px 145px; }
+    .sweat-drop { animation: sweatFall 1.2s infinite; }
   </style>
-  <!-- Two colliding Saucers -->
-  <g class="crash">
-    <ellipse cx="55" cy="80" rx="30" ry="10" fill="#64748b" stroke="#ef4444" stroke-width="2"/>
-    <ellipse cx="105" cy="80" rx="30" ry="10" fill="#64748b" stroke="#ef4444" stroke-width="2"/>
-    <!-- Collision Spark -->
-    <polygon points="80,70 84,76 90,75 86,81 89,88 80,83 71,88 74,81 70,75 76,76" fill="#facc15"/>
+
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="head-shock">
+    <path d="M 32 72 C 32 40 50 36 80 36 C 110 36 128 40 128 72 C 128 104 112 128 80 128 C 48 128 32 104 32 72 Z" 
+          fill="url(#alien-grad)" stroke="#ef4444" stroke-width="2.5" filter="url(#alien-glow)"/>
+
+    <!-- Squeezed X Eyes (> <) -->
+    <path d="M 52 74 L 64 82 L 52 90" fill="none" stroke="#ef4444" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 108 74 L 96 82 L 108 90" fill="none" stroke="#ef4444" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Quivering mouth -->
+    <path d="M 72 94 Q 76 89 80 94 Q 84 99 88 94" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Tears -->
+    <g class="sweat-drop" transform="translate(120, 60)">
+      <path d="M 0 -8 Q 6 0 0 5 Q -6 0 0 -8 Z" fill="#38bdf8"/>
+    </g>
   </g>
-  <text x="80" y="145" font-family="monospace" font-size="11" font-weight="bold" fill="#ef4444" text-anchor="middle">ORBIT CONFLICT</text>
 </svg>
