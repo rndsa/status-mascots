@@ -1,12 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <!-- Smoking Server Rack -->
-  <rect x="55" y="45" width="50" height="75" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
-  <circle cx="65" cy="55" r="3" fill="#ef4444"/>
-  <circle cx="65" cy="70" r="3" fill="#ef4444"/>
-  <circle cx="65" cy="85" r="3" fill="#ef4444"/>
-  <circle cx="65" cy="100" r="3" fill="#ef4444"/>
-  <!-- Smoke plume -->
-  <circle cx="95" cy="35" r="8" fill="#64748b" opacity="0.6"/>
-  <circle cx="105" cy="20" r="12" fill="#64748b" opacity="0.4"/>
-  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">PROD DOWN (500)</text>
+  <defs>
+    <linearGradient id="monkey-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a16207"/>
+      <stop offset="100%" stop-color="#713f12"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes terrorShiver {
+      0%, 100% { transform: translate(0, 0); }
+      20% { transform: translate(-3px, 2px); }
+      40% { transform: translate(3px, -2px); }
+      60% { transform: translate(-2px, -2px); }
+      80% { transform: translate(2px, 2px); }
+    }
+    @keyframes sparkFlick {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+    .head-terror { animation: terrorShiver 0.25s infinite; transform-origin: 80px 145px; }
+    .sparks { animation: sparkFlick 0.3s infinite; }
+  </style>
+
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <!-- Sparks -->
+  <g class="sparks">
+    <polyline points="24,36 32,48 26,52 36,66" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
+    <polyline points="136,36 128,48 134,52 124,66" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <g class="head-terror">
+    <circle cx="28" cy="72" r="18" fill="#854d0e" stroke="#ef4444" stroke-width="2"/>
+    <circle cx="132" cy="72" r="18" fill="#854d0e" stroke="#ef4444" stroke-width="2"/>
+
+    <rect x="34" y="42" width="92" height="90" rx="42" fill="url(#monkey-grad)" stroke="#ef4444" stroke-width="2.5"/>
+
+    <path d="M 44 82 C 44 60 60 54 70 62 C 76 66 80 66 84 62 C 94 54 110 60 110 82 C 110 114 96 124 77 124 C 58 124 44 114 44 82 Z" fill="#fef3c7"/>
+
+    <!-- Wide Spooked Eyes O_O -->
+    <ellipse cx="62" cy="76" rx="9" ry="12" fill="#ef4444"/>
+    <circle cx="64" cy="73" r="3" fill="#ffffff"/>
+
+    <ellipse cx="98" cy="76" rx="9" ry="12" fill="#ef4444"/>
+    <circle cx="100" cy="73" r="3" fill="#ffffff"/>
+
+    <ellipse cx="80" cy="102" rx="10" ry="12" fill="#451a03"/>
+  </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">CRASH (500)</text>
 </svg>

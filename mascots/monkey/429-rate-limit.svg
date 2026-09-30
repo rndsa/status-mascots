@@ -1,7 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <!-- Flaming Keyboard -->
-  <rect x="45" y="90" width="70" height="25" rx="3" fill="#451a03"/>
-  <!-- Fire Flames -->
-  <polygon points="55,90 60,65 65,85 75,55 85,85 95,65 105,90" fill="#f97316"/>
-  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#ea580c" text-anchor="middle">1000 WPM OVERHEAT</text>
+  <defs>
+    <linearGradient id="monkey-hot-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes pantingBreath {
+      0%, 100% { transform: scale(1, 1); }
+      50% { transform: scale(1.05, 0.95); }
+    }
+    .head-pant { animation: pantingBreath 0.5s ease-in-out infinite; transform-origin: 80px 145px; }
+  </style>
+
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="head-pant">
+    <circle cx="28" cy="72" r="18" fill="#f97316"/>
+    <circle cx="132" cy="72" r="18" fill="#f97316"/>
+
+    <rect x="34" y="42" width="92" height="90" rx="42" fill="url(#monkey-hot-grad)" stroke="#c2410c" stroke-width="2.5"/>
+
+    <path d="M 44 82 C 44 60 60 54 70 62 C 76 66 80 66 84 62 C 94 54 110 60 110 82 C 110 114 96 124 77 124 C 58 124 44 114 44 82 Z" fill="#fed7aa"/>
+
+    <!-- Exhausted spiral eyes -->
+    <path d="M 62 80 A 3 3 0 1 1 58 83 A 5 5 0 1 1 65 81" fill="none" stroke="#7c2d12" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 98 80 A 3 3 0 1 1 94 83 A 5 5 0 1 1 101 81" fill="none" stroke="#7c2d12" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Open mouth with tongue out -->
+    <ellipse cx="80" cy="100" rx="6" ry="5" fill="#7c2d12"/>
+    <path d="M 78 102 Q 80 110 82 102 Z" fill="#f43f5e"/>
+
+    <ellipse cx="48" cy="92" rx="6" ry="3.5" fill="#f97316" opacity="0.7"/>
+    <ellipse cx="106" cy="92" rx="6" ry="3.5" fill="#f97316" opacity="0.7"/>
+  </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#ea580c" text-anchor="middle">OVERHEAT 429</text>
 </svg>

@@ -1,9 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <circle cx="50" cy="65" r="12" fill="#a16207"/>
-  <circle cx="110" cy="65" r="12" fill="#a16207"/>
-  <circle cx="80" cy="68" r="28" fill="#a16207"/>
-  <!-- Scratching Head Paw -->
-  <line x1="95" y1="75" x2="105" y2="52" stroke="#a16207" stroke-width="6" stroke-linecap="round"/>
-  <text x="120" y="55" font-family="sans-serif" font-size="22" font-weight="900" fill="#ca8a04">?</text>
-  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#713f12" text-anchor="middle">SYNTAX ERROR (400)</text>
+  <defs>
+    <linearGradient id="monkey-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a16207"/>
+      <stop offset="100%" stop-color="#713f12"/>
+    </linearGradient>
+    <filter id="monkey-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#713f12" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <style>
+    @keyframes tiltMonkey {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-15deg); }
+    }
+    @keyframes qmarkBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px) rotate(4deg); }
+    }
+    .head-tilt { animation: tiltMonkey 2.6s ease-in-out infinite; transform-origin: 80px 145px; }
+    .qmark-box { animation: qmarkBob 2s ease-in-out infinite; transform-origin: 130px 30px; }
+  </style>
+
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="qmark-box">
+    <ellipse cx="130" cy="30" rx="14" ry="14" fill="#141722" stroke="#a16207" stroke-width="2"/>
+    <text x="130" y="38" font-family="-apple-system, sans-serif" font-size="20" font-weight="900" fill="#a16207" text-anchor="middle">?</text>
+  </g>
+
+  <g class="head-tilt">
+    <circle cx="28" cy="72" r="18" fill="#854d0e" stroke="#713f12" stroke-width="2"/>
+    <circle cx="28" cy="72" r="10" fill="#fde68a"/>
+    <circle cx="132" cy="72" r="18" fill="#854d0e" stroke="#713f12" stroke-width="2"/>
+    <circle cx="132" cy="72" r="10" fill="#fde68a"/>
+
+    <rect x="34" y="42" width="92" height="90" rx="42" fill="url(#monkey-grad)" stroke="#713f12" stroke-width="2.5" filter="url(#monkey-glow)"/>
+
+    <path d="M 44 82 C 44 60 60 54 70 62 C 76 66 80 66 84 62 C 94 54 110 60 110 82 C 110 114 96 124 77 124 C 58 124 44 114 44 82 Z" fill="#fef3c7"/>
+
+    <!-- Puzzled Eyes: Left spiral @, Right dot . -->
+    <path d="M 62 76 A 4 4 0 1 1 58 80 A 7 7 0 1 1 67 78" fill="none" stroke="#451a03" stroke-width="2.8" stroke-linecap="round"/>
+    <ellipse cx="98" cy="80" rx="6" ry="8" fill="#451a03"/>
+    <circle cx="100" cy="78" r="2.2" fill="#ffffff"/>
+
+    <circle cx="80" cy="100" r="4.5" fill="#451a03"/>
+  </g>
 </svg>

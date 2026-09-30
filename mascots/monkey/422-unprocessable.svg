@@ -1,7 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <!-- Exploded Laptop with red sparks -->
-  <rect x="50" y="70" width="60" height="35" rx="3" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
-  <text x="80" y="88" font-family="monospace" font-size="7" font-weight="bold" fill="#ef4444" text-anchor="middle">TypeError: NaN</text>
-  <polygon points="70,55 75,65 85,60 78,70 88,72 75,76" fill="#facc15"/>
-  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">SEMANTIC PARSE ERR</text>
+  <defs>
+    <linearGradient id="monkey-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a16207"/>
+      <stop offset="100%" stop-color="#713f12"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes glitchJitter {
+      0%, 100% { transform: translate(0, 0); }
+      20% { transform: translate(-3px, 1px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-2px, -1px); }
+      80% { transform: translate(3px, 2px); }
+    }
+    .head-glitch { animation: glitchJitter 0.25s infinite; }
+  </style>
+
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="head-glitch">
+    <circle cx="28" cy="72" r="18" fill="#c084fc"/>
+    <circle cx="132" cy="72" r="18" fill="#38bdf8"/>
+
+    <rect x="34" y="42" width="92" height="90" rx="42" fill="url(#monkey-grad)" stroke="#c084fc" stroke-width="2.5"/>
+
+    <path d="M 44 82 C 44 60 60 54 70 62 C 76 66 80 66 84 62 C 94 54 110 60 110 82 C 110 114 96 124 77 124 C 58 124 44 114 44 82 Z" fill="#fef3c7"/>
+
+    <!-- Glitched pixel eyes -->
+    <rect x="52" y="78" width="16" height="5" fill="#c084fc"/>
+    <rect x="56" y="73" width="8" height="15" fill="#c084fc"/>
+    <rect x="92" y="78" width="16" height="5" fill="#38bdf8"/>
+    <rect x="96" y="83" width="8" height="10" fill="#38bdf8"/>
+
+    <rect x="74" y="98" width="12" height="4" fill="#c084fc"/>
+  </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#c084fc" text-anchor="middle">PARSER GLITCH (422)</text>
 </svg>
