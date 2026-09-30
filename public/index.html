@@ -2,25 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Status Mascots — Cute Animated SVGs for HTTP Codes by ren</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Status Mascots — 14 Animated SVGs for HTTP Codes by ren</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #090a0d;
-      --surface: #12141a;
-      --surface-subtle: #191c24;
-      --surface-hover: #222634;
+      --bg: #07080b;
+      --surface: #101218;
+      --surface-subtle: #171a23;
+      --surface-hover: #1f2330;
       --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.18);
-      --text: #f4f4f6;
-      --text-muted: #8b8f9e;
-      --accent: #3477d4;
+      --border-hover: rgba(255, 255, 255, 0.2);
+      --border-focus: #00f0ff;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent-cyan: #00f0ff;
       --accent-green: #3cd47b;
       --accent-coral: #ff4d4d;
       --accent-yellow: #ffd043;
-      --accent-cyan: #00f0ff;
+      --accent-blue: #3b82f6;
+      --accent-purple: #a855f7;
       --radius-card: 20px;
       --radius-pill: 100px;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
     }
 
     * {
@@ -28,231 +36,450 @@
       margin: 0;
       padding: 0;
       -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
       background-color: var(--bg);
+      background-image: 
+        radial-gradient(ellipse 60% 40% at 50% -10%, rgba(0, 240, 255, 0.08), transparent 70%),
+        radial-gradient(circle 800px at 100% 40%, rgba(168, 85, 247, 0.04), transparent),
+        radial-gradient(circle 800px at 0% 70%, rgba(60, 212, 123, 0.04), transparent);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      font-family: var(--font-sans);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 40px 24px;
+      padding: 32px 20px 28px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Subtle background grid pattern */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      pointer-events: none;
+      z-index: 0;
     }
 
     .container {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
       width: 100%;
+      position: relative;
+      z-index: 1;
     }
 
-    /* Header */
-    header {
+    /* Top Navigation */
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 36px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
     }
 
-    .brand {
+    .brand-group {
       display: flex;
       align-items: center;
       gap: 14px;
+      cursor: pointer;
     }
 
-    .brand-logo {
-      width: 48px;
-      height: 48px;
-    }
-
-    .brand-title {
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-by {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-muted);
-      letter-spacing: 0.03em;
-    }
-
-    .brand-by a {
-      color: var(--accent-cyan);
-      text-decoration: none;
-    }
-
-    .header-links {
+    .brand-logo-wrap {
+      width: 44px;
+      height: 44px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
       display: flex;
-      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0, 240, 255, 0.15);
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    .btn-pill {
+    .brand-group:hover .brand-logo-wrap {
+      transform: scale(1.08) rotate(4deg);
+    }
+
+    .brand-logo-wrap img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .brand-text h1 {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+
+    .brand-text p {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sound-toggle-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.15s ease;
+    }
+
+    .sound-toggle-btn:hover {
+      border-color: var(--border-hover);
+      color: #fff;
+    }
+
+    .nav-btn {
       background: var(--surface);
       border: 1px solid var(--border);
       color: var(--text);
-      padding: 8px 16px;
+      padding: 9px 18px;
       border-radius: var(--radius-pill);
       font-size: 13px;
       font-weight: 600;
       text-decoration: none;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
       transition: all 0.15s ease;
     }
 
-    .btn-pill:hover {
+    .nav-btn:hover {
       background: var(--surface-hover);
       border-color: var(--border-hover);
+      transform: translateY(-1px);
     }
 
-    /* Live Interactive Playground Banner */
-    .playground-banner {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-card);
-      padding: 24px 28px;
-      margin-bottom: 36px;
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 32px;
+    /* Hero Spotlight Stage */
+    .hero-stage {
+      text-align: center;
+      margin-bottom: 48px;
+      position: relative;
+    }
+
+    .hero-pill {
+      display: inline-flex;
       align-items: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    }
-
-    @media (max-width: 820px) {
-      .playground-banner {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .play-left {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .play-title {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
-
-    .play-desc {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .preset-btns {
-      display: flex;
-      flex-wrap: wrap;
       gap: 8px;
-    }
-
-    .preset-btn {
-      background: var(--surface-subtle);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 6px 12px;
+      background: rgba(0, 240, 255, 0.08);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      padding: 5px 14px;
       border-radius: var(--radius-pill);
       font-size: 12px;
       font-weight: 600;
+      color: var(--accent-cyan);
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-pill-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--accent-cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 5.5vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      background: linear-gradient(180deg, #ffffff 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    /* Interactive API Request Lab (Console) */
+    .api-lab-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      margin-bottom: 54px;
+      box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.7);
+      transition: border-color 0.2s ease;
+    }
+
+    .lab-topbar {
+      background: #0d0f15;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .mac-dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .mac-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #2a2d37;
+    }
+
+    .mac-dot.red { background: #ff5f56; }
+    .mac-dot.yellow { background: #ffbd2e; }
+    .mac-dot.green { background: #27c93f; }
+
+    .url-bar-wrap {
+      flex: 1;
+      max-width: 580px;
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 4px 6px 4px 14px;
+      margin: 0 12px;
+    }
+
+    .http-method {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      margin-right: 12px;
+    }
+
+    .url-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: #e2e8f0;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      outline: none;
+    }
+
+    .btn-send-req {
+      background: var(--accent-cyan);
+      color: #07080b;
+      border: none;
+      padding: 7px 16px;
+      border-radius: 8px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
       cursor: pointer;
       transition: all 0.15s ease;
     }
 
-    .preset-btn:hover, .preset-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
+    .btn-send-req:hover {
+      background: #5cf8ff;
+      transform: translateY(-1px);
     }
 
-    /* Playground Live Screen */
-    .play-right {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      display: flex;
-      gap: 20px;
+    .lab-content {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
       align-items: center;
     }
 
-    .play-avatar {
-      width: 110px;
-      height: 110px;
-      flex-shrink: 0;
+    @media (max-width: 768px) {
+      .lab-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+
+    .stage-mascot-box {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
+      position: relative;
     }
 
-    .play-avatar img {
-      width: 100%;
-      height: 100%;
+    .stage-mascot-box img {
+      width: 140px;
+      height: 140px;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    .play-console {
-      flex: 1;
+    .stage-mascot-box:active img {
+      transform: scale(0.9) rotate(-3deg);
+    }
+
+    .lab-inspector {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      min-width: 0;
+      gap: 14px;
     }
 
-    .status-badge-live {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 6px;
-      width: fit-content;
-      font-family: ui-monospace, SFMono-Regular, monospace;
-    }
-
-    .badge-2xx { background: rgba(60, 212, 123, 0.15); color: var(--accent-green); }
-    .badge-4xx { background: rgba(255, 77, 77, 0.15); color: var(--accent-coral); }
-    .badge-5xx { background: rgba(255, 208, 67, 0.15); color: var(--accent-yellow); }
-
-    .play-json {
-      background: #0d0f15;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
-      padding: 10px 12px;
-      font-family: ui-monospace, SFMono-Regular, monospace;
-      font-size: 11px;
-      color: #cbd5e1;
-      white-space: pre-wrap;
-      word-break: break-all;
-    }
-
-    /* Controls: Filter & Search */
-    .controls-bar {
+    .lab-header-row {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
+      justify-content: space-between;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
-    .tabs-group {
+    .status-pill-big {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pill-2xx { background: rgba(60, 212, 123, 0.15); color: var(--accent-green); border: 1px solid rgba(60, 212, 123, 0.3); }
+    .pill-4xx { background: rgba(255, 77, 77, 0.15); color: var(--accent-coral); border: 1px solid rgba(255, 77, 77, 0.3); }
+    .pill-5xx { background: rgba(255, 208, 67, 0.15); color: var(--accent-yellow); border: 1px solid rgba(255, 208, 67, 0.3); }
+
+    .latency-pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 6px;
+    }
+
+    /* Interactive Scenario Buttons */
+    .scenario-ribbon {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .scenario-btn {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .scenario-btn:hover {
+      border-color: var(--border-hover);
+      background: var(--surface-hover);
+    }
+
+    .scenario-btn.active {
+      background: #ffffff;
+      color: #07080b;
+      border-color: #ffffff;
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+    }
+
+    /* JSON Box in Lab */
+    .lab-json-view {
+      background: #090b10;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.5;
+      overflow-x: auto;
+    }
+
+    .json-key { color: var(--accent-cyan); }
+    .json-str { color: #facc15; }
+    .json-num { color: #3cd47b; }
+    .json-bool { color: #f43f5e; }
+
+    /* Mascot Gallery Controls */
+    .gallery-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .section-title h2 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .section-title p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .filter-search-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filter-tabs {
       display: flex;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-pill);
       padding: 4px;
-      gap: 2px;
     }
 
-    .tab-item {
+    .filter-tab {
       padding: 8px 16px;
       font-size: 13px;
       font-weight: 600;
@@ -263,115 +490,161 @@
       transition: all 0.15s ease;
     }
 
-    .tab-item.active {
+    .filter-tab.active {
       background: var(--surface-subtle);
-      color: var(--text);
+      color: #fff;
     }
 
-    .search-input {
+    .search-field {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-pill);
       color: var(--text);
       font-family: inherit;
       font-size: 13px;
-      padding: 10px 18px;
+      padding: 9px 18px;
       outline: none;
-      width: 260px;
+      width: 220px;
       transition: border-color 0.15s ease;
     }
 
-    .search-input:focus {
-      border-color: var(--accent);
+    .search-field:focus {
+      border-color: var(--accent-cyan);
     }
 
     /* Mascot Grid */
     .mascot-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 22px;
+      margin-bottom: 60px;
     }
 
-    .mascot-card {
+    .card-item {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-card);
-      padding: 24px 20px;
+      padding: 24px 20px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       cursor: pointer;
-      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
       position: relative;
+      overflow: hidden;
     }
 
-    .mascot-card:hover {
-      transform: translateY(-4px);
+    .card-item::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: transparent;
+      transition: background 0.2s ease;
+    }
+
+    .card-item:hover {
+      transform: translateY(-6px);
       border-color: var(--border-hover);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6);
+      background: var(--surface-hover);
     }
 
-    .mascot-card-img {
-      width: 90px;
-      height: 90px;
-      margin-bottom: 16px;
-      transition: transform 0.2s ease;
+    .card-item.c-2xx:hover::before { background: var(--accent-green); }
+    .card-item.c-4xx:hover::before { background: var(--accent-coral); }
+    .card-item.c-5xx:hover::before { background: var(--accent-yellow); }
+
+    .card-svg-stage {
+      width: 104px;
+      height: 104px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease;
     }
 
-    .mascot-card:hover .mascot-card-img {
-      transform: scale(1.08);
+    .card-item:hover .card-svg-stage {
+      transform: scale(1.1);
     }
 
-    .mascot-card-code {
-      font-family: ui-monospace, SFMono-Regular, monospace;
-      font-size: 14px;
+    .card-badge {
+      font-family: var(--font-mono);
+      font-size: 13px;
       font-weight: 700;
-      margin-bottom: 4px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
     }
 
-    .mascot-card-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text);
+    .card-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
       margin-bottom: 6px;
     }
 
-    .mascot-card-desc {
+    .card-desc {
       font-size: 12px;
       color: var(--text-muted);
-      line-height: 1.4;
-      margin-bottom: 14px;
+      line-height: 1.5;
+      margin-bottom: 16px;
       flex: 1;
     }
 
-    .btn-card-copy {
+    .card-action-bar {
+      display: flex;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .btn-test-card {
+      flex: 1;
       background: var(--surface-subtle);
       border: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: 11px;
+      color: var(--text);
+      font-size: 12px;
       font-weight: 600;
-      padding: 5px 12px;
-      border-radius: var(--radius-pill);
+      padding: 8px;
+      border-radius: 10px;
       cursor: pointer;
       transition: all 0.15s ease;
     }
 
-    .btn-card-copy:hover {
-      background: var(--surface-hover);
-      color: var(--text);
+    .btn-test-card:hover {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
     }
 
-    /* Modal */
+    .btn-copy-card {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+
+    .btn-copy-card:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+    }
+
+    /* Modal Sheet */
     .modal-overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(12px);
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 100;
+      z-index: 1000;
       padding: 20px;
     }
 
@@ -379,40 +652,145 @@
       display: flex;
     }
 
-    .modal-card {
+    .modal-sheet {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: var(--radius-card);
-      max-width: 560px;
+      border-radius: 28px;
+      max-width: 640px;
       width: 100%;
-      padding: 28px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      padding: 32px;
       position: relative;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+      animation: modalSlide 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    .btn-close {
+    @keyframes modalSlide {
+      0% { opacity: 0; transform: scale(0.95) translateY(12px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .btn-modal-close {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: 24px;
+      right: 24px;
+      width: 36px;
+      height: 36px;
       background: var(--surface-subtle);
       border: 1px solid var(--border);
       color: var(--text-muted);
-      width: 32px;
-      height: 32px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 18px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-modal-close:hover {
+      color: #fff;
+      border-color: #fff;
+    }
+
+    .modal-head-grid {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .modal-big-mascot {
+      width: 110px;
+      height: 110px;
+      flex-shrink: 0;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-big-mascot img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .modal-meta h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .modal-meta p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Code Snippet Tabs */
+    .snippet-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .snippet-tab {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .snippet-tab.active {
+      background: var(--border-hover);
+      color: #fff;
+    }
+
+    .code-box {
+      background: #090b10;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent-cyan);
+      word-break: break-all;
+      margin-bottom: 20px;
+    }
+
+    .btn-action-primary {
+      width: 100%;
+      background: #ffffff;
+      color: #07080b;
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-action-primary:hover {
+      background: #f1f5f9;
+      transform: translateY(-1px);
     }
 
     /* Footer */
     footer {
       text-align: center;
       padding-top: 48px;
+      border-top: 1px solid var(--border);
       font-size: 13px;
-      color: #636779;
+      color: var(--text-dim);
     }
 
     footer a {
@@ -428,101 +806,181 @@
 <body>
 
   <div class="container">
-    <!-- Header -->
-    <header>
-      <div class="brand">
-        <img class="brand-logo" src="/mascots/200-ok.svg" alt="Astro Bot">
-        <div>
-          <div class="brand-title">Status Mascots</div>
-          <div class="brand-by">by <a href="https://instagram.com/rskl411_" target="_blank">ren (@rskl411_)</a> &bull; Production Ready SVGs</div>
+    <!-- Navigation -->
+    <nav>
+      <div class="brand-group" onclick="location.reload()">
+        <div class="brand-logo-wrap">
+          <img src="/mascots/200-ok.svg" alt="Astro Bot">
+        </div>
+        <div class="brand-text">
+          <h1>Status Mascots</h1>
+          <p>by ren &bull; production ready</p>
         </div>
       </div>
-      <div class="header-links">
-        <a class="btn-pill" href="https://github.com/rndsa/status-mascots" target="_blank">
+      <div class="nav-actions">
+        <button class="sound-toggle-btn" id="btn-sound" onclick="toggleSound()" title="Toggle Sound FX">🔊</button>
+        <a class="nav-btn" href="https://github.com/rndsa/status-mascots" target="_blank">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
           </svg>
-          <span>GitHub</span>
+          <span>Star on GitHub</span>
         </a>
       </div>
-    </header>
+    </nav>
 
-    <!-- Live Interactive Playground -->
-    <section class="playground-banner">
-      <div class="play-left">
-        <div class="play-title">Live Response Simulation</div>
-        <div class="play-desc">Pilih skenario API response buat liat reaksi live animasi maskot dan payload JSON-nya:</div>
-        <div class="preset-btns">
-          <button class="preset-btn active" onclick="loadSimulation('200')">200 Success</button>
-          <button class="preset-btn" onclick="loadSimulation('409')">409 Conflict (Geleng!)</button>
-          <button class="preset-btn" onclick="loadSimulation('401')">401 Unauthorized</button>
-          <button class="preset-btn" onclick="loadSimulation('404')">404 Not Found</button>
-          <button class="preset-btn" onclick="loadSimulation('429')">429 Rate Limit</button>
-          <button class="preset-btn" onclick="loadSimulation('500')">500 Server Crash</button>
-        </div>
+    <!-- Hero Stage -->
+    <section class="hero-stage">
+      <div class="hero-pill">
+        <span class="hero-pill-dot"></span>
+        <span>14 Handcrafted Animated SVGs &bull; Pure CSS Keyframes</span>
       </div>
-
-      <div class="play-right">
-        <div class="play-avatar" id="play-img-box">
-          <img id="play-avatar-img" src="/mascots/200-ok.svg" alt="Preview">
-        </div>
-        <div class="play-console">
-          <div class="status-badge-live badge-2xx" id="play-badge">200 OK</div>
-          <div class="play-json" id="play-json-box">{
-  "status": 200,
-  "message": "Subdomain registered successfully",
-  "data": {
-    "domain": "carry.axjet.xyz",
-    "edge": "anycast"
-  }
-}</div>
-        </div>
-      </div>
+      <h2 class="hero-title">HTTP Responses with Soul.</h2>
+      <p class="hero-sub">Tinggalkan error page yang ngebosenin. Kumpulan maskot animasi vektor lucu yang responsif terhadap balasan status kode API lu. Ringan, zero-dependency, siap pakai di web apa pun.</p>
     </section>
 
-    <!-- Filter & Search Controls -->
-    <div class="controls-bar">
-      <div class="tabs-group">
-        <div class="tab-item active" onclick="filterCategory('all', this)">All (14)</div>
-        <div class="tab-item" onclick="filterCategory('2xx', this)">2xx Success</div>
-        <div class="tab-item" onclick="filterCategory('4xx', this)">4xx Client Errors</div>
-        <div class="tab-item" onclick="filterCategory('5xx', this)">5xx Server Errors</div>
+    <!-- Interactive API Request Lab -->
+    <div class="api-lab-card">
+      <div class="lab-topbar">
+        <div class="mac-dots">
+          <div class="mac-dot red"></div>
+          <div class="mac-dot yellow"></div>
+          <div class="mac-dot green"></div>
+        </div>
+        <div class="url-bar-wrap">
+          <span class="http-method" id="lab-method">POST</span>
+          <input type="text" class="url-input" id="lab-url" value="https://api.rndsa.dev/v1/subdomain" readonly>
+        </div>
+        <button class="btn-send-req" onclick="triggerSend()">[ SEND REQUEST ]</button>
       </div>
 
-      <input type="text" class="search-input" id="search-input" placeholder="Search code (e.g. 409, conflict, timeout)..." oninput="handleSearch()">
+      <div class="lab-content">
+        <!-- Interactive Stage Mascot -->
+        <div class="stage-mascot-box" id="stage-box" onclick="tapStageMascot()">
+          <img id="stage-img" src="/mascots/409-conflict.svg" alt="Mascot Reaction">
+        </div>
+
+        <!-- Inspector Column -->
+        <div class="lab-inspector">
+          <div class="lab-header-row">
+            <div class="status-pill-big pill-4xx" id="stage-badge">
+              <span>409 CONFLICT</span>
+            </div>
+            <div class="latency-pill" id="stage-latency">⚡ 11ms &bull; Cloudflare Edge</div>
+          </div>
+
+          <!-- Quick Scenario Selector -->
+          <div class="scenario-ribbon">
+            <button class="scenario-btn" onclick="selectScenario(200, this)">200 Success</button>
+            <button class="scenario-btn active" onclick="selectScenario(409, this)">409 Conflict (Geleng!)</button>
+            <button class="scenario-btn" onclick="selectScenario(401, this)">401 Unauthorized</button>
+            <button class="scenario-btn" onclick="selectScenario(404, this)">404 Not Found</button>
+            <button class="scenario-btn" onclick="selectScenario(429, this)">429 Rate Limit</button>
+            <button class="scenario-btn" onclick="selectScenario(500, this)">500 Server Crash</button>
+            <button class="scenario-btn" onclick="selectScenario(503, this)">503 Maintenance</button>
+          </div>
+
+          <!-- Syntax-highlighted JSON -->
+          <div class="lab-json-view" id="stage-json"></div>
+        </div>
+      </div>
     </div>
 
-    <!-- Mascot Grid -->
-    <div class="mascot-grid" id="grid">
-      <!-- Items generated dynamically -->
+    <!-- Gallery Section Header -->
+    <div class="gallery-section-header">
+      <div class="section-title">
+        <h2>Mascot Catalog</h2>
+        <p>Semua maskot berjalan mandiri via SVG & CSS loop. Klik kartu mana saja untuk detail & embed code.</p>
+      </div>
+      <div class="filter-search-box">
+        <div class="filter-tabs">
+          <div class="filter-tab active" onclick="setCategory('all', this)">All (14)</div>
+          <div class="filter-tab" onclick="setCategory('2xx', this)">2xx Success</div>
+          <div class="filter-tab" onclick="setCategory('4xx', this)">4xx Client</div>
+          <div class="filter-tab" onclick="setCategory('5xx', this)">5xx Server</div>
+        </div>
+        <input type="text" class="search-field" id="search-input" placeholder="Search code/name..." oninput="filterMascots()">
+      </div>
     </div>
 
-    <!-- Details Modal -->
+    <!-- Mascot Cards Grid -->
+    <div class="mascot-grid" id="mascot-grid">
+      <!-- Injected by JavaScript -->
+    </div>
+
+    <!-- Modal Drawer -->
     <div class="modal-overlay" id="modal" onclick="closeModal(event)">
-      <div class="modal-card" onclick="event.stopPropagation()">
-        <button class="btn-close" onclick="closeModalDirect()">&times;</button>
-        <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 20px;">
-          <img id="modal-img" style="width: 100px; height: 100px;" src="" alt="">
-          <div>
-            <div id="modal-code" style="font-family: monospace; font-size: 18px; font-weight: 700;"></div>
-            <div id="modal-title" style="font-size: 16px; font-weight: 600; color: var(--text-muted); margin-top: 4px;"></div>
+      <div class="modal-sheet" onclick="event.stopPropagation()">
+        <button class="btn-modal-close" onclick="closeModalDirect()">&times;</button>
+        <div class="modal-head-grid">
+          <div class="modal-big-mascot">
+            <img id="modal-img" src="" alt="Mascot">
+          </div>
+          <div class="modal-meta">
+            <div id="modal-badge" class="card-badge" style="width: fit-content;"></div>
+            <h3 id="modal-title"></h3>
+            <p id="modal-desc"></p>
           </div>
         </div>
-        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;" id="modal-desc"></div>
-        <label style="font-size: 12px; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 6px;">HTML EMBED CODE</label>
-        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px; font-family: monospace; font-size: 12px; color: var(--accent-cyan); word-break: break-all; margin-bottom: 16px;" id="modal-snippet"></div>
-        <button class="btn-pill" style="width: 100%; justify-content: center; background: #ffffff; color: #090a0d;" onclick="copyModalSnippet()">Copy Embed Code</button>
+
+        <div class="snippet-tabs">
+          <div class="snippet-tab active" onclick="switchSnippet('html')">HTML &lt;img&gt;</div>
+          <div class="snippet-tab" onclick="switchSnippet('react')">React / JSX</div>
+          <div class="snippet-tab" onclick="switchSnippet('raw')">Raw CDN URL</div>
+        </div>
+        <div class="code-box" id="modal-code-box"></div>
+
+        <button class="btn-action-primary" onclick="copySnippet()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span id="btn-copy-label">Copy Embed Code</span>
+        </button>
       </div>
     </div>
 
     <!-- Footer -->
     <footer>
-      by ren &bull; <a href="https://instagram.com/rskl411_" target="_blank">@rskl411_</a> &bull; GitHub: <a href="https://github.com/rndsa/status-mascots" target="_blank">rndsa/status-mascots</a> &bull; MIT License
+      Crafted with precision by <a href="https://instagram.com/rskl411_" target="_blank">ren (@rskl411_)</a> &bull; GitHub: <a href="https://github.com/rndsa/status-mascots" target="_blank">rndsa/status-mascots</a> &bull; MIT License
     </footer>
   </div>
 
   <script>
-    const mascots = [
+    // Audio synthesizer using Web Audio API (Zero external audio files)
+    let audioCtx = null;
+    let soundEnabled = true;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
+
+    function playTone(freq, type = 'sine', duration = 0.12) {
+      if (!soundEnabled) return;
+      try {
+        initAudio();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch(e) {}
+    }
+
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      document.getElementById('btn-sound').innerText = soundEnabled ? '🔊' : '🔇';
+      if (soundEnabled) playTone(440, 'triangle', 0.15);
+    }
+
+    // Mascots Database
+    const catalog = [
       {
         code: 200,
         name: "OK",
@@ -530,7 +988,9 @@
         title: "Happy Astro Bot",
         desc: "Karakter Astro Bot tersenyum ceria dengan antena cyan kedip-kedip saat request berhasil.",
         file: "200-ok.svg",
-        json: { status: 200, success: true, message: "Request processed successfully" }
+        method: "GET",
+        url: "https://api.rndsa.dev/v1/health",
+        json: { status: 200, success: true, message: "Request processed successfully", latency: "11ms" }
       },
       {
         code: 201,
@@ -539,7 +999,9 @@
         title: "Party Sprout Bot",
         desc: "Mascot dengan topi pesta & confetti melompat gembira merayakan resource baru berhasil dibuat.",
         file: "201-created.svg",
-        json: { status: 201, success: true, message: "Resource created", id: "res_98f412a" }
+        method: "POST",
+        url: "https://api.rndsa.dev/v1/subdomain",
+        json: { status: 201, success: true, id: "sub_8f912a", domain: "carry.axjet.xyz" }
       },
       {
         code: 204,
@@ -548,7 +1010,9 @@
         title: "Ghost Bot",
         desc: "Karakter hantu transparan mengambang tenang saat request sukses tanpa body return.",
         file: "204-nocontent.svg",
-        json: { status: 204, message: "Empty body" }
+        method: "DELETE",
+        url: "https://api.rndsa.dev/v1/session",
+        json: { status: 204, message: "Resource deleted, no body" }
       },
       {
         code: 400,
@@ -557,7 +1021,9 @@
         title: "Puzzled Bot",
         desc: "Mascot miringin kepala bingung dengan tanda tanya saat parameter/format request invalid.",
         file: "400-badrequest.svg",
-        json: { status: 400, error: "Bad Request", message: "Missing required parameter 'target'" }
+        method: "POST",
+        url: "https://api.rndsa.dev/v1/subdomain",
+        json: { status: 400, error: "Bad Request", detail: "Missing required parameter 'target'" }
       },
       {
         code: 401,
@@ -566,7 +1032,9 @@
         title: "Keyhole Guard Bot",
         desc: "Penjaga dengan visor gembok berkedip kuning saat token otentikasi kosong atau salah.",
         file: "401-unauthorized.svg",
-        json: { status: 401, error: "Unauthorized", message: "Invalid or expired secret key" }
+        method: "GET",
+        url: "https://api.rndsa.dev/v1/admin/secret",
+        json: { status: 401, error: "Unauthorized", message: "Invalid or expired secret management key" }
       },
       {
         code: 403,
@@ -575,6 +1043,8 @@
         title: "Security Shield Bot",
         desc: "Mascot mata silang stern & sirine merah saat akses ke domain/resource ditolak.",
         file: "403-forbidden.svg",
+        method: "POST",
+        url: "https://api.rndsa.dev/v1/domain/lock",
         json: { status: 403, error: "Forbidden", message: "Action restricted by administrative policy" }
       },
       {
@@ -582,17 +1052,21 @@
         name: "Not Found",
         cat: "4xx",
         title: "Detective Bot",
-        desc: "Detektif topi tweed celingukan lirik kiri-kanan dengan kaca pembesar mencari data yang hilang.",
+        desc: "Detektif topi tweed celingukan lirik kiri-kanan dengan kaca pembesar mencari data hilang.",
         file: "404-notfound.svg",
-        json: { status: 404, error: "Not Found", message: "Subdomain or endpoint does not exist" }
+        method: "GET",
+        url: "https://api.rndsa.dev/v1/records/unknown",
+        json: { status: 404, error: "Not Found", message: "The requested record was not found on edge" }
       },
       {
         code: 409,
         name: "Conflict",
         cat: "4xx",
         title: "GELENG-GELENG Astro Bot",
-        desc: "Astro Bot geleng-geleng kepala cepat dengan mata sedih (> <) dan tetesan keringat pas nama udah kepake.",
+        desc: "Astro Bot geleng-geleng kepala cepat dengan mata sedih (> <) dan keringat pas subdo udah kepake.",
         file: "409-conflict.svg",
+        method: "POST",
+        url: "https://api.rndsa.dev/v1/subdomain?name=carry",
         json: { status: 409, error: "Conflict", message: "Subdomain 'carry.axjet.xyz' is already claimed" }
       },
       {
@@ -602,16 +1076,20 @@
         title: "Cute Teapot Bot",
         desc: "Mascot teko imut bersiul mengeluarkan kepulan uap hangat.",
         file: "418-teapot.svg",
+        method: "BREW",
+        url: "https://api.rndsa.dev/v1/coffee",
         json: { status: 418, message: "I'm a teapot, short and stout" }
       },
       {
         code: 422,
-        name: "Unprocessable Entity",
+        name: "Unprocessable",
         cat: "4xx",
         title: "Glitch Wire Bot",
         desc: "Mascot glitch dengan kabel ruwet & mata spiral bergetar saat payload gagal divalidasi.",
         file: "422-unprocessable.svg",
-        json: { status: 422, error: "Unprocessable", message: "IP address '999.999.999.999' is invalid" }
+        method: "POST",
+        url: "https://api.rndsa.dev/v1/dns/validate",
+        json: { status: 422, error: "Unprocessable Entity", field: "target_ip", issue: "Invalid IPv4" }
       },
       {
         code: 429,
@@ -620,16 +1098,20 @@
         title: "Overheat Fan Bot",
         desc: "Mascot kepanasan ngos-ngosan dengan kipas pendingin muter kencang saat kena rate limit.",
         file: "429-ratelimit.svg",
-        json: { status: 429, error: "Rate Limit Exceeded", retry_after_sec: 60 }
+        method: "GET",
+        url: "https://api.rndsa.dev/v1/subdomain/burst",
+        json: { status: 429, error: "Rate Limit Exceeded", retry_after: 60 }
       },
       {
         code: 500,
-        name: "Internal Server Error",
+        name: "Internal Error",
         cat: "5xx",
         title: "Crash Smoke Bot",
         desc: "Helm retak berasap & mata spiral pusing muter saat server backend mengalami error fatal.",
         file: "500-error.svg",
-        json: { status: 500, error: "Internal Server Error", trace_id: "err_98f12b" }
+        method: "GET",
+        url: "https://api.rndsa.dev/v1/compute/overflow",
+        json: { status: 500, error: "Internal Server Error", trace: "PANIC_UNCAUGHT_EXCEPTION_0x8F" }
       },
       {
         code: 502,
@@ -638,84 +1120,202 @@
         title: "Disconnected Plug Bot",
         desc: "Kabel terputus dengan percikan api biru saat upstream origin server tidak merespons.",
         file: "502-badgateway.svg",
-        json: { status: 502, error: "Bad Gateway", message: "Upstream server connection refused" }
+        method: "GET",
+        url: "https://api.rndsa.dev/v1/upstream/ptero",
+        json: { status: 502, error: "Bad Gateway", reason: "Connection to origin refused" }
       },
       {
         code: 503,
         name: "Service Unavailable",
         cat: "5xx",
-        title: "Maintenance Builder Bot",
+        title: "Builder Bot",
         desc: "Helm proyek kuning dengan kunci inggris saat sistem sedang dalam perbaikan rutin.",
         file: "503-maintenance.svg",
+        method: "GET",
+        url: "https://api.rndsa.dev/v1/system/backup",
         json: { status: 503, error: "Maintenance", estimated_recovery: "15 minutes" }
       }
     ];
 
-    let currentCat = 'all';
+    let currentCategory = 'all';
+    let activeSnippetMode = 'html';
+    let currentModalMascot = catalog[0];
 
+    // Helper syntax highlighter
+    function highlightJSON(obj) {
+      const jsonStr = JSON.stringify(obj, null, 2);
+      return jsonStr.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+        let cls = 'json-num';
+        if (/^"/.test(match)) {
+          if (/:$/.test(match)) {
+            cls = 'json-key';
+          } else {
+            cls = 'json-str';
+          }
+        } else if (/true|false/.test(match)) {
+          cls = 'json-bool';
+        } else if (/null/.test(match)) {
+          cls = 'json-dim';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+      });
+    }
+
+    // Render Cards Grid
     function renderGrid(items) {
-      const grid = document.getElementById('grid');
+      const grid = document.getElementById('mascot-grid');
       grid.innerHTML = items.map(m => {
-        const badgeClass = m.cat === '2xx' ? 'badge-2xx' : (m.cat === '4xx' ? 'badge-4xx' : 'badge-5xx');
+        const catClass = m.cat === '2xx' ? 'c-2xx' : (m.cat === '4xx' ? 'c-4xx' : 'c-5xx');
+        const pillClass = m.cat === '2xx' ? 'pill-2xx' : (m.cat === '4xx' ? 'pill-4xx' : 'pill-5xx');
         return `
-          <div class="mascot-card" onclick="openModal(${m.code})">
-            <img class="mascot-card-img" src="/mascots/${m.file}" alt="${m.title}">
-            <div class="status-badge-live ${badgeClass} mascot-card-code">${m.code} ${m.name}</div>
-            <div class="mascot-card-title">${m.title}</div>
-            <div class="mascot-card-desc">${m.desc}</div>
-            <button class="btn-card-copy" onclick="event.stopPropagation(); copyDirect('${m.file}')">Copy SVG URL</button>
+          <div class="card-item ${catClass}" onclick="openModal(${m.code})">
+            <div class="card-svg-stage">
+              <img src="/mascots/${m.file}" alt="${m.title}" style="width: 100%; height: 100%;">
+            </div>
+            <div class="card-badge ${pillClass}">${m.code} ${m.name}</div>
+            <div class="card-name">${m.title}</div>
+            <div class="card-desc">${m.desc}</div>
+            <div class="card-action-bar">
+              <button class="btn-test-card" onclick="event.stopPropagation(); selectScenario(${m.code})">Live Test</button>
+              <button class="btn-copy-card" onclick="event.stopPropagation(); copyDirectUrl('${m.file}')" title="Copy raw SVG link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg>
+              </button>
+            </div>
           </div>
         `;
       }).join('');
     }
 
-    function filterCategory(cat, el) {
-      currentCat = cat;
-      document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+    // Filter by Tab
+    function setCategory(cat, el) {
+      currentCategory = cat;
+      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
       el.classList.add('active');
-      applyFilters();
+      filterMascots();
+      playTone(520, 'sine', 0.08);
     }
 
-    function handleSearch() {
-      applyFilters();
-    }
-
-    function applyFilters() {
+    // Filter Logic
+    function filterMascots() {
       const q = document.getElementById('search-input').value.toLowerCase().trim();
-      const filtered = mascots.filter(m => {
-        const matchCat = (currentCat === 'all') || (m.cat === currentCat);
+      const filtered = catalog.filter(m => {
+        const matchCat = (currentCategory === 'all') || (m.cat === currentCategory);
         const matchQ = !q || m.code.toString().includes(q) || m.name.toLowerCase().includes(q) || m.title.toLowerCase().includes(q) || m.desc.toLowerCase().includes(q);
         return matchCat && matchQ;
       });
       renderGrid(filtered);
     }
 
-    function loadSimulation(code) {
-      document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
+    // Select Scenario in Lab
+    function selectScenario(code, btnEl) {
+      const item = catalog.find(m => m.code === code) || catalog[0];
+      
+      // Update Lab UI
+      document.getElementById('stage-img').src = `/mascots/${item.file}`;
+      document.getElementById('lab-method').innerText = item.method;
+      document.getElementById('lab-url').value = item.url;
 
-      const m = mascots.find(item => item.code == code) || mascots[0];
-      const img = document.getElementById('play-avatar-img');
-      const badge = document.getElementById('play-badge');
-      const jsonBox = document.getElementById('play-json-box');
+      const badge = document.getElementById('stage-badge');
+      badge.className = `status-pill-big ${item.cat === '2xx' ? 'pill-2xx' : (item.cat === '4xx' ? 'pill-4xx' : 'pill-5xx')}`;
+      badge.innerHTML = `<span>${item.code} ${item.name}</span>`;
 
-      img.src = `/mascots/${m.file}`;
-      badge.innerText = `${m.code} ${m.name}`;
-      badge.className = `status-badge-live ${m.cat === '2xx' ? 'badge-2xx' : (m.cat === '4xx' ? 'badge-4xx' : 'badge-5xx')}`;
-      jsonBox.innerText = JSON.stringify(m.json, null, 2);
+      document.getElementById('stage-latency').innerText = `⚡ ${Math.floor(Math.random() * 8 + 8)}ms &bull; Cloudflare Edge`;
+      document.getElementById('stage-json').innerHTML = highlightJSON(item.json);
+
+      // Buttons highlight
+      document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
+      if (btnEl) {
+        btnEl.classList.add('active');
+      } else {
+        const foundBtn = Array.from(document.querySelectorAll('.scenario-btn')).find(b => b.innerText.includes(code.toString()));
+        if (foundBtn) foundBtn.classList.add('active');
+      }
+
+      // Audio feedback
+      if (item.cat === '2xx') {
+        playTone(660, 'sine', 0.12);
+      } else if (item.code === 409) {
+        playTone(280, 'sawtooth', 0.18);
+      } else if (item.cat === '4xx') {
+        playTone(340, 'triangle', 0.15);
+      } else {
+        playTone(200, 'sawtooth', 0.2);
+      }
+
+      // Scroll smoothly to lab if called from grid
+      if (!btnEl) {
+        document.querySelector('.api-lab-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
 
+    function triggerSend() {
+      const img = document.getElementById('stage-img');
+      img.style.transform = 'scale(0.85)';
+      setTimeout(() => img.style.transform = 'scale(1)', 150);
+      playTone(880, 'sine', 0.08);
+    }
+
+    function tapStageMascot() {
+      const img = document.getElementById('stage-img');
+      img.style.transform = 'scale(1.2) rotate(6deg)';
+      setTimeout(() => img.style.transform = 'scale(1) rotate(0deg)', 250);
+      playTone(720, 'triangle', 0.12);
+    }
+
+    // Modal Drawer
     function openModal(code) {
-      const m = mascots.find(item => item.code == code);
-      if (!m) return;
-      document.getElementById('modal-img').src = `/mascots/${m.file}`;
-      document.getElementById('modal-code').innerText = `${m.code} ${m.name}`;
-      document.getElementById('modal-title').innerText = m.title;
-      document.getElementById('modal-desc').innerText = m.desc;
+      currentModalMascot = catalog.find(m => m.code === code) || catalog[0];
+      document.getElementById('modal-img').src = `/mascots/${currentModalMascot.file}`;
       
-      const snippet = `<img src="https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/${m.file}" width="120" height="120" alt="${m.code} ${m.name}" />`;
-      document.getElementById('modal-snippet').innerText = snippet;
+      const badge = document.getElementById('modal-badge');
+      badge.className = `card-badge ${currentModalMascot.cat === '2xx' ? 'pill-2xx' : (currentModalMascot.cat === '4xx' ? 'pill-4xx' : 'pill-5xx')}`;
+      badge.innerText = `${currentModalMascot.code} ${currentModalMascot.name}`;
+
+      document.getElementById('modal-title').innerText = currentModalMascot.title;
+      document.getElementById('modal-desc').innerText = currentModalMascot.desc;
+
+      switchSnippet('html');
       document.getElementById('modal').classList.add('open');
+      playTone(500, 'sine', 0.1);
+    }
+
+    function switchSnippet(mode) {
+      activeSnippetMode = mode;
+      document.querySelectorAll('.snippet-tab').forEach(t => t.classList.remove('active'));
+      const foundTab = Array.from(document.querySelectorAll('.snippet-tab')).find(t => t.innerText.toLowerCase().includes(mode));
+      if (foundTab) foundTab.classList.add('active');
+
+      const rawUrl = `https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/${currentModalMascot.file}`;
+      let text = '';
+
+      if (mode === 'html') {
+        text = `<img src="${rawUrl}" width="120" height="120" alt="${currentModalMascot.code} ${currentModalMascot.name}" />`;
+      } else if (mode === 'react') {
+        text = `<img src="${rawUrl}" width={120} height={120} alt="${currentModalMascot.code} ${currentModalMascot.name}" />`;
+      } else {
+        text = rawUrl;
+      }
+
+      document.getElementById('modal-code-box').innerText = text;
+      document.getElementById('btn-copy-label').innerText = 'Copy Snippet';
+    }
+
+    function copySnippet() {
+      const text = document.getElementById('modal-code-box').innerText;
+      navigator.clipboard.writeText(text);
+      document.getElementById('btn-copy-label').innerText = '✓ Copied to Clipboard!';
+      playTone(880, 'sine', 0.1);
+      setTimeout(() => document.getElementById('btn-copy-label').innerText = 'Copy Snippet', 2000);
+    }
+
+    function copyDirectUrl(file) {
+      const url = `https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/${file}`;
+      navigator.clipboard.writeText(url);
+      playTone(700, 'sine', 0.08);
+      alert('Raw SVG link copied!');
     }
 
     function closeModalDirect() {
@@ -726,20 +1326,14 @@
       if (e.target.id === 'modal') closeModalDirect();
     }
 
-    function copyDirect(file) {
-      const url = `https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/${file}`;
-      navigator.clipboard.writeText(url);
-      alert('Copied raw SVG URL to clipboard!');
-    }
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModalDirect();
+    });
 
-    function copyModalSnippet() {
-      const text = document.getElementById('modal-snippet').innerText;
-      navigator.clipboard.writeText(text);
-      alert('Copied embed snippet!');
-    }
-
-    // Initial Render
-    renderGrid(mascots);
+    // Initial setup
+    renderGrid(catalog);
+    selectScenario(409); // Start with the iconic Geleng-Geleng Astro Bot!
   </script>
 </body>
 </html>
