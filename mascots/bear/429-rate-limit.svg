@@ -1,9 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <circle cx="80" cy="75" r="30" fill="#b45309" stroke="#facc15" stroke-width="3"/>
-  <!-- Big vibrating eyes -->
-  <circle cx="70" cy="70" r="8" fill="#ffffff"/>
-  <circle cx="70" cy="70" r="4" fill="#451a03"/>
-  <circle cx="90" cy="70" r="8" fill="#ffffff"/>
-  <circle cx="90" cy="70" r="4" fill="#451a03"/>
-  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#ca8a04" text-anchor="middle">SUGAR OVERFLOW</text>
+  <defs>
+    <linearGradient id="bear-hot-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes pantingBreath {
+      0%, 100% { transform: scale(1, 1); }
+      50% { transform: scale(1.05, 0.95); }
+    }
+    .head-pant { animation: pantingBreath 0.5s ease-in-out infinite; transform-origin: 80px 145px; }
+  </style>
+
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="head-pant">
+    <circle cx="42" cy="44" r="16" fill="#f97316"/>
+    <circle cx="118" cy="44" r="16" fill="#f97316"/>
+
+    <rect x="28" y="44" width="104" height="88" rx="44" fill="url(#bear-hot-grad)" stroke="#c2410c" stroke-width="2.5"/>
+
+    <!-- Exhausted spiral eyes -->
+    <path d="M 60 80 A 3 3 0 1 1 56 83 A 5 5 0 1 1 63 81" fill="none" stroke="#7c2d12" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 98 80 A 3 3 0 1 1 94 83 A 5 5 0 1 1 101 81" fill="none" stroke="#7c2d12" stroke-width="2.5" stroke-linecap="round"/>
+
+    <ellipse cx="80" cy="98" rx="18" ry="12" fill="#fed7aa"/>
+    <ellipse cx="80" cy="100" rx="6" ry="5" fill="#7c2d12"/>
+    <path d="M 78 102 Q 80 110 82 102 Z" fill="#f43f5e"/>
+
+    <ellipse cx="44" cy="94" rx="7" ry="4" fill="#f97316" opacity="0.7"/>
+    <ellipse cx="116" cy="94" rx="7" ry="4" fill="#f97316" opacity="0.7"/>
+  </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#ea580c" text-anchor="middle">OVERHEAT 429</text>
 </svg>
