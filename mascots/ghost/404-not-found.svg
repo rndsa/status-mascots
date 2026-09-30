@@ -1,36 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="fade-g" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#818cf8" stop-opacity="0.2"/>
+    <linearGradient id="g-body" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
     </linearGradient>
   </defs>
   <style>
     @keyframes ghostFade {
-      0%, 100% { opacity: 0.25; transform: scale(0.95); }
-      50% { opacity: 0.85; transform: scale(1.02); }
+      0%, 100% { opacity: 0.95; transform: translateY(0); }
+      50% { opacity: 0.25; transform: translateY(-8px); }
     }
-    @keyframes lookAround {
-      0%, 100% { transform: translateX(-3px); }
-      50% { transform: translateX(4px); }
+    @keyframes sweepGlass {
+      0%, 100% { transform: rotate(-18deg); }
+      50% { transform: rotate(18deg); }
     }
-    .fading-ghost { animation: ghostFade 2.8s ease-in-out infinite; }
-    .bino-look { animation: lookAround 2s ease-in-out infinite; }
+    .ghost-fader { animation: ghostFade 3s ease-in-out infinite; }
+    .glass-sweep { animation: sweepGlass 2s ease-in-out infinite; transform-origin: 105px 95px; }
   </style>
 
-  <g class="fading-ghost">
-    <path d="M 45 75 C 45 42 60 32 80 32 C 100 32 115 42 115 75 C 115 106 122 126 110 128 C 98 130 92 118 80 118 C 68 118 62 130 50 128 C 38 126 45 106 45 75 Z" fill="url(#fade-g)" stroke="#818cf8" stroke-width="2" stroke-dasharray="4 4"/>
+  <g class="ghost-fader">
+    <!-- Detective Cap on Head -->
+    <path d="M 60 38 Q 80 26 100 38 L 105 40 Q 80 34 55 40 Z" fill="#78350f" stroke="#451a03" stroke-width="1.5"/>
+    <ellipse cx="80" cy="34" rx="18" ry="7" fill="#92400e"/>
 
-    <!-- Holding Binoculars Searching -->
-    <g class="bino-look">
-      <!-- Binoculars -->
-      <rect x="62" y="60" width="16" height="12" rx="4" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.5"/>
-      <rect x="82" y="60" width="16" height="12" rx="4" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.5"/>
-      <rect x="76" y="63" width="8" height="5" fill="#1d4ed8"/>
-      <circle cx="70" cy="66" r="4" fill="#38bdf8"/>
-      <circle cx="90" cy="66" r="4" fill="#38bdf8"/>
+    <!-- Ghost Body -->
+    <path d="M 46 72 C 46 38 60 28 80 28 C 100 28 114 38 114 72 C 114 104 122 125 110 128 C 98 131 92 118 80 118 C 68 118 62 131 50 128 C 38 125 46 104 46 72 Z"
+          fill="url(#g-body)" stroke="#cbd5e1" stroke-width="2"/>
+
+    <!-- Searching Eyes looking left & right -->
+    <ellipse cx="68" cy="65" rx="5" ry="6.5" fill="#2e1065"/>
+    <circle cx="66" cy="63" r="2" fill="#ffffff"/>
+    <ellipse cx="92" cy="65" rx="5" ry="6.5" fill="#2e1065"/>
+    <circle cx="90" cy="63" r="2" fill="#ffffff"/>
+
+    <!-- Confused Small Mouth -->
+    <ellipse cx="80" cy="74" rx="2.5" ry="3.5" fill="#2e1065"/>
+
+    <!-- Magnifying Glass held in hand -->
+    <g class="glass-sweep">
+      <line x1="95" y1="88" x2="118" y2="108" stroke="#78350f" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="92" cy="85" r="14" fill="#67e8f9" opacity="0.3" stroke="#eab308" stroke-width="2.5"/>
+      <path d="M 85 80 Q 92 78 96 82" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
     </g>
-
-    <text x="80" y="98" font-family="monospace" font-size="10" font-weight="bold" fill="#6366f1" text-anchor="middle">404 MISSING</text>
   </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#a78bfa" text-anchor="middle">VANISHED (404)</text>
 </svg>

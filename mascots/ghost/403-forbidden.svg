@@ -1,37 +1,46 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="jar-glass" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#bae6fd" stop-opacity="0.5"/>
-      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.1"/>
-      <stop offset="100%" stop-color="#bae6fd" stop-opacity="0.4"/>
+    <linearGradient id="g-body" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
     </linearGradient>
   </defs>
   <style>
-    @keyframes trapWiggle {
+    @keyframes jarFloat {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+      50% { transform: translateY(-4px); }
     }
-    .trapped-ghost { animation: trapWiggle 2s ease-in-out infinite; }
+    .jar-stage { animation: jarFloat 2.6s ease-in-out infinite; }
   </style>
 
-  <!-- Glass Jar Container (Ghost Trapped inside) -->
-  <g class="trapped-ghost">
-    <!-- Ghost Inside -->
-    <path d="M 52 82 C 52 56 64 48 80 48 C 96 48 108 56 108 82 C 108 106 112 118 102 120 C 94 122 88 112 80 112 C 72 112 66 122 58 120 C 48 118 52 106 52 82 Z" fill="#e0e7ff" opacity="0.9"/>
-    <!-- Flat sad eyes -->
-    <circle cx="70" cy="74" r="4.5" fill="#4338ca"/>
-    <circle cx="90" cy="74" r="4.5" fill="#4338ca"/>
-    <path d="M 76 83 Q 80 80 84 83" fill="none" stroke="#4338ca" stroke-width="2"/>
-    <!-- Paws pressed against glass -->
-    <ellipse cx="60" cy="85" rx="5" ry="4" fill="#ffffff"/>
-    <ellipse cx="100" cy="85" rx="5" ry="4" fill="#ffffff"/>
-  </g>
+  <g class="jar-stage">
+    <!-- Cork Lid -->
+    <polygon points="62,38 98,38 94,26 66,26" fill="#b45309" stroke="#78350f" stroke-width="1.5"/>
+    <rect x="58" y="38" width="44" height="6" rx="2" fill="#d97706"/>
 
-  <!-- Glass Jar Outline -->
-  <rect x="42" y="38" width="76" height="96" rx="14" fill="url(#jar-glass)" stroke="#38bdf8" stroke-width="2.5"/>
-  <!-- Cork Lid -->
-  <polygon points="52,38 108,38 104,26 56,26" fill="#d97706" stroke="#92400e" stroke-width="2"/>
-  <!-- Red Caution Tape -->
-  <rect x="44" y="92" width="72" height="12" fill="#ef4444" opacity="0.8"/>
-  <text x="80" y="101" font-family="monospace" font-size="8" font-weight="900" fill="#ffffff" text-anchor="middle">FORBIDDEN</text>
+    <!-- Glass Jar Body -->
+    <rect x="42" y="44" width="76" height="92" rx="18" fill="#c4b5fd" opacity="0.18" stroke="#a78bfa" stroke-width="2.5"/>
+    <!-- Glass Highlight Reflection -->
+    <path d="M 48 52 Q 52 90 48 128" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.6" stroke-linecap="round"/>
+
+    <!-- Sad Trapped Boofy Inside -->
+    <g transform="translate(14, 16) scale(0.82)">
+      <path d="M 46 72 C 46 38 60 28 80 28 C 100 28 114 38 114 72 C 114 104 122 125 110 128 C 98 131 92 118 80 118 C 68 118 62 131 50 128 C 38 125 46 104 46 72 Z"
+            fill="url(#g-body)" stroke="#ddd6fe" stroke-width="2"/>
+      <!-- Sad Big Puppy Eyes -->
+      <circle cx="68" cy="65" r="6" fill="#2e1065"/>
+      <circle cx="70" cy="63" r="2.5" fill="#ffffff"/>
+      <circle cx="92" cy="65" r="6" fill="#2e1065"/>
+      <circle cx="94" cy="63" r="2.5" fill="#ffffff"/>
+      <!-- Quivering Mouth -->
+      <path d="M 76 76 Q 80 72 84 76" fill="none" stroke="#2e1065" stroke-width="2" stroke-linecap="round"/>
+      <!-- Paws on Glass -->
+      <ellipse cx="60" cy="82" rx="5" ry="4" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+      <ellipse cx="100" cy="82" rx="5" ry="4" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    </g>
+
+    <!-- Red SEALED Warning Tag -->
+    <rect x="52" y="70" width="56" height="15" rx="3" fill="#ef4444"/>
+    <text x="80" y="81" font-family="monospace" font-size="8" font-weight="900" fill="#ffffff" text-anchor="middle">FORBIDDEN</text>
+  </g>
 </svg>

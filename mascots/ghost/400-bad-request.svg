@@ -2,41 +2,48 @@
   <defs>
     <linearGradient id="g-body" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#e0e7ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
     </linearGradient>
+    <filter id="soft-shadow-g" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#7c3aed" flood-opacity="0.2"/>
+    </filter>
   </defs>
   <style>
-    @keyframes shyFloat {
+    @keyframes ghostTilt {
       0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(-8deg); }
+      50% { transform: rotate(-14deg); }
     }
-    @keyframes qFloatGhost {
+    @keyframes qmarkBob {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-7px); }
+      50% { transform: translateY(-7px) rotate(4deg); }
     }
-    .ghost-shy { animation: shyFloat 2.4s ease-in-out infinite; transform-origin: 80px 120px; }
-    .q-g { animation: qFloatGhost 2s ease-in-out infinite; transform-origin: 122px 35px; }
+    .ghost-confused { animation: ghostTilt 2.8s ease-in-out infinite; transform-origin: 80px 125px; }
+    .qmark-box { animation: qmarkBob 2s ease-in-out infinite; transform-origin: 124px 38px; }
   </style>
 
-  <!-- Question mark -->
-  <g class="q-g">
-    <ellipse cx="122" cy="35" rx="13" ry="13" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/>
-    <text x="122" y="42" font-family="-apple-system, sans-serif" font-size="20" font-weight="900" fill="#6366f1" text-anchor="middle">?</text>
+  <!-- Question mark bubble -->
+  <g class="qmark-box">
+    <ellipse cx="124" cy="38" rx="14" ry="14" fill="#141722" stroke="#a78bfa" stroke-width="2"/>
+    <text x="124" y="46" font-family="-apple-system, sans-serif" font-size="20" font-weight="900" fill="#c4b5fd" text-anchor="middle">?</text>
   </g>
 
-  <g class="ghost-shy">
-    <path d="M 45 75 C 45 42 60 32 80 32 C 100 32 115 42 115 75 C 115 106 122 126 110 128 C 98 130 92 118 80 118 C 68 118 62 130 50 128 C 38 126 45 106 45 75 Z" fill="url(#g-body)" stroke="#cbd5e1" stroke-width="2.5"/>
+  <!-- Confused Boofy -->
+  <g class="ghost-confused">
+    <path d="M 46 72 C 46 38 60 28 80 28 C 100 28 114 38 114 72 C 114 104 122 125 110 128 C 98 131 92 118 80 118 C 68 118 62 131 50 128 C 38 125 46 104 46 72 Z"
+          fill="url(#g-body)" stroke="#ddd6fe" stroke-width="2" filter="url(#soft-shadow-g)"/>
 
-    <!-- Puzzled spiral eyes -->
-    <circle cx="68" cy="65" r="5" fill="none" stroke="#6366f1" stroke-width="2.5"/>
-    <ellipse cx="92" cy="65" rx="3.5" ry="5.5" fill="#6366f1"/>
-    <!-- Cute shy O mouth -->
-    <circle cx="80" cy="74" r="3.5" fill="#6366f1"/>
+    <!-- Puzzled Eyes: Left is spiral @, Right is dot . -->
+    <path d="M 68 64 A 4 4 0 1 1 64 68 A 7 7 0 1 1 73 66" fill="none" stroke="#2e1065" stroke-width="2" stroke-linecap="round"/>
+    <ellipse cx="94" cy="65" rx="5" ry="6.5" fill="#2e1065"/>
+    <circle cx="96" cy="63" r="2" fill="#ffffff"/>
 
-    <!-- Paws hiding face / touching cheeks -->
-    <ellipse cx="56" cy="74" rx="7" ry="5.5" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-    <ellipse cx="104" cy="74" rx="7" ry="5.5" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-    <ellipse cx="62" cy="75" rx="6" ry="4" fill="#f43f5e" opacity="0.6"/>
-    <ellipse cx="98" cy="75" rx="6" ry="4" fill="#f43f5e" opacity="0.6"/>
+    <!-- Shy O-shaped mouth -->
+    <circle cx="80" cy="75" r="3.5" fill="#2e1065"/>
+
+    <!-- Blushing paws touching cheeks -->
+    <ellipse cx="56" cy="74" rx="7" ry="5.5" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.8"/>
+    <ellipse cx="104" cy="74" rx="7" ry="5.5" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.8"/>
+    <ellipse cx="61" cy="75" rx="5" ry="3" fill="#f43f5e" opacity="0.6"/>
+    <ellipse cx="99" cy="75" rx="5" ry="3" fill="#f43f5e" opacity="0.6"/>
   </g>
 </svg>

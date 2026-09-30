@@ -1,27 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <style>
-    @keyframes rgbSplit {
-      0%, 100% { transform: translate(0, 0); }
-      25% { transform: translate(-3px, 2px); }
-      75% { transform: translate(3px, -2px); }
+    @keyframes rgbCyan {
+      0%, 100% { transform: translate(0, 0); opacity: 0.6; }
+      50% { transform: translate(-5px, 2px); opacity: 0.8; }
     }
-    .red-ghost { animation: rgbSplit 0.3s infinite; opacity: 0.5; }
-    .cyan-ghost { animation: rgbSplit 0.3s infinite reverse; opacity: 0.5; }
+    @keyframes rgbMagenta {
+      0%, 100% { transform: translate(0, 0); opacity: 0.6; }
+      50% { transform: translate(5px, -2px); opacity: 0.8; }
+    }
+    @keyframes glitchShake {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(-2px, 1px); }
+      75% { transform: translate(2px, -1px); }
+    }
+    .cyan-layer { animation: rgbCyan 0.25s infinite ease-in-out; }
+    .magenta-layer { animation: rgbMagenta 0.25s infinite ease-in-out; }
+    .ghost-main { animation: glitchShake 0.15s infinite; }
   </style>
 
-  <!-- Cyan shifted ghost -->
-  <g class="cyan-ghost">
-    <path d="M 47 75 C 47 42 62 32 82 32 C 102 32 117 42 117 75 C 117 106 124 126 112 128 C 100 130 94 118 82 118 C 70 118 64 130 52 128 C 40 126 47 106 47 75 Z" fill="#38bdf8"/>
+  <!-- Cyan Glitch Ghost Layer -->
+  <g class="cyan-layer">
+    <path d="M 46 72 C 46 38 60 28 80 28 C 100 28 114 38 114 72 C 114 104 122 125 110 128 C 98 131 92 118 80 118 C 68 118 62 131 50 128 C 38 125 46 104 46 72 Z"
+          fill="none" stroke="#06b6d4" stroke-width="2.5"/>
   </g>
 
-  <!-- Red shifted ghost -->
-  <g class="red-ghost">
-    <path d="M 43 75 C 43 42 58 32 78 32 C 98 32 113 42 113 75 C 113 106 120 126 108 128 C 96 130 90 118 78 118 C 66 118 60 130 48 128 C 36 126 43 106 43 75 Z" fill="#f43f5e"/>
+  <!-- Magenta Glitch Ghost Layer -->
+  <g class="magenta-layer">
+    <path d="M 46 72 C 46 38 60 28 80 28 C 100 28 114 38 114 72 C 114 104 122 125 110 128 C 98 131 92 118 80 118 C 68 118 62 131 50 128 C 38 125 46 104 46 72 Z"
+          fill="none" stroke="#ec4899" stroke-width="2.5"/>
   </g>
 
-  <!-- Main Ghost -->
-  <path d="M 45 75 C 45 42 60 32 80 32 C 100 32 115 42 115 75 C 115 106 122 126 110 128 C 98 130 92 118 80 118 C 68 118 62 130 50 128 C 38 126 45 106 45 75 Z" fill="#ffffff" stroke="#6366f1" stroke-width="2"/>
-  <circle cx="68" cy="65" r="4.5" fill="#6366f1"/>
-  <circle cx="92" cy="65" r="4.5" fill="#6366f1"/>
-  <line x1="74" y1="75" x2="86" y2="75" stroke="#6366f1" stroke-width="2.5" stroke-dasharray="2 2"/>
+  <!-- Main Ghost Body -->
+  <g class="ghost-main">
+    <path d="M 46 72 C 46 38 60 28 80 28 C 100 28 114 38 114 72 C 114 104 122 125 110 128 C 98 131 92 118 80 118 C 68 118 62 131 50 128 C 38 125 46 104 46 72 Z"
+          fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+    <!-- Glitched eyes -->
+    <rect x="62" y="62" width="12" height="5" fill="#2e1065"/>
+    <rect x="86" y="62" width="12" height="5" fill="#2e1065"/>
+    <rect x="74" y="74" width="12" height="3" fill="#ec4899"/>
+  </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#8b5cf6" text-anchor="middle">SEMANTIC GLITCH</text>
 </svg>

@@ -1,37 +1,53 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="crash-g" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#475569"/>
-      <stop offset="100%" stop-color="#0f172a"/>
+    <linearGradient id="g-body" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fee2e2"/>
     </linearGradient>
   </defs>
   <style>
-    @keyframes screamPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.08) translateY(-4px); }
+    @keyframes terrorShiver {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      15% { transform: translate(-3px, 2px) scale(1.03); }
+      30% { transform: translate(3px, -2px) scale(0.97); }
+      45% { transform: translate(-2px, -3px) scale(1.02); }
+      60% { transform: translate(3px, 2px) scale(0.98); }
+      75% { transform: translate(-3px, -1px) scale(1.01); }
     }
-    @keyframes lightningZap {
+    @keyframes shockLightning {
       0%, 100% { opacity: 0; }
-      20%, 40% { opacity: 1; }
+      50% { opacity: 1; }
     }
-    .screaming { animation: screamPulse 1.2s infinite ease-in-out; transform-origin: 80px 100px; }
-    .zap { animation: lightningZap 1.5s infinite; }
+    .ghost-spooked { animation: terrorShiver 0.25s infinite; transform-origin: 80px 80px; }
+    .zap { animation: shockLightning 0.5s infinite; }
   </style>
 
-  <!-- Lightning Bolt Shocking the Ghost -->
-  <polygon points="76,10 70,36 82,36 74,62 88,32 78,32" fill="#facc15" class="zap"/>
-
-  <g class="screaming">
-    <path d="M 45 75 C 45 42 60 32 80 32 C 100 32 115 42 115 75 C 115 106 122 126 110 128 C 98 130 92 118 80 118 C 68 118 62 130 50 128 C 38 126 45 106 45 75 Z" fill="url(#crash-g)" stroke="#ef4444" stroke-width="2.5"/>
-
-    <!-- Huge Terrified Scream Eyes -->
-    <ellipse cx="68" cy="62" rx="7" ry="10" fill="#ffffff"/>
-    <circle cx="68" cy="62" r="3" fill="#ef4444"/>
-    <ellipse cx="92" cy="62" rx="7" ry="10" fill="#ffffff"/>
-    <circle cx="92" cy="62" r="3" fill="#ef4444"/>
-
-    <!-- Big Open Scream Mouth -->
-    <ellipse cx="80" cy="85" rx="8" ry="13" fill="#ef4444"/>
-    <ellipse cx="80" cy="85" rx="5" ry="9" fill="#000000"/>
+  <!-- Electric Shock sparks behind -->
+  <g class="zap">
+    <polygon points="35,45 42,55 38,57 45,70 36,60 40,58" fill="#facc15"/>
+    <polygon points="125,45 118,55 122,57 115,70 124,60 120,58" fill="#facc15"/>
   </g>
+
+  <!-- Spooked Shivering Boofy -->
+  <g class="ghost-spooked">
+    <path d="M 46 72 C 46 38 60 28 80 28 C 100 28 114 38 114 72 C 114 104 122 125 110 128 C 98 131 92 118 80 118 C 68 118 62 131 50 128 C 38 125 46 104 46 72 Z"
+          fill="url(#g-body)" stroke="#ef4444" stroke-width="2.5"/>
+
+    <!-- Giant Shocked Eyes O_O with Red Iris -->
+    <circle cx="66" cy="64" r="9" fill="#ef4444"/>
+    <circle cx="66" cy="64" r="6" fill="#1e1b4b"/>
+    <circle cx="68" cy="62" r="2.5" fill="#ffffff"/>
+
+    <circle cx="94" cy="64" r="9" fill="#ef4444"/>
+    <circle cx="94" cy="64" r="6" fill="#1e1b4b"/>
+    <circle cx="96" cy="62" r="2.5" fill="#ffffff"/>
+
+    <!-- Screaming Huge O Mouth -->
+    <ellipse cx="80" cy="80" rx="7" ry="11" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+
+    <!-- Hands on cheeks in horror -->
+    <ellipse cx="50" cy="74" rx="6" ry="7" fill="#ffffff" stroke="#ef4444" stroke-width="1.8" transform="rotate(-30 50 74)"/>
+    <ellipse cx="110" cy="74" rx="6" ry="7" fill="#ffffff" stroke="#ef4444" stroke-width="1.8" transform="rotate(30 110 74)"/>
+  </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">PANIC CRASH (500)</text>
 </svg>

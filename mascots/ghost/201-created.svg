@@ -2,44 +2,68 @@
   <defs>
     <linearGradient id="g-body" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#e0e7ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
     </linearGradient>
+    <filter id="soft-shadow-g" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#7c3aed" flood-opacity="0.2"/>
+    </filter>
   </defs>
   <style>
-    @keyframes ghostSpinJump {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      30% { transform: translateY(-12px) rotate(4deg) scale(1.05); }
-      70% { transform: translateY(-4px) rotate(-2deg); }
+    @keyframes happyJumpGhost {
+      0%, 100% { transform: translateY(0) scale(1, 1); }
+      30% { transform: translateY(5px) scale(1.1, 0.9); }
+      55% { transform: translateY(-16px) scale(0.92, 1.08); }
+      75% { transform: translateY(-2px) scale(1.02, 0.98); }
     }
-    @keyframes burstSp {
-      0% { transform: scale(0.4); opacity: 0; }
+    @keyframes starSpinPulse {
+      0% { transform: rotate(0deg) scale(0.9); }
+      50% { transform: rotate(180deg) scale(1.15); }
+      100% { transform: rotate(360deg) scale(0.9); }
+    }
+    @keyframes burstPop {
+      0% { transform: scale(0); opacity: 0; }
       50% { opacity: 1; }
-      100% { transform: scale(1.2); opacity: 0; }
+      100% { transform: scale(1.3); opacity: 0; }
     }
-    .ghost-spin { animation: ghostSpinJump 1.8s ease-in-out infinite; transform-origin: center bottom; }
-    .sp-burst { animation: burstSp 1.6s ease-out infinite; transform-origin: 80px 25px; }
+    .ghost-jump { animation: happyJumpGhost 1.8s cubic-bezier(0.28, 0.84, 0.42, 1) infinite; transform-origin: 80px 130px; }
+    .star-held { animation: starSpinPulse 4s linear infinite; transform-origin: 80px 88px; }
+    .burst-1 { animation: burstPop 1.8s infinite; transform-origin: 40px 45px; }
+    .burst-2 { animation: burstPop 1.8s infinite 0.9s; transform-origin: 120px 45px; }
   </style>
 
-  <!-- Spectral Starburst on head -->
-  <g class="sp-burst">
-    <circle cx="80" cy="22" r="5" fill="#facc15"/>
-    <circle cx="62" cy="18" r="3" fill="#ec4899"/>
-    <circle cx="98" cy="20" r="3.5" fill="#38bdf8"/>
+  <!-- Ghost Jumping with Joy -->
+  <g class="ghost-jump">
+    <path d="M 46 72 C 46 38 60 28 80 28 C 100 28 114 38 114 72 C 114 104 122 125 110 128 C 98 131 92 118 80 118 C 68 118 62 131 50 128 C 38 125 46 104 46 72 Z"
+          fill="url(#g-body)" stroke="#ddd6fe" stroke-width="2" filter="url(#soft-shadow-g)"/>
+
+    <!-- Happy Curved Eyes (^ ^) -->
+    <path d="M 62 66 Q 68 58 74 66" fill="none" stroke="#2e1065" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 86 66 Q 92 58 98 66" fill="none" stroke="#2e1065" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Blush -->
+    <ellipse cx="58" cy="74" rx="6" ry="3.5" fill="#f43f5e" opacity="0.6"/>
+    <ellipse cx="102" cy="74" rx="6" ry="3.5" fill="#f43f5e" opacity="0.6"/>
+
+    <!-- Joyful open smile :D -->
+    <path d="M 74 72 Q 80 82 86 72 Z" fill="#2e1065"/>
+
+    <!-- Glowing Star Candy held in center -->
+    <g class="star-held">
+      <polygon points="80,74 83,82 91,83 85,89 87,97 80,93 73,97 75,89 69,83 77,82" fill="#facc15" stroke="#eab308" stroke-width="1.5"/>
+    </g>
+
+    <!-- Hands holding the star -->
+    <ellipse cx="70" cy="88" rx="5" ry="4" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <ellipse cx="90" cy="88" rx="5" ry="4" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
   </g>
 
-  <g class="ghost-spin">
-    <path d="M 45 75 C 45 42 60 32 80 32 C 100 32 115 42 115 75 C 115 106 122 126 110 128 C 98 130 92 118 80 118 C 68 118 62 130 50 128 C 38 126 45 106 45 75 Z" fill="url(#g-body)" stroke="#cbd5e1" stroke-width="2.5"/>
-
-    <!-- Happy Star Eyes -->
-    <path d="M 68 62 L 70 66 L 74 66 L 71 69 L 72 73 L 68 70 L 64 73 L 65 69 L 62 66 L 66 66 Z" fill="#6366f1"/>
-    <path d="M 92 62 L 94 66 L 98 66 L 95 69 L 96 73 L 92 70 L 88 73 L 89 69 L 86 66 L 90 66 Z" fill="#6366f1"/>
-
-    <ellipse cx="60" cy="74" rx="5.5" ry="3.5" fill="#f43f5e" opacity="0.7"/>
-    <ellipse cx="100" cy="74" rx="5.5" ry="3.5" fill="#f43f5e" opacity="0.7"/>
-    <ellipse cx="80" cy="74" rx="3.5" ry="4" fill="#1e1b4b"/>
-
-    <!-- Cheering Hands Holding Glowing Star -->
-    <ellipse cx="38" cy="72" rx="7" ry="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" transform="rotate(-35 38 72)"/>
-    <ellipse cx="122" cy="72" rx="7" ry="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" transform="rotate(35 122 72)"/>
+  <!-- Confetti Stars Burst -->
+  <g class="burst-1">
+    <circle cx="38" cy="42" r="3.5" fill="#38bdf8"/>
+    <polygon points="46,30 48,34 52,35 48,37 46,41 44,37 40,35 44,34" fill="#f472b6"/>
+  </g>
+  <g class="burst-2">
+    <circle cx="122" cy="40" r="3.5" fill="#a78bfa"/>
+    <polygon points="114,32 116,36 120,37 116,39 114,43 112,39 108,37 112,36" fill="#facc15"/>
   </g>
 </svg>
