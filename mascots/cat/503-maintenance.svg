@@ -1,36 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="cat-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#fed7aa"/>
+    <linearGradient id="cat-fur-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fdba74"/>
       <stop offset="100%" stop-color="#fb923c"/>
     </linearGradient>
   </defs>
   <style>
-    @keyframes wrenchPaw {
-      0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(-20deg); }
+    @keyframes workNod {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
-    .paw-tool { animation: wrenchPaw 1.4s ease-in-out infinite; transform-origin: 105px 115px; }
+    .head-work { animation: workNod 1.8s ease-in-out infinite; }
   </style>
 
-  <!-- Yellow Engineer Cap on Cat -->
-  <path d="M 60 52 Q 80 40 100 52 Z" fill="#eab308"/>
-  <circle cx="80" cy="80" r="34" fill="url(#cat-grad)" stroke="#ea580c" stroke-width="2"/>
-  <polygon points="45,45 60,75 35,75" fill="#f97316"/>
-  <polygon points="115,45 125,75 100,75" fill="#f97316"/>
-  <!-- Focused eyes -->
-  <circle cx="68" cy="74" r="5" fill="#1e1b4b"/>
-  <circle cx="70" cy="72" r="2" fill="#ffffff"/>
-  <circle cx="92" cy="74" r="5" fill="#1e1b4b"/>
-  <circle cx="94" cy="72" r="2" fill="#ffffff"/>
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
 
-  <!-- Body -->
-  <ellipse cx="80" cy="116" rx="36" ry="24" fill="url(#cat-grad)" stroke="#ea580c" stroke-width="2"/>
+  <g class="head-work">
+    <polygon points="36,60 48,22 72,50" fill="#f97316"/>
+    <polygon points="124,60 112,22 88,50" fill="#f97316"/>
 
-  <!-- Paw with Wrench -->
-  <g class="paw-tool">
-    <ellipse cx="105" cy="115" rx="7" ry="6" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
-    <line x1="105" y1="115" x2="128" y2="95" stroke="#94a3b8" stroke-width="4.5" stroke-linecap="round"/>
-    <circle cx="128" cy="95" r="5" fill="none" stroke="#64748b" stroke-width="3"/>
+    <rect x="28" y="44" width="104" height="88" rx="44" fill="url(#cat-fur-grad)" stroke="#ea580c" stroke-width="2.5"/>
+
+    <!-- Worker Headband (Hachimaki) with Red Sun -->
+    <path d="M 28 60 Q 80 54 132 60 L 132 68 Q 80 62 28 68 Z" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+    <circle cx="80" cy="63" r="4.5" fill="#ef4444"/>
+
+    <!-- Confident smiling eyes (^ ^) -->
+    <path d="M 52 82 Q 62 70 72 82" fill="none" stroke="#431407" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M 88 82 Q 98 70 108 82" fill="none" stroke="#431407" stroke-width="4.5" stroke-linecap="round"/>
+
+    <polygon points="80,91 76,87 84,87" fill="#f43f5e"/>
+    <path d="M 72 94 Q 76 98 80 94 Q 84 98 88 94" fill="none" stroke="#431407" stroke-width="2.8" stroke-linecap="round"/>
   </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#eab308" text-anchor="middle">MAINTENANCE (503)</text>
 </svg>

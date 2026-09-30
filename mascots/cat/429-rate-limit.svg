@@ -1,34 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="cat-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="cat-fur-hot" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#fed7aa"/>
       <stop offset="100%" stop-color="#fb923c"/>
     </linearGradient>
   </defs>
   <style>
-    @keyframes zoomiesPanting {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(2px) scaleY(0.97); }
+    @keyframes pantingBreath {
+      0%, 100% { transform: scale(1, 1); }
+      50% { transform: scale(1.05, 0.95); }
     }
-    .panting-cat { animation: zoomiesPanting 0.5s infinite; }
+    .head-pant { animation: pantingBreath 0.5s ease-in-out infinite; transform-origin: 80px 145px; }
   </style>
 
-  <!-- Flat Exhausted Zoomies Cat -->
-  <g class="panting-cat">
-    <!-- Paws spread out exhausted -->
-    <ellipse cx="42" cy="115" rx="14" ry="6" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
-    <ellipse cx="118" cy="115" rx="14" ry="6" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
-    <!-- Flat Body -->
-    <ellipse cx="80" cy="112" rx="42" ry="18" fill="url(#cat-grad)" stroke="#ea580c" stroke-width="2"/>
-    <!-- Head rested on floor -->
-    <circle cx="80" cy="85" r="26" fill="url(#cat-grad)" stroke="#ef4444" stroke-width="2"/>
-    <polygon points="58,62 70,75 56,75" fill="#f97316"/>
-    <polygon points="102,62 104,75 90,75" fill="#f97316"/>
-    <!-- Swirly tired eyes -->
-    <ellipse cx="72" cy="84" rx="4" ry="2.5" fill="#ef4444"/>
-    <ellipse cx="88" cy="84" rx="4" ry="2.5" fill="#ef4444"/>
-    <!-- Panting Tongue sticking out -->
-    <ellipse cx="80" cy="94" rx="4" ry="6" fill="#f43f5e"/>
-    <text x="80" y="142" font-family="monospace" font-size="9" font-weight="bold" fill="#ef4444" text-anchor="middle">ZOOMIES LIMIT</text>
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="head-pant">
+    <polygon points="36,60 48,22 72,50" fill="#f97316"/>
+    <polygon points="124,60 112,22 88,50" fill="#f97316"/>
+
+    <rect x="28" y="44" width="104" height="88" rx="44" fill="url(#cat-fur-hot)" stroke="#ea580c" stroke-width="2.5"/>
+
+    <!-- Exhausted spiral eyes -->
+    <path d="M 62 82 A 3 3 0 1 1 58 85 A 5 5 0 1 1 65 83" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 98 82 A 3 3 0 1 1 94 85 A 5 5 0 1 1 101 83" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round"/>
+
+    <polygon points="80,91 76,87 84,87" fill="#ea580c"/>
+
+    <!-- Panting mouth with pink tongue out :P -->
+    <ellipse cx="80" cy="98" rx="6" ry="5" fill="#ea580c"/>
+    <path d="M 78 100 Q 80 108 82 100 Z" fill="#f43f5e"/>
+
+    <ellipse cx="48" cy="94" rx="7" ry="4" fill="#f97316" opacity="0.7"/>
+    <ellipse cx="112" cy="94" rx="7" ry="4" fill="#f97316" opacity="0.7"/>
   </g>
+  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#ea580c" text-anchor="middle">OVERHEAT 429</text>
 </svg>
