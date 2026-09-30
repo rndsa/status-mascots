@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="g-body" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e0e7ff"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes dusterSweep {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-25deg); }
+    }
+    .sweep-arm { animation: dusterSweep 1.2s ease-in-out infinite; transform-origin: 115px 80px; }
+  </style>
+
+  <!-- Ghost with Work Headband -->
+  <g>
+    <!-- White Headband with Red Knot -->
+    <path d="M 48 48 Q 80 40 112 48" stroke="#ef4444" stroke-width="5" fill="none"/>
+    <circle cx="48" cy="48" r="3.5" fill="#ef4444"/>
+
+    <path d="M 45 75 C 45 42 60 32 80 32 C 100 32 115 42 115 75 C 115 106 122 126 110 128 C 98 130 92 118 80 118 C 68 118 62 130 50 128 C 38 126 45 106 45 75 Z" fill="url(#g-body)" stroke="#cbd5e1" stroke-width="2.5"/>
+
+    <!-- Focused Work Eyes -->
+    <circle cx="68" cy="66" r="5" fill="#1e1b4b"/>
+    <circle cx="70" cy="64" r="2" fill="#ffffff"/>
+    <circle cx="92" cy="66" r="5" fill="#1e1b4b"/>
+    <circle cx="94" cy="64" r="2" fill="#ffffff"/>
+    <path d="M 76 75 Q 80 79 84 75" fill="none" stroke="#1e1b4b" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Right Hand with Animated Feather Duster Cleaning -->
+    <g class="sweep-arm">
+      <ellipse cx="115" cy="80" rx="7" ry="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="115" y1="80" x2="135" y2="60" stroke="#78350f" stroke-width="3" stroke-linecap="round"/>
+      <!-- Colorful Feather Duster -->
+      <path d="M 132 62 Q 148 45 142 40 Q 128 55 132 62" fill="#f43f5e"/>
+      <path d="M 134 60 Q 152 50 148 42 Q 130 58 134 60" fill="#3b82f6"/>
+    </g>
+  </g>
+</svg>

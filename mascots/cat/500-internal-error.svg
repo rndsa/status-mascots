@@ -1,14 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <style>
-    @keyframes tangle { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(5deg) scale(0.98); } }
-    .cat-tangled { animation: tangle 1.5s infinite; transform-origin: 80px 80px; }
+    @keyframes knotJiggle {
+      0%, 100% { transform: rotate(0); }
+      50% { transform: rotate(4deg); }
+    }
+    .knot-cat { animation: knotJiggle 1.5s infinite; transform-origin: 80px 80px; }
   </style>
-  <g class="cat-tangled">
-    <!-- Cat tangled in red server wires -->
+
+  <g class="knot-cat">
+    <!-- Cat tangled in red server network cables -->
     <circle cx="80" cy="80" r="30" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
-    <!-- X eyes dizzy -->
+    <!-- Dizzy eyes -->
     <text x="64" y="80" font-family="sans-serif" font-size="16" font-weight="bold" fill="#ef4444">x</text>
     <text x="86" y="80" font-family="sans-serif" font-size="16" font-weight="bold" fill="#ef4444">x</text>
+    <path d="M 74 88 Q 80 84 86 88" fill="none" stroke="#ef4444" stroke-width="2"/>
     <!-- Tangled Cables wrapped around -->
     <path d="M 40 60 Q 90 90 120 60 Q 80 120 45 90 Q 110 50 125 110" fill="none" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
     <polygon points="122,110 132,108 128,118" fill="#eab308"/>

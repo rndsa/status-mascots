@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cat-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#fb923c"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes zoomiesPanting {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(2px) scaleY(0.97); }
+    }
+    .panting-cat { animation: zoomiesPanting 0.5s infinite; }
+  </style>
+
+  <!-- Flat Exhausted Zoomies Cat -->
+  <g class="panting-cat">
+    <!-- Paws spread out exhausted -->
+    <ellipse cx="42" cy="115" rx="14" ry="6" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+    <ellipse cx="118" cy="115" rx="14" ry="6" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+    <!-- Flat Body -->
+    <ellipse cx="80" cy="112" rx="42" ry="18" fill="url(#cat-grad)" stroke="#ea580c" stroke-width="2"/>
+    <!-- Head rested on floor -->
+    <circle cx="80" cy="85" r="26" fill="url(#cat-grad)" stroke="#ef4444" stroke-width="2"/>
+    <polygon points="58,62 70,75 56,75" fill="#f97316"/>
+    <polygon points="102,62 104,75 90,75" fill="#f97316"/>
+    <!-- Swirly tired eyes -->
+    <ellipse cx="72" cy="84" rx="4" ry="2.5" fill="#ef4444"/>
+    <ellipse cx="88" cy="84" rx="4" ry="2.5" fill="#ef4444"/>
+    <!-- Panting Tongue sticking out -->
+    <ellipse cx="80" cy="94" rx="4" ry="6" fill="#f43f5e"/>
+    <text x="80" y="142" font-family="monospace" font-size="9" font-weight="bold" fill="#ef4444" text-anchor="middle">ZOOMIES LIMIT</text>
+  </g>
+</svg>

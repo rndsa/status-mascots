@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <circle cx="50" cy="65" r="12" fill="#a16207"/>
+  <circle cx="110" cy="65" r="12" fill="#a16207"/>
+  <circle cx="80" cy="68" r="28" fill="#a16207"/>
+  <!-- Scratching Head Paw -->
+  <line x1="95" y1="75" x2="105" y2="52" stroke="#a16207" stroke-width="6" stroke-linecap="round"/>
+  <text x="120" y="55" font-family="sans-serif" font-size="22" font-weight="900" fill="#ca8a04">?</text>
+  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#713f12" text-anchor="middle">SYNTAX ERROR (400)</text>
+</svg>

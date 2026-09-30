@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- Fast Jet Ski Duck with Speed Lines -->
+  <line x1="20" y1="95" x2="45" y2="95" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+  <line x1="15" y1="105" x2="40" y2="105" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+  <line x1="25" y1="115" x2="50" y2="115" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+
+  <ellipse cx="85" cy="105" rx="36" ry="20" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
+  <circle cx="108" cy="80" r="18" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
+  <ellipse cx="128" cy="84" rx="10" ry="5" fill="#f97316"/>
+  <!-- Blown back glasses -->
+  <rect x="105" y="75" width="20" height="8" rx="2" fill="#0f172a"/>
+  <text x="80" y="142" font-family="monospace" font-size="9" font-weight="bold" fill="#0284c7" text-anchor="middle">SPEED OVERFLOW</text>
+</svg>

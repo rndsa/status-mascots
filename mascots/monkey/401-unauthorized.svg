@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- Terminal Permission Denied -->
+  <rect x="40" y="50" width="80" height="50" rx="4" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
+  <text x="80" y="70" font-family="monospace" font-size="8" font-weight="bold" fill="#ef4444" text-anchor="middle">PERMISSION</text>
+  <text x="80" y="84" font-family="monospace" font-size="8" font-weight="bold" fill="#ef4444" text-anchor="middle">DENIED (SSH)</text>
+  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">NO KEY ACCESS</text>
+</svg>

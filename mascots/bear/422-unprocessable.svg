@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- Red hot face breathing flame -->
+  <circle cx="75" cy="75" r="28" fill="#ef4444"/>
+  <circle cx="68" cy="70" r="4" fill="#ffffff"/>
+  <circle cx="82" cy="70" r="4" fill="#ffffff"/>
+  <!-- Fire puff from mouth -->
+  <polygon points="90,82 135,70 120,86 135,95 100,88" fill="#f97316"/>
+  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">SPICY ERROR (422)</text>
+</svg>

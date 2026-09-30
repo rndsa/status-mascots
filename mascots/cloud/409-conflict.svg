@@ -1,24 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <style>
-    @keyframes thunderShake {
-      0% { transform: rotate(0deg); }
-      20% { transform: rotate(-10deg); }
-      40% { transform: rotate(8deg); }
-      60% { transform: rotate(-6deg); }
-      100% { transform: rotate(0deg); }
-    }
-    .thunder { animation: thunderShake 0.75s ease-in-out infinite; transform-origin: 80px 85px; }
-  </style>
-  <g class="thunder">
-    <!-- Dark Storm Cloud -->
-    <path d="M 45 105 C 30 105 30 85 45 80 C 45 60 70 50 85 65 C 100 50 125 60 120 80 C 135 85 135 105 120 105 Z" fill="#334155" stroke="#ef4444" stroke-width="2.5"/>
-    <!-- Angry Eyes (> <) -->
-    <line x1="64" y1="80" x2="74" y2="88" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
-    <line x1="74" y1="80" x2="64" y2="88" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
-    <line x1="90" y1="80" x2="100" y2="88" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
-    <line x1="100" y1="80" x2="90" y2="88" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
-    <!-- Yellow Lightning Bolt shooting down -->
-    <polygon points="80,108 74,120 82,120 76,134 88,116 80,116" fill="#facc15"/>
-    <path d="M 125 65 Q 130 71 125 75 Q 120 71 125 65 Z" fill="#38bdf8"/>
-  </g>
+  <!-- Two colliding dark clouds with thunder -->
+  <path d="M 30 85 C 20 85 20 65 35 60 C 35 48 55 45 65 55 C 75 45 90 55 85 70 C 85 85 75 85 30 85 Z" fill="#64748b"/>
+  <path d="M 85 85 C 80 85 78 68 90 62 C 95 48 115 48 122 58 C 132 50 145 62 140 75 C 145 85 130 85 85 85 Z" fill="#475569"/>
+  <!-- Lightning between -->
+  <polygon points="82,65 88,80 82,82 86,105 76,85 82,83" fill="#facc15"/>
+  <text x="80" y="145" font-family="monospace" font-size="11" font-weight="bold" fill="#ef4444" text-anchor="middle">THUNDER COLLISION</text>
 </svg>

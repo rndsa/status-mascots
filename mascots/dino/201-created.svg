@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="dino-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#86efac"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes hatchWiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-6deg); }
+      75% { transform: rotate(6deg); }
+    }
+    .egg-hatch { animation: hatchWiggle 2s ease-in-out infinite; transform-origin: 80px 130px; }
+  </style>
+
+  <g class="egg-hatch">
+    <!-- Eggshell bottom -->
+    <path d="M 45 105 C 45 135 115 135 115 105 L 105 108 L 95 102 L 85 108 L 75 102 L 65 108 L 55 102 Z" fill="#fef08a" stroke="#ca8a04" stroke-width="2.5"/>
+
+    <!-- Baby Dino Popping Out -->
+    <path d="M 65 85 C 65 65 95 65 100 80 C 102 90 95 95 85 95 C 75 95 65 90 65 85 Z" fill="url(#dino-grad)" stroke="#16a34a" stroke-width="2"/>
+    <circle cx="88" cy="76" r="4.5" fill="#14532d"/>
+    <circle cx="90" cy="74" r="1.5" fill="#ffffff"/>
+
+    <!-- Eggshell Cap on Head -->
+    <polygon points="68,68 76,62 84,68 92,62 100,68 94,52 74,52" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- UFO on Hydraulic Lift Jacks -->
+  <line x1="45" y1="95" x2="45" y2="130" stroke="#f59e0b" stroke-width="4"/>
+  <line x1="115" y1="95" x2="115" y2="130" stroke="#f59e0b" stroke-width="4"/>
+  <ellipse cx="80" cy="80" rx="46" ry="15" fill="#64748b" stroke="#334155" stroke-width="2"/>
+  <!-- Welding Sparks -->
+  <polygon points="80,88 83,93 88,90 85,95 89,99 82,97 78,101 79,95 74,92 79,92" fill="#facc15"/>
+  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#f59e0b" text-anchor="middle">SPACE DOCK REPAIR</text>
+</svg>

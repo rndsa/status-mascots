@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- Monkey holding golden banana trophy -->
+  <circle cx="50" cy="70" r="12" fill="#a16207"/>
+  <circle cx="110" cy="70" r="12" fill="#a16207"/>
+  <circle cx="80" cy="75" r="26" fill="#a16207"/>
+  <ellipse cx="80" cy="80" rx="18" ry="14" fill="#fef08a"/>
+
+  <!-- Golden Banana held up -->
+  <path d="M 70 35 Q 90 28 95 45 Q 85 45 70 35 Z" fill="#facc15" stroke="#ca8a04" stroke-width="2"/>
+  <polygon points="82,48 85,55 93,56 87,62 89,70 82,66 75,70 77,62 71,56 79,55" fill="#facc15"/>
+  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#ca8a04" text-anchor="middle">GIT PUSH (201)</text>
+</svg>

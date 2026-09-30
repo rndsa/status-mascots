@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="g-body" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e0e7ff"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes ghostSpinJump {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      30% { transform: translateY(-12px) rotate(4deg) scale(1.05); }
+      70% { transform: translateY(-4px) rotate(-2deg); }
+    }
+    @keyframes burstSp {
+      0% { transform: scale(0.4); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: scale(1.2); opacity: 0; }
+    }
+    .ghost-spin { animation: ghostSpinJump 1.8s ease-in-out infinite; transform-origin: center bottom; }
+    .sp-burst { animation: burstSp 1.6s ease-out infinite; transform-origin: 80px 25px; }
+  </style>
+
+  <!-- Spectral Starburst on head -->
+  <g class="sp-burst">
+    <circle cx="80" cy="22" r="5" fill="#facc15"/>
+    <circle cx="62" cy="18" r="3" fill="#ec4899"/>
+    <circle cx="98" cy="20" r="3.5" fill="#38bdf8"/>
+  </g>
+
+  <g class="ghost-spin">
+    <path d="M 45 75 C 45 42 60 32 80 32 C 100 32 115 42 115 75 C 115 106 122 126 110 128 C 98 130 92 118 80 118 C 68 118 62 130 50 128 C 38 126 45 106 45 75 Z" fill="url(#g-body)" stroke="#cbd5e1" stroke-width="2.5"/>
+
+    <!-- Happy Star Eyes -->
+    <path d="M 68 62 L 70 66 L 74 66 L 71 69 L 72 73 L 68 70 L 64 73 L 65 69 L 62 66 L 66 66 Z" fill="#6366f1"/>
+    <path d="M 92 62 L 94 66 L 98 66 L 95 69 L 96 73 L 92 70 L 88 73 L 89 69 L 86 66 L 90 66 Z" fill="#6366f1"/>
+
+    <ellipse cx="60" cy="74" rx="5.5" ry="3.5" fill="#f43f5e" opacity="0.7"/>
+    <ellipse cx="100" cy="74" rx="5.5" ry="3.5" fill="#f43f5e" opacity="0.7"/>
+    <ellipse cx="80" cy="74" rx="3.5" ry="4" fill="#1e1b4b"/>
+
+    <!-- Cheering Hands Holding Glowing Star -->
+    <ellipse cx="38" cy="72" rx="7" ry="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" transform="rotate(-35 38 72)"/>
+    <ellipse cx="122" cy="72" rx="7" ry="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" transform="rotate(35 122 72)"/>
+  </g>
+</svg>

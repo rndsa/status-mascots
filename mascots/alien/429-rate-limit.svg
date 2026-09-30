@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- Warp Speed Light Trails -->
+  <line x1="20" y1="40" x2="60" y2="40" stroke="#38bdf8" stroke-width="2"/>
+  <line x1="10" y1="80" x2="50" y2="80" stroke="#38bdf8" stroke-width="3"/>
+  <line x1="25" y1="120" x2="65" y2="120" stroke="#38bdf8" stroke-width="2"/>
+
+  <!-- Blazing Fast UFO -->
+  <ellipse cx="90" cy="80" rx="40" ry="12" fill="#ef4444" stroke="#991b1b" stroke-width="2"/>
+  <circle cx="90" cy="70" r="10" fill="#facc15"/>
+  <text x="80" y="142" font-family="monospace" font-size="9" font-weight="bold" fill="#ef4444" text-anchor="middle">WARP DRIVE OVERHEAT</text>
+</svg>

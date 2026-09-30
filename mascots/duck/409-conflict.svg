@@ -6,28 +6,22 @@
     </linearGradient>
   </defs>
   <style>
-    @keyframes quackShake {
-      0% { transform: rotate(0deg); }
-      20% { transform: rotate(-14deg); }
-      40% { transform: rotate(12deg); }
-      60% { transform: rotate(-8deg); }
-      100% { transform: rotate(0deg); }
+    @keyframes quackRage {
+      0%, 100% { transform: rotate(0deg); }
+      20% { transform: rotate(-12deg); }
+      40% { transform: rotate(10deg); }
     }
-    .head-duck { animation: quackShake 0.75s ease-in-out infinite; transform-origin: 95px 90px; }
+    .duck-err { animation: quackRage 0.8s ease-in-out infinite; transform-origin: 95px 90px; }
   </style>
-  <g>
-    <g class="head-duck">
-      <circle cx="95" cy="72" r="22" fill="url(#duck-grad)" stroke="#ef4444" stroke-width="2.5"/>
-      <!-- Squeezed X Eye -->
-      <line x1="95" y1="64" x2="105" y2="74" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
-      <line x1="105" y1="64" x2="95" y2="74" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
-      <!-- Beak wide open QUACK -->
-      <polygon points="115,70 128,66 120,76" fill="#ea580c"/>
-      <polygon points="115,78 128,82 120,76" fill="#ea580c"/>
-      <path d="M 125 46 Q 130 52 125 56 Q 120 52 125 46 Z" fill="#38bdf8"/>
-    </g>
-    <!-- Body -->
-    <ellipse cx="75" cy="105" rx="36" ry="24" fill="url(#duck-grad)" stroke="#ca8a04" stroke-width="2"/>
-    <text x="80" y="145" font-family="monospace" font-size="11" font-weight="bold" fill="#ef4444" text-anchor="middle">ANGRY QUACK</text>
+
+  <g class="duck-err">
+    <circle cx="95" cy="72" r="22" fill="url(#duck-grad)" stroke="#ef4444" stroke-width="2.5"/>
+    <line x1="95" y1="64" x2="105" y2="74" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+    <line x1="105" y1="64" x2="95" y2="74" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+    <polygon points="115,70 128,66 120,76" fill="#ea580c"/>
+    <polygon points="115,78 128,82 120,76" fill="#ea580c"/>
+    <path d="M 125 46 Q 130 52 125 56 Q 120 52 125 46 Z" fill="#38bdf8"/>
   </g>
+  <ellipse cx="75" cy="105" rx="36" ry="24" fill="url(#duck-grad)" stroke="#ca8a04" stroke-width="2"/>
+  <text x="80" y="145" font-family="monospace" font-size="11" font-weight="bold" fill="#ef4444" text-anchor="middle">ANGRY QUACK</text>
 </svg>

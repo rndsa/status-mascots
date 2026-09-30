@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cat-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#fb923c"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes catTiltHead {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-14deg); }
+    }
+    .head-tilt { animation: catTiltHead 2.5s ease-in-out infinite; transform-origin: 80px 100px; }
+  </style>
+
+  <g class="head-tilt">
+    <polygon points="45,45 60,75 35,75" fill="#f97316"/>
+    <polygon points="115,45 125,75 100,75" fill="#f97316"/>
+    <circle cx="80" cy="80" r="34" fill="url(#cat-grad)" stroke="#ea580c" stroke-width="2"/>
+    <!-- Confused asymmetrical eyes -->
+    <circle cx="66" cy="74" r="7" fill="#1e1b4b"/>
+    <circle cx="68.5" cy="72" r="2.5" fill="#ffffff"/>
+    <ellipse cx="94" cy="74" rx="4" ry="4" fill="#1e1b4b"/>
+    <path d="M 75 87 Q 80 84 85 87" fill="none" stroke="#7c2d12" stroke-width="2.5"/>
+    <!-- Tangled string question mark -->
+    <path d="M 115 42 Q 125 35 125 45 Q 125 55 120 58 L 120 64" fill="none" stroke="#ec4899" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="120" cy="69" r="1.5" fill="#ec4899"/>
+  </g>
+  <ellipse cx="80" cy="116" rx="36" ry="24" fill="url(#cat-grad)" stroke="#ea580c" stroke-width="2"/>
+</svg>

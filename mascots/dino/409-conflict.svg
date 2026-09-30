@@ -6,30 +6,24 @@
     </linearGradient>
   </defs>
   <style>
-    @keyframes dinoShake {
-      0% { transform: rotate(0deg); }
-      20% { transform: rotate(-12deg); }
-      40% { transform: rotate(10deg); }
-      60% { transform: rotate(-8deg); }
-      100% { transform: rotate(0deg); }
+    @keyframes dinoRage {
+      0%, 100% { transform: rotate(0deg); }
+      20% { transform: rotate(-10deg); }
+      40% { transform: rotate(8deg); }
+      60% { transform: rotate(-6deg); }
     }
-    .head-dino { animation: dinoShake 0.8s ease-in-out infinite; transform-origin: 75px 85px; }
+    .dino-err { animation: dinoRage 0.8s ease-in-out infinite; transform-origin: 75px 85px; }
   </style>
-  <g>
-    <!-- Head Shaking furiously -->
-    <g class="head-dino">
-      <path d="M 75 75 C 75 50 115 50 120 70 C 122 80 115 90 95 90 C 80 90 75 85 75 75 Z" fill="url(#dino-grad)" stroke="#ef4444" stroke-width="2.5"/>
-      <!-- Squeezed X Eye -->
-      <line x1="94" y1="62" x2="104" y2="72" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
-      <line x1="104" y1="62" x2="94" y2="72" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
-      <!-- Angry Roar Mouth -->
-      <polygon points="106,78 120,78 115,86" fill="#991b1b"/>
-      <!-- Sweat drops -->
-      <path d="M 125 50 Q 130 56 125 60 Q 120 56 125 50 Z" fill="#38bdf8"/>
-    </g>
-    <!-- Body -->
-    <ellipse cx="75" cy="105" rx="32" ry="24" fill="url(#dino-grad)" stroke="#16a34a" stroke-width="2"/>
-    <ellipse cx="65" cy="128" rx="7" ry="5" fill="#16a34a"/>
-    <ellipse cx="85" cy="128" rx="7" ry="5" fill="#16a34a"/>
+
+  <g class="dino-err">
+    <path d="M 75 75 C 75 50 115 50 120 70 C 122 80 115 90 95 90 C 80 90 75 85 75 75 Z" fill="url(#dino-grad)" stroke="#ef4444" stroke-width="2.5"/>
+    <!-- Squeezed X Eye -->
+    <line x1="94" y1="62" x2="104" y2="72" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+    <line x1="104" y1="62" x2="94" y2="72" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+    <polygon points="106,78 120,78 115,86" fill="#991b1b"/>
+    <path d="M 125 50 Q 130 56 125 60 Q 120 56 125 50 Z" fill="#38bdf8"/>
   </g>
+  <ellipse cx="75" cy="105" rx="32" ry="24" fill="url(#dino-grad)" stroke="#16a34a" stroke-width="2"/>
+  <ellipse cx="65" cy="128" rx="7" ry="5" fill="#16a34a"/>
+  <ellipse cx="85" cy="128" rx="7" ry="5" fill="#16a34a"/>
 </svg>

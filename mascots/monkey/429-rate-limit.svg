@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- Flaming Keyboard -->
+  <rect x="45" y="90" width="70" height="25" rx="3" fill="#451a03"/>
+  <!-- Fire Flames -->
+  <polygon points="55,90 60,65 65,85 75,55 85,85 95,65 105,90" fill="#f97316"/>
+  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#ea580c" text-anchor="middle">1000 WPM OVERHEAT</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cat-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#fb923c"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes flapTap {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-10deg); }
+    }
+    .cat-paw-tap { animation: flapTap 1.4s ease-in-out infinite; transform-origin: 90px 105px; }
+  </style>
+
+  <!-- Locked Cat Door Flap -->
+  <rect x="25" y="45" width="45" height="60" rx="8" fill="#475569" stroke="#334155" stroke-width="2"/>
+  <rect x="32" y="55" width="31" height="42" rx="4" fill="#64748b"/>
+  <!-- Padlock on flap -->
+  <circle cx="47" cy="72" r="5" fill="#ef4444"/>
+  <rect x="43" y="74" width="8" height="8" rx="2" fill="#ef4444"/>
+
+  <!-- Cat Looking at Locked Flap -->
+  <g>
+    <circle cx="105" cy="80" r="30" fill="url(#cat-grad)" stroke="#ea580c" stroke-width="2"/>
+    <polygon points="90,52 102,68 85,68" fill="#f97316"/>
+    <polygon points="128,55 135,72 120,72" fill="#f97316"/>
+    <!-- Sad Eyes -->
+    <ellipse cx="96" cy="78" rx="4" ry="5" fill="#1e1b4b"/>
+    <ellipse cx="114" cy="78" rx="4" ry="5" fill="#1e1b4b"/>
+    <path d="M 102 88 Q 106 84 110 88" fill="none" stroke="#7c2d12" stroke-width="2"/>
+    <!-- Tapping Paw -->
+    <g class="cat-paw-tap">
+      <ellipse cx="78" cy="98" rx="8" ry="5" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

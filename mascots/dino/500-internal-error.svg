@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- Asteroid Falling on Dino -->
+  <circle cx="75" cy="105" rx="30" ry="22" fill="#64748b" stroke="#334155" stroke-width="2"/>
+  <line x1="68" y1="100" x2="78" y2="110" stroke="#ef4444" stroke-width="3"/>
+  <line x1="78" y1="100" x2="68" y2="110" stroke="#ef4444" stroke-width="3"/>
+  <!-- Flaming Meteorite -->
+  <circle cx="105" cy="55" r="16" fill="#f97316"/>
+  <polygon points="105,39 125,18 118,48" fill="#ef4444"/>
+  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">METEOR CRASH (500)</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- sudo rm -rf / blocked -->
+  <rect x="35" y="45" width="90" height="55" rx="4" fill="#0f172a" stroke="#ef4444" stroke-width="2.5"/>
+  <text x="80" y="65" font-family="monospace" font-size="7" font-weight="bold" fill="#f87171" text-anchor="middle">sudo rm -rf /</text>
+  <text x="80" y="82" font-family="monospace" font-size="9" font-weight="bold" fill="#ef4444" text-anchor="middle">NOT IN SUDOERS</text>
+  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">ROOT FORBIDDEN</text>
+</svg>

@@ -623,139 +623,1427 @@
 
   <script>
     const characters = [
+  {
+    "id": "robot",
+    "name": "Astro Bot",
+    "species": "Robot Chibi",
+    "preview": "/mascots/robot/200-ok.svg",
+    "reactions": [
       {
-        id: "robot",
-        name: "Astro Bot",
-        species: "Robot Chibi",
-        preview: "/mascots/robot/200-ok.svg",
-        reactions: [
-          { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Senyum ceria kedip mata cyan (^ ^) dan antena berdenyut.", json: { status: 200, message: "OK" } },
-          { code: 201, name: "Created", cat: "2xx", file: "201-created.svg", desc: "Topi pesta melompat gembira dengan letupan confetti!", json: { status: 201, id: "res_9812" } },
-          { code: 400, name: "Bad Request", cat: "4xx", file: "400-bad-request.svg", desc: "Miringin kepala bingung tanda tanya kuning melayang.", json: { status: 400, error: "Bad Request" } },
-          { code: 401, name: "Unauthorized", cat: "4xx", file: "401-unauthorized.svg", desc: "Tameng kunci dan visor gembok merah kedip-kedip.", json: { status: 401, error: "Unauthorized" } },
-          { code: 403, name: "Forbidden", cat: "4xx", file: "403-forbidden.svg", desc: "Mata datar stern (- -) dan sirine darurat merah.", json: { status: 403, error: "Forbidden" } },
-          { code: 404, name: "Not Found", cat: "4xx", file: "404-not-found.svg", desc: "Senter sorot celingukan mencari data yang hilang.", json: { status: 404, error: "Not Found" } },
-          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Mata silang (> <) dan tetesan keringat saat terjadi konflik data.", json: { status: 409, error: "Conflict", message: "Name already taken" } },
-          { code: 422, name: "Unprocessable", cat: "4xx", file: "422-unprocessable.svg", desc: "Layar visor glitch bergetar dengan scanline ungu saat validasi semantik gagal.", json: { status: 422, error: "Unprocessable Entity", issue: "Validation failed" } },
-          { code: 429, name: "Rate Limit", cat: "4xx", file: "429-rate-limit.svg", desc: "Helm merah ngos-ngosan dengan kipas pendingin berputar kencang.", json: { status: 429, error: "Too Many Requests" } },
-          { code: 500, name: "Server Error", cat: "5xx", file: "500-internal-error.svg", desc: "Helm retak berasap dan mata spiral pusing (@ @).", json: { status: 500, error: "Internal Crash" } },
-          { code: 503, name: "Maintenance", cat: "5xx", file: "503-maintenance.svg", desc: "Helm proyek kuning memegang kunci inggris siap reparasi.", json: { status: 503, error: "Maintenance" } }
-        ]
+        "code": 200,
+        "name": "OK",
+        "cat": "2xx",
+        "file": "200-ok.svg",
+        "desc": "Senyum ceria kedip mata cyan (^ ^) dan antena berdenyut.",
+        "json": {
+          "status": 200,
+          "message": "OK"
+        }
       },
       {
-        id: "ghost",
-        name: "Boofy",
-        species: "Cyber Ghost",
-        preview: "/mascots/ghost/200-ok.svg",
-        reactions: [
-          { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Hantu imut mengambang melayang ceria dan pipi pink.", json: { status: 200, success: true } },
-          { code: 400, name: "Bad Request", cat: "4xx", file: "400-bad-request.svg", desc: "Pipi tersipu malu menutup wajah bingung tanda tanya.", json: { status: 400, error: "Bad Request" } },
-          { code: 404, name: "Not Found", cat: "4xx", file: "404-not-found.svg", desc: "Hantu transparan memudar pelan mencari keberadaan.", json: { status: 404, error: "Ghost Missing" } },
-          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Hantu menangis dengan air mata anime (T_T) saat resource bentrok.", json: { status: 409, error: "Conflict" } },
-          { code: 500, name: "Server Error", cat: "5xx", file: "500-internal-error.svg", desc: "Ketakutan berteriak histeris mata melotot merah OOO!", json: { status: 500, error: "Spooked Crash" } }
-        ]
+        "code": 201,
+        "name": "Created",
+        "cat": "2xx",
+        "file": "201-created.svg",
+        "desc": "Topi pesta melompat gembira dengan letupan confetti!",
+        "json": {
+          "status": 201,
+          "id": "res_9812"
+        }
       },
       {
-        id: "cat",
-        name: "Paws",
-        species: "Cyber Neko",
-        preview: "/mascots/cat/200-ok.svg",
-        reactions: [
-          { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Kucing oren tersenyum manis :3 dengan ekor bergoyang.", json: { status: 200, message: "Purrfect" } },
-          { code: 404, name: "Not Found", cat: "4xx", file: "404-not-found.svg", desc: "Ngintip dari dalam kardus kosong bertuliskan 404.", json: { status: 404, error: "Empty Box" } },
-          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Telinga datar marah mendesis (> <) saat resource bentrok.", json: { status: 409, error: "Hiss Conflict" } },
-          { code: 500, name: "Server Error", cat: "5xx", file: "500-internal-error.svg", desc: "Terlilit kabel server merah ruwet pusing matanya silang.", json: { status: 500, error: "Knotted Cables" } }
-        ]
+        "code": 400,
+        "name": "Bad Request",
+        "cat": "4xx",
+        "file": "400-bad-request.svg",
+        "desc": "Miringin kepala bingung tanda tanya kuning melayang.",
+        "json": {
+          "status": 400,
+          "error": "Bad Request"
+        }
       },
       {
-        id: "blob",
-        name: "Jelly",
-        species: "Slime Blob",
-        preview: "/mascots/blob/200-ok.svg",
-        reactions: [
-          { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Slime hijau kenyal membal-membal ceria glossy (^ ^).", json: { status: 200, message: "Jelly Bounce" } },
-          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Jelly berubah merah panik saat data duplikat.", json: { status: 409, error: "Jelly Conflict" } },
-          { code: 500, name: "Server Error", cat: "5xx", file: "500-internal-error.svg", desc: "Lumer gepeng di lantai jadi genangan air mata silang.", json: { status: 500, error: "Splattered" } }
-        ]
+        "code": 401,
+        "name": "Unauthorized",
+        "cat": "4xx",
+        "file": "401-unauthorized.svg",
+        "desc": "Tameng kunci dan visor gembok merah kedip-kedip.",
+        "json": {
+          "status": 401,
+          "error": "Unauthorized"
+        }
       },
       {
-        id: "dino",
-        name: "Rexy",
-        species: "Baby T-Rex",
-        preview: "/mascots/dino/200-ok.svg",
-        reactions: [
-          { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Dino kecil hijau melompat gembira dengan gigi taring imut.", json: { status: 200, message: "Rawr OK" } },
-          { code: 404, name: "Not Found", cat: "4xx", file: "404-not-found.svg", desc: "Gak bisa garuk kepala karena tangannya terlalu pendek.", json: { status: 404, error: "Short Arms 404" } },
-          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Dino mengaum kesal (> <) hentak-hentak kaki saat nama bentrok.", json: { status: 409, error: "Dino Conflict" } }
-        ]
+        "code": 403,
+        "name": "Forbidden",
+        "cat": "4xx",
+        "file": "403-forbidden.svg",
+        "desc": "Sirine darurat berputar merah dan laser dilarang lewat.",
+        "json": {
+          "status": 403,
+          "error": "Forbidden"
+        }
       },
       {
-        id: "duck",
-        name: "Quack",
-        species: "Debug Rubber Duck",
-        preview: "/mascots/duck/200-ok.svg",
-        reactions: [
-          { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Bebek kuning santai berenang pakai kacamata hitam keren.", json: { status: 200, message: "Debugging Pass" } },
-          { code: 404, name: "Not Found", cat: "4xx", file: "404-not-found.svg", desc: "Menyelam kepala di bawah air, pantat & kaki mengayuh di atas.", json: { status: 404, error: "Diving Not Found" } },
-          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Kwek-kwek marah paruh terbuka lebar saat validasi bentrok.", json: { status: 409, error: "Quack Conflict" } }
-        ]
+        "code": 404,
+        "name": "Not Found",
+        "cat": "4xx",
+        "file": "404-not-found.svg",
+        "desc": "Radar berputar 360 derajat dan sorot senter mencari data.",
+        "json": {
+          "status": 404,
+          "error": "Not Found"
+        }
       },
       {
-        id: "alien",
-        name: "Cosmo",
-        species: "Alien in UFO",
-        preview: "/mascots/alien/200-ok.svg",
-        reactions: [
-          { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Alien hijau di dalam kubah UFO melambaikan tangan.", json: { status: 200, message: "Abduction OK" } },
-          { code: 404, name: "Not Found", cat: "4xx", file: "404-not-found.svg", desc: "Tersesat di luar angkasa gelap mencari koordinat bumi.", json: { status: 404, error: "Lost in Space" } },
-          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "UFO oleng miring panik sirine merah berkedip.", json: { status: 409, error: "UFO Conflict" } }
-        ]
+        "code": 409,
+        "name": "Conflict",
+        "cat": "4xx",
+        "file": "409-conflict.svg",
+        "desc": "Mata silang (> <) dan tetesan keringat saat terjadi konflik data.",
+        "json": {
+          "status": 409,
+          "error": "Conflict",
+          "message": "Resource conflict"
+        }
       },
       {
-        id: "coffee",
-        name: "Muggy",
-        species: "Caffeine Mug",
-        preview: "/mascots/coffee/200-ok.svg",
-        reactions: [
-          { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Cangkir kopi mengepul hangat tersenyum manis.", json: { status: 200, message: "Fresh Brew" } },
-          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Kopi tumpah muncrat ke mana-mana (> <) saat overflow.", json: { status: 409, error: "Coffee Spill" } },
-          { code: 429, name: "Rate Limit", cat: "4xx", file: "429-rate-limit.svg", desc: "Kebanyakan kafein gemetar bergetar hebat mata melotot!", json: { status: 429, error: "Over-Caffeinated" } }
-        ]
+        "code": 422,
+        "name": "Unprocessable",
+        "cat": "4xx",
+        "file": "422-unprocessable.svg",
+        "desc": "Visor glitch scanline ungu bergetar saat validasi semantik gagal.",
+        "json": {
+          "status": 422,
+          "error": "Unprocessable Entity"
+        }
       },
       {
-        id: "bear",
-        name: "Kuma",
-        species: "Honey Bear",
-        preview: "/mascots/bear/200-ok.svg",
-        reactions: [
-          { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Beruang cokelat makan sepotong madu manis senyum ramah.", json: { status: 200, message: "Sweet Honey" } },
-          { code: 404, name: "Not Found", cat: "4xx", file: "404-not-found.svg", desc: "Tertidur pulas hibernasi di goa kosong Zzz...", json: { status: 404, error: "Hibernating" } },
-          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Telapak tangan melambai NO NO (> <) saat resource dipakai.", json: { status: 409, error: "Bear Conflict" } }
-        ]
+        "code": 429,
+        "name": "Rate Limit",
+        "cat": "4xx",
+        "file": "429-rate-limit.svg",
+        "desc": "Helm merah ngos-ngosan dengan kipas pendingin kencang.",
+        "json": {
+          "status": 429,
+          "error": "Too Many Requests"
+        }
       },
       {
-        id: "cloud",
-        name: "Nimbus",
-        species: "Fluffy Cloud",
-        preview: "/mascots/cloud/200-ok.svg",
-        reactions: [
-          { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Awan putih empuk tersenyum diintip matahari cerah.", json: { status: 200, message: "Clear Sky" } },
-          { code: 404, name: "Not Found", cat: "4xx", file: "404-not-found.svg", desc: "Awan tertiup angin kencang hingga hilang tak berbekas.", json: { status: 404, error: "Dispersed" } },
-          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Awan badai gelap dengan petir kilat menyambar (> <).", json: { status: 409, error: "Thunder Conflict" } }
-        ]
+        "code": 500,
+        "name": "Server Error",
+        "cat": "5xx",
+        "file": "500-internal-error.svg",
+        "desc": "Helm retak berasap dan mata spiral pusing (@ @).",
+        "json": {
+          "status": 500,
+          "error": "Internal Crash"
+        }
       },
       {
-        id: "monkey",
-        name: "Chimp",
-        species: "Code Monkey",
-        preview: "/mascots/monkey/200-ok.svg",
-        reactions: [
-          { code: 200, name: "OK", cat: "2xx", file: "200-ok.svg", desc: "Monyet ceria makan pisang kuning jempol mantap.", json: { status: 200, message: "Banana OK" } },
-          { code: 409, name: "Conflict", cat: "4xx", file: "409-conflict.svg", desc: "Tutup telinga panik gak mau dengar saat terjadi konflik.", json: { status: 409, error: "Chimp Conflict" } },
-          { code: 500, name: "Server Error", cat: "5xx", file: "500-internal-error.svg", desc: "Banting laptop terbelah dua keluar percikan api!", json: { status: 500, error: "Monkey Crash" } }
-        ]
+        "code": 503,
+        "name": "Maintenance",
+        "cat": "5xx",
+        "file": "503-maintenance.svg",
+        "desc": "Helm proyek kuning ngetok baut reparasi dengan kunci inggris.",
+        "json": {
+          "status": 503,
+          "error": "Maintenance"
+        }
       }
-    ];
+    ]
+  },
+  {
+    "id": "ghost",
+    "name": "Boofy",
+    "species": "Cyber Ghost",
+    "preview": "/mascots/ghost/200-ok.svg",
+    "reactions": [
+      {
+        "code": 200,
+        "name": "OK",
+        "cat": "2xx",
+        "file": "200-ok.svg",
+        "desc": "Hantu imut mengambang melayang ceria dan pipi pink.",
+        "json": {
+          "status": 200,
+          "success": true
+        }
+      },
+      {
+        "code": 201,
+        "name": "Created",
+        "cat": "2xx",
+        "file": "201-created.svg",
+        "desc": "Memunculkan permen dan bunga spektral bercahaya!",
+        "json": {
+          "status": 201,
+          "created": "ghost_candy"
+        }
+      },
+      {
+        "code": 400,
+        "name": "Bad Request",
+        "cat": "4xx",
+        "file": "400-bad-request.svg",
+        "desc": "Pipi tersipu malu menutup wajah bingung tanda tanya.",
+        "json": {
+          "status": 400,
+          "error": "Bad Request"
+        }
+      },
+      {
+        "code": 401,
+        "name": "Unauthorized",
+        "cat": "4xx",
+        "file": "401-unauthorized.svg",
+        "desc": "Menabrak dinding berpelindung gembok hingga membal.",
+        "json": {
+          "status": 401,
+          "error": "Unauthorized"
+        }
+      },
+      {
+        "code": 403,
+        "name": "Forbidden",
+        "cat": "4xx",
+        "file": "403-forbidden.svg",
+        "desc": "Terperangkap di dalam toples kaca kedap sihir.",
+        "json": {
+          "status": 403,
+          "error": "Forbidden"
+        }
+      },
+      {
+        "code": 404,
+        "name": "Not Found",
+        "cat": "4xx",
+        "file": "404-not-found.svg",
+        "desc": "Hantu transparan memudar pelan mencari keberadaan.",
+        "json": {
+          "status": 404,
+          "error": "Ghost Missing"
+        }
+      },
+      {
+        "code": 409,
+        "name": "Conflict",
+        "cat": "4xx",
+        "file": "409-conflict.svg",
+        "desc": "Hantu menangis dengan air mata anime (T_T) saat resource bentrok.",
+        "json": {
+          "status": 409,
+          "error": "Conflict"
+        }
+      },
+      {
+        "code": 422,
+        "name": "Unprocessable",
+        "cat": "4xx",
+        "file": "422-unprocessable.svg",
+        "desc": "Tubuh spektral terbelah tiga warna RGB bergetar.",
+        "json": {
+          "status": 422,
+          "error": "Unprocessable"
+        }
+      },
+      {
+        "code": 429,
+        "name": "Rate Limit",
+        "cat": "4xx",
+        "file": "429-rate-limit.svg",
+        "desc": "Kelelahan meleleh di lantai jadi genangan roh halus.",
+        "json": {
+          "status": 429,
+          "error": "Rate Limited"
+        }
+      },
+      {
+        "code": 500,
+        "name": "Server Error",
+        "cat": "5xx",
+        "file": "500-internal-error.svg",
+        "desc": "Ketakutan berteriak histeris mata melotot merah OOO!",
+        "json": {
+          "status": 500,
+          "error": "Spooked Crash"
+        }
+      },
+      {
+        "code": 503,
+        "name": "Maintenance",
+        "cat": "5xx",
+        "file": "503-maintenance.svg",
+        "desc": "Ikat kepala putih bersih-bersih server pakai kemoceng halus.",
+        "json": {
+          "status": 503,
+          "error": "Maintenance"
+        }
+      }
+    ]
+  },
+  {
+    "id": "cat",
+    "name": "Paws",
+    "species": "Cyber Neko",
+    "preview": "/mascots/cat/200-ok.svg",
+    "reactions": [
+      {
+        "code": 200,
+        "name": "OK",
+        "cat": "2xx",
+        "file": "200-ok.svg",
+        "desc": "Kucing tersenyum manis :3 dengan ikan camilan melayang.",
+        "json": {
+          "status": 200,
+          "message": "Purrfect"
+        }
+      },
+      {
+        "code": 201,
+        "name": "Created",
+        "cat": "2xx",
+        "file": "201-created.svg",
+        "desc": "Bermain bola benang wol bercahaya dengan bintang-bintang!",
+        "json": {
+          "status": 201,
+          "created": "yarn_ball"
+        }
+      },
+      {
+        "code": 400,
+        "name": "Bad Request",
+        "cat": "4xx",
+        "file": "400-bad-request.svg",
+        "desc": "Tali wol kusut membentuk tanda tanya bikin bingung.",
+        "json": {
+          "status": 400,
+          "error": "Bad Request"
+        }
+      },
+      {
+        "code": 401,
+        "name": "Unauthorized",
+        "cat": "4xx",
+        "file": "401-unauthorized.svg",
+        "desc": "Pintu flap kucing digembok rapat tidak bisa masuk.",
+        "json": {
+          "status": 401,
+          "error": "Unauthorized"
+        }
+      },
+      {
+        "code": 403,
+        "name": "Forbidden",
+        "cat": "4xx",
+        "file": "403-forbidden.svg",
+        "desc": "Disemprot botol air spray langsung marah mendesis!",
+        "json": {
+          "status": 403,
+          "error": "Forbidden"
+        }
+      },
+      {
+        "code": 404,
+        "name": "Not Found",
+        "cat": "4xx",
+        "file": "404-not-found.svg",
+        "desc": "Ngintip dari dalam kardus kosong bertuliskan 404.",
+        "json": {
+          "status": 404,
+          "error": "Empty Box"
+        }
+      },
+      {
+        "code": 409,
+        "name": "Conflict",
+        "cat": "4xx",
+        "file": "409-conflict.svg",
+        "desc": "Telinga datar marah mendesis (> <) saat resource bentrok.",
+        "json": {
+          "status": 409,
+          "error": "Hiss Conflict"
+        }
+      },
+      {
+        "code": 422,
+        "name": "Unprocessable",
+        "cat": "4xx",
+        "file": "422-unprocessable.svg",
+        "desc": "Mengejar ekor sendiri berputar-putar pusing dan glitch.",
+        "json": {
+          "status": 422,
+          "error": "Unprocessable"
+        }
+      },
+      {
+        "code": 429,
+        "name": "Rate Limit",
+        "cat": "4xx",
+        "file": "429-rate-limit.svg",
+        "desc": "Zoomies habis energi, rebahan flat lidah melet ngos-ngosan.",
+        "json": {
+          "status": 429,
+          "error": "Zoomies Over"
+        }
+      },
+      {
+        "code": 500,
+        "name": "Server Error",
+        "cat": "5xx",
+        "file": "500-internal-error.svg",
+        "desc": "Terlilit kabel server merah ruwet pusing matanya silang.",
+        "json": {
+          "status": 500,
+          "error": "Knotted Cables"
+        }
+      },
+      {
+        "code": 503,
+        "name": "Maintenance",
+        "cat": "5xx",
+        "file": "503-maintenance.svg",
+        "desc": "Pakai sabuk perkakas dorong truk mainan siap benerin.",
+        "json": {
+          "status": 503,
+          "error": "Maintenance"
+        }
+      }
+    ]
+  },
+  {
+    "id": "blob",
+    "name": "Jelly",
+    "species": "Slime Blob",
+    "preview": "/mascots/blob/200-ok.svg",
+    "reactions": [
+      {
+        "code": 200,
+        "name": "OK",
+        "cat": "2xx",
+        "file": "200-ok.svg",
+        "desc": "Slime hijau kenyal membal-membal ceria glossy (^ ^).",
+        "json": {
+          "status": 200,
+          "message": "Jelly Bounce"
+        }
+      },
+      {
+        "code": 201,
+        "name": "Created",
+        "cat": "2xx",
+        "file": "201-created.svg",
+        "desc": "Membelah diri melahirkan baby slime imut lompat-lompat!",
+        "json": {
+          "status": 201,
+          "created": "baby_slime"
+        }
+      },
+      {
+        "code": 400,
+        "name": "Bad Request",
+        "cat": "4xx",
+        "file": "400-bad-request.svg",
+        "desc": "Tubuh jelly miring goyang bingung mata spiral.",
+        "json": {
+          "status": 400,
+          "error": "Bad Request"
+        }
+      },
+      {
+        "code": 401,
+        "name": "Unauthorized",
+        "cat": "4xx",
+        "file": "401-unauthorized.svg",
+        "desc": "Gepeng membentur dinding kaca pembatas merah.",
+        "json": {
+          "status": 401,
+          "error": "Unauthorized"
+        }
+      },
+      {
+        "code": 403,
+        "name": "Forbidden",
+        "cat": "4xx",
+        "file": "403-forbidden.svg",
+        "desc": "Terkunci dalam tabung reaksi berlabel biohazard merah.",
+        "json": {
+          "status": 403,
+          "error": "Forbidden"
+        }
+      },
+      {
+        "code": 404,
+        "name": "Not Found",
+        "cat": "4xx",
+        "file": "404-not-found.svg",
+        "desc": "Tenggelam amblas ke dalam lubang lantai gelap.",
+        "json": {
+          "status": 404,
+          "error": "Sunk 404"
+        }
+      },
+      {
+        "code": 409,
+        "name": "Conflict",
+        "cat": "4xx",
+        "file": "409-conflict.svg",
+        "desc": "Jelly berubah merah gemetar (> <) saat data duplikat.",
+        "json": {
+          "status": 409,
+          "error": "Jelly Conflict"
+        }
+      },
+      {
+        "code": 422,
+        "name": "Unprocessable",
+        "cat": "4xx",
+        "file": "422-unprocessable.svg",
+        "desc": "Jelly berubah jadi pixel balok ungu Minecraft error.",
+        "json": {
+          "status": 422,
+          "error": "Pixel Glitch"
+        }
+      },
+      {
+        "code": 429,
+        "name": "Rate Limit",
+        "cat": "4xx",
+        "file": "429-rate-limit.svg",
+        "desc": "Mendidih kuning melepuh gelembung udara bermunculan.",
+        "json": {
+          "status": 429,
+          "error": "Boiling Over"
+        }
+      },
+      {
+        "code": 500,
+        "name": "Server Error",
+        "cat": "5xx",
+        "file": "500-internal-error.svg",
+        "desc": "Lumer gepeng di lantai jadi genangan air mata silang.",
+        "json": {
+          "status": 500,
+          "error": "Splattered"
+        }
+      },
+      {
+        "code": 503,
+        "name": "Maintenance",
+        "cat": "5xx",
+        "file": "503-maintenance.svg",
+        "desc": "Membentuk diri jadi kerucut lalu lintas oranye lucu.",
+        "json": {
+          "status": 503,
+          "error": "Maintenance"
+        }
+      }
+    ]
+  },
+  {
+    "id": "dino",
+    "name": "Rexy",
+    "species": "Baby T-Rex",
+    "preview": "/mascots/dino/200-ok.svg",
+    "reactions": [
+      {
+        "code": 200,
+        "name": "OK",
+        "cat": "2xx",
+        "file": "200-ok.svg",
+        "desc": "Dino kecil hijau melompat gembira ngunyah daun segar.",
+        "json": {
+          "status": 200,
+          "message": "Rawr OK"
+        }
+      },
+      {
+        "code": 201,
+        "name": "Created",
+        "cat": "2xx",
+        "file": "201-created.svg",
+        "desc": "Menetas dari cangkang telur dengan topi pecahan telur!",
+        "json": {
+          "status": 201,
+          "hatched": true
+        }
+      },
+      {
+        "code": 400,
+        "name": "Bad Request",
+        "cat": "4xx",
+        "file": "400-bad-request.svg",
+        "desc": "Tangan terlalu pendek gak nyampe garuk kepala bingung.",
+        "json": {
+          "status": 400,
+          "error": "Short Arms 400"
+        }
+      },
+      {
+        "code": 401,
+        "name": "Unauthorized",
+        "cat": "4xx",
+        "file": "401-unauthorized.svg",
+        "desc": "Jinjit mau colok kunci ke lubang yang ketinggian.",
+        "json": {
+          "status": 401,
+          "error": "Unauthorized"
+        }
+      },
+      {
+        "code": 403,
+        "name": "Forbidden",
+        "cat": "4xx",
+        "file": "403-forbidden.svg",
+        "desc": "Terkurung di balik pagar kayu tanda bahaya T-Rex.",
+        "json": {
+          "status": 403,
+          "error": "Forbidden"
+        }
+      },
+      {
+        "code": 404,
+        "name": "Not Found",
+        "cat": "4xx",
+        "file": "404-not-found.svg",
+        "desc": "Menggali tanah cari tulang purba ekor goyang di atas.",
+        "json": {
+          "status": 404,
+          "error": "Digging 404"
+        }
+      },
+      {
+        "code": 409,
+        "name": "Conflict",
+        "cat": "4xx",
+        "file": "409-conflict.svg",
+        "desc": "Dino mengaum kesal (> <) hentak-hentak kaki saat nama bentrok.",
+        "json": {
+          "status": 409,
+          "error": "Dino Conflict"
+        }
+      },
+      {
+        "code": 422,
+        "name": "Unprocessable",
+        "cat": "4xx",
+        "file": "422-unprocessable.svg",
+        "desc": "Berubah jadi pixel dino offline Google Chrome!",
+        "json": {
+          "status": 422,
+          "error": "Chrome Dino"
+        }
+      },
+      {
+        "code": 429,
+        "name": "Rate Limit",
+        "cat": "4xx",
+        "file": "429-rate-limit.svg",
+        "desc": "Habis sprint ngos-ngosan lidah menjulur kepanasan.",
+        "json": {
+          "status": 429,
+          "error": "Stamina Empty"
+        }
+      },
+      {
+        "code": 500,
+        "name": "Server Error",
+        "cat": "5xx",
+        "file": "500-internal-error.svg",
+        "desc": "Tertabrak meteor api debu abu berhamburan.",
+        "json": {
+          "status": 500,
+          "error": "Meteor Impact"
+        }
+      },
+      {
+        "code": 503,
+        "name": "Maintenance",
+        "cat": "5xx",
+        "file": "503-maintenance.svg",
+        "desc": "Helm proyek kuning pegang palu kecil siap renovasi.",
+        "json": {
+          "status": 503,
+          "error": "Maintenance"
+        }
+      }
+    ]
+  },
+  {
+    "id": "duck",
+    "name": "Quack",
+    "species": "Debug Rubber Duck",
+    "preview": "/mascots/duck/200-ok.svg",
+    "reactions": [
+      {
+        "code": 200,
+        "name": "OK",
+        "cat": "2xx",
+        "file": "200-ok.svg",
+        "desc": "Bebek kuning santai berenang pakai kacamata hitam keren.",
+        "json": {
+          "status": 200,
+          "message": "Debugging Pass"
+        }
+      },
+      {
+        "code": 201,
+        "name": "Created",
+        "cat": "2xx",
+        "file": "201-created.svg",
+        "desc": "Anak bebek mungil berenang mengekor di belakang!",
+        "json": {
+          "status": 201,
+          "duckling": true
+        }
+      },
+      {
+        "code": 400,
+        "name": "Bad Request",
+        "cat": "4xx",
+        "file": "400-bad-request.svg",
+        "desc": "Kepala miring bingung cipratan air tanda tanya.",
+        "json": {
+          "status": 400,
+          "error": "Bad Request"
+        }
+      },
+      {
+        "code": 401,
+        "name": "Unauthorized",
+        "cat": "4xx",
+        "file": "401-unauthorized.svg",
+        "desc": "Pelampung pelindung merah dengan gembok menghadang.",
+        "json": {
+          "status": 401,
+          "error": "Unauthorized"
+        }
+      },
+      {
+        "code": 403,
+        "name": "Forbidden",
+        "cat": "4xx",
+        "file": "403-forbidden.svg",
+        "desc": "Tanda larangan berenang dicoret garis merah tegas.",
+        "json": {
+          "status": 403,
+          "error": "No Swimming"
+        }
+      },
+      {
+        "code": 404,
+        "name": "Not Found",
+        "cat": "4xx",
+        "file": "404-not-found.svg",
+        "desc": "Menyelam kepala di bawah air, kaki mengayuh di atas.",
+        "json": {
+          "status": 404,
+          "error": "Diving 404"
+        }
+      },
+      {
+        "code": 409,
+        "name": "Conflict",
+        "cat": "4xx",
+        "file": "409-conflict.svg",
+        "desc": "Kwek-kwek marah paruh terbuka lebar saat validasi bentrok.",
+        "json": {
+          "status": 409,
+          "error": "Quack Conflict"
+        }
+      },
+      {
+        "code": 422,
+        "name": "Unprocessable",
+        "cat": "4xx",
+        "file": "422-unprocessable.svg",
+        "desc": "Terseret pusaran air berputar kencang ke bawah.",
+        "json": {
+          "status": 422,
+          "error": "Whirlpool"
+        }
+      },
+      {
+        "code": 429,
+        "name": "Rate Limit",
+        "cat": "4xx",
+        "file": "429-rate-limit.svg",
+        "desc": "Ngebut kencang kacamata melorot jejak air turbin.",
+        "json": {
+          "status": 429,
+          "error": "Jet Ski Limit"
+        }
+      },
+      {
+        "code": 500,
+        "name": "Server Error",
+        "cat": "5xx",
+        "file": "500-internal-error.svg",
+        "desc": "Bebek karet kempes gepeng mengapung pasrah.",
+        "json": {
+          "status": 500,
+          "error": "Deflated 500"
+        }
+      },
+      {
+        "code": 503,
+        "name": "Maintenance",
+        "cat": "5xx",
+        "file": "503-maintenance.svg",
+        "desc": "Topi kapten nakhoda pegang dayung kayu perbaikan.",
+        "json": {
+          "status": 503,
+          "error": "Maintenance"
+        }
+      }
+    ]
+  },
+  {
+    "id": "alien",
+    "name": "Cosmo",
+    "species": "Alien in UFO",
+    "preview": "/mascots/alien/200-ok.svg",
+    "reactions": [
+      {
+        "code": 200,
+        "name": "OK",
+        "cat": "2xx",
+        "file": "200-ok.svg",
+        "desc": "Alien hijau di UFO melayang sinar traktor bercahaya.",
+        "json": {
+          "status": 200,
+          "message": "Hover OK"
+        }
+      },
+      {
+        "code": 201,
+        "name": "Created",
+        "cat": "2xx",
+        "file": "201-created.svg",
+        "desc": "Sinar traktor mengangkat bintang emas ke dalam kapal!",
+        "json": {
+          "status": 201,
+          "beamed_star": true
+        }
+      },
+      {
+        "code": 400,
+        "name": "Bad Request",
+        "cat": "4xx",
+        "file": "400-bad-request.svg",
+        "desc": "Piring terbang miring kehilangan arah navigasi sinyal.",
+        "json": {
+          "status": 400,
+          "error": "Bad Request"
+        }
+      },
+      {
+        "code": 401,
+        "name": "Unauthorized",
+        "cat": "4xx",
+        "file": "401-unauthorized.svg",
+        "desc": "Perisai pertahanan planet memantulkan sinar traktor.",
+        "json": {
+          "status": 401,
+          "error": "Shield Block"
+        }
+      },
+      {
+        "code": 403,
+        "name": "Forbidden",
+        "cat": "4xx",
+        "file": "403-forbidden.svg",
+        "desc": "Papan peringatan militer rahasia Area 51 dilarang lewat.",
+        "json": {
+          "status": 403,
+          "error": "Area 51"
+        }
+      },
+      {
+        "code": 404,
+        "name": "Not Found",
+        "cat": "4xx",
+        "file": "404-not-found.svg",
+        "desc": "Menyorot asteroid kosong di ruang hampa luar angkasa.",
+        "json": {
+          "status": 404,
+          "error": "Void 404"
+        }
+      },
+      {
+        "code": 409,
+        "name": "Conflict",
+        "cat": "4xx",
+        "file": "409-conflict.svg",
+        "desc": "Dua piring terbang saling tabrakan di jalur orbit.",
+        "json": {
+          "status": 409,
+          "error": "Orbit Crash"
+        }
+      },
+      {
+        "code": 422,
+        "name": "Unprocessable",
+        "cat": "4xx",
+        "file": "422-unprocessable.svg",
+        "desc": "Distorsi lubang cacing memelintir ruang dan waktu.",
+        "json": {
+          "status": 422,
+          "error": "Wormhole Twist"
+        }
+      },
+      {
+        "code": 429,
+        "name": "Rate Limit",
+        "cat": "4xx",
+        "file": "429-rate-limit.svg",
+        "desc": "Warp drive kecepatan cahaya mesin merah membara.",
+        "json": {
+          "status": 429,
+          "error": "Warp Overheat"
+        }
+      },
+      {
+        "code": 500,
+        "name": "Server Error",
+        "cat": "5xx",
+        "file": "500-internal-error.svg",
+        "desc": "Kubah kaca retak mendarat darurat berasap di kawah.",
+        "json": {
+          "status": 500,
+          "error": "Crash Landing"
+        }
+      },
+      {
+        "code": 503,
+        "name": "Maintenance",
+        "cat": "5xx",
+        "file": "503-maintenance.svg",
+        "desc": "Docking di bengkel luar angkasa mengelas badan kapal.",
+        "json": {
+          "status": 503,
+          "error": "Maintenance"
+        }
+      }
+    ]
+  },
+  {
+    "id": "coffee",
+    "name": "Muggy",
+    "species": "Caffeine Mug",
+    "preview": "/mascots/coffee/200-ok.svg",
+    "reactions": [
+      {
+        "code": 200,
+        "name": "OK",
+        "cat": "2xx",
+        "file": "200-ok.svg",
+        "desc": "Cangkir kopi mengepul hangat tersenyum manis ceria.",
+        "json": {
+          "status": 200,
+          "message": "Fresh Brew"
+        }
+      },
+      {
+        "code": 201,
+        "name": "Created",
+        "cat": "2xx",
+        "file": "201-created.svg",
+        "desc": "Secangkir espresso hangat dengan latte art bentuk hati!",
+        "json": {
+          "status": 201,
+          "brewed": "latte_heart"
+        }
+      },
+      {
+        "code": 400,
+        "name": "Bad Request",
+        "cat": "4xx",
+        "file": "400-bad-request.svg",
+        "desc": "Ketuker garam bukan gula! Wajah kecut jijik.",
+        "json": {
+          "status": 400,
+          "error": "Salty Coffee"
+        }
+      },
+      {
+        "code": 401,
+        "name": "Unauthorized",
+        "cat": "4xx",
+        "file": "401-unauthorized.svg",
+        "desc": "Mesin espresso digembok khusus karyawan saja.",
+        "json": {
+          "status": 401,
+          "error": "Barista Only"
+        }
+      },
+      {
+        "code": 403,
+        "name": "Forbidden",
+        "cat": "4xx",
+        "file": "403-forbidden.svg",
+        "desc": "Peringatan biji kopi decaf dilarang masuk!",
+        "json": {
+          "status": 403,
+          "error": "No Decaf"
+        }
+      },
+      {
+        "code": 404,
+        "name": "Not Found",
+        "cat": "4xx",
+        "file": "404-not-found.svg",
+        "desc": "Cangkir miring kosong melompong gak ada tetes kopi.",
+        "json": {
+          "status": 404,
+          "error": "Empty Mug"
+        }
+      },
+      {
+        "code": 409,
+        "name": "Conflict",
+        "cat": "4xx",
+        "file": "409-conflict.svg",
+        "desc": "Kopi tumpah muncrat ke mana-mana (> <) saat overflow.",
+        "json": {
+          "status": 409,
+          "error": "Coffee Spill"
+        }
+      },
+      {
+        "code": 422,
+        "name": "Unprocessable",
+        "cat": "4xx",
+        "file": "422-unprocessable.svg",
+        "desc": "Susu basi menggumpal di dalam seduhan kopi.",
+        "json": {
+          "status": 422,
+          "error": "Curdled"
+        }
+      },
+      {
+        "code": 429,
+        "name": "Rate Limit",
+        "cat": "4xx",
+        "file": "429-rate-limit.svg",
+        "desc": "Kebanyakan kafein gemetar bergetar hebat mata melotot!",
+        "json": {
+          "status": 429,
+          "error": "Over-Caffeinated"
+        }
+      },
+      {
+        "code": 500,
+        "name": "Server Error",
+        "cat": "5xx",
+        "file": "500-internal-error.svg",
+        "desc": "Cangkir keramik pecah berantakan kopi membanjir.",
+        "json": {
+          "status": 500,
+          "error": "Mug Shattered"
+        }
+      },
+      {
+        "code": 503,
+        "name": "Maintenance",
+        "cat": "5xx",
+        "file": "503-maintenance.svg",
+        "desc": "Descaling membersihkan pipa mesin espresso berkala.",
+        "json": {
+          "status": 503,
+          "error": "Maintenance"
+        }
+      }
+    ]
+  },
+  {
+    "id": "bear",
+    "name": "Kuma",
+    "species": "Honey Bear",
+    "preview": "/mascots/bear/200-ok.svg",
+    "reactions": [
+      {
+        "code": 200,
+        "name": "OK",
+        "cat": "2xx",
+        "file": "200-ok.svg",
+        "desc": "Beruang cokelat pegang toples madu manis lezat.",
+        "json": {
+          "status": 200,
+          "message": "Sweet Honey"
+        }
+      },
+      {
+        "code": 201,
+        "name": "Created",
+        "cat": "2xx",
+        "file": "201-created.svg",
+        "desc": "Sarang lebah segar dan lebah madu terbang bersahabat!",
+        "json": {
+          "status": 201,
+          "created": "honeycomb"
+        }
+      },
+      {
+        "code": 400,
+        "name": "Bad Request",
+        "cat": "4xx",
+        "file": "400-bad-request.svg",
+        "desc": "Kepala kejebak di toples madu kaki goyang ke atas.",
+        "json": {
+          "status": 400,
+          "error": "Stuck in Jar"
+        }
+      },
+      {
+        "code": 401,
+        "name": "Unauthorized",
+        "cat": "4xx",
+        "file": "401-unauthorized.svg",
+        "desc": "Lemari penyimpanan madu dirantai dan digembok.",
+        "json": {
+          "status": 401,
+          "error": "Locked"
+        }
+      },
+      {
+        "code": 403,
+        "name": "Forbidden",
+        "cat": "4xx",
+        "file": "403-forbidden.svg",
+        "desc": "Pasukan lebah membentuk barikade sengatan penjaga.",
+        "json": {
+          "status": 403,
+          "error": "Forbidden Bees"
+        }
+      },
+      {
+        "code": 404,
+        "name": "Not Found",
+        "cat": "4xx",
+        "file": "404-not-found.svg",
+        "desc": "Toples madu habis tak tersisa meneteskan air mata.",
+        "json": {
+          "status": 404,
+          "error": "Honey Empty"
+        }
+      },
+      {
+        "code": 409,
+        "name": "Conflict",
+        "cat": "4xx",
+        "file": "409-conflict.svg",
+        "desc": "Dikejar lebah marah lari terbirit-birit (> <).",
+        "json": {
+          "status": 409,
+          "error": "Bee Chase"
+        }
+      },
+      {
+        "code": 422,
+        "name": "Unprocessable",
+        "cat": "4xx",
+        "file": "422-unprocessable.svg",
+        "desc": "Salah makan cabai pedas langsung semburan api!",
+        "json": {
+          "status": 422,
+          "error": "Spicy Error"
+        }
+      },
+      {
+        "code": 429,
+        "name": "Rate Limit",
+        "cat": "4xx",
+        "file": "429-rate-limit.svg",
+        "desc": "Sugar rush kebanyakan gula mata getar berputar!",
+        "json": {
+          "status": 429,
+          "error": "Sugar Overdose"
+        }
+      },
+      {
+        "code": 500,
+        "name": "Server Error",
+        "cat": "5xx",
+        "file": "500-internal-error.svg",
+        "desc": "Dahan pohon patah jatuh terduduk bintang berputar.",
+        "json": {
+          "status": 500,
+          "error": "Tree Crash"
+        }
+      },
+      {
+        "code": 503,
+        "name": "Maintenance",
+        "cat": "5xx",
+        "file": "503-maintenance.svg",
+        "desc": "Tertidur pulas hibernasi di goa musim dingin Zzz...",
+        "json": {
+          "status": 503,
+          "error": "Hibernating"
+        }
+      }
+    ]
+  },
+  {
+    "id": "cloud",
+    "name": "Nimbus",
+    "species": "Fluffy Cloud",
+    "preview": "/mascots/cloud/200-ok.svg",
+    "reactions": [
+      {
+        "code": 200,
+        "name": "OK",
+        "cat": "2xx",
+        "file": "200-ok.svg",
+        "desc": "Awan putih empuk tersenyum di balik pelangi cerah.",
+        "json": {
+          "status": 200,
+          "message": "Clear Sky"
+        }
+      },
+      {
+        "code": 201,
+        "name": "Created",
+        "cat": "2xx",
+        "file": "201-created.svg",
+        "desc": "Matahari emas cerah menyembul keluar tersenyum!",
+        "json": {
+          "status": 201,
+          "sunrise": true
+        }
+      },
+      {
+        "code": 400,
+        "name": "Bad Request",
+        "cat": "4xx",
+        "file": "400-bad-request.svg",
+        "desc": "Awan menggumpal aneh tak beraturan bingung.",
+        "json": {
+          "status": 400,
+          "error": "Lumpy Cloud"
+        }
+      },
+      {
+        "code": 401,
+        "name": "Unauthorized",
+        "cat": "4xx",
+        "file": "401-unauthorized.svg",
+        "desc": "Penangkal petir memblokir jalur pelepasan muatan listrik.",
+        "json": {
+          "status": 401,
+          "error": "Blocked"
+        }
+      },
+      {
+        "code": 403,
+        "name": "Forbidden",
+        "cat": "4xx",
+        "file": "403-forbidden.svg",
+        "desc": "Peringatan darurat badai tornado dilarang melintas.",
+        "json": {
+          "status": 403,
+          "error": "Tornado Alert"
+        }
+      },
+      {
+        "code": 404,
+        "name": "Not Found",
+        "cat": "4xx",
+        "file": "404-not-found.svg",
+        "desc": "Langit biru cerah kosong tanpa sehelai awan pun.",
+        "json": {
+          "status": 404,
+          "error": "Empty Sky"
+        }
+      },
+      {
+        "code": 409,
+        "name": "Conflict",
+        "cat": "4xx",
+        "file": "409-conflict.svg",
+        "desc": "Awan badai gelap dengan petir kilat menyambar (> <).",
+        "json": {
+          "status": 409,
+          "error": "Thunder Crash"
+        }
+      },
+      {
+        "code": 422,
+        "name": "Unprocessable",
+        "cat": "4xx",
+        "file": "422-unprocessable.svg",
+        "desc": "Gravitasi terbalik! Butiran hujan jatuh ke atas.",
+        "json": {
+          "status": 422,
+          "error": "Inverted Rain"
+        }
+      },
+      {
+        "code": 429,
+        "name": "Rate Limit",
+        "cat": "4xx",
+        "file": "429-rate-limit.svg",
+        "desc": "Hujan deras badai topan angin kencang berputar.",
+        "json": {
+          "status": 429,
+          "error": "Downpour"
+        }
+      },
+      {
+        "code": 500,
+        "name": "Server Error",
+        "cat": "5xx",
+        "file": "500-internal-error.svg",
+        "desc": "Tersambar petir sendiri jadi abu gosong kehitaman.",
+        "json": {
+          "status": 500,
+          "error": "Zapped Cloud"
+        }
+      },
+      {
+        "code": 503,
+        "name": "Maintenance",
+        "cat": "5xx",
+        "file": "503-maintenance.svg",
+        "desc": "Memegang wiper pembersih mengelap kaca langit biru.",
+        "json": {
+          "status": 503,
+          "error": "Maintenance"
+        }
+      }
+    ]
+  },
+  {
+    "id": "monkey",
+    "name": "Chimp",
+    "species": "Code Monkey",
+    "preview": "/mascots/monkey/200-ok.svg",
+    "reactions": [
+      {
+        "code": 200,
+        "name": "OK",
+        "cat": "2xx",
+        "file": "200-ok.svg",
+        "desc": "Ngetik super cepat di laptop 200 OK kode aman.",
+        "json": {
+          "status": 200,
+          "message": "Code Passed"
+        }
+      },
+      {
+        "code": 201,
+        "name": "Created",
+        "cat": "2xx",
+        "file": "201-created.svg",
+        "desc": "Git push berhasil! Memegang piala pisang emas.",
+        "json": {
+          "status": 201,
+          "commit": "git_pushed"
+        }
+      },
+      {
+        "code": 400,
+        "name": "Bad Request",
+        "cat": "4xx",
+        "file": "400-bad-request.svg",
+        "desc": "Garuk kepala liat sintaks error bikin puyeng.",
+        "json": {
+          "status": 400,
+          "error": "Syntax Error"
+        }
+      },
+      {
+        "code": 401,
+        "name": "Unauthorized",
+        "cat": "4xx",
+        "file": "401-unauthorized.svg",
+        "desc": "Permission denied! Kunci SSH salah ditolak server.",
+        "json": {
+          "status": 401,
+          "error": "SSH Denied"
+        }
+      },
+      {
+        "code": 403,
+        "name": "Forbidden",
+        "cat": "4xx",
+        "file": "403-forbidden.svg",
+        "desc": "sudo rm -rf / ditolak! Akun bukan grup sudoers.",
+        "json": {
+          "status": 403,
+          "error": "Root Forbidden"
+        }
+      },
+      {
+        "code": 404,
+        "name": "Not Found",
+        "cat": "4xx",
+        "file": "404-not-found.svg",
+        "desc": "Kaca pembesar cari direktori kosong /src/ gak ada.",
+        "json": {
+          "status": 404,
+          "error": "File Not Found"
+        }
+      },
+      {
+        "code": 409,
+        "name": "Conflict",
+        "cat": "4xx",
+        "file": "409-conflict.svg",
+        "desc": "Git merge conflict! Garis branch kusut jadi benang.",
+        "json": {
+          "status": 409,
+          "error": "Merge Conflict"
+        }
+      },
+      {
+        "code": 422,
+        "name": "Unprocessable",
+        "cat": "4xx",
+        "file": "422-unprocessable.svg",
+        "desc": "Laptop meledak keluar error TypeError: NaN!",
+        "json": {
+          "status": 422,
+          "error": "Semantic Parse"
+        }
+      },
+      {
+        "code": 429,
+        "name": "Rate Limit",
+        "cat": "4xx",
+        "file": "429-rate-limit.svg",
+        "desc": "Keyboard terbakar api ngetik 1000 kata per menit!",
+        "json": {
+          "status": 429,
+          "error": "Keyboard Fire"
+        }
+      },
+      {
+        "code": 500,
+        "name": "Server Error",
+        "cat": "5xx",
+        "file": "500-internal-error.svg",
+        "desc": "Server produksi down berasap ngumpet di kolong meja!",
+        "json": {
+          "status": 500,
+          "error": "Production Down"
+        }
+      },
+      {
+        "code": 503,
+        "name": "Maintenance",
+        "cat": "5xx",
+        "file": "503-maintenance.svg",
+        "desc": "Pegang kunci pas perbaiki server rack yang rusak.",
+        "json": {
+          "status": 503,
+          "error": "Maintenance"
+        }
+      }
+    ]
+  }
+];
 
     let currentChar = characters[0];
     let currentReaction = currentChar.reactions.find(r => r.code === 409) || currentChar.reactions[0];

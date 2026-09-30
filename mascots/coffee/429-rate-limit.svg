@@ -1,16 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <style>
-    @keyframes jitter { 0% { transform: translate(1px, 1px); } 50% { transform: translate(-2px, -1px); } 100% { transform: translate(1px, -2px); } }
-    .caffeine-rush { animation: jitter 0.1s infinite; }
+    @keyframes cafeJitter {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(-3px, 2px); }
+      75% { transform: translate(3px, -2px); }
+    }
+    .jitter { animation: cafeJitter 0.15s infinite; }
   </style>
-  <g class="caffeine-rush">
-    <rect x="52" y="55" width="56" height="60" rx="14" fill="#fef08a" stroke="#ca8a04" stroke-width="2.5"/>
-    <path d="M 108 65 C 122 65 122 95 108 95" fill="none" stroke="#ca8a04" stroke-width="5" stroke-linecap="round"/>
-    <!-- Huge jittery eyes -->
-    <circle cx="70" cy="78" r="8" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
-    <circle cx="70" cy="78" r="3" fill="#0f172a"/>
-    <circle cx="90" cy="78" r="8" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
-    <circle cx="90" cy="78" r="3" fill="#0f172a"/>
-    <text x="80" y="140" font-family="monospace" font-size="11" font-weight="bold" fill="#ca8a04" text-anchor="middle">OVER-CAFFEINATED</text>
+  <g class="jitter">
+    <rect x="45" y="60" width="65" height="58" rx="12" fill="#fde047" stroke="#ca8a04" stroke-width="2.5"/>
+    <!-- Giant dilated pupils -->
+    <circle cx="65" cy="85" r="8" fill="#431407"/>
+    <circle cx="85" cy="85" r="8" fill="#431407"/>
+    <circle cx="67" cy="83" r="2.5" fill="#ffffff"/>
+    <circle cx="87" cy="83" r="2.5" fill="#ffffff"/>
   </g>
+  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#ca8a04" text-anchor="middle">CAFFEINE OVERDOSE</text>
 </svg>

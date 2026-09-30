@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- Dino panting with tongue out -->
+  <ellipse cx="75" cy="105" rx="32" ry="24" fill="#86efac" stroke="#ef4444" stroke-width="2"/>
+  <circle cx="85" cy="75" r="22" fill="#86efac" stroke="#ef4444" stroke-width="2"/>
+  <ellipse cx="94" cy="72" rx="4" ry="2.5" fill="#ef4444"/>
+  <ellipse cx="98" cy="85" rx="4" ry="7" fill="#f43f5e"/>
+  <!-- Sweat droplets -->
+  <circle cx="70" cy="55" r="3" fill="#38bdf8"/>
+  <circle cx="108" cy="62" r="3" fill="#38bdf8"/>
+  <text x="80" y="142" font-family="monospace" font-size="9" font-weight="bold" fill="#ef4444" text-anchor="middle">STAMINA DEPLETED</text>
+</svg>

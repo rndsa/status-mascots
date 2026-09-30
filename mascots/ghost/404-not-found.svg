@@ -1,19 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="g-fade" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+    <linearGradient id="fade-g" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
       <stop offset="100%" stop-color="#818cf8" stop-opacity="0.2"/>
     </linearGradient>
   </defs>
   <style>
-    @keyframes fade-ghost { 0%, 100% { opacity: 0.3; transform: scale(0.95); } 50% { opacity: 0.85; transform: scale(1.02); } }
-    .ghost-fade { animation: fade-ghost 2.5s ease-in-out infinite; }
+    @keyframes ghostFade {
+      0%, 100% { opacity: 0.25; transform: scale(0.95); }
+      50% { opacity: 0.85; transform: scale(1.02); }
+    }
+    @keyframes lookAround {
+      0%, 100% { transform: translateX(-3px); }
+      50% { transform: translateX(4px); }
+    }
+    .fading-ghost { animation: ghostFade 2.8s ease-in-out infinite; }
+    .bino-look { animation: lookAround 2s ease-in-out infinite; }
   </style>
-  <g class="ghost-fade">
-    <path d="M 45 75 C 45 45 60 35 80 35 C 100 35 115 45 115 75 C 115 105 120 125 108 128 C 98 130 92 120 80 120 C 68 120 62 130 52 128 C 40 125 45 105 45 75 Z" fill="url(#g-fade)" stroke="#818cf8" stroke-width="2" stroke-dasharray="4 4"/>
-    <!-- Searching eyes peering around -->
-    <circle cx="65" cy="65" r="5" fill="#4338ca"/>
-    <circle cx="89" cy="65" r="5" fill="#4338ca"/>
-    <text x="56" y="95" font-family="monospace" font-size="11" font-weight="bold" fill="#6366f1">NOT FOUND</text>
+
+  <g class="fading-ghost">
+    <path d="M 45 75 C 45 42 60 32 80 32 C 100 32 115 42 115 75 C 115 106 122 126 110 128 C 98 130 92 118 80 118 C 68 118 62 130 50 128 C 38 126 45 106 45 75 Z" fill="url(#fade-g)" stroke="#818cf8" stroke-width="2" stroke-dasharray="4 4"/>
+
+    <!-- Holding Binoculars Searching -->
+    <g class="bino-look">
+      <!-- Binoculars -->
+      <rect x="62" y="60" width="16" height="12" rx="4" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.5"/>
+      <rect x="82" y="60" width="16" height="12" rx="4" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.5"/>
+      <rect x="76" y="63" width="8" height="5" fill="#1d4ed8"/>
+      <circle cx="70" cy="66" r="4" fill="#38bdf8"/>
+      <circle cx="90" cy="66" r="4" fill="#38bdf8"/>
+    </g>
+
+    <text x="80" y="98" font-family="monospace" font-size="10" font-weight="bold" fill="#6366f1" text-anchor="middle">404 MISSING</text>
   </g>
 </svg>

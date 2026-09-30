@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- Tilted empty mug -->
+  <g transform="rotate(30 80 80)">
+    <rect x="50" y="55" width="60" height="55" rx="10" fill="#cbd5e1" stroke="#64748b" stroke-width="2"/>
+    <ellipse cx="80" cy="55" rx="30" ry="8" fill="#f1f5f9"/>
+    <!-- Zero drops -->
+  </g>
+  <text x="80" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#64748b" text-anchor="middle">OUT OF COFFEE (404)</text>
+</svg>

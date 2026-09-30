@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="blob-boil" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="100%" stop-color="#eab308"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes boilBubble {
+      0% { transform: translateY(0) scale(0.6); opacity: 0; }
+      50% { opacity: 0.9; }
+      100% { transform: translateY(-16px) scale(1.1); opacity: 0; }
+    }
+    .b-1 { animation: boilBubble 1.2s infinite; transform-origin: 70px 55px; }
+    .b-2 { animation: boilBubble 1.2s infinite 0.4s; transform-origin: 90px 55px; }
+  </style>
+
+  <!-- Boiling Bubbles -->
+  <circle cx="70" cy="50" r="5" fill="#ca8a04" class="b-1"/>
+  <circle cx="90" cy="48" r="6" fill="#ca8a04" class="b-2"/>
+
+  <!-- Boiling Jelly -->
+  <path d="M 45 115 C 35 115 35 90 48 70 C 60 50 100 50 112 70 C 125 90 125 115 115 115 C 95 125 65 125 45 115 Z" fill="url(#blob-boil)" stroke="#ca8a04" stroke-width="2.5"/>
+  <!-- Dizzy Boiling Eyes -->
+  <circle cx="66" cy="85" r="5" fill="none" stroke="#713f12" stroke-width="2"/>
+  <circle cx="94" cy="85" r="5" fill="none" stroke="#713f12" stroke-width="2"/>
+  <text x="80" y="142" font-family="monospace" font-size="9" font-weight="bold" fill="#ca8a04" text-anchor="middle">BOILING (429)</text>
+</svg>

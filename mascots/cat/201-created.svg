@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cat-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#fb923c"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes yarnBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px) rotate(15deg); }
+    }
+    .yarn { animation: yarnBounce 1.6s ease-in-out infinite; transform-origin: 110px 115px; }
+  </style>
+
+  <circle cx="80" cy="80" r="34" fill="url(#cat-grad)" stroke="#ea580c" stroke-width="2"/>
+  <polygon points="45,45 60,75 35,75" fill="#f97316"/>
+  <polygon points="115,45 125,75 100,75" fill="#f97316"/>
+  <!-- Excited big shiny eyes -->
+  <circle cx="68" cy="74" r="6" fill="#1e1b4b"/>
+  <circle cx="70" cy="72" r="2.5" fill="#ffffff"/>
+  <circle cx="92" cy="74" r="6" fill="#1e1b4b"/>
+  <circle cx="94" cy="72" r="2.5" fill="#ffffff"/>
+  <path d="M 74 86 Q 80 92 86 86" fill="none" stroke="#7c2d12" stroke-width="2.5"/>
+
+  <!-- Body -->
+  <ellipse cx="80" cy="116" rx="36" ry="24" fill="url(#cat-grad)" stroke="#ea580c" stroke-width="2"/>
+
+  <!-- Paw Playing with Yarn Ball -->
+  <g class="yarn">
+    <circle cx="110" cy="115" r="14" fill="#ec4899" stroke="#be185d" stroke-width="2"/>
+    <path d="M 104 110 Q 112 116 116 110" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M 108 120 Q 114 122 120 116" fill="none" stroke="#ffffff" stroke-width="2"/>
+  </g>
+</svg>

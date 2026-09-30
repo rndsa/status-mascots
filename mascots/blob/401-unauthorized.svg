@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="blob-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes squishWall {
+      0%, 100% { transform: translateX(0) scaleX(1); }
+      40% { transform: translateX(14px) scaleX(0.75); }
+    }
+    .squish { animation: squishWall 2s ease-in-out infinite; transform-origin: 100px 115px; }
+  </style>
+
+  <!-- Glass Barrier Wall with Lock -->
+  <line x1="118" y1="35" x2="118" y2="135" stroke="#ef4444" stroke-width="3" stroke-dasharray="6 4"/>
+  <rect x="110" y="75" width="16" height="16" rx="3" fill="#ef4444"/>
+
+  <!-- Squished Jelly -->
+  <g class="squish">
+    <path d="M 40 115 C 32 115 32 90 44 70 C 56 50 96 50 108 70 C 114 90 114 115 104 115 C 88 125 58 125 40 115 Z" fill="url(#blob-grad)" stroke="#047857" stroke-width="2.5"/>
+    <line x1="60" y1="84" x2="70" y2="84" stroke="#064e3b" stroke-width="2.5"/>
+    <line x1="82" y1="84" x2="92" y2="84" stroke="#064e3b" stroke-width="2.5"/>
+  </g>
+</svg>

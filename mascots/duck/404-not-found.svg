@@ -1,16 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
-  <style>
-    @keyframes dive { 0%, 100% { transform: rotate(-30deg); } 50% { transform: rotate(-50deg); } }
-    .diving { animation: dive 2s infinite; transform-origin: 80px 100px; }
-  </style>
-  <g class="diving">
-    <!-- Duck diving head underwater, tail sticks out -->
-    <ellipse cx="75" cy="95" rx="28" ry="34" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
-    <!-- Orange Webbed feet pedaling in air -->
-    <ellipse cx="65" cy="60" rx="8" ry="5" fill="#f97316"/>
-    <ellipse cx="85" cy="65" rx="8" ry="5" fill="#f97316"/>
-    <!-- Water surface line -->
-    <line x1="25" y1="110" x2="135" y2="110" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6 4"/>
-    <text x="80" y="135" font-family="monospace" font-size="11" font-weight="bold" fill="#38bdf8" text-anchor="middle">SEARCHING DEEP</text>
-  </g>
+  <ellipse cx="75" cy="95" rx="28" ry="34" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
+  <ellipse cx="65" cy="60" rx="8" ry="5" fill="#f97316"/>
+  <ellipse cx="85" cy="65" rx="8" ry="5" fill="#f97316"/>
+  <line x1="25" y1="110" x2="135" y2="110" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6 4"/>
+  <text x="80" y="135" font-family="monospace" font-size="11" font-weight="bold" fill="#38bdf8" text-anchor="middle">SEARCHING DEEP (404)</text>
 </svg>
