@@ -13,7 +13,7 @@
     </filter>
   </defs>
   <style>
-    /* Physics floating & breathing */
+    /* Physics floating and breathing */
     @keyframes hoverFloat {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
       50% { transform: translateY(-8px) rotate(1.5deg); }

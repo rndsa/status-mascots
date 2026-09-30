@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Status Mascots — 11 Characters Universe</title>
@@ -334,6 +337,69 @@
       line-height: 1.4;
     }
 
+    
+    .stage-actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .stage-action-btn {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 16px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .stage-action-btn:hover {
+      background: var(--surface-hover);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .stage-action-btn.primary {
+      background: #ffffff;
+      color: #0c0d12;
+      border-color: #ffffff;
+    }
+
+    .stage-action-btn.primary:hover {
+      background: #e2e8f0;
+    }
+
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(50px);
+      background: #141722;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 999;
+    }
+
+    .toast-msg.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
     /* Character Gallery Grid */
     .gallery-title-row {
       display: flex;
@@ -588,6 +654,10 @@
   "error": "Conflict",
   "message": "Subdomain 'carry.axjet.xyz' is already claimed"
 }</div>
+        <div class="stage-actions-row">
+          <button class="stage-action-btn primary" onclick="openEmbedModal()">⚡ Dapatkan Embed Code</button>
+          <button class="stage-action-btn" onclick="copyDirectRawUrl()">📋 Salin Link SVG</button>
+        </div>
       </div>
     </div>
 
@@ -2046,7 +2116,7 @@
 ];
 
     let currentChar = characters[0];
-    let currentReaction = currentChar.reactions.find(r => r.code === 409) || currentChar.reactions[0];
+    let currentReaction = currentChar.reactions.find(r => r.code === 200) || currentChar.reactions[0];
 
     // Render Character Selector Pills
     function renderCharSelector() {
@@ -2054,7 +2124,7 @@
       scroll.innerHTML = characters.map(c => `
         <div class="char-pill ${c.id === currentChar.id ? 'active' : ''}" onclick="selectChar('${c.id}')">
           <div class="char-icon">
-            <img src="${c.preview}" alt="${c.name}">
+            <img src="${c.preview}?v=2" alt="${c.name}">
           </div>
           <span class="char-name">${c.name}</span>
         </div>
@@ -2075,7 +2145,7 @@
     // Update Stage Display
     function updateStage() {
       const img = document.getElementById('stage-img');
-      img.src = `/mascots/${currentChar.id}/${currentReaction.file}`;
+      img.src = `/mascots/${currentChar.id}/${currentReaction.file}?v=${Date.now()}`;
 
       const badge = document.getElementById('stage-badge');
       badge.className = `status-chip ${currentReaction.cat === '2xx' ? 'chip-2xx' : (currentReaction.cat === '4xx' ? 'chip-4xx' : 'chip-5xx')}`;
@@ -2085,17 +2155,21 @@
       document.getElementById('stage-desc').innerText = currentReaction.desc;
       document.getElementById('stage-json').innerText = JSON.stringify(currentReaction.json, null, 2);
 
-      document.getElementById('nav-avatar').src = `/mascots/${currentChar.id}/${currentChar.reactions[0].file}`;
+      document.getElementById('nav-avatar').src = `/mascots/${currentChar.id}/${currentChar.reactions[0].file}?v=2`;
       renderStatusPills();
     }
 
-    function selectChar(charId) {
+    function selectChar(charId, shouldScroll = false) {
       currentChar = characters.find(c => c.id === charId) || characters[0];
-      // Default to 409 if available, else first reaction
-      currentReaction = currentChar.reactions.find(r => r.code === 409) || currentChar.reactions[0];
+      // Default to 200 OK (cheerful and welcoming)
+      currentReaction = currentChar.reactions.find(r => r.code === 200) || currentChar.reactions[0];
       renderCharSelector();
       updateStage();
       renderGalleryGrid();
+      if (shouldScroll) {
+        const stageEl = document.querySelector('.stage-card');
+        if (stageEl) stageEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
 
     function selectReaction(code) {
@@ -2113,23 +2187,29 @@
     function renderGalleryGrid() {
       const grid = document.getElementById('char-grid');
       grid.innerHTML = characters.map(c => `
-        <div class="char-card ${c.id === currentChar.id ? 'selected' : ''}" onclick="selectChar('${c.id}')">
+        <div class="char-card ${c.id === currentChar.id ? 'selected' : ''}" onclick="selectChar('${c.id}', true)">
           <div class="card-svg-wrap">
-            <img src="${c.preview}" alt="${c.name}">
+            <img src="${c.preview}?v=2" alt="${c.name}">
           </div>
           <div class="card-char-name">${c.name}</div>
           <div class="card-char-species">${c.species}</div>
           <div class="card-badge-count">${c.reactions.length} Status Responses</div>
-          <button class="btn-card-select" onclick="event.stopPropagation(); selectChar('${c.id}')">
+          <button class="btn-card-select" onclick="event.stopPropagation(); selectChar('${c.id}', true)">
             ${c.id === currentChar.id ? 'Sedang Dipilih ✓' : 'Lihat Semua Respon'}
           </button>
         </div>
       `).join('');
     }
 
+    function copyDirectRawUrl() {
+      const raw = `https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/${currentChar.id}/${currentReaction.file}`;
+      navigator.clipboard.writeText(raw);
+      showToast('Link SVG berhasil disalin ke clipboard!');
+    }
+
     function openEmbedModal() {
       const raw = `https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/${currentChar.id}/${currentReaction.file}`;
-      document.getElementById('modal-img').src = `/mascots/${currentChar.id}/${currentReaction.file}`;
+      document.getElementById('modal-img').src = `/mascots/${currentChar.id}/${currentReaction.file}?v=2`;
       
       const badge = document.getElementById('modal-badge');
       badge.className = `status-chip ${currentReaction.cat === '2xx' ? 'chip-2xx' : (currentReaction.cat === '4xx' ? 'chip-4xx' : 'chip-5xx')}`;
@@ -2145,8 +2225,21 @@
     function copySnippet() {
       const code = document.getElementById('modal-code').innerText;
       navigator.clipboard.writeText(code);
-      alert('Embed code copied to clipboard!');
+      showToast('Embed code berhasil disalin!');
       closeModalDirect();
+    }
+
+    function showToast(text) {
+      let toast = document.getElementById('toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toast';
+        toast.className = 'toast-msg';
+        document.body.appendChild(toast);
+      }
+      toast.innerText = text;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
     }
 
     function closeModalDirect() {

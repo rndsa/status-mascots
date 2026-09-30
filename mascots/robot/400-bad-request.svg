@@ -34,7 +34,7 @@
     <text x="125" y="44" font-family="-apple-system, sans-serif" font-size="22" font-weight="900" fill="#d97706" text-anchor="middle">?</text>
   </g>
 
-  <!-- Torso & Arms (Stable base) -->
+  <!-- Torso and Arms (Stable base) -->
   <rect x="63" y="112" width="34" height="22" rx="10" fill="url(#body-grad)" stroke="#cbd5e1" stroke-width="2"/>
   <ellipse cx="50" cy="120" rx="5.5" ry="7" fill="#94a3b8"/>
   <ellipse cx="110" cy="116" rx="5.5" ry="7" fill="#94a3b8" transform="rotate(-15 110 116)"/>
