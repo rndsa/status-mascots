@@ -1,54 +1,71 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="astro-head-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="astro-head-400" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
     </linearGradient>
-    <linearGradient id="astro-visor-glass" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#020617"/>
+    <linearGradient id="astro-visor-400" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#090514"/>
     </linearGradient>
-    <filter id="astro-shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <filter id="astro-shadow-400" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#020617" flood-opacity="0.25"/>
     </filter>
   </defs>
   <style>
-    @keyframes headTiltConfused {
+    @keyframes tiltAstro {
       0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(-15deg); }
+      50% { transform: rotate(-13deg); }
     }
-    @keyframes qmarkBob {
+    @keyframes qmarkFloat {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-7px) rotate(4deg); }
     }
-    .head-tilt { animation: headTiltConfused 2.6s ease-in-out infinite; transform-origin: 80px 145px; }
-    .qmark-box { animation: qmarkBob 2s ease-in-out infinite; transform-origin: 130px 32px; }
+    @keyframes scratchHead {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      30% { transform: translateY(-3px) rotate(8deg); }
+      60% { transform: translateY(1px) rotate(-5deg); }
+    }
+    .head-tilt { animation: tiltAstro 2.6s ease-in-out infinite; transform-origin: 80px 145px; }
+    .qmark-box { animation: qmarkFloat 2s ease-in-out infinite; transform-origin: 132px 30px; }
+    .hand-scratch { animation: scratchHead 1.3s ease-in-out infinite; transform-origin: 128px 65px; }
   </style>
 
   <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
 
+  <!-- Pulsating Question Mark Bubble -->
   <g class="qmark-box">
-    <ellipse cx="130" cy="32" rx="14" ry="14" fill="#141722" stroke="#facc15" stroke-width="2"/>
-    <text x="130" y="40" font-family="-apple-system, sans-serif" font-size="20" font-weight="900" fill="#facc15" text-anchor="middle">?</text>
+    <ellipse cx="132" cy="28" rx="14" ry="14" fill="#141722" stroke="#f59e0b" stroke-width="2"/>
+    <text x="132" y="36" font-family="-apple-system, sans-serif" font-size="20" font-weight="900" fill="#f59e0b" text-anchor="middle">?</text>
   </g>
 
   <g class="head-tilt">
-    <!-- Antenna tilted -->
+    <!-- Antenna with Amber Confused Light -->
     <rect x="78" y="14" width="4" height="26" rx="2" fill="#94a3b8"/>
-    <circle cx="80" cy="14" r="8" fill="#eab308"/>
+    <circle cx="80" cy="14" r="7" fill="#f59e0b"/>
 
     <rect x="22" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
     <rect x="130" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
 
-    <rect x="28" y="38" width="104" height="92" rx="34" fill="url(#astro-head-grad)" stroke="#cbd5e1" stroke-width="2.5" filter="url(#astro-shadow)"/>
-    <rect x="38" y="54" width="84" height="60" rx="24" fill="url(#astro-visor-glass)"/>
+    <rect x="28" y="38" width="104" height="92" rx="34" fill="url(#astro-head-400)" stroke="#f59e0b" stroke-width="2.5" filter="url(#astro-shadow-400)"/>
 
-    <!-- Puzzled Eyes: Left is spiral @, Right is dot . -->
-    <path d="M 62 80 A 4 4 0 1 1 58 84 A 7 7 0 1 1 67 82" fill="none" stroke="#38bdf8" stroke-width="2.8" stroke-linecap="round"/>
-    <ellipse cx="98" cy="84" rx="6" ry="8" fill="#38bdf8"/>
-    <circle cx="100" cy="82" r="2.2" fill="#ffffff"/>
+    <rect x="38" y="54" width="84" height="60" rx="24" fill="url(#astro-visor-400)"/>
 
-    <!-- Puzzled O mouth -->
-    <circle cx="80" cy="95" r="4.5" fill="#38bdf8"/>
+    <!-- Puzzled Visor Eyes: Left Spiral @, Right Tiny Dot . -->
+    <path d="M 62 82 A 4 4 0 1 1 58 86 A 7 7 0 1 1 67 84" fill="none" stroke="#f59e0b" stroke-width="2.8" stroke-linecap="round"/>
+    <ellipse cx="98" cy="85" rx="5" ry="7" fill="#f59e0b"/>
+    <circle cx="100" cy="83" r="1.8" fill="#ffffff"/>
+
+    <!-- Crooked mouth (~) -->
+    <path d="M 72 98 Q 76 94 80 98 Q 84 102 88 98" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Scratching Robotic Hand on Side of Helmet -->
+    <g class="hand-scratch">
+      <rect x="122" y="56" width="16" height="14" rx="5" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" transform="rotate(-35 130 63)"/>
+      <line x1="126" y1="53" x2="129" y2="50" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="130" y1="55" x2="133" y2="52" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
   </g>
+
+  <text x="80" y="146" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="9" font-weight="800" fill="#f59e0b" letter-spacing="1" text-anchor="middle">BAD REQUEST • 400</text>
 </svg>

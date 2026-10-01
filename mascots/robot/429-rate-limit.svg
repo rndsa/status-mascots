@@ -1,51 +1,174 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="astro-head-red" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Red Alert Gradients -->
+    <linearGradient id="astro-head-alert" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#fed7aa"/>
+      <stop offset="60%" stop-color="#fee2e2"/>
+      <stop offset="100%" stop-color="#fca5a5"/>
     </linearGradient>
-    <linearGradient id="astro-visor-hot" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#431407"/>
-      <stop offset="100%" stop-color="#1c0702"/>
+    
+    <linearGradient id="astro-visor-alert" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a0808"/>
+      <stop offset="100%" stop-color="#150202"/>
     </linearGradient>
-    <filter id="astro-shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#020617" flood-opacity="0.25"/>
+
+    <linearGradient id="astro-palm-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fecaca"/>
+    </linearGradient>
+
+    <radialGradient id="beacon-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#ef4444" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Drop Shadow Filter -->
+    <filter id="astro-red-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#ef4444" flood-opacity="0.35"/>
+    </filter>
+
+    <!-- Hand Shadow -->
+    <filter id="hand-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.4"/>
     </filter>
   </defs>
+
   <style>
-    @keyframes fastFan {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    /* Head Shake: Geleng-geleng kiri-kanan tegas (disapproval / wait) */
+    @keyframes headShakeDisapproval {
+      0%, 100% { transform: rotate(0deg) translateX(0); }
+      15% { transform: rotate(-12deg) translateX(-4px); }
+      30% { transform: rotate(11deg) translateX(4px); }
+      45% { transform: rotate(-8deg) translateX(-2.5px); }
+      60% { transform: rotate(7deg) translateX(2px); }
+      75% { transform: rotate(-3deg) translateX(-1px); }
+      90% { transform: rotate(0deg) translateX(0); }
     }
-    @keyframes pantingBreath {
-      0%, 100% { transform: scale(1, 1); }
-      50% { transform: scale(1.04, 0.96); }
+
+    /* Hand Stop Pulse: Dorongan telapak tangan maju menahan user */
+    @keyframes handHaltPulse {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      30% { transform: translateY(-3px) scale(1.08); }
+      60% { transform: translateY(1px) scale(0.98); }
     }
-    .fan-spin { animation: fastFan 0.15s linear infinite; transform-origin: 80px 14px; }
-    .head-pant { animation: pantingBreath 0.5s ease-in-out infinite; transform-origin: 80px 145px; }
+
+    /* Red Beacon Siren Flash */
+    @keyframes sirenFlash {
+      0%, 100% { opacity: 0.3; transform: scale(0.85); }
+      50% { opacity: 1; transform: scale(1.25); }
+    }
+
+    /* Red Warning Barrier Ripple */
+    @keyframes barrierRipple {
+      0% { r: 12px; opacity: 0.9; stroke-width: 2.5px; }
+      100% { r: 28px; opacity: 0; stroke-width: 0.5px; }
+    }
+
+    /* Stern Glare Eyes Pulse */
+    @keyframes sternPulse {
+      0%, 100% { opacity: 0.9; }
+      50% { opacity: 1; filter: drop-shadow(0 0 4px #ef4444); }
+    }
+
+    .head-alert-shaking {
+      animation: headShakeDisapproval 1.6s ease-in-out infinite;
+      transform-origin: 80px 145px;
+    }
+
+    .hand-stop-gesturing {
+      animation: handHaltPulse 1.6s ease-in-out infinite;
+      transform-origin: 110px 115px;
+    }
+
+    .beacon-light {
+      animation: sirenFlash 0.8s ease-in-out infinite;
+      transform-origin: 80px 18px;
+    }
+
+    .barrier-wave {
+      animation: barrierRipple 1.6s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+      transform-origin: 108px 110px;
+    }
+
+    .eyes-glare {
+      animation: sternPulse 1.2s ease-in-out infinite;
+    }
   </style>
 
-  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+  <!-- Ambient Ground Shadow -->
+  <ellipse cx="80" cy="148" rx="36" ry="6" fill="#000000" opacity="0.22"/>
 
-  <g class="head-pant">
-    <!-- Spinning Cooling Propeller/Fan on top -->
-    <rect x="78" y="14" width="4" height="26" rx="2" fill="#94a3b8"/>
-    <g class="fan-spin">
-      <ellipse cx="80" cy="14" rx="18" ry="4" fill="#f97316"/>
+  <!-- MAIN HEAD (GELENG-GELENG SHAKING) -->
+  <g class="head-alert-shaking">
+    <!-- Siren Beacon Light on Antenna -->
+    <rect x="78" y="18" width="4" height="22" rx="2" fill="#ef4444"/>
+    <circle class="beacon-light" cx="80" cy="18" r="9" fill="url(#beacon-glow)"/>
+    <circle cx="80" cy="18" r="5" fill="#ef4444" stroke="#ffffff" stroke-width="1.5"/>
+
+    <!-- Left & Right Red Warning Earpads -->
+    <rect x="22" y="70" width="8" height="30" rx="4" fill="#ef4444"/>
+    <rect x="130" y="70" width="8" height="30" rx="4" fill="#ef4444"/>
+    <circle cx="26" cy="85" r="2.5" fill="#ffffff" opacity="0.8"/>
+    <circle cx="134" cy="85" r="2.5" fill="#ffffff" opacity="0.8"/>
+
+    <!-- Astro Bot Red Alert Ceramic Helmet -->
+    <rect x="28" y="38" width="104" height="92" rx="34" fill="url(#astro-head-alert)" stroke="#ef4444" stroke-width="2.5" filter="url(#astro-red-shadow)"/>
+
+    <!-- Glossy Curved Visor with Red Neon Stroke -->
+    <rect x="38" y="54" width="84" height="60" rx="24" fill="url(#astro-visor-alert)" stroke="#ef4444" stroke-width="1.8"/>
+
+    <!-- Stern Warning Eyes (Red Glare - - / Flat Stern Disapproval) -->
+    <g class="eyes-glare">
+      <!-- Left Eye: Sharp angled stern brow + glare -->
+      <path d="M 52 74 L 68 78 L 52 82 Z" fill="#ef4444"/>
+      <line x1="50" y1="73" x2="70" y2="78" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+
+      <!-- Right Eye: Sharp angled stern brow + glare -->
+      <path d="M 108 74 L 92 78 L 108 82 Z" fill="#ef4444"/>
+      <line x1="110" y1="73" x2="90" y2="78" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+
+      <!-- Center Digital Alert Triangle Indicator on Visor -->
+      <polygon points="80,60 85,69 75,69" fill="#ef4444" stroke="#ffffff" stroke-width="0.8"/>
+      <circle cx="80" cy="66" r="0.8" fill="#ffffff"/>
+
+      <!-- Displeased Flat Mouth Line -->
+      <line x1="72" y1="96" x2="88" y2="96" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
     </g>
 
-    <rect x="22" y="70" width="8" height="28" rx="4" fill="#f97316"/>
-    <rect x="130" y="70" width="8" height="28" rx="4" fill="#f97316"/>
-
-    <rect x="28" y="38" width="104" height="92" rx="34" fill="url(#astro-head-red)" stroke="#ea580c" stroke-width="2.5" filter="url(#astro-shadow)"/>
-    <rect x="38" y="54" width="84" height="60" rx="24" fill="url(#astro-visor-hot)" stroke="#f97316" stroke-width="1.5"/>
-
-    <!-- Exhausted spiral eyes -->
-    <path d="M 62 82 A 3 3 0 1 1 58 85 A 5 5 0 1 1 65 83" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round"/>
-    <path d="M 98 82 A 3 3 0 1 1 94 85 A 5 5 0 1 1 101 83" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round"/>
-
-    <!-- Panting open mouth -->
-    <ellipse cx="80" cy="96" rx="5" ry="4" fill="#f97316"/>
+    <!-- Side Stress Sweat Drop -->
+    <path d="M 118 64 Q 123 70 119 74 Q 115 70 118 64 Z" fill="#ef4444" opacity="0.8"/>
   </g>
-  <text x="80" y="146" font-family="monospace" font-size="10" font-weight="bold" fill="#ea580c" text-anchor="middle">OVERHEAT 429</text>
+
+  <!-- FOREGROUND FLOATING ROBOTIC STOP HAND (NYETOP PAKAI TANGAN) -->
+  <g class="hand-stop-gesturing">
+    <!-- Red Warning Holographic Barrier Ring Emitted from Palm -->
+    <circle class="barrier-wave" cx="108" cy="110" r="14" fill="none" stroke="#ef4444"/>
+    <circle cx="108" cy="110" r="10" fill="#ef4444" opacity="0.15"/>
+
+    <!-- Floating Robotic Hand in Front -->
+    <g filter="url(#hand-shadow)">
+      <!-- Palm Base (White Armor with Red Border) -->
+      <rect x="94" y="98" width="28" height="24" rx="8" fill="url(#astro-palm-glow)" stroke="#ef4444" stroke-width="2"/>
+      
+      <!-- Palm Center Red Sensor Dot (Halt Signal Core) -->
+      <circle cx="108" cy="110" r="4" fill="#ef4444"/>
+      <circle cx="108" cy="110" r="1.8" fill="#ffffff"/>
+
+      <!-- Splayed Robotic Fingers Pushed Forward (STOP Pose) -->
+      <!-- Thumb -->
+      <rect x="88" y="104" width="7" height="12" rx="3" fill="#ffffff" stroke="#ef4444" stroke-width="1.5" transform="rotate(-30 91 110)"/>
+      <!-- Index Finger -->
+      <rect x="96" y="84" width="6.5" height="16" rx="3" fill="#ffffff" stroke="#ef4444" stroke-width="1.5" transform="rotate(-6 99 92)"/>
+      <!-- Middle Finger (Tallest) -->
+      <rect x="104.5" y="82" width="6.5" height="18" rx="3" fill="#ffffff" stroke="#ef4444" stroke-width="1.5"/>
+      <!-- Ring Finger -->
+      <rect x="113" y="85" width="6.5" height="16" rx="3" fill="#ffffff" stroke="#ef4444" stroke-width="1.5" transform="rotate(5 116 93)"/>
+      <!-- Pinky Finger -->
+      <rect x="120.5" y="89" width="6" height="13" rx="3" fill="#ffffff" stroke="#ef4444" stroke-width="1.5" transform="rotate(12 123 95)"/>
+    </g>
+  </g>
+
+  <!-- Technical Status Label (Subtle, Anti AI-Slop) -->
+  <text x="80" y="146" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="9" font-weight="800" fill="#ef4444" letter-spacing="1" text-anchor="middle">RATE LIMIT • 429</text>
 </svg>

@@ -1,87 +1,80 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="astro-head-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="astro-head-201" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
     </linearGradient>
-    <linearGradient id="astro-visor-glass" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="astro-visor-201" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#0f172a"/>
       <stop offset="100%" stop-color="#020617"/>
     </linearGradient>
-    <linearGradient id="hat-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f43f5e"/>
-      <stop offset="100%" stop-color="#fb7185"/>
-    </linearGradient>
-    <filter id="astro-shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#020617" flood-opacity="0.25"/>
+    <filter id="astro-shadow-201" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#0284c7" flood-opacity="0.3"/>
     </filter>
   </defs>
   <style>
-    @keyframes happyJump {
+    @keyframes jumpJoy {
       0%, 100% { transform: translateY(0) scale(1, 1); }
       30% { transform: translateY(6px) scale(1.08, 0.92); }
       55% { transform: translateY(-16px) scale(0.94, 1.06); }
       75% { transform: translateY(-2px) scale(1.02, 0.98); }
     }
-    @keyframes pomWobble {
-      0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(18deg); }
+    @keyframes starSpin {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.2); }
+      100% { transform: rotate(360deg) scale(1); }
     }
-    @keyframes burstL {
-      0% { transform: translate(0, 0) scale(0); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: translate(-18px, -20px) scale(1.2); opacity: 0; }
+    @keyframes handsCheer {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
-    @keyframes burstR {
-      0% { transform: translate(0, 0) scale(0); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: translate(18px, -20px) scale(1.2); opacity: 0; }
-    }
-    .head-jump { animation: happyJump 1.8s cubic-bezier(0.28, 0.84, 0.42, 1) infinite; transform-origin: 80px 145px; }
-    .pom-pom { animation: pomWobble 1.8s ease-in-out infinite; transform-origin: 80px 10px; }
-    .conf-l { animation: burstL 1.8s infinite; transform-origin: 35px 40px; }
-    .conf-r { animation: burstR 1.8s infinite 0.1s; transform-origin: 125px 40px; }
+    .head-jump { animation: jumpJoy 1.8s cubic-bezier(0.28, 0.84, 0.42, 1) infinite; transform-origin: 80px 145px; }
+    .star-rot { animation: starSpin 3s linear infinite; transform-origin: 80px 18px; }
+    .hands-cheer { animation: handsCheer 1.8s cubic-bezier(0.28, 0.84, 0.42, 1) infinite; }
   </style>
 
   <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
 
   <g class="head-jump">
-    <!-- Party Hat -->
-    <polygon points="80,14 62,42 98,42" fill="url(#hat-grad)"/>
-    <circle cx="80" cy="12" r="5.5" fill="#facc15" class="pom-pom"/>
-    <line x1="68" y1="32" x2="92" y2="32" stroke="#ffffff" stroke-width="2.5"/>
+    <!-- Newly Minted Glowing Gold Star atop Antenna -->
+    <rect x="78" y="24" width="4" height="16" rx="2" fill="#94a3b8"/>
+    <g class="star-rot">
+      <polygon points="80,10 82.5,15.5 88,16.5 84,20.5 85,26 80,23 75,26 76,20.5 72,16.5 77.5,15.5" fill="#facc15" stroke="#eab308" stroke-width="1"/>
+      <circle cx="80" cy="18" r="2" fill="#ffffff"/>
+    </g>
 
-    <!-- Ear nodes -->
-    <rect x="22" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
-    <rect x="130" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
+    <rect x="22" y="70" width="8" height="28" rx="4" fill="#38bdf8"/>
+    <rect x="130" y="70" width="8" height="28" rx="4" fill="#38bdf8"/>
 
-    <!-- Helmet -->
-    <rect x="28" y="38" width="104" height="92" rx="34" fill="url(#astro-head-grad)" stroke="#cbd5e1" stroke-width="2.5" filter="url(#astro-shadow)"/>
+    <rect x="28" y="38" width="104" height="92" rx="34" fill="url(#astro-head-201)" stroke="#38bdf8" stroke-width="2.5" filter="url(#astro-shadow-201)"/>
 
-    <!-- Visor -->
-    <rect x="38" y="54" width="84" height="60" rx="24" fill="url(#astro-visor-glass)"/>
+    <rect x="38" y="54" width="84" height="60" rx="24" fill="url(#astro-visor-201)"/>
 
-    <!-- Joyful Eyes (^ ^) -->
-    <path d="M 52 85 Q 62 72 72 85" fill="none" stroke="#38bdf8" stroke-width="4.5" stroke-linecap="round"/>
-    <path d="M 88 85 Q 98 72 108 85" fill="none" stroke="#38bdf8" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Joyful Sparkling Eyes (^ ^) -->
+    <path d="M 52 82 Q 62 70 72 82" fill="none" stroke="#38bdf8" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M 88 82 Q 98 70 108 82" fill="none" stroke="#38bdf8" stroke-width="4.5" stroke-linecap="round"/>
 
-    <!-- Rosy Blushes -->
-    <ellipse cx="48" cy="100" rx="6" ry="3.5" fill="#f43f5e" opacity="0.6"/>
-    <ellipse cx="112" cy="100" rx="6" ry="3.5" fill="#f43f5e" opacity="0.6"/>
+    <!-- Open Happy Laughing Mouth -->
+    <path d="M 74 92 Q 80 102 86 92 Z" fill="#38bdf8"/>
 
-    <!-- Joyful Smile :D -->
-    <path d="M 74 93 Q 80 103 86 93 Z" fill="#38bdf8"/>
+    <ellipse cx="48" cy="98" rx="6" ry="3.5" fill="#f43f5e" opacity="0.6"/>
+    <ellipse cx="112" cy="98" rx="6" ry="3.5" fill="#f43f5e" opacity="0.6"/>
+
+    <!-- Confetti Dots -->
+    <circle cx="36" cy="46" r="2.5" fill="#facc15"/>
+    <circle cx="124" cy="46" r="2.5" fill="#ec4899"/>
+    <polygon points="120,32 122,36 118,36" fill="#38bdf8"/>
   </g>
 
-  <!-- Confetti particle bursts -->
-  <g class="conf-l">
-    <circle cx="32" cy="38" r="3.5" fill="#38bdf8"/>
-    <rect x="24" y="48" width="5" height="5" rx="1" fill="#facc15" transform="rotate(25 26 50)"/>
-    <polygon points="38,26 40,30 44,31 40,33 38,37 36,33 32,31 36,30" fill="#f472b6"/>
+  <!-- TWO RAISED CHEERING ROBOTIC HANDS -->
+  <g class="hands-cheer">
+    <!-- Left Cheering Hand -->
+    <rect x="18" y="98" width="12" height="15" rx="5" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" transform="rotate(-25 24 105)"/>
+    <circle cx="21" cy="96" r="2" fill="#38bdf8"/>
+    <!-- Right Cheering Hand -->
+    <rect x="130" y="98" width="12" height="15" rx="5" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" transform="rotate(25 136 105)"/>
+    <circle cx="139" cy="96" r="2" fill="#38bdf8"/>
   </g>
-  <g class="conf-r">
-    <circle cx="128" cy="38" r="3.5" fill="#a78bfa"/>
-    <rect x="132" y="48" width="5" height="5" rx="1" fill="#34d399" transform="rotate(-30 134 50)"/>
-    <polygon points="122,26 124,30 128,31 124,33 122,37 120,33 116,31 120,30" fill="#facc15"/>
-  </g>
+
+  <text x="80" y="146" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="9" font-weight="800" fill="#38bdf8" letter-spacing="1" text-anchor="middle">CREATED • 201</text>
 </svg>

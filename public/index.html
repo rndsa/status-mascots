@@ -6,13 +6,13 @@
   <meta http-equiv="Expires" content="0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Status Mascots — 11 Characters Universe</title>
+  <title>Astro Bot — Status Mascots for APIs & Auth</title>
   <style>
     :root {
       --bg: #0c0d12;
       --surface: #141722;
-      --surface-subtle: #1a1e2c;
-      --surface-hover: #212638;
+      --surface-subtle: #191d2b;
+      --surface-hover: #222738;
       --border: rgba(255, 255, 255, 0.08);
       --border-hover: rgba(255, 255, 255, 0.16);
       --text: #f4f5f8;
@@ -21,7 +21,10 @@
       --badge-2xx: #34d399;
       --badge-4xx: #f87171;
       --badge-5xx: #fbbf24;
+      --accent: #38bdf8;
+      --accent-red: #ef4444;
       --radius-card: 22px;
+      --radius-inner: 16px;
       --radius-pill: 100px;
     }
 
@@ -45,7 +48,7 @@
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1040px;
       margin: 0 auto;
       width: 100%;
     }
@@ -55,35 +58,36 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 32px;
+      margin-bottom: 36px;
     }
 
     .brand-wrap {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       text-decoration: none;
       color: inherit;
     }
 
     .brand-avatar {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 13px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
 
     .brand-avatar img {
-      width: 30px;
-      height: 30px;
+      width: 34px;
+      height: 34px;
     }
 
     .brand-title {
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 700;
       letter-spacing: -0.02em;
     }
@@ -93,14 +97,14 @@
       font-weight: 600;
       color: var(--text-dim);
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
     }
 
     .pill-btn {
       background: var(--surface);
       border: 1px solid var(--border);
       color: var(--text);
-      padding: 8px 16px;
+      padding: 8px 18px;
       border-radius: var(--radius-pill);
       font-size: 13px;
       font-weight: 600;
@@ -108,487 +112,572 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: background 0.15s ease;
+      transition: all 0.15s ease;
     }
 
     .pill-btn:hover {
       background: var(--surface-hover);
+      border-color: var(--border-hover);
     }
 
-    /* Intro */
+    /* Page Intro */
     .page-intro {
-      margin-bottom: 28px;
+      margin-bottom: 32px;
+    }
+
+    .page-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
     }
 
     .page-title {
       font-size: 32px;
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      margin-bottom: 8px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 10px;
     }
 
-    .page-subtitle {
+    .page-desc {
       font-size: 15px;
       color: var(--text-muted);
       line-height: 1.5;
+      max-width: 680px;
     }
 
-    /* Mascot Universe Character Selector */
-    .char-picker-section {
-      margin-bottom: 28px;
-    }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .char-scroll {
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      scrollbar-width: thin;
-      scrollbar-color: var(--border) transparent;
-    }
-
-    .char-pill {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-pill);
-      padding: 6px 14px 6px 8px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      white-space: nowrap;
-      user-select: none;
-      transition: all 0.15s ease;
-    }
-
-    .char-pill:hover {
-      background: var(--surface-hover);
-      border-color: var(--border-hover);
-    }
-
-    .char-pill.active {
-      background: #ffffff;
-      color: #0c0d12;
-      border-color: #ffffff;
-    }
-
-    .char-icon {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: var(--bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .char-pill.active .char-icon {
-      background: #e2e8f0;
-    }
-
-    .char-icon img {
-      width: 22px;
-      height: 22px;
-    }
-
-    .char-name {
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    /* Cue Inset Stage Card */
+    /* Main Showcase Stage */
     .stage-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-card);
-      padding: 28px;
-      margin-bottom: 36px;
+      padding: 32px;
       display: grid;
-      grid-template-columns: 210px 1fr;
-      gap: 32px;
+      grid-template-columns: 320px 1fr;
+      gap: 36px;
       align-items: center;
+      margin-bottom: 36px;
+      position: relative;
+      overflow: hidden;
     }
 
-    @media (max-width: 760px) {
-      .stage-card {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-    }
-
-    .stage-mascot-view {
-      width: 180px;
-      height: 180px;
-      margin: 0 auto;
-      background: var(--bg);
+    .mascot-viewport {
+      background: #090a0f;
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: var(--radius-inner);
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      user-select: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .mascot-viewport.alert-mode {
+      border-color: rgba(239, 68, 68, 0.4);
+      background: #0e0507;
+    }
+
+    .mascot-img-wrap {
+      width: 240px;
+      height: 240px;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      position: relative;
     }
 
-    .stage-mascot-view img {
-      width: 130px;
-      height: 130px;
+    .mascot-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
       transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    .stage-mascot-view:active img {
-      transform: scale(0.92);
+    .mascot-tap-hint {
+      position: absolute;
+      bottom: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
-    .stage-info {
+    /* Controls Side */
+    .stage-controls {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 20px;
     }
 
-    .stage-header-row {
+    .stage-meta-row {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
+      align-items: center;
     }
 
-    .status-chip {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 5px 12px;
-      border-radius: 8px;
+    .status-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
     }
 
-    .chip-2xx { background: rgba(52, 211, 153, 0.12); color: var(--badge-2xx); }
-    .chip-4xx { background: rgba(248, 113, 113, 0.12); color: var(--badge-4xx); }
-    .chip-5xx { background: rgba(251, 191, 36, 0.12); color: var(--badge-5xx); }
+    .badge-2xx { background: rgba(52, 211, 153, 0.12); color: var(--badge-2xx); border: 1px solid rgba(52, 211, 153, 0.25); }
+    .badge-4xx { background: rgba(248, 113, 113, 0.12); color: var(--badge-4xx); border: 1px solid rgba(248, 113, 113, 0.25); }
+    .badge-5xx { background: rgba(251, 191, 36, 0.12); color: var(--badge-5xx); border: 1px solid rgba(251, 191, 36, 0.25); }
 
-    .stage-char-tag {
+    .file-ref {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       color: var(--text-dim);
-      font-family: ui-monospace, monospace;
     }
 
-    /* Response Pills for Current Mascot */
-    .status-pill-list {
+    /* Status Pills Grid */
+    .status-pills-wrap {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
 
-    .status-pill {
+    .status-btn {
       background: var(--surface-subtle);
       border: 1px solid var(--border);
       color: var(--text-muted);
-      padding: 6px 14px;
+      padding: 7px 14px;
       border-radius: var(--radius-pill);
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      user-select: none;
-      transition: all 0.15s ease;
-    }
-
-    .status-pill:hover {
-      background: var(--surface-hover);
-      color: var(--text);
-    }
-
-    .status-pill.active {
-      background: #ffffff;
-      color: #0c0d12;
-      border-color: #ffffff;
-    }
-
-    .stage-desc {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .json-box {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 16px;
-      font-family: ui-monospace, monospace;
       font-size: 12px;
-      color: #cbd5e1;
-      white-space: pre-wrap;
-      word-break: break-all;
-      line-height: 1.4;
-    }
-
-    
-    .stage-actions-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 6px;
-    }
-
-    .stage-action-btn {
-      background: var(--surface-subtle);
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-family: inherit;
-      font-size: 13px;
       font-weight: 600;
-      padding: 9px 16px;
-      border-radius: var(--radius-pill);
       cursor: pointer;
+      transition: all 0.15s ease;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.15s ease;
     }
 
-    .stage-action-btn:hover {
+    .status-btn:hover {
       background: var(--surface-hover);
-      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--text);
+      border-color: var(--border-hover);
     }
 
-    .stage-action-btn.primary {
+    .status-btn.active {
       background: #ffffff;
       color: #0c0d12;
       border-color: #ffffff;
+      font-weight: 700;
     }
 
-    .stage-action-btn.primary:hover {
-      background: #e2e8f0;
-    }
-
-    .toast-msg {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%) translateY(50px);
-      background: #141722;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+    .status-btn.active-alert {
+      background: #ef4444;
       color: #ffffff;
-      padding: 10px 20px;
+      border-color: #ef4444;
+      font-weight: 700;
+    }
+
+    .status-desc {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 16px;
+    }
+
+    /* Code Snippet Box */
+    .code-box {
+      background: #08090d;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      color: #38bdf8;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    .stage-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .action-btn-primary {
+      background: #ffffff;
+      color: #0c0d12;
+      border: none;
+      padding: 11px 22px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.15s ease;
+    }
+
+    .action-btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .action-btn-secondary {
+      background: var(--surface-subtle);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 11px 20px;
       border-radius: var(--radius-pill);
       font-size: 13px;
       font-weight: 600;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      z-index: 999;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s ease;
     }
 
-    .toast-msg.show {
-      transform: translateX(-50%) translateY(0);
+    .action-btn-secondary:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+    }
+
+    /* Interactive Login Rate-Limit Simulator */
+    .demo-section {
+      margin-bottom: 40px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .section-sub {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .auth-demo-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .auth-form-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .form-input {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    .form-input:focus {
+      border-color: var(--accent);
+    }
+
+    .auth-btn-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .auth-submit-btn {
+      background: var(--accent);
+      color: #0c0d12;
+      border: none;
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.15s ease;
+    }
+
+    .auth-submit-btn:disabled {
+      background: #475569;
+      color: #94a3b8;
+      cursor: not-allowed;
+    }
+
+    .auth-status-msg {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .auth-status-msg.error {
+      color: #f87171;
+    }
+
+    .auth-status-msg.rate-limited {
+      color: #ef4444;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .auth-mascot-box {
+      background: #090a0f;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-inner);
+      height: 240px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .auth-mascot-box img {
+      width: 170px;
+      height: 170px;
+      object-fit: contain;
+    }
+
+    .auth-mascot-label {
+      position: absolute;
+      bottom: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-dim);
+    }
+
+    /* All 11 Responses Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .gallery-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-align: center;
+      position: relative;
+    }
+
+    .gallery-card:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .gallery-card.selected {
+      border-color: var(--accent);
+      background: var(--surface-subtle);
+    }
+
+    .gallery-thumb {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 10px;
+    }
+
+    .gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .gallery-code {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .gallery-name {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #ffffff;
+      color: #0c0d12;
+      padding: 12px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toast.show {
+      transform: translateY(0);
       opacity: 1;
     }
 
-    /* Character Gallery Grid */
-    .gallery-title-row {
+    /* Embed Modal */
+    .modal-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      max-width: 580px;
+      width: 100%;
+      padding: 28px;
+      position: relative;
+    }
+
+    .modal-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
     }
 
-    .gallery-title {
-      font-size: 20px;
+    .modal-title {
+      font-size: 18px;
       font-weight: 700;
-      letter-spacing: -0.02em;
     }
 
-    .char-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-
-    .char-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-card);
-      padding: 20px 16px 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
       cursor: pointer;
-      transition: all 0.15s ease;
+      font-size: 20px;
+      padding: 4px;
     }
 
-    .char-card:hover {
-      background: var(--surface-hover);
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
-    }
-
-    .char-card.selected {
-      border-color: rgba(255, 255, 255, 0.4);
-      background: var(--surface-subtle);
-    }
-
-    .card-svg-wrap {
-      width: 85px;
-      height: 85px;
-      margin-bottom: 12px;
+    .modal-tabs {
       display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .card-svg-wrap img {
-      width: 100%;
-      height: 100%;
-    }
-
-    .card-char-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .card-char-species {
-      font-size: 12px;
-      color: var(--text-dim);
-      margin-bottom: 10px;
-    }
-
-    .card-badge-count {
-      font-family: ui-monospace, monospace;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--badge-2xx);
-      background: rgba(52, 211, 153, 0.1);
-      padding: 3px 8px;
-      border-radius: 6px;
+      gap: 8px;
       margin-bottom: 14px;
     }
 
-    .btn-card-select {
-      width: 100%;
+    .modal-tab {
       background: var(--surface-subtle);
       border: 1px solid var(--border);
-      color: var(--text);
-      font-family: inherit;
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
       font-size: 12px;
       font-weight: 600;
-      padding: 7px;
-      border-radius: 10px;
       cursor: pointer;
-      transition: background 0.15s ease;
     }
 
-    .btn-card-select:hover {
+    .modal-tab.active {
       background: #ffffff;
       color: #0c0d12;
       border-color: #ffffff;
     }
 
-    /* Modal */
-    .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(6px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-      padding: 20px;
-    }
-
-    .modal-overlay.open {
-      display: flex;
-    }
-
-    .modal-sheet {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      max-width: 520px;
-      width: 100%;
-      padding: 28px;
-      position: relative;
-    }
-
-    .btn-close-modal {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 32px;
-      height: 32px;
-      background: var(--surface-subtle);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .modal-head {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 20px;
-    }
-
-    .modal-img {
-      width: 80px;
-      height: 80px;
-    }
-
-    .code-display {
-      background: var(--bg);
+    .modal-code {
+      background: #08090d;
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 12px 14px;
-      font-family: ui-monospace, monospace;
+      padding: 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
-      color: #93c5fd;
+      color: #f4f5f8;
+      white-space: pre-wrap;
       word-break: break-all;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+      max-height: 200px;
+      overflow-y: auto;
     }
 
-    .btn-primary-action {
-      width: 100%;
-      background: #ffffff;
-      color: #0c0d12;
-      border: none;
-      padding: 12px;
-      border-radius: var(--radius-pill);
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
+    /* Footer */
     footer {
       text-align: center;
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-dim);
-      padding-top: 32px;
+      padding-top: 24px;
       border-top: 1px solid var(--border);
     }
 
@@ -596,1664 +685,516 @@
       color: var(--text-muted);
       text-decoration: none;
     }
+
+    footer a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 820px) {
+      .stage-card {
+        grid-template-columns: 1fr;
+      }
+      .mascot-viewport {
+        height: 260px;
+      }
+      .auth-demo-card {
+        grid-template-columns: 1fr;
+      }
+      .auth-mascot-box {
+        order: -1;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <!-- Header -->
-    <header>
-      <a class="brand-wrap" href="/">
-        <div class="brand-avatar">
-          <img id="nav-avatar" src="/mascots/robot/200-ok.svg" alt="Avatar">
-        </div>
-        <div>
-          <div class="brand-title">Status Mascots</div>
-          <div class="brand-by">11 Characters Universe &bull; by ren</div>
-        </div>
-      </a>
+<div class="container">
+  <!-- Header Bar -->
+  <header>
+    <a href="#" class="brand-wrap">
+      <div class="brand-avatar">
+        <img src="/mascots/robot/200-ok.svg" alt="Astro Bot Avatar">
+      </div>
       <div>
-        <a class="pill-btn" href="https://github.com/rndsa/status-mascots" target="_blank">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
-          <span>GitHub</span>
-        </a>
+        <div class="brand-title">Astro Bot</div>
+        <div class="brand-by">API &amp; Auth Mascots • by ren</div>
       </div>
-    </header>
+    </a>
+    <a href="https://github.com/rndsa/status-mascots" target="_blank" rel="noopener" class="pill-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+      </svg>
+      GitHub
+    </a>
+  </header>
 
-    <!-- Intro -->
-    <div class="page-intro">
-      <h2 class="page-title">Pilih Karakter Maskot</h2>
-      <p class="page-subtitle">Koleksi 11 karakter maskot vektor animasi SVG untuk respon kode status HTTP dan API. Tiap karakter memiliki set ekspresi unik untuk mewakili state aplikasi.</p>
-    </div>
-
-    <!-- Character Picker Pills -->
-    <div class="char-picker-section">
-      <div class="section-label">
-        <span>11 Karakter Maskot</span>
-        <span id="char-active-indicator">Pilihan: Astro (Robot)</span>
-      </div>
-      <div class="char-scroll" id="char-scroll"></div>
-    </div>
-
-    <!-- Cue Inset Stage Card -->
-    <div class="stage-card">
-      <div class="stage-mascot-view" onclick="tapStage()">
-        <img id="stage-img" src="/mascots/robot/409-conflict.svg" alt="Stage Mascot">
-      </div>
-      <div class="stage-info">
-        <div class="stage-header-row">
-          <div class="status-chip chip-4xx" id="stage-badge">409 CONFLICT</div>
-          <span class="stage-char-tag" id="stage-char-tag">Astro Bot &bull; conflict</span>
-        </div>
-        <div class="status-pill-list" id="stage-status-pills"></div>
-        <div class="stage-desc" id="stage-desc">Ekspresi panik ketika terjadi konflik resource atau data sudah terpakai.</div>
-        <div class="json-box" id="stage-json">{
-  "status": 409,
-  "error": "Conflict",
-  "message": "Subdomain 'carry.axjet.xyz' is already claimed"
-}</div>
-        <div class="stage-actions-row">
-          <button class="stage-action-btn primary" onclick="openEmbedModal()">⚡ Dapatkan Embed Code</button>
-          <button class="stage-action-btn" onclick="copyDirectRawUrl()">📋 Salin Link SVG</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Character Grid Gallery -->
-    <div class="gallery-title-row">
-      <h3 class="gallery-title">Semua Karakter Maskot</h3>
-      <span style="font-size: 13px; color: var(--text-dim);">11 Karakter Unik</span>
-    </div>
-    <div class="char-grid" id="char-grid"></div>
-
-    <!-- Modal Embed -->
-    <div class="modal-overlay" id="modal" onclick="closeModal(event)">
-      <div class="modal-sheet" onclick="event.stopPropagation()">
-        <button class="btn-close-modal" onclick="closeModalDirect()">&times;</button>
-        <div class="modal-head">
-          <img class="modal-img" id="modal-img" src="" alt="">
-          <div>
-            <div id="modal-badge" class="status-chip" style="margin-bottom: 6px;"></div>
-            <h3 id="modal-title" style="font-size: 18px; margin-bottom: 4px;"></h3>
-            <p id="modal-desc" style="font-size: 13px; color: var(--text-muted);"></p>
-          </div>
-        </div>
-        <div class="code-display" id="modal-code"></div>
-        <button class="btn-primary-action" onclick="copySnippet()">Copy Embed Code</button>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-      by ren &bull; <a href="https://instagram.com/rskl411_" target="_blank">@rskl411_</a> &bull; GitHub: <a href="https://github.com/rndsa/status-mascots" target="_blank">rndsa/status-mascots</a> &bull; MIT License
-    </footer>
+  <!-- Intro -->
+  <div class="page-intro">
+    <div class="page-tag">HTTP Status &amp; Auth Mascots</div>
+    <h1 class="page-title">Astro Bot Mascot Library</h1>
+    <p class="page-desc">Koleksi maskot animasi SVG mandiri untuk respon kode status HTTP, error handling, dan proteksi rate limit autentikasi. Tanpa runtime JS eksternal, 100% vektor murni dan ringan.</p>
   </div>
 
-  <script>
-    const characters = [
-  {
-    "id": "robot",
-    "name": "Astro Bot",
-    "species": "Robot Chibi",
-    "preview": "/mascots/robot/200-ok.svg",
-    "reactions": [
-      {
-        "code": 200,
-        "name": "OK",
-        "cat": "2xx",
-        "file": "200-ok.svg",
-        "desc": "Senyum ceria kedip mata cyan (^ ^) dan antena berdenyut.",
-        "json": {
-          "status": 200,
-          "message": "OK"
-        }
-      },
-      {
-        "code": 201,
-        "name": "Created",
-        "cat": "2xx",
-        "file": "201-created.svg",
-        "desc": "Topi pesta melompat gembira dengan letupan confetti!",
-        "json": {
-          "status": 201,
-          "id": "res_9812"
-        }
-      },
-      {
-        "code": 400,
-        "name": "Bad Request",
-        "cat": "4xx",
-        "file": "400-bad-request.svg",
-        "desc": "Miringin kepala bingung tanda tanya kuning melayang.",
-        "json": {
-          "status": 400,
-          "error": "Bad Request"
-        }
-      },
-      {
-        "code": 401,
-        "name": "Unauthorized",
-        "cat": "4xx",
-        "file": "401-unauthorized.svg",
-        "desc": "Tameng kunci dan visor gembok merah kedip-kedip.",
-        "json": {
-          "status": 401,
-          "error": "Unauthorized"
-        }
-      },
-      {
-        "code": 403,
-        "name": "Forbidden",
-        "cat": "4xx",
-        "file": "403-forbidden.svg",
-        "desc": "Sirine darurat berputar merah dan laser dilarang lewat.",
-        "json": {
-          "status": 403,
-          "error": "Forbidden"
-        }
-      },
-      {
-        "code": 404,
-        "name": "Not Found",
-        "cat": "4xx",
-        "file": "404-not-found.svg",
-        "desc": "Radar berputar 360 derajat dan sorot senter mencari data.",
-        "json": {
-          "status": 404,
-          "error": "Not Found"
-        }
-      },
-      {
-        "code": 409,
-        "name": "Conflict",
-        "cat": "4xx",
-        "file": "409-conflict.svg",
-        "desc": "Mata silang (> <) dan tetesan keringat saat terjadi konflik data.",
-        "json": {
-          "status": 409,
-          "error": "Conflict",
-          "message": "Resource conflict"
-        }
-      },
-      {
-        "code": 422,
-        "name": "Unprocessable",
-        "cat": "4xx",
-        "file": "422-unprocessable.svg",
-        "desc": "Visor glitch scanline ungu bergetar saat validasi semantik gagal.",
-        "json": {
-          "status": 422,
-          "error": "Unprocessable Entity"
-        }
-      },
-      {
-        "code": 429,
-        "name": "Rate Limit",
-        "cat": "4xx",
-        "file": "429-rate-limit.svg",
-        "desc": "Helm merah ngos-ngosan dengan kipas pendingin kencang.",
-        "json": {
-          "status": 429,
-          "error": "Too Many Requests"
-        }
-      },
-      {
-        "code": 500,
-        "name": "Server Error",
-        "cat": "5xx",
-        "file": "500-internal-error.svg",
-        "desc": "Helm retak berasap dan mata spiral pusing (@ @).",
-        "json": {
-          "status": 500,
-          "error": "Internal Crash"
-        }
-      },
-      {
-        "code": 503,
-        "name": "Maintenance",
-        "cat": "5xx",
-        "file": "503-maintenance.svg",
-        "desc": "Helm proyek kuning ngetok baut reparasi dengan kunci inggris.",
-        "json": {
-          "status": 503,
-          "error": "Maintenance"
-        }
-      }
-    ]
-  },
-  {
-    "id": "ghost",
-    "name": "Boofy",
-    "species": "Cyber Ghost",
-    "preview": "/mascots/ghost/200-ok.svg",
-    "reactions": [
-      {
-        "code": 200,
-        "name": "OK",
-        "cat": "2xx",
-        "file": "200-ok.svg",
-        "desc": "Hantu imut mengambang melayang ceria dan pipi pink.",
-        "json": {
-          "status": 200,
-          "success": true
-        }
-      },
-      {
-        "code": 201,
-        "name": "Created",
-        "cat": "2xx",
-        "file": "201-created.svg",
-        "desc": "Memunculkan permen dan bunga spektral bercahaya!",
-        "json": {
-          "status": 201,
-          "created": "ghost_candy"
-        }
-      },
-      {
-        "code": 400,
-        "name": "Bad Request",
-        "cat": "4xx",
-        "file": "400-bad-request.svg",
-        "desc": "Pipi tersipu malu menutup wajah bingung tanda tanya.",
-        "json": {
-          "status": 400,
-          "error": "Bad Request"
-        }
-      },
-      {
-        "code": 401,
-        "name": "Unauthorized",
-        "cat": "4xx",
-        "file": "401-unauthorized.svg",
-        "desc": "Menabrak dinding berpelindung gembok hingga membal.",
-        "json": {
-          "status": 401,
-          "error": "Unauthorized"
-        }
-      },
-      {
-        "code": 403,
-        "name": "Forbidden",
-        "cat": "4xx",
-        "file": "403-forbidden.svg",
-        "desc": "Terperangkap di dalam toples kaca kedap sihir.",
-        "json": {
-          "status": 403,
-          "error": "Forbidden"
-        }
-      },
-      {
-        "code": 404,
-        "name": "Not Found",
-        "cat": "4xx",
-        "file": "404-not-found.svg",
-        "desc": "Hantu transparan memudar pelan mencari keberadaan.",
-        "json": {
-          "status": 404,
-          "error": "Ghost Missing"
-        }
-      },
-      {
-        "code": 409,
-        "name": "Conflict",
-        "cat": "4xx",
-        "file": "409-conflict.svg",
-        "desc": "Hantu menangis dengan air mata anime (T_T) saat resource bentrok.",
-        "json": {
-          "status": 409,
-          "error": "Conflict"
-        }
-      },
-      {
-        "code": 422,
-        "name": "Unprocessable",
-        "cat": "4xx",
-        "file": "422-unprocessable.svg",
-        "desc": "Tubuh spektral terbelah tiga warna RGB bergetar.",
-        "json": {
-          "status": 422,
-          "error": "Unprocessable"
-        }
-      },
-      {
-        "code": 429,
-        "name": "Rate Limit",
-        "cat": "4xx",
-        "file": "429-rate-limit.svg",
-        "desc": "Kelelahan meleleh di lantai jadi genangan roh halus.",
-        "json": {
-          "status": 429,
-          "error": "Rate Limited"
-        }
-      },
-      {
-        "code": 500,
-        "name": "Server Error",
-        "cat": "5xx",
-        "file": "500-internal-error.svg",
-        "desc": "Ketakutan berteriak histeris mata melotot merah OOO!",
-        "json": {
-          "status": 500,
-          "error": "Spooked Crash"
-        }
-      },
-      {
-        "code": 503,
-        "name": "Maintenance",
-        "cat": "5xx",
-        "file": "503-maintenance.svg",
-        "desc": "Ikat kepala putih bersih-bersih server pakai kemoceng halus.",
-        "json": {
-          "status": 503,
-          "error": "Maintenance"
-        }
-      }
-    ]
-  },
-  {
-    "id": "cat",
-    "name": "Paws",
-    "species": "Cyber Neko",
-    "preview": "/mascots/cat/200-ok.svg",
-    "reactions": [
-      {
-        "code": 200,
-        "name": "OK",
-        "cat": "2xx",
-        "file": "200-ok.svg",
-        "desc": "Kucing tersenyum manis :3 dengan ikan camilan melayang.",
-        "json": {
-          "status": 200,
-          "message": "Purrfect"
-        }
-      },
-      {
-        "code": 201,
-        "name": "Created",
-        "cat": "2xx",
-        "file": "201-created.svg",
-        "desc": "Bermain bola benang wol bercahaya dengan bintang-bintang!",
-        "json": {
-          "status": 201,
-          "created": "yarn_ball"
-        }
-      },
-      {
-        "code": 400,
-        "name": "Bad Request",
-        "cat": "4xx",
-        "file": "400-bad-request.svg",
-        "desc": "Tali wol kusut membentuk tanda tanya bikin bingung.",
-        "json": {
-          "status": 400,
-          "error": "Bad Request"
-        }
-      },
-      {
-        "code": 401,
-        "name": "Unauthorized",
-        "cat": "4xx",
-        "file": "401-unauthorized.svg",
-        "desc": "Pintu flap kucing digembok rapat tidak bisa masuk.",
-        "json": {
-          "status": 401,
-          "error": "Unauthorized"
-        }
-      },
-      {
-        "code": 403,
-        "name": "Forbidden",
-        "cat": "4xx",
-        "file": "403-forbidden.svg",
-        "desc": "Disemprot botol air spray langsung marah mendesis!",
-        "json": {
-          "status": 403,
-          "error": "Forbidden"
-        }
-      },
-      {
-        "code": 404,
-        "name": "Not Found",
-        "cat": "4xx",
-        "file": "404-not-found.svg",
-        "desc": "Ngintip dari dalam kardus kosong bertuliskan 404.",
-        "json": {
-          "status": 404,
-          "error": "Empty Box"
-        }
-      },
-      {
-        "code": 409,
-        "name": "Conflict",
-        "cat": "4xx",
-        "file": "409-conflict.svg",
-        "desc": "Telinga datar marah mendesis (> <) saat resource bentrok.",
-        "json": {
-          "status": 409,
-          "error": "Hiss Conflict"
-        }
-      },
-      {
-        "code": 422,
-        "name": "Unprocessable",
-        "cat": "4xx",
-        "file": "422-unprocessable.svg",
-        "desc": "Mengejar ekor sendiri berputar-putar pusing dan glitch.",
-        "json": {
-          "status": 422,
-          "error": "Unprocessable"
-        }
-      },
-      {
-        "code": 429,
-        "name": "Rate Limit",
-        "cat": "4xx",
-        "file": "429-rate-limit.svg",
-        "desc": "Zoomies habis energi, rebahan flat lidah melet ngos-ngosan.",
-        "json": {
-          "status": 429,
-          "error": "Zoomies Over"
-        }
-      },
-      {
-        "code": 500,
-        "name": "Server Error",
-        "cat": "5xx",
-        "file": "500-internal-error.svg",
-        "desc": "Terlilit kabel server merah ruwet pusing matanya silang.",
-        "json": {
-          "status": 500,
-          "error": "Knotted Cables"
-        }
-      },
-      {
-        "code": 503,
-        "name": "Maintenance",
-        "cat": "5xx",
-        "file": "503-maintenance.svg",
-        "desc": "Pakai sabuk perkakas dorong truk mainan siap benerin.",
-        "json": {
-          "status": 503,
-          "error": "Maintenance"
-        }
-      }
-    ]
-  },
-  {
-    "id": "blob",
-    "name": "Jelly",
-    "species": "Slime Blob",
-    "preview": "/mascots/blob/200-ok.svg",
-    "reactions": [
-      {
-        "code": 200,
-        "name": "OK",
-        "cat": "2xx",
-        "file": "200-ok.svg",
-        "desc": "Slime hijau kenyal membal-membal ceria glossy (^ ^).",
-        "json": {
-          "status": 200,
-          "message": "Jelly Bounce"
-        }
-      },
-      {
-        "code": 201,
-        "name": "Created",
-        "cat": "2xx",
-        "file": "201-created.svg",
-        "desc": "Membelah diri melahirkan baby slime imut lompat-lompat!",
-        "json": {
-          "status": 201,
-          "created": "baby_slime"
-        }
-      },
-      {
-        "code": 400,
-        "name": "Bad Request",
-        "cat": "4xx",
-        "file": "400-bad-request.svg",
-        "desc": "Tubuh jelly miring goyang bingung mata spiral.",
-        "json": {
-          "status": 400,
-          "error": "Bad Request"
-        }
-      },
-      {
-        "code": 401,
-        "name": "Unauthorized",
-        "cat": "4xx",
-        "file": "401-unauthorized.svg",
-        "desc": "Gepeng membentur dinding kaca pembatas merah.",
-        "json": {
-          "status": 401,
-          "error": "Unauthorized"
-        }
-      },
-      {
-        "code": 403,
-        "name": "Forbidden",
-        "cat": "4xx",
-        "file": "403-forbidden.svg",
-        "desc": "Terkunci dalam tabung reaksi berlabel biohazard merah.",
-        "json": {
-          "status": 403,
-          "error": "Forbidden"
-        }
-      },
-      {
-        "code": 404,
-        "name": "Not Found",
-        "cat": "4xx",
-        "file": "404-not-found.svg",
-        "desc": "Tenggelam amblas ke dalam lubang lantai gelap.",
-        "json": {
-          "status": 404,
-          "error": "Sunk 404"
-        }
-      },
-      {
-        "code": 409,
-        "name": "Conflict",
-        "cat": "4xx",
-        "file": "409-conflict.svg",
-        "desc": "Jelly berubah merah gemetar (> <) saat data duplikat.",
-        "json": {
-          "status": 409,
-          "error": "Jelly Conflict"
-        }
-      },
-      {
-        "code": 422,
-        "name": "Unprocessable",
-        "cat": "4xx",
-        "file": "422-unprocessable.svg",
-        "desc": "Jelly berubah jadi pixel balok ungu Minecraft error.",
-        "json": {
-          "status": 422,
-          "error": "Pixel Glitch"
-        }
-      },
-      {
-        "code": 429,
-        "name": "Rate Limit",
-        "cat": "4xx",
-        "file": "429-rate-limit.svg",
-        "desc": "Mendidih kuning melepuh gelembung udara bermunculan.",
-        "json": {
-          "status": 429,
-          "error": "Boiling Over"
-        }
-      },
-      {
-        "code": 500,
-        "name": "Server Error",
-        "cat": "5xx",
-        "file": "500-internal-error.svg",
-        "desc": "Lumer gepeng di lantai jadi genangan air mata silang.",
-        "json": {
-          "status": 500,
-          "error": "Splattered"
-        }
-      },
-      {
-        "code": 503,
-        "name": "Maintenance",
-        "cat": "5xx",
-        "file": "503-maintenance.svg",
-        "desc": "Membentuk diri jadi kerucut lalu lintas oranye lucu.",
-        "json": {
-          "status": 503,
-          "error": "Maintenance"
-        }
-      }
-    ]
-  },
-  {
-    "id": "dino",
-    "name": "Rexy",
-    "species": "Baby T-Rex",
-    "preview": "/mascots/dino/200-ok.svg",
-    "reactions": [
-      {
-        "code": 200,
-        "name": "OK",
-        "cat": "2xx",
-        "file": "200-ok.svg",
-        "desc": "Dino kecil hijau melompat gembira ngunyah daun segar.",
-        "json": {
-          "status": 200,
-          "message": "Rawr OK"
-        }
-      },
-      {
-        "code": 201,
-        "name": "Created",
-        "cat": "2xx",
-        "file": "201-created.svg",
-        "desc": "Menetas dari cangkang telur dengan topi pecahan telur!",
-        "json": {
-          "status": 201,
-          "hatched": true
-        }
-      },
-      {
-        "code": 400,
-        "name": "Bad Request",
-        "cat": "4xx",
-        "file": "400-bad-request.svg",
-        "desc": "Tangan terlalu pendek gak nyampe garuk kepala bingung.",
-        "json": {
-          "status": 400,
-          "error": "Short Arms 400"
-        }
-      },
-      {
-        "code": 401,
-        "name": "Unauthorized",
-        "cat": "4xx",
-        "file": "401-unauthorized.svg",
-        "desc": "Jinjit mau colok kunci ke lubang yang ketinggian.",
-        "json": {
-          "status": 401,
-          "error": "Unauthorized"
-        }
-      },
-      {
-        "code": 403,
-        "name": "Forbidden",
-        "cat": "4xx",
-        "file": "403-forbidden.svg",
-        "desc": "Terkurung di balik pagar kayu tanda bahaya T-Rex.",
-        "json": {
-          "status": 403,
-          "error": "Forbidden"
-        }
-      },
-      {
-        "code": 404,
-        "name": "Not Found",
-        "cat": "4xx",
-        "file": "404-not-found.svg",
-        "desc": "Menggali tanah cari tulang purba ekor goyang di atas.",
-        "json": {
-          "status": 404,
-          "error": "Digging 404"
-        }
-      },
-      {
-        "code": 409,
-        "name": "Conflict",
-        "cat": "4xx",
-        "file": "409-conflict.svg",
-        "desc": "Dino mengaum kesal (> <) hentak-hentak kaki saat nama bentrok.",
-        "json": {
-          "status": 409,
-          "error": "Dino Conflict"
-        }
-      },
-      {
-        "code": 422,
-        "name": "Unprocessable",
-        "cat": "4xx",
-        "file": "422-unprocessable.svg",
-        "desc": "Berubah jadi pixel dino offline Google Chrome!",
-        "json": {
-          "status": 422,
-          "error": "Chrome Dino"
-        }
-      },
-      {
-        "code": 429,
-        "name": "Rate Limit",
-        "cat": "4xx",
-        "file": "429-rate-limit.svg",
-        "desc": "Habis sprint ngos-ngosan lidah menjulur kepanasan.",
-        "json": {
-          "status": 429,
-          "error": "Stamina Empty"
-        }
-      },
-      {
-        "code": 500,
-        "name": "Server Error",
-        "cat": "5xx",
-        "file": "500-internal-error.svg",
-        "desc": "Tertabrak meteor api debu abu berhamburan.",
-        "json": {
-          "status": 500,
-          "error": "Meteor Impact"
-        }
-      },
-      {
-        "code": 503,
-        "name": "Maintenance",
-        "cat": "5xx",
-        "file": "503-maintenance.svg",
-        "desc": "Helm proyek kuning pegang palu kecil siap renovasi.",
-        "json": {
-          "status": 503,
-          "error": "Maintenance"
-        }
-      }
-    ]
-  },
-  {
-    "id": "duck",
-    "name": "Quack",
-    "species": "Debug Rubber Duck",
-    "preview": "/mascots/duck/200-ok.svg",
-    "reactions": [
-      {
-        "code": 200,
-        "name": "OK",
-        "cat": "2xx",
-        "file": "200-ok.svg",
-        "desc": "Bebek kuning santai berenang pakai kacamata hitam keren.",
-        "json": {
-          "status": 200,
-          "message": "Debugging Pass"
-        }
-      },
-      {
-        "code": 201,
-        "name": "Created",
-        "cat": "2xx",
-        "file": "201-created.svg",
-        "desc": "Anak bebek mungil berenang mengekor di belakang!",
-        "json": {
-          "status": 201,
-          "duckling": true
-        }
-      },
-      {
-        "code": 400,
-        "name": "Bad Request",
-        "cat": "4xx",
-        "file": "400-bad-request.svg",
-        "desc": "Kepala miring bingung cipratan air tanda tanya.",
-        "json": {
-          "status": 400,
-          "error": "Bad Request"
-        }
-      },
-      {
-        "code": 401,
-        "name": "Unauthorized",
-        "cat": "4xx",
-        "file": "401-unauthorized.svg",
-        "desc": "Pelampung pelindung merah dengan gembok menghadang.",
-        "json": {
-          "status": 401,
-          "error": "Unauthorized"
-        }
-      },
-      {
-        "code": 403,
-        "name": "Forbidden",
-        "cat": "4xx",
-        "file": "403-forbidden.svg",
-        "desc": "Tanda larangan berenang dicoret garis merah tegas.",
-        "json": {
-          "status": 403,
-          "error": "No Swimming"
-        }
-      },
-      {
-        "code": 404,
-        "name": "Not Found",
-        "cat": "4xx",
-        "file": "404-not-found.svg",
-        "desc": "Menyelam kepala di bawah air, kaki mengayuh di atas.",
-        "json": {
-          "status": 404,
-          "error": "Diving 404"
-        }
-      },
-      {
-        "code": 409,
-        "name": "Conflict",
-        "cat": "4xx",
-        "file": "409-conflict.svg",
-        "desc": "Kwek-kwek marah paruh terbuka lebar saat validasi bentrok.",
-        "json": {
-          "status": 409,
-          "error": "Quack Conflict"
-        }
-      },
-      {
-        "code": 422,
-        "name": "Unprocessable",
-        "cat": "4xx",
-        "file": "422-unprocessable.svg",
-        "desc": "Terseret pusaran air berputar kencang ke bawah.",
-        "json": {
-          "status": 422,
-          "error": "Whirlpool"
-        }
-      },
-      {
-        "code": 429,
-        "name": "Rate Limit",
-        "cat": "4xx",
-        "file": "429-rate-limit.svg",
-        "desc": "Ngebut kencang kacamata melorot jejak air turbin.",
-        "json": {
-          "status": 429,
-          "error": "Jet Ski Limit"
-        }
-      },
-      {
-        "code": 500,
-        "name": "Server Error",
-        "cat": "5xx",
-        "file": "500-internal-error.svg",
-        "desc": "Bebek karet kempes gepeng mengapung pasrah.",
-        "json": {
-          "status": 500,
-          "error": "Deflated 500"
-        }
-      },
-      {
-        "code": 503,
-        "name": "Maintenance",
-        "cat": "5xx",
-        "file": "503-maintenance.svg",
-        "desc": "Topi kapten nakhoda pegang dayung kayu perbaikan.",
-        "json": {
-          "status": 503,
-          "error": "Maintenance"
-        }
-      }
-    ]
-  },
-  {
-    "id": "alien",
-    "name": "Cosmo",
-    "species": "Alien in UFO",
-    "preview": "/mascots/alien/200-ok.svg",
-    "reactions": [
-      {
-        "code": 200,
-        "name": "OK",
-        "cat": "2xx",
-        "file": "200-ok.svg",
-        "desc": "Alien hijau di UFO melayang sinar traktor bercahaya.",
-        "json": {
-          "status": 200,
-          "message": "Hover OK"
-        }
-      },
-      {
-        "code": 201,
-        "name": "Created",
-        "cat": "2xx",
-        "file": "201-created.svg",
-        "desc": "Sinar traktor mengangkat bintang emas ke dalam kapal!",
-        "json": {
-          "status": 201,
-          "beamed_star": true
-        }
-      },
-      {
-        "code": 400,
-        "name": "Bad Request",
-        "cat": "4xx",
-        "file": "400-bad-request.svg",
-        "desc": "Piring terbang miring kehilangan arah navigasi sinyal.",
-        "json": {
-          "status": 400,
-          "error": "Bad Request"
-        }
-      },
-      {
-        "code": 401,
-        "name": "Unauthorized",
-        "cat": "4xx",
-        "file": "401-unauthorized.svg",
-        "desc": "Perisai pertahanan planet memantulkan sinar traktor.",
-        "json": {
-          "status": 401,
-          "error": "Shield Block"
-        }
-      },
-      {
-        "code": 403,
-        "name": "Forbidden",
-        "cat": "4xx",
-        "file": "403-forbidden.svg",
-        "desc": "Papan peringatan militer rahasia Area 51 dilarang lewat.",
-        "json": {
-          "status": 403,
-          "error": "Area 51"
-        }
-      },
-      {
-        "code": 404,
-        "name": "Not Found",
-        "cat": "4xx",
-        "file": "404-not-found.svg",
-        "desc": "Menyorot asteroid kosong di ruang hampa luar angkasa.",
-        "json": {
-          "status": 404,
-          "error": "Void 404"
-        }
-      },
-      {
-        "code": 409,
-        "name": "Conflict",
-        "cat": "4xx",
-        "file": "409-conflict.svg",
-        "desc": "Dua piring terbang saling tabrakan di jalur orbit.",
-        "json": {
-          "status": 409,
-          "error": "Orbit Crash"
-        }
-      },
-      {
-        "code": 422,
-        "name": "Unprocessable",
-        "cat": "4xx",
-        "file": "422-unprocessable.svg",
-        "desc": "Distorsi lubang cacing memelintir ruang dan waktu.",
-        "json": {
-          "status": 422,
-          "error": "Wormhole Twist"
-        }
-      },
-      {
-        "code": 429,
-        "name": "Rate Limit",
-        "cat": "4xx",
-        "file": "429-rate-limit.svg",
-        "desc": "Warp drive kecepatan cahaya mesin merah membara.",
-        "json": {
-          "status": 429,
-          "error": "Warp Overheat"
-        }
-      },
-      {
-        "code": 500,
-        "name": "Server Error",
-        "cat": "5xx",
-        "file": "500-internal-error.svg",
-        "desc": "Kubah kaca retak mendarat darurat berasap di kawah.",
-        "json": {
-          "status": 500,
-          "error": "Crash Landing"
-        }
-      },
-      {
-        "code": 503,
-        "name": "Maintenance",
-        "cat": "5xx",
-        "file": "503-maintenance.svg",
-        "desc": "Docking di bengkel luar angkasa mengelas badan kapal.",
-        "json": {
-          "status": 503,
-          "error": "Maintenance"
-        }
-      }
-    ]
-  },
-  {
-    "id": "coffee",
-    "name": "Muggy",
-    "species": "Caffeine Mug",
-    "preview": "/mascots/coffee/200-ok.svg",
-    "reactions": [
-      {
-        "code": 200,
-        "name": "OK",
-        "cat": "2xx",
-        "file": "200-ok.svg",
-        "desc": "Cangkir kopi mengepul hangat tersenyum manis ceria.",
-        "json": {
-          "status": 200,
-          "message": "Fresh Brew"
-        }
-      },
-      {
-        "code": 201,
-        "name": "Created",
-        "cat": "2xx",
-        "file": "201-created.svg",
-        "desc": "Secangkir espresso hangat dengan latte art bentuk hati!",
-        "json": {
-          "status": 201,
-          "brewed": "latte_heart"
-        }
-      },
-      {
-        "code": 400,
-        "name": "Bad Request",
-        "cat": "4xx",
-        "file": "400-bad-request.svg",
-        "desc": "Ketuker garam bukan gula! Wajah kecut jijik.",
-        "json": {
-          "status": 400,
-          "error": "Salty Coffee"
-        }
-      },
-      {
-        "code": 401,
-        "name": "Unauthorized",
-        "cat": "4xx",
-        "file": "401-unauthorized.svg",
-        "desc": "Mesin espresso digembok khusus karyawan saja.",
-        "json": {
-          "status": 401,
-          "error": "Barista Only"
-        }
-      },
-      {
-        "code": 403,
-        "name": "Forbidden",
-        "cat": "4xx",
-        "file": "403-forbidden.svg",
-        "desc": "Peringatan biji kopi decaf dilarang masuk!",
-        "json": {
-          "status": 403,
-          "error": "No Decaf"
-        }
-      },
-      {
-        "code": 404,
-        "name": "Not Found",
-        "cat": "4xx",
-        "file": "404-not-found.svg",
-        "desc": "Cangkir miring kosong melompong gak ada tetes kopi.",
-        "json": {
-          "status": 404,
-          "error": "Empty Mug"
-        }
-      },
-      {
-        "code": 409,
-        "name": "Conflict",
-        "cat": "4xx",
-        "file": "409-conflict.svg",
-        "desc": "Kopi tumpah muncrat ke mana-mana (> <) saat overflow.",
-        "json": {
-          "status": 409,
-          "error": "Coffee Spill"
-        }
-      },
-      {
-        "code": 422,
-        "name": "Unprocessable",
-        "cat": "4xx",
-        "file": "422-unprocessable.svg",
-        "desc": "Susu basi menggumpal di dalam seduhan kopi.",
-        "json": {
-          "status": 422,
-          "error": "Curdled"
-        }
-      },
-      {
-        "code": 429,
-        "name": "Rate Limit",
-        "cat": "4xx",
-        "file": "429-rate-limit.svg",
-        "desc": "Kebanyakan kafein gemetar bergetar hebat mata melotot!",
-        "json": {
-          "status": 429,
-          "error": "Over-Caffeinated"
-        }
-      },
-      {
-        "code": 500,
-        "name": "Server Error",
-        "cat": "5xx",
-        "file": "500-internal-error.svg",
-        "desc": "Cangkir keramik pecah berantakan kopi membanjir.",
-        "json": {
-          "status": 500,
-          "error": "Mug Shattered"
-        }
-      },
-      {
-        "code": 503,
-        "name": "Maintenance",
-        "cat": "5xx",
-        "file": "503-maintenance.svg",
-        "desc": "Descaling membersihkan pipa mesin espresso berkala.",
-        "json": {
-          "status": 503,
-          "error": "Maintenance"
-        }
-      }
-    ]
-  },
-  {
-    "id": "bear",
-    "name": "Kuma",
-    "species": "Honey Bear",
-    "preview": "/mascots/bear/200-ok.svg",
-    "reactions": [
-      {
-        "code": 200,
-        "name": "OK",
-        "cat": "2xx",
-        "file": "200-ok.svg",
-        "desc": "Beruang cokelat pegang toples madu manis lezat.",
-        "json": {
-          "status": 200,
-          "message": "Sweet Honey"
-        }
-      },
-      {
-        "code": 201,
-        "name": "Created",
-        "cat": "2xx",
-        "file": "201-created.svg",
-        "desc": "Sarang lebah segar dan lebah madu terbang bersahabat!",
-        "json": {
-          "status": 201,
-          "created": "honeycomb"
-        }
-      },
-      {
-        "code": 400,
-        "name": "Bad Request",
-        "cat": "4xx",
-        "file": "400-bad-request.svg",
-        "desc": "Kepala kejebak di toples madu kaki goyang ke atas.",
-        "json": {
-          "status": 400,
-          "error": "Stuck in Jar"
-        }
-      },
-      {
-        "code": 401,
-        "name": "Unauthorized",
-        "cat": "4xx",
-        "file": "401-unauthorized.svg",
-        "desc": "Lemari penyimpanan madu dirantai dan digembok.",
-        "json": {
-          "status": 401,
-          "error": "Locked"
-        }
-      },
-      {
-        "code": 403,
-        "name": "Forbidden",
-        "cat": "4xx",
-        "file": "403-forbidden.svg",
-        "desc": "Pasukan lebah membentuk barikade sengatan penjaga.",
-        "json": {
-          "status": 403,
-          "error": "Forbidden Bees"
-        }
-      },
-      {
-        "code": 404,
-        "name": "Not Found",
-        "cat": "4xx",
-        "file": "404-not-found.svg",
-        "desc": "Toples madu habis tak tersisa meneteskan air mata.",
-        "json": {
-          "status": 404,
-          "error": "Honey Empty"
-        }
-      },
-      {
-        "code": 409,
-        "name": "Conflict",
-        "cat": "4xx",
-        "file": "409-conflict.svg",
-        "desc": "Dikejar lebah marah lari terbirit-birit (> <).",
-        "json": {
-          "status": 409,
-          "error": "Bee Chase"
-        }
-      },
-      {
-        "code": 422,
-        "name": "Unprocessable",
-        "cat": "4xx",
-        "file": "422-unprocessable.svg",
-        "desc": "Salah makan cabai pedas langsung semburan api!",
-        "json": {
-          "status": 422,
-          "error": "Spicy Error"
-        }
-      },
-      {
-        "code": 429,
-        "name": "Rate Limit",
-        "cat": "4xx",
-        "file": "429-rate-limit.svg",
-        "desc": "Sugar rush kebanyakan gula mata getar berputar!",
-        "json": {
-          "status": 429,
-          "error": "Sugar Overdose"
-        }
-      },
-      {
-        "code": 500,
-        "name": "Server Error",
-        "cat": "5xx",
-        "file": "500-internal-error.svg",
-        "desc": "Dahan pohon patah jatuh terduduk bintang berputar.",
-        "json": {
-          "status": 500,
-          "error": "Tree Crash"
-        }
-      },
-      {
-        "code": 503,
-        "name": "Maintenance",
-        "cat": "5xx",
-        "file": "503-maintenance.svg",
-        "desc": "Tertidur pulas hibernasi di goa musim dingin Zzz...",
-        "json": {
-          "status": 503,
-          "error": "Hibernating"
-        }
-      }
-    ]
-  },
-  {
-    "id": "cloud",
-    "name": "Nimbus",
-    "species": "Fluffy Cloud",
-    "preview": "/mascots/cloud/200-ok.svg",
-    "reactions": [
-      {
-        "code": 200,
-        "name": "OK",
-        "cat": "2xx",
-        "file": "200-ok.svg",
-        "desc": "Awan putih empuk tersenyum di balik pelangi cerah.",
-        "json": {
-          "status": 200,
-          "message": "Clear Sky"
-        }
-      },
-      {
-        "code": 201,
-        "name": "Created",
-        "cat": "2xx",
-        "file": "201-created.svg",
-        "desc": "Matahari emas cerah menyembul keluar tersenyum!",
-        "json": {
-          "status": 201,
-          "sunrise": true
-        }
-      },
-      {
-        "code": 400,
-        "name": "Bad Request",
-        "cat": "4xx",
-        "file": "400-bad-request.svg",
-        "desc": "Awan menggumpal aneh tak beraturan bingung.",
-        "json": {
-          "status": 400,
-          "error": "Lumpy Cloud"
-        }
-      },
-      {
-        "code": 401,
-        "name": "Unauthorized",
-        "cat": "4xx",
-        "file": "401-unauthorized.svg",
-        "desc": "Penangkal petir memblokir jalur pelepasan muatan listrik.",
-        "json": {
-          "status": 401,
-          "error": "Blocked"
-        }
-      },
-      {
-        "code": 403,
-        "name": "Forbidden",
-        "cat": "4xx",
-        "file": "403-forbidden.svg",
-        "desc": "Peringatan darurat badai tornado dilarang melintas.",
-        "json": {
-          "status": 403,
-          "error": "Tornado Alert"
-        }
-      },
-      {
-        "code": 404,
-        "name": "Not Found",
-        "cat": "4xx",
-        "file": "404-not-found.svg",
-        "desc": "Langit biru cerah kosong tanpa sehelai awan pun.",
-        "json": {
-          "status": 404,
-          "error": "Empty Sky"
-        }
-      },
-      {
-        "code": 409,
-        "name": "Conflict",
-        "cat": "4xx",
-        "file": "409-conflict.svg",
-        "desc": "Awan badai gelap dengan petir kilat menyambar (> <).",
-        "json": {
-          "status": 409,
-          "error": "Thunder Crash"
-        }
-      },
-      {
-        "code": 422,
-        "name": "Unprocessable",
-        "cat": "4xx",
-        "file": "422-unprocessable.svg",
-        "desc": "Gravitasi terbalik! Butiran hujan jatuh ke atas.",
-        "json": {
-          "status": 422,
-          "error": "Inverted Rain"
-        }
-      },
-      {
-        "code": 429,
-        "name": "Rate Limit",
-        "cat": "4xx",
-        "file": "429-rate-limit.svg",
-        "desc": "Hujan deras badai topan angin kencang berputar.",
-        "json": {
-          "status": 429,
-          "error": "Downpour"
-        }
-      },
-      {
-        "code": 500,
-        "name": "Server Error",
-        "cat": "5xx",
-        "file": "500-internal-error.svg",
-        "desc": "Tersambar petir sendiri jadi abu gosong kehitaman.",
-        "json": {
-          "status": 500,
-          "error": "Zapped Cloud"
-        }
-      },
-      {
-        "code": 503,
-        "name": "Maintenance",
-        "cat": "5xx",
-        "file": "503-maintenance.svg",
-        "desc": "Memegang wiper pembersih mengelap kaca langit biru.",
-        "json": {
-          "status": 503,
-          "error": "Maintenance"
-        }
-      }
-    ]
-  },
-  {
-    "id": "monkey",
-    "name": "Chimp",
-    "species": "Code Monkey",
-    "preview": "/mascots/monkey/200-ok.svg",
-    "reactions": [
-      {
-        "code": 200,
-        "name": "OK",
-        "cat": "2xx",
-        "file": "200-ok.svg",
-        "desc": "Ngetik super cepat di laptop 200 OK kode aman.",
-        "json": {
-          "status": 200,
-          "message": "Code Passed"
-        }
-      },
-      {
-        "code": 201,
-        "name": "Created",
-        "cat": "2xx",
-        "file": "201-created.svg",
-        "desc": "Git push berhasil! Memegang piala pisang emas.",
-        "json": {
-          "status": 201,
-          "commit": "git_pushed"
-        }
-      },
-      {
-        "code": 400,
-        "name": "Bad Request",
-        "cat": "4xx",
-        "file": "400-bad-request.svg",
-        "desc": "Garuk kepala liat sintaks error bikin puyeng.",
-        "json": {
-          "status": 400,
-          "error": "Syntax Error"
-        }
-      },
-      {
-        "code": 401,
-        "name": "Unauthorized",
-        "cat": "4xx",
-        "file": "401-unauthorized.svg",
-        "desc": "Permission denied! Kunci SSH salah ditolak server.",
-        "json": {
-          "status": 401,
-          "error": "SSH Denied"
-        }
-      },
-      {
-        "code": 403,
-        "name": "Forbidden",
-        "cat": "4xx",
-        "file": "403-forbidden.svg",
-        "desc": "sudo rm -rf / ditolak! Akun bukan grup sudoers.",
-        "json": {
-          "status": 403,
-          "error": "Root Forbidden"
-        }
-      },
-      {
-        "code": 404,
-        "name": "Not Found",
-        "cat": "4xx",
-        "file": "404-not-found.svg",
-        "desc": "Kaca pembesar cari direktori kosong /src/ gak ada.",
-        "json": {
-          "status": 404,
-          "error": "File Not Found"
-        }
-      },
-      {
-        "code": 409,
-        "name": "Conflict",
-        "cat": "4xx",
-        "file": "409-conflict.svg",
-        "desc": "Git merge conflict! Garis branch kusut jadi benang.",
-        "json": {
-          "status": 409,
-          "error": "Merge Conflict"
-        }
-      },
-      {
-        "code": 422,
-        "name": "Unprocessable",
-        "cat": "4xx",
-        "file": "422-unprocessable.svg",
-        "desc": "Laptop meledak keluar error TypeError: NaN!",
-        "json": {
-          "status": 422,
-          "error": "Semantic Parse"
-        }
-      },
-      {
-        "code": 429,
-        "name": "Rate Limit",
-        "cat": "4xx",
-        "file": "429-rate-limit.svg",
-        "desc": "Keyboard terbakar api ngetik 1000 kata per menit!",
-        "json": {
-          "status": 429,
-          "error": "Keyboard Fire"
-        }
-      },
-      {
-        "code": 500,
-        "name": "Server Error",
-        "cat": "5xx",
-        "file": "500-internal-error.svg",
-        "desc": "Server produksi down berasap ngumpet di kolong meja!",
-        "json": {
-          "status": 500,
-          "error": "Production Down"
-        }
-      },
-      {
-        "code": 503,
-        "name": "Maintenance",
-        "cat": "5xx",
-        "file": "503-maintenance.svg",
-        "desc": "Pegang kunci pas perbaiki server rack yang rusak.",
-        "json": {
-          "status": 503,
-          "error": "Maintenance"
-        }
-      }
-    ]
-  }
-];
+  <!-- Main Stage Card -->
+  <div class="stage-card">
+    <!-- Viewport Left -->
+    <div class="mascot-viewport" id="stage-viewport" onclick="tapStage()">
+      <div class="mascot-img-wrap">
+        <img id="stage-img" src="/mascots/robot/200-ok.svg" alt="Astro Bot Live View">
+      </div>
+      <div class="mascot-tap-hint">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        Klik untuk trigger re-animasi
+      </div>
+    </div>
 
-    let currentChar = characters[0];
-    let currentReaction = currentChar.reactions.find(r => r.code === 200) || currentChar.reactions[0];
+    <!-- Controls Right -->
+    <div class="stage-controls">
+      <div class="stage-meta-row">
+        <div id="status-badge" class="status-badge badge-2xx">200 OK</div>
+        <div id="file-ref" class="file-ref">robot/200-ok.svg</div>
+      </div>
 
-    // Render Character Selector Pills
-    function renderCharSelector() {
-      const scroll = document.getElementById('char-scroll');
-      scroll.innerHTML = characters.map(c => `
-        <div class="char-pill ${c.id === currentChar.id ? 'active' : ''}" onclick="selectChar('${c.id}')">
-          <div class="char-icon">
-            <img src="${c.preview}?v=2" alt="${c.name}">
-          </div>
-          <span class="char-name">${c.name}</span>
+      <!-- HTTP Status Pills Filter -->
+      <div class="status-pills-wrap" id="status-pills-container">
+        <!-- Injected via JS -->
+      </div>
+
+      <!-- Description Box -->
+      <div id="status-desc" class="status-desc">
+        Senyum ceria dengan jempol tangan robot melayang di depan (thumbs up) dan antena cyan berdenyut.
+      </div>
+
+      <!-- Code Snippet -->
+      <div id="status-code-box" class="code-box">
+{
+  "status": 200,
+  "message": "OK"
+}
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="stage-actions">
+        <button class="action-btn-primary" onclick="openEmbedModal()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+          Dapatkan Embed Code
+        </button>
+        <button class="action-btn-secondary" onclick="copyDirectLink()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          Salin Link SVG
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Rate Limit Login Demo -->
+  <div class="demo-section">
+    <div class="section-header">
+      <div class="section-title">Demo Real-World: Login Page Rate Limiter</div>
+      <div class="section-sub">Simulasi pembatasan login (3 percobaan gagal memicu HTTP 429)</div>
+    </div>
+
+    <div class="auth-demo-card">
+      <div class="auth-form-wrap">
+        <div class="form-group">
+          <label class="form-label">Email / Username</label>
+          <input type="text" class="form-input" id="auth-email" value="alex@example.com">
         </div>
-      `).join('');
-      document.getElementById('char-active-indicator').innerText = `Pilihan: ${currentChar.name} (${currentChar.species})`;
-    }
-
-    // Render Status Pills for Current Character
-    function renderStatusPills() {
-      const pillList = document.getElementById('stage-status-pills');
-      pillList.innerHTML = currentChar.reactions.map(r => `
-        <div class="status-pill ${r.code === currentReaction.code ? 'active' : ''}" onclick="selectReaction(${r.code})">
-          ${r.code} ${r.name}
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-input" id="auth-pass" value="wrong-password">
         </div>
-      `).join('');
-    }
-
-    // Update Stage Display
-    function updateStage() {
-      const img = document.getElementById('stage-img');
-      img.src = `/mascots/${currentChar.id}/${currentReaction.file}?v=${Date.now()}`;
-
-      const badge = document.getElementById('stage-badge');
-      badge.className = `status-chip ${currentReaction.cat === '2xx' ? 'chip-2xx' : (currentReaction.cat === '4xx' ? 'chip-4xx' : 'chip-5xx')}`;
-      badge.innerText = `${currentReaction.code} ${currentReaction.name.toUpperCase()}`;
-
-      document.getElementById('stage-char-tag').innerText = `${currentChar.name} • ${currentReaction.file}`;
-      document.getElementById('stage-desc').innerText = currentReaction.desc;
-      document.getElementById('stage-json').innerText = JSON.stringify(currentReaction.json, null, 2);
-
-      document.getElementById('nav-avatar').src = `/mascots/${currentChar.id}/${currentChar.reactions[0].file}?v=2`;
-      renderStatusPills();
-    }
-
-    function selectChar(charId, shouldScroll = false) {
-      currentChar = characters.find(c => c.id === charId) || characters[0];
-      // Default to 200 OK (cheerful and welcoming)
-      currentReaction = currentChar.reactions.find(r => r.code === 200) || currentChar.reactions[0];
-      renderCharSelector();
-      updateStage();
-      renderGalleryGrid();
-      if (shouldScroll) {
-        const stageEl = document.querySelector('.stage-card');
-        if (stageEl) stageEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }
-
-    function selectReaction(code) {
-      currentReaction = currentChar.reactions.find(r => r.code === code) || currentChar.reactions[0];
-      updateStage();
-    }
-
-    function tapStage() {
-      const img = document.getElementById('stage-img');
-      img.style.transform = 'scale(1.15) rotate(5deg)';
-      setTimeout(() => img.style.transform = 'scale(1) rotate(0deg)', 200);
-    }
-
-    // Render All Characters Grid
-    function renderGalleryGrid() {
-      const grid = document.getElementById('char-grid');
-      grid.innerHTML = characters.map(c => `
-        <div class="char-card ${c.id === currentChar.id ? 'selected' : ''}" onclick="selectChar('${c.id}', true)">
-          <div class="card-svg-wrap">
-            <img src="${c.preview}?v=2" alt="${c.name}">
-          </div>
-          <div class="card-char-name">${c.name}</div>
-          <div class="card-char-species">${c.species}</div>
-          <div class="card-badge-count">${c.reactions.length} Status Responses</div>
-          <button class="btn-card-select" onclick="event.stopPropagation(); selectChar('${c.id}', true)">
-            ${c.id === currentChar.id ? 'Sedang Dipilih ✓' : 'Lihat Semua Respon'}
+        <div class="auth-btn-row">
+          <button class="auth-submit-btn" id="auth-btn" onclick="submitAuthAttempt()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+              <polyline points="10 17 15 12 10 7"></polyline>
+              <line x1="15" y1="12" x2="3" y2="12"></line>
+            </svg>
+            <span id="auth-btn-text">Sign In (Coba Login)</span>
           </button>
+          <button class="pill-btn" onclick="resetAuthDemo()">Reset</button>
         </div>
-      `).join('');
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
+          <div id="auth-feedback" class="auth-status-msg">Masukkan sembarang password untuk menguji proteksi limit.</div>
+          <div style="font-size: 12px; color: var(--text-dim); font-weight: 600;">Percobaan: <span id="auth-fail-count" style="color: var(--accent);">0</span>/3</div>
+        </div>
+      </div>
+
+      <!-- Mascot Auth Reaction Box -->
+      <div class="auth-mascot-box" id="auth-mascot-box">
+        <img id="auth-mascot-img" src="/mascots/robot/200-ok.svg" alt="Auth Reaction Mascot">
+        <div id="auth-mascot-label" class="auth-mascot-label">STATE: NORMAL (200)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Catalog Grid of All 11 Responses -->
+  <div class="demo-section">
+    <div class="section-header">
+      <div class="section-title">Katalog Lengkap 11 Status Respon Astro Bot</div>
+      <div class="section-sub">Klik kartu untuk menguji langsung di panggung preview</div>
+    </div>
+
+    <div class="gallery-grid" id="gallery-grid">
+      <!-- Injected via JS -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>by ren • <a href="https://instagram.com/rskl411_" target="_blank" rel="noopener">@rskl411_</a> • GitHub: <a href="https://github.com/rndsa/status-mascots" target="_blank" rel="noopener">rndsa/status-mascots</a> • MIT License</p>
+  </footer>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+    <polyline points="20 6 9 17 4 12"></polyline>
+  </svg>
+  <span id="toast-text">Tautan SVG disalin ke clipboard!</span>
+</div>
+
+<!-- Embed Modal -->
+<div id="embed-modal" class="modal-backdrop" onclick="closeModalDirect(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title">Dapatkan Embed Code</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+
+    <div class="modal-tabs">
+      <button class="modal-tab active" onclick="switchModalTab('html')">HTML</button>
+      <button class="modal-tab" onclick="switchModalTab('react')">React / JSX</button>
+      <button class="modal-tab" onclick="switchModalTab('markdown')">Markdown</button>
+    </div>
+
+    <div class="modal-code" id="modal-code-content">&lt;img src="..." /&gt;</div>
+
+    <div style="display: flex; justify-content: flex-end; gap: 10px;">
+      <button class="action-btn-primary" onclick="copyModalSnippet()">Salin Snippet</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const STATUS_RESPONSES = [
+    {
+      code: 200,
+      name: "OK",
+      file: "200-ok.svg",
+      type: "2xx",
+      desc: "Senyum ceria dengan jempol tangan robot melayang di depan (thumbs up) dan antena cyan berdenyut.",
+      json: '{\n  "status": 200,\n  "message": "OK"\n}'
+    },
+    {
+      code: 201,
+      name: "Created",
+      file: "201-created.svg",
+      type: "2xx",
+      desc: "Melompat gembira dengan bintang emas menyala di antena dan kedua tangan robot bersorak ke atas.",
+      json: '{\n  "status": 201,\n  "message": "Resource Created"\n}'
+    },
+    {
+      code: 400,
+      name: "Bad Request",
+      file: "400-bad-request.svg",
+      type: "4xx",
+      desc: "Kepala miring bingung 13 derajat, tangan menggaruk helm, mata spiral (@), dan tanda tanya melayang.",
+      json: '{\n  "status": 400,\n  "error": "Bad Request: Invalid Payload"\n}'
+    },
+    {
+      code: 401,
+      name: "Unauthorized",
+      file: "401-unauthorized.svg",
+      type: "4xx",
+      desc: "Geleng kepala menolak dengan gembok siber merah dan tatapan mata radar squinting tegas.",
+      json: '{\n  "status": 401,\n  "error": "Unauthorized: Missing Token"\n}'
+    },
+    {
+      code: 403,
+      name: "Forbidden",
+      file: "403-forbidden.svg",
+      type: "4xx",
+      desc: "Tangan bersilang perisai (🙅) membentuk palang segel merah darurat dengan sirine polisi aktif.",
+      json: '{\n  "status": 403,\n  "error": "Forbidden: Access Denied"\n}'
+    },
+    {
+      code: 404,
+      name: "Not Found",
+      file: "404-not-found.svg",
+      type: "4xx",
+      desc: "Piringan radar berputar 360°, mata celingukan kiri-kanan mencari data dengan kaca pembesar digital.",
+      json: '{\n  "status": 404,\n  "error": "Not Found: Endpoint Missing"\n}'
+    },
+    {
+      code: 409,
+      name: "Conflict",
+      file: "409-conflict.svg",
+      type: "4xx",
+      desc: "Kedua tangan memegangi kepala panik, gemetar shiver kencang, mata silang (> <), dan keringat anime mengucur.",
+      json: '{\n  "status": 409,\n  "error": "Conflict: Resource State Mismatch"\n}'
+    },
+    {
+      code: 422,
+      name: "Unprocessable",
+      file: "422-unprocessable.svg",
+      type: "4xx",
+      desc: "Efek chromatic aberration RGB glitch bergeser (cyan & magenta offset) dengan scanline data error.",
+      json: '{\n  "status": 422,\n  "error": "Unprocessable Entity: Schema Divergence"\n}'
+    },
+    {
+      code: 429,
+      name: "Rate Limit",
+      file: "429-rate-limit.svg",
+      type: "4xx",
+      desc: "Mode ALERT MERAH: Geleng-geleng kepala tegas ke kiri-kanan, sirine darurat berkedip, dan telapak tangan robot disorongkan ke depan menahan aksi user (STOP / HALT). Cocok untuk halaman login & API throttling.",
+      json: '{\n  "status": 429,\n  "error": "Too Many Requests: Rate limit exceeded (Try again in 30s)"\n}'
+    },
+    {
+      code: 500,
+      name: "Server Error",
+      file: "500-internal-error.svg",
+      type: "5xx",
+      desc: "Helm retak berasap hitam tebal, percikan petir korsleting listrik, antena bengkok, dan mata pusing spiral (@_@).",
+      json: '{\n  "status": 500,\n  "error": "Internal Server Error: Uncaught Exception"\n}'
+    },
+    {
+      code: 503,
+      name: "Maintenance",
+      file: "503-maintenance.svg",
+      type: "5xx",
+      desc: "Memakai helm proyek kuning keselamatan dan tangan robot aktif memutar kunci inggris memperbaiki sistem.",
+      json: '{\n  "status": 503,\n  "error": "Service Unavailable: Maintenance Underway"\n}'
     }
+  ];
 
-    function copyDirectRawUrl() {
-      const raw = `https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/${currentChar.id}/${currentReaction.file}`;
-      navigator.clipboard.writeText(raw);
-      showToast('Link SVG berhasil disalin ke clipboard!');
-    }
+  let currentCode = 200;
+  let modalActiveTab = 'html';
 
-    function openEmbedModal() {
-      const raw = `https://raw.githubusercontent.com/rndsa/status-mascots/main/mascots/${currentChar.id}/${currentReaction.file}`;
-      document.getElementById('modal-img').src = `/mascots/${currentChar.id}/${currentReaction.file}?v=2`;
-      
-      const badge = document.getElementById('modal-badge');
-      badge.className = `status-chip ${currentReaction.cat === '2xx' ? 'chip-2xx' : (currentReaction.cat === '4xx' ? 'chip-4xx' : 'chip-5xx')}`;
-      badge.innerText = `${currentReaction.code} ${currentReaction.name.toUpperCase()}`;
-
-      document.getElementById('modal-title').innerText = `${currentChar.name} — ${currentReaction.name}`;
-      document.getElementById('modal-desc').innerText = currentReaction.desc;
-      document.getElementById('modal-code').innerText = `<img src="${raw}" width="120" height="120" alt="${currentChar.name} ${currentReaction.name}" />`;
-      
-      document.getElementById('modal').classList.add('open');
-    }
-
-    function copySnippet() {
-      const code = document.getElementById('modal-code').innerText;
-      navigator.clipboard.writeText(code);
-      showToast('Embed code berhasil disalin!');
-      closeModalDirect();
-    }
-
-    function showToast(text) {
-      let toast = document.getElementById('toast');
-      if (!toast) {
-        toast = document.createElement('div');
-        toast.id = 'toast';
-        toast.className = 'toast-msg';
-        document.body.appendChild(toast);
-      }
-      toast.innerText = text;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2200);
-    }
-
-    function closeModalDirect() {
-      document.getElementById('modal').classList.remove('open');
-    }
-
-    function closeModal(e) {
-      if (e.target.id === 'modal') closeModalDirect();
-    }
-
-    // Init
-    renderCharSelector();
-    updateStage();
+  function init() {
+    renderStatusPills();
     renderGalleryGrid();
-  </script>
+    selectStatus(200);
+  }
+
+  function renderStatusPills() {
+    const container = document.getElementById('status-pills-container');
+    container.innerHTML = STATUS_RESPONSES.map(item => `
+      <button class="status-btn ${item.code === currentCode ? (item.code === 429 ? 'active-alert' : 'active') : ''}" 
+              onclick="selectStatus(${item.code})">
+        ${item.code === 429 ? '🛑 ' : ''}${item.code} ${item.name}
+      </button>
+    `).join('');
+  }
+
+  function selectStatus(code) {
+    currentCode = code;
+    const item = STATUS_RESPONSES.find(s => s.code === code) || STATUS_RESPONSES[0];
+
+    // Update Stage Image
+    const viewport = document.getElementById('stage-viewport');
+    const stageImg = document.getElementById('stage-img');
+    const cacheBuster = Date.now();
+    stageImg.src = `/mascots/robot/${item.file}?v=${cacheBuster}`;
+
+    if (code === 429) {
+      viewport.classList.add('alert-mode');
+    } else {
+      viewport.classList.remove('alert-mode');
+    }
+
+    // Update Badge
+    const badge = document.getElementById('status-badge');
+    badge.className = `status-badge badge-${item.type}`;
+    badge.textContent = `${item.code} ${item.name.toUpperCase()}`;
+
+    // Update File Reference
+    document.getElementById('file-ref').textContent = `robot/${item.file}`;
+
+    // Update Description & JSON Box
+    document.getElementById('status-desc').textContent = item.desc;
+    document.getElementById('status-code-box').textContent = item.json;
+
+    // Refresh Pill active states
+    renderStatusPills();
+
+    // Refresh Gallery Grid highlights
+    document.querySelectorAll('.gallery-card').forEach(card => {
+      if (parseInt(card.dataset.code, 10) === code) {
+        card.classList.add('selected');
+      } else {
+        card.classList.remove('selected');
+      }
+    });
+  }
+
+  function renderGalleryGrid() {
+    const grid = document.getElementById('gallery-grid');
+    grid.innerHTML = STATUS_RESPONSES.map(item => `
+      <div class="gallery-card ${item.code === currentCode ? 'selected' : ''}" 
+           data-code="${item.code}" 
+           onclick="selectStatus(${item.code})">
+        <div class="gallery-thumb">
+          <img src="/mascots/robot/${item.file}" alt="${item.code} ${item.name}">
+        </div>
+        <div class="gallery-code" style="color: ${item.type === '2xx' ? 'var(--badge-2xx)' : item.type === '4xx' ? 'var(--badge-4xx)' : 'var(--badge-5xx)'}">
+          ${item.code} ${item.name}
+        </div>
+        <div class="gallery-name">${item.file}</div>
+      </div>
+    `).join('');
+  }
+
+  function tapStage() {
+    const img = document.getElementById('stage-img');
+    img.style.transform = 'scale(0.92)';
+    setTimeout(() => {
+      img.style.transform = 'scale(1.05)';
+      setTimeout(() => {
+        img.style.transform = 'scale(1)';
+      }, 150);
+    }, 120);
+  }
+
+  /* --- Interactive Login Demo --- */
+  let authAttempts = 0;
+  let authCooldownTimer = null;
+
+  function submitAuthAttempt() {
+    const feedback = document.getElementById('auth-feedback');
+    const mascotImg = document.getElementById('auth-mascot-img');
+    const mascotLabel = document.getElementById('auth-mascot-label');
+    const failCounter = document.getElementById('auth-fail-count');
+    const btn = document.getElementById('auth-btn');
+
+    authAttempts++;
+    failCounter.textContent = authAttempts;
+
+    if (authAttempts === 1) {
+      feedback.className = 'auth-status-msg error';
+      feedback.textContent = 'Password salah. Tersisa 2 kesempatan sebelum dibatasi.';
+      mascotImg.src = '/mascots/robot/400-bad-request.svg?v=' + Date.now();
+      mascotLabel.textContent = 'STATE: BAD REQUEST (400)';
+    } else if (authAttempts === 2) {
+      feedback.className = 'auth-status-msg error';
+      feedback.textContent = 'Password salah. Peringatan: 1 percobaan lagi akan memicu Rate Limit!';
+      mascotImg.src = '/mascots/robot/401-unauthorized.svg?v=' + Date.now();
+      mascotLabel.textContent = 'STATE: UNAUTHORIZED (401)';
+    } else if (authAttempts >= 3) {
+      // Trigger Rate Limit 429!
+      feedback.className = 'auth-status-msg rate-limited';
+      mascotImg.src = '/mascots/robot/429-rate-limit.svg?v=' + Date.now();
+      mascotLabel.textContent = 'STATE: RATE LIMIT (429) • STOP!';
+      
+      btn.disabled = true;
+      let countdown = 10;
+
+      function updateCountdown() {
+        feedback.innerHTML = `🛑 <strong>Rate Limit Terpicu (HTTP 429):</strong> Harap tunggu <strong>${countdown} detik</strong> sebelum mencoba lagi.`;
+        if (countdown <= 0) {
+          clearInterval(authCooldownTimer);
+          resetAuthDemo();
+        }
+        countdown--;
+      }
+
+      updateCountdown();
+      authCooldownTimer = setInterval(updateCountdown, 1000);
+    }
+  }
+
+  function resetAuthDemo() {
+    if (authCooldownTimer) clearInterval(authCooldownTimer);
+    authAttempts = 0;
+    document.getElementById('auth-fail-count').textContent = '0';
+    const feedback = document.getElementById('auth-feedback');
+    feedback.className = 'auth-status-msg';
+    feedback.textContent = 'Percobaan gagal: 0 / 3';
+
+    const btn = document.getElementById('auth-btn');
+    btn.disabled = false;
+    document.getElementById('auth-btn-text').textContent = 'Sign In (Coba Login)';
+
+    const mascotImg = document.getElementById('auth-mascot-img');
+    mascotImg.src = '/mascots/robot/200-ok.svg?v=' + Date.now();
+    document.getElementById('auth-mascot-label').textContent = 'STATE: NORMAL (200)';
+  }
+
+  /* --- Clipboard & Modals --- */
+  function copyDirectLink() {
+    const item = STATUS_RESPONSES.find(s => s.code === currentCode) || STATUS_RESPONSES[0];
+    const fullUrl = `${window.location.origin}/mascots/robot/${item.file}`;
+    navigator.clipboard.writeText(fullUrl).then(() => {
+      showToast('Link SVG berhasil disalin ke clipboard!');
+    });
+  }
+
+  function openEmbedModal() {
+    document.getElementById('embed-modal').classList.add('open');
+    updateModalSnippet();
+  }
+
+  function closeModal() {
+    document.getElementById('embed-modal').classList.remove('open');
+  }
+
+  function closeModalDirect(e) {
+    if (e.target.id === 'embed-modal') {
+      closeModal();
+    }
+  }
+
+  function switchModalTab(tab) {
+    modalActiveTab = tab;
+    document.querySelectorAll('.modal-tab').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    updateModalSnippet();
+  }
+
+  function updateModalSnippet() {
+    const item = STATUS_RESPONSES.find(s => s.code === currentCode) || STATUS_RESPONSES[0];
+    const fullUrl = `${window.location.origin}/mascots/robot/${item.file}`;
+    let snippet = '';
+
+    if (modalActiveTab === 'html') {
+      snippet = `<img src="${fullUrl}" alt="Astro Bot ${item.code} ${item.name}" width="160" height="160" />`;
+    } else if (modalActiveTab === 'react') {
+      snippet = `export function Mascot${item.code}() {\n  return (\n    <img\n      src="${fullUrl}"\n      alt="Astro Bot ${item.code}"\n      width={160}\n      height={160}\n    />\n  );\n}`;
+    } else if (modalActiveTab === 'markdown') {
+      snippet = `![Astro Bot ${item.code} ${item.name}](${fullUrl})`;
+    }
+
+    document.getElementById('modal-code-content').textContent = snippet;
+  }
+
+  function copyModalSnippet() {
+    const code = document.getElementById('modal-code-content').textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      showToast('Snippet kode berhasil disalin!');
+      closeModal();
+    });
+  }
+
+  function showToast(text) {
+    const toast = document.getElementById('toast');
+    document.getElementById('toast-text').textContent = text;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2400);
+  }
+
+  window.addEventListener('DOMContentLoaded', init);
+</script>
+
 </body>
 </html>
