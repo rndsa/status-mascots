@@ -23,8 +23,8 @@
       --badge-2xx: #22c55e;
       --badge-4xx: #f43f5e;
       --badge-5xx: #f59e0b;
-      --badge-ux: #38bdf8;
-      --accent: #38bdf8;
+      --badge-ux: #94a3b8;
+      --accent: #ffffff;
       --accent-red: #ef4444;
       --radius-card: 22px;
       --radius-inner: 16px;
@@ -163,29 +163,9 @@
       margin-bottom: 36px;
     }
 
-    .page-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 4px 12px;
-      border-radius: var(--radius-pill);
-      background: rgba(56, 189, 248, 0.08);
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      color: var(--accent);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
+    
 
-    .page-tag-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 8px var(--accent);
-    }
+    
 
     .page-title {
       font-size: 34px;
@@ -290,17 +270,17 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: #ffffff;
       font-family: ui-monospace, monospace;
       position: relative;
       z-index: 2;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: var(--radius-pill);
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.2);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .mascot-viewport.alert-mode .mascot-status-tag {
@@ -787,8 +767,7 @@
     }
 
     .form-input:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.15);
+      border-color: rgba(255, 255, 255, 0.35);
     }
 
     .auth-btn-row {
@@ -882,10 +861,11 @@
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.06em;
-      color: var(--accent);
-      padding: 2px 8px;
-      border-radius: 4px;
-      background: rgba(56, 189, 248, 0.1);
+      color: #ffffff;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .auth-mascot-box.is-blocked .auth-mascot-label {
@@ -932,8 +912,7 @@
     }
 
     .search-input:focus {
-      border-color: var(--accent);
-      background: var(--surface-subtle);
+      border-color: rgba(255, 255, 255, 0.35);
     }
 
     .search-icon {
@@ -1484,7 +1463,7 @@
 
           <div class="auth-status-bar" id="auth-status-bar">
             <div id="auth-feedback" class="auth-status-msg">Klik tombol untuk mensimulasikan kegagalan autentikasi.</div>
-            <div class="auth-counter-badge">Percobaan: <span id="auth-fail-count" style="color: var(--accent);">0/3</span></div>
+            <div class="auth-counter-badge">Percobaan: <span id="auth-fail-count" style="color: #ffffff;">0/3</span></div>
           </div>
         </div>
 
@@ -1893,7 +1872,7 @@
 
       if (authAttempts === 1) {
         countEl.textContent = '1/3';
-        countEl.style.color = 'var(--accent)';
+        countEl.style.color = '#ffffff';
         feedback.textContent = 'Percobaan 1 gagal: Kata sandi salah. Silakan coba lagi.';
         mascotImg.src = '/mascots/robot/400-bad-request.svg';
         mascotLabel.textContent = 'STATE: 400 BAD REQUEST';
@@ -1935,7 +1914,7 @@
       authCooldown = false;
 
       document.getElementById('auth-fail-count').textContent = '0/3';
-      document.getElementById('auth-fail-count').style.color = 'var(--accent)';
+      document.getElementById('auth-fail-count').style.color = '#ffffff';
       document.getElementById('auth-feedback').textContent = 'Klik tombol untuk mensimulasikan kegagalan autentikasi.';
       document.getElementById('auth-mascot-img').src = '/mascots/robot/200-ok.svg';
       document.getElementById('auth-mascot-label').textContent = 'STATE: 200 OK';
