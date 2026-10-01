@@ -6,7 +6,7 @@
   <meta http-equiv="Expires" content="0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Astro Bot — Status Mascots for APIs & Auth</title>
+  <title>Astro Bot — Complete 22 Status Mascots for APIs & Auth</title>
   <style>
     :root {
       --bg: #0c0d12;
@@ -21,6 +21,7 @@
       --badge-2xx: #34d399;
       --badge-4xx: #f87171;
       --badge-5xx: #fbbf24;
+      --badge-ux: #a78bfa;
       --accent: #38bdf8;
       --accent-red: #ef4444;
       --radius-card: 22px;
@@ -48,7 +49,7 @@
     }
 
     .container {
-      max-width: 1040px;
+      max-width: 1060px;
       margin: 0 auto;
       width: 100%;
     }
@@ -100,11 +101,17 @@
       letter-spacing: 0.05em;
     }
 
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .pill-btn {
       background: var(--surface);
       border: 1px solid var(--border);
       color: var(--text);
-      padding: 8px 18px;
+      padding: 8px 16px;
       border-radius: var(--radius-pill);
       font-size: 13px;
       font-weight: 600;
@@ -113,11 +120,23 @@
       align-items: center;
       gap: 8px;
       transition: all 0.15s ease;
+      cursor: pointer;
     }
 
     .pill-btn:hover {
       background: var(--surface-hover);
       border-color: var(--border-hover);
+    }
+
+    .pill-btn-primary {
+      background: #ffffff;
+      color: #0c0d12;
+      border: none;
+      font-weight: 700;
+    }
+
+    .pill-btn-primary:hover {
+      opacity: 0.9;
     }
 
     /* Page Intro */
@@ -153,7 +172,42 @@
       font-size: 15px;
       color: var(--text-muted);
       line-height: 1.5;
-      max-width: 680px;
+      max-width: 720px;
+    }
+
+    /* Category Filter Tabs */
+    .category-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .cat-tab {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cat-tab:hover {
+      background: var(--surface-hover);
+      color: var(--text);
+    }
+
+    .cat-tab.active {
+      background: #ffffff;
+      color: #0c0d12;
+      border-color: #ffffff;
+      font-weight: 700;
     }
 
     /* Main Showcase Stage */
@@ -163,12 +217,18 @@
       border-radius: var(--radius-card);
       padding: 32px;
       display: grid;
-      grid-template-columns: 320px 1fr;
+      grid-template-columns: 340px 1fr;
       gap: 36px;
       align-items: center;
       margin-bottom: 36px;
       position: relative;
       overflow: hidden;
+    }
+
+    .mascot-viewport-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .mascot-viewport {
@@ -182,12 +242,22 @@
       justify-content: center;
       position: relative;
       user-select: none;
-      transition: border-color 0.2s ease;
+      transition: background 0.2s ease, border-color 0.2s ease;
     }
 
     .mascot-viewport.alert-mode {
       border-color: rgba(239, 68, 68, 0.4);
       background: #0e0507;
+    }
+
+    .mascot-viewport.light-mode {
+      background: #ffffff;
+      border-color: #cbd5e1;
+    }
+
+    .mascot-viewport.slate-mode {
+      background: #1e2433;
+      border-color: #334155;
     }
 
     .mascot-img-wrap {
@@ -196,6 +266,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: all 0.2s ease;
     }
 
     .mascot-img-wrap img {
@@ -206,22 +277,57 @@
       transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    .mascot-tap-hint {
-      position: absolute;
-      bottom: 12px;
+    /* Viewport Tuning Controls */
+    .viewport-controls-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       font-size: 11px;
-      font-weight: 600;
       color: var(--text-dim);
+    }
+
+    .tuner-group {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
+    }
+
+    .tuner-btn {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .tuner-btn:hover {
+      background: var(--surface-hover);
+      color: var(--text);
+    }
+
+    .tuner-btn.active {
+      background: #ffffff;
+      color: #0c0d12;
+      border-color: #ffffff;
+    }
+
+    .bg-dot-btn {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      display: inline-block;
     }
 
     /* Controls Side */
     .stage-controls {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 18px;
     }
 
     .stage-meta-row {
@@ -244,6 +350,7 @@
     .badge-2xx { background: rgba(52, 211, 153, 0.12); color: var(--badge-2xx); border: 1px solid rgba(52, 211, 153, 0.25); }
     .badge-4xx { background: rgba(248, 113, 113, 0.12); color: var(--badge-4xx); border: 1px solid rgba(248, 113, 113, 0.25); }
     .badge-5xx { background: rgba(251, 191, 36, 0.12); color: var(--badge-5xx); border: 1px solid rgba(251, 191, 36, 0.25); }
+    .badge-ux  { background: rgba(167, 139, 250, 0.12); color: var(--badge-ux); border: 1px solid rgba(167, 139, 250, 0.25); }
 
     .file-ref {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -256,13 +363,16 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      max-height: 120px;
+      overflow-y: auto;
+      padding-right: 4px;
     }
 
     .status-btn {
       background: var(--surface-subtle);
       border: 1px solid var(--border);
       color: var(--text-muted);
-      padding: 7px 14px;
+      padding: 6px 12px;
       border-radius: var(--radius-pill);
       font-size: 12px;
       font-weight: 600;
@@ -308,12 +418,12 @@
       background: #08090d;
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 14px 16px;
+      padding: 12px 16px;
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       color: #38bdf8;
       overflow-x: auto;
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
     .stage-actions {
@@ -325,7 +435,7 @@
       background: #ffffff;
       color: #0c0d12;
       border: none;
-      padding: 11px 22px;
+      padding: 10px 20px;
       border-radius: var(--radius-pill);
       font-size: 13px;
       font-weight: 700;
@@ -344,7 +454,7 @@
       background: var(--surface-subtle);
       color: var(--text);
       border: 1px solid var(--border);
-      padding: 11px 20px;
+      padding: 10px 18px;
       border-radius: var(--radius-pill);
       font-size: 13px;
       font-weight: 600;
@@ -499,10 +609,10 @@
       color: var(--text-dim);
     }
 
-    /* All 11 Responses Gallery Grid */
+    /* All 22 Responses Gallery Grid */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 16px;
       margin-bottom: 48px;
     }
@@ -533,8 +643,8 @@
     }
 
     .gallery-thumb {
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       margin-bottom: 10px;
     }
 
@@ -717,37 +827,66 @@
       </div>
       <div>
         <div class="brand-title">Astro Bot</div>
-        <div class="brand-by">API &amp; Auth Mascots • by ren</div>
+        <div class="brand-by">Complete 22 API &amp; Auth Mascots • by ren</div>
       </div>
     </a>
-    <a href="https://github.com/rndsa/status-mascots" target="_blank" rel="noopener" class="pill-btn">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-      </svg>
-      GitHub
-    </a>
+    <div class="header-actions">
+      <a href="/astro-bot-mascots.zip" class="pill-btn pill-btn-primary" download>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Download All (.ZIP)
+      </a>
+      <a href="https://github.com/rndsa/status-mascots" target="_blank" rel="noopener" class="pill-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
   </header>
 
   <!-- Intro -->
   <div class="page-intro">
-    <div class="page-tag">HTTP Status &amp; Auth Mascots</div>
+    <div class="page-tag">HTTP Status • Error Handling • Auth Throttling</div>
     <h1 class="page-title">Astro Bot Mascot Library</h1>
-    <p class="page-desc">Koleksi maskot animasi SVG mandiri untuk respon kode status HTTP, error handling, dan proteksi rate limit autentikasi. Tanpa runtime JS eksternal, 100% vektor murni dan ringan.</p>
+    <p class="page-desc">Pustaka 22 maskot animasi SVG mandiri untuk seluruh siklus request HTTP, backend async queue, empty states, error gateway, dan proteksi autentikasi/rate-limiting modern. 100% pure vector tanpa runtime JS eksternal.</p>
+  </div>
+
+  <!-- Category Navigation Tabs -->
+  <div class="category-tabs">
+    <button class="cat-tab active" onclick="filterCategory('all')">Semua (22 Status)</button>
+    <button class="cat-tab" onclick="filterCategory('2xx')">2xx Success &amp; Jobs (4)</button>
+    <button class="cat-tab" onclick="filterCategory('4xx')">4xx Client Errors (10)</button>
+    <button class="cat-tab" onclick="filterCategory('5xx')">5xx Server &amp; Gateway (4)</button>
+    <button class="cat-tab" onclick="filterCategory('ux')">Auth &amp; Network UX (4)</button>
   </div>
 
   <!-- Main Stage Card -->
   <div class="stage-card">
     <!-- Viewport Left -->
-    <div class="mascot-viewport" id="stage-viewport" onclick="tapStage()">
-      <div class="mascot-img-wrap">
-        <img id="stage-img" src="/mascots/robot/200-ok.svg" alt="Astro Bot Live View">
+    <div class="mascot-viewport-wrap">
+      <div class="mascot-viewport" id="stage-viewport" onclick="tapStage()">
+        <div class="mascot-img-wrap" id="stage-img-wrap">
+          <img id="stage-img" src="/mascots/robot/200-ok.svg" alt="Astro Bot Live View">
+        </div>
       </div>
-      <div class="mascot-tap-hint">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10"></circle>
-          <polyline points="12 6 12 12 16 14"></polyline>
-        </svg>
-        Klik untuk trigger re-animasi
+      <!-- Viewport Tuner -->
+      <div class="viewport-controls-row">
+        <div class="tuner-group">
+          <span>Ukuran:</span>
+          <button class="tuner-btn" onclick="tuneSize(64)">64px</button>
+          <button class="tuner-btn" onclick="tuneSize(120)">120px</button>
+          <button class="tuner-btn active" onclick="tuneSize(240)">240px</button>
+        </div>
+        <div class="tuner-group">
+          <span>Bg:</span>
+          <span class="bg-dot-btn" style="background: #090a0f;" onclick="tuneBg('dark')"></span>
+          <span class="bg-dot-btn" style="background: #1e2433;" onclick="tuneBg('slate')"></span>
+          <span class="bg-dot-btn" style="background: #ffffff;" onclick="tuneBg('light')"></span>
+        </div>
       </div>
     </div>
 
@@ -758,7 +897,7 @@
         <div id="file-ref" class="file-ref">robot/200-ok.svg</div>
       </div>
 
-      <!-- HTTP Status Pills Filter -->
+      <!-- Filtered Pills Container -->
       <div class="status-pills-wrap" id="status-pills-container">
         <!-- Injected via JS -->
       </div>
@@ -837,10 +976,10 @@
     </div>
   </div>
 
-  <!-- Catalog Grid of All 11 Responses -->
+  <!-- Catalog Grid of All 22 Responses -->
   <div class="demo-section">
     <div class="section-header">
-      <div class="section-title">Katalog Lengkap 11 Status Respon Astro Bot</div>
+      <div class="section-title">Katalog Lengkap 22 Status Respon Astro Bot</div>
       <div class="section-sub">Klik kartu untuk menguji langsung di panggung preview</div>
     </div>
 
@@ -887,118 +1026,274 @@
 
 <script>
   const STATUS_RESPONSES = [
+    // 2xx Success & Jobs
     {
+      id: "200",
       code: 200,
       name: "OK",
       file: "200-ok.svg",
       type: "2xx",
+      cat: "2xx",
       desc: "Senyum ceria dengan jempol tangan robot melayang di depan (thumbs up) dan antena cyan berdenyut.",
       json: '{\n  "status": 200,\n  "message": "OK"\n}'
     },
     {
+      id: "201",
       code: 201,
       name: "Created",
       file: "201-created.svg",
       type: "2xx",
+      cat: "2xx",
       desc: "Melompat gembira dengan bintang emas menyala di antena dan kedua tangan robot bersorak ke atas.",
       json: '{\n  "status": 201,\n  "message": "Resource Created"\n}'
     },
     {
+      id: "202",
+      code: 202,
+      name: "Accepted / Processing",
+      file: "202-accepted.svg",
+      type: "2xx",
+      cat: "2xx",
+      desc: "Duduk tenang menunggu antrean background job dengan roda gigi holografik berputar halus.",
+      json: '{\n  "status": 202,\n  "message": "Queued for Background Processing"\n}'
+    },
+    {
+      id: "204",
+      code: 204,
+      name: "No Content (Empty)",
+      file: "204-no-content.svg",
+      type: "2xx",
+      cat: "2xx",
+      desc: "Membuka kardus paket kosong melompong dengan senyum polos (cocok untuk empty inbox & empty cart).",
+      json: '{\n  "status": 204,\n  "message": "No Content (Empty State)"\n}'
+    },
+
+    // 4xx Client Errors
+    {
+      id: "400",
       code: 400,
       name: "Bad Request",
       file: "400-bad-request.svg",
       type: "4xx",
+      cat: "4xx",
       desc: "Kepala miring bingung 13 derajat, tangan menggaruk helm, mata spiral (@), dan tanda tanya melayang.",
       json: '{\n  "status": 400,\n  "error": "Bad Request: Invalid Payload"\n}'
     },
     {
+      id: "401",
       code: 401,
       name: "Unauthorized",
       file: "401-unauthorized.svg",
       type: "4xx",
+      cat: "4xx",
       desc: "Geleng kepala menolak dengan gembok siber merah dan tatapan mata radar squinting tegas.",
       json: '{\n  "status": 401,\n  "error": "Unauthorized: Missing Token"\n}'
     },
     {
+      id: "403",
       code: 403,
       name: "Forbidden",
       file: "403-forbidden.svg",
       type: "4xx",
+      cat: "4xx",
       desc: "Tangan bersilang perisai (🙅) membentuk palang segel merah darurat dengan sirine polisi aktif.",
       json: '{\n  "status": 403,\n  "error": "Forbidden: Access Denied"\n}'
     },
     {
+      id: "404",
       code: 404,
       name: "Not Found",
       file: "404-not-found.svg",
       type: "4xx",
+      cat: "4xx",
       desc: "Piringan radar berputar 360°, mata celingukan kiri-kanan mencari data dengan kaca pembesar digital.",
       json: '{\n  "status": 404,\n  "error": "Not Found: Endpoint Missing"\n}'
     },
     {
+      id: "408",
+      code: 408,
+      name: "Request Timeout",
+      file: "408-request-timeout.svg",
+      type: "4xx",
+      cat: "4xx",
+      desc: "Terkantuk-kantuk lemas menunggu respon koneksi klien dengan gelembung tidur z Z Z melayang.",
+      json: '{\n  "status": 408,\n  "error": "Request Timeout: Client Inactive"\n}'
+    },
+    {
+      id: "409",
       code: 409,
       name: "Conflict",
       file: "409-conflict.svg",
       type: "4xx",
+      cat: "4xx",
       desc: "Kedua tangan memegangi kepala panik, gemetar shiver kencang, mata silang (> <), dan keringat anime mengucur.",
       json: '{\n  "status": 409,\n  "error": "Conflict: Resource State Mismatch"\n}'
     },
     {
+      id: "413",
+      code: 413,
+      name: "Payload Too Large",
+      file: "413-payload-too-large.svg",
+      type: "4xx",
+      cat: "4xx",
+      desc: "Helm gepeng ketiban beban blok arsip 100MB raksasa, mata mengernyit kepayahan (upload over limit).",
+      json: '{\n  "status": 413,\n  "error": "Payload Too Large: File Exceeds Max Size"\n}'
+    },
+    {
+      id: "418",
+      code: 418,
+      name: "I'm a Teapot",
+      file: "418-teapot.svg",
+      type: "4xx",
+      cat: "4xx",
+      desc: "Easter egg programmer: Memakai tutup teko, gagang cangkir samping, dan corong menuang uap teh siber.",
+      json: '{\n  "status": 418,\n  "message": "I\'m a teapot (RFC 2324)"\n}'
+    },
+    {
+      id: "422",
       code: 422,
       name: "Unprocessable",
       file: "422-unprocessable.svg",
       type: "4xx",
+      cat: "4xx",
       desc: "Efek chromatic aberration RGB glitch bergeser (cyan & magenta offset) dengan scanline data error.",
       json: '{\n  "status": 422,\n  "error": "Unprocessable Entity: Schema Divergence"\n}'
     },
     {
+      id: "429",
       code: 429,
-      name: "Rate Limit",
+      name: "Rate Limit (Throttle)",
       file: "429-rate-limit.svg",
       type: "4xx",
-      desc: "Mode ALERT MERAH: Geleng-geleng kepala tegas ke kiri-kanan, sirine darurat berkedip, dan telapak tangan robot disorongkan ke depan menahan aksi user (STOP / HALT). Cocok untuk halaman login & API throttling.",
+      cat: "4xx",
+      desc: "Mode ALERT MERAH: Geleng-geleng kepala tegas ke kiri-kanan, sirine darurat berkedip, dan telapak tangan robot disorongkan ke depan menahan aksi user (STOP / HALT).",
       json: '{\n  "status": 429,\n  "error": "Too Many Requests: Rate limit exceeded (Try again in 30s)"\n}'
     },
+
+    // 5xx Server & Gateway Errors
     {
+      id: "500",
       code: 500,
       name: "Server Error",
       file: "500-internal-error.svg",
       type: "5xx",
+      cat: "5xx",
       desc: "Helm retak berasap hitam tebal, percikan petir korsleting listrik, antena bengkok, dan mata pusing spiral (@_@).",
       json: '{\n  "status": 500,\n  "error": "Internal Server Error: Uncaught Exception"\n}'
     },
     {
+      id: "502",
+      code: 502,
+      name: "Bad Gateway",
+      file: "502-bad-gateway.svg",
+      type: "5xx",
+      cat: "5xx",
+      desc: "Memegang dua kabel upstream terputus yang saling menyemburkan loncatan bunga api listrik tegangan tinggi.",
+      json: '{\n  "status": 502,\n  "error": "Bad Gateway: Upstream Target Severed"\n}'
+    },
+    {
+      id: "503",
       code: 503,
       name: "Maintenance",
       file: "503-maintenance.svg",
       type: "5xx",
+      cat: "5xx",
       desc: "Memakai helm proyek kuning keselamatan dan tangan robot aktif memutar kunci inggris memperbaiki sistem.",
       json: '{\n  "status": 503,\n  "error": "Service Unavailable: Maintenance Underway"\n}'
+    },
+    {
+      id: "504",
+      code: 504,
+      name: "Gateway Timeout",
+      file: "504-gateway-timeout.svg",
+      type: "5xx",
+      cat: "5xx",
+      desc: "Memandang cemas jam pasir digital berputar 180° karena upstream server tidak kunjung merespon.",
+      json: '{\n  "status": 504,\n  "error": "Gateway Timeout: Upstream Timed Out"\n}'
+    },
+
+    // Auth & Network UX States
+    {
+      id: "2fa",
+      code: "2FA",
+      name: "OTP Verification",
+      file: "auth-2fa.svg",
+      type: "ux",
+      cat: "ux",
+      desc: "Tameng pelindung holografik siber dengan gembok kode 6 digit untuk verifikasi autentikasi dua faktor.",
+      json: '{\n  "action": "require_2fa",\n  "method": "totp_authenticator"\n}'
+    },
+    {
+      id: "offline",
+      code: "Offline",
+      name: "No Connection",
+      file: "offline.svg",
+      type: "ux",
+      cat: "ux",
+      desc: "Sinyal WiFi tersilang merah di atas antena dengan ekspresi celingukan mencari koneksi internet.",
+      json: '{\n  "network": "disconnected",\n  "online": false\n}'
+    },
+    {
+      id: "expired",
+      code: "Expired",
+      name: "Session Timeout",
+      file: "session-expired.svg",
+      type: "ux",
+      cat: "ux",
+      desc: "Kartu akses JWT pudar dissolving dengan senyum sendu mengajak user login ulang.",
+      json: '{\n  "auth": "expired",\n  "code": "token_expired"\n}'
+    },
+    {
+      id: "banned",
+      code: "Banned",
+      name: "Account Suspended",
+      file: "account-banned.svg",
+      type: "ux",
+      cat: "ux",
+      desc: "Terkurung di balik jeruji laser merah berdenyut dengan tatapan murung (akun dibekukan admin).",
+      json: '{\n  "account_status": "suspended",\n  "appeal": "support@example.com"\n}'
     }
   ];
 
-  let currentCode = 200;
+  let currentId = "200";
+  let currentCategory = "all";
   let modalActiveTab = 'html';
 
   function init() {
     renderStatusPills();
     renderGalleryGrid();
-    selectStatus(200);
+    selectStatus("200");
+  }
+
+  function filterCategory(cat) {
+    currentCategory = cat;
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+
+    renderStatusPills();
+    renderGalleryGrid();
+  }
+
+  function getFilteredResponses() {
+    if (currentCategory === 'all') return STATUS_RESPONSES;
+    return STATUS_RESPONSES.filter(item => item.cat === currentCategory);
   }
 
   function renderStatusPills() {
     const container = document.getElementById('status-pills-container');
-    container.innerHTML = STATUS_RESPONSES.map(item => `
-      <button class="status-btn ${item.code === currentCode ? (item.code === 429 ? 'active-alert' : 'active') : ''}" 
-              onclick="selectStatus(${item.code})">
-        ${item.code === 429 ? '🛑 ' : ''}${item.code} ${item.name}
+    const list = getFilteredResponses();
+
+    container.innerHTML = list.map(item => `
+      <button class="status-btn ${item.id === currentId ? (item.id === "429" || item.id === "banned" ? 'active-alert' : 'active') : ''}" 
+              onclick="selectStatus('${item.id}')">
+        ${item.id === "429" ? '🛑 ' : item.id === "banned" ? '🔒 ' : ''}${item.code} ${item.name}
       </button>
     `).join('');
   }
 
-  function selectStatus(code) {
-    currentCode = code;
-    const item = STATUS_RESPONSES.find(s => s.code === code) || STATUS_RESPONSES[0];
+  function selectStatus(id) {
+    currentId = id;
+    const item = STATUS_RESPONSES.find(s => s.id === id) || STATUS_RESPONSES[0];
 
     // Update Stage Image
     const viewport = document.getElementById('stage-viewport');
@@ -1006,7 +1301,7 @@
     const cacheBuster = Date.now();
     stageImg.src = `/mascots/robot/${item.file}?v=${cacheBuster}`;
 
-    if (code === 429) {
+    if (id === "429" || id === "banned") {
       viewport.classList.add('alert-mode');
     } else {
       viewport.classList.remove('alert-mode');
@@ -1029,7 +1324,7 @@
 
     // Refresh Gallery Grid highlights
     document.querySelectorAll('.gallery-card').forEach(card => {
-      if (parseInt(card.dataset.code, 10) === code) {
+      if (card.dataset.id === id) {
         card.classList.add('selected');
       } else {
         card.classList.remove('selected');
@@ -1039,14 +1334,16 @@
 
   function renderGalleryGrid() {
     const grid = document.getElementById('gallery-grid');
-    grid.innerHTML = STATUS_RESPONSES.map(item => `
-      <div class="gallery-card ${item.code === currentCode ? 'selected' : ''}" 
-           data-code="${item.code}" 
-           onclick="selectStatus(${item.code})">
+    const list = getFilteredResponses();
+
+    grid.innerHTML = list.map(item => `
+      <div class="gallery-card ${item.id === currentId ? 'selected' : ''}" 
+           data-id="${item.id}" 
+           onclick="selectStatus('${item.id}')">
         <div class="gallery-thumb">
           <img src="/mascots/robot/${item.file}" alt="${item.code} ${item.name}">
         </div>
-        <div class="gallery-code" style="color: ${item.type === '2xx' ? 'var(--badge-2xx)' : item.type === '4xx' ? 'var(--badge-4xx)' : 'var(--badge-5xx)'}">
+        <div class="gallery-code" style="color: ${item.type === '2xx' ? 'var(--badge-2xx)' : item.type === '4xx' ? 'var(--badge-4xx)' : item.type === '5xx' ? 'var(--badge-5xx)' : 'var(--badge-ux)'}">
           ${item.code} ${item.name}
         </div>
         <div class="gallery-name">${item.file}</div>
@@ -1063,6 +1360,21 @@
         img.style.transform = 'scale(1)';
       }, 150);
     }, 120);
+  }
+
+  /* Viewport Tuner */
+  function tuneSize(px) {
+    document.getElementById('stage-img-wrap').style.width = px + 'px';
+    document.getElementById('stage-img-wrap').style.height = px + 'px';
+    document.querySelectorAll('.tuner-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  function tuneBg(mode) {
+    const v = document.getElementById('stage-viewport');
+    v.classList.remove('light-mode', 'slate-mode');
+    if (mode === 'light') v.classList.add('light-mode');
+    if (mode === 'slate') v.classList.add('slate-mode');
   }
 
   /* --- Interactive Login Demo --- */
@@ -1099,7 +1411,7 @@
       let countdown = 10;
 
       function updateCountdown() {
-        feedback.innerHTML = `🛑 <strong>Rate Limit Terpicu (HTTP 429):</strong> Harap tunggu <strong>${countdown} detik</strong> sebelum mencoba lagi.`;
+        feedback.innerHTML = `🛑 <strong>Rate Limit Terpicu (HTTP 429):</strong> Harap tunggu <strong>${countdown}s</strong> sebelum mencoba lagi.`;
         if (countdown <= 0) {
           clearInterval(authCooldownTimer);
           resetAuthDemo();
@@ -1118,7 +1430,7 @@
     document.getElementById('auth-fail-count').textContent = '0';
     const feedback = document.getElementById('auth-feedback');
     feedback.className = 'auth-status-msg';
-    feedback.textContent = 'Percobaan gagal: 0 / 3';
+    feedback.textContent = 'Masukkan sembarang password untuk menguji proteksi limit.';
 
     const btn = document.getElementById('auth-btn');
     btn.disabled = false;
@@ -1131,7 +1443,7 @@
 
   /* --- Clipboard & Modals --- */
   function copyDirectLink() {
-    const item = STATUS_RESPONSES.find(s => s.code === currentCode) || STATUS_RESPONSES[0];
+    const item = STATUS_RESPONSES.find(s => s.id === currentId) || STATUS_RESPONSES[0];
     const fullUrl = `${window.location.origin}/mascots/robot/${item.file}`;
     navigator.clipboard.writeText(fullUrl).then(() => {
       showToast('Link SVG berhasil disalin ke clipboard!');
@@ -1161,14 +1473,14 @@
   }
 
   function updateModalSnippet() {
-    const item = STATUS_RESPONSES.find(s => s.code === currentCode) || STATUS_RESPONSES[0];
+    const item = STATUS_RESPONSES.find(s => s.id === currentId) || STATUS_RESPONSES[0];
     const fullUrl = `${window.location.origin}/mascots/robot/${item.file}`;
     let snippet = '';
 
     if (modalActiveTab === 'html') {
       snippet = `<img src="${fullUrl}" alt="Astro Bot ${item.code} ${item.name}" width="160" height="160" />`;
     } else if (modalActiveTab === 'react') {
-      snippet = `export function Mascot${item.code}() {\n  return (\n    <img\n      src="${fullUrl}"\n      alt="Astro Bot ${item.code}"\n      width={160}\n      height={160}\n    />\n  );\n}`;
+      snippet = `export function Mascot${item.id}() {\n  return (\n    <img\n      src="${fullUrl}"\n      alt="Astro Bot ${item.name}"\n      width={160}\n      height={160}\n    />\n  );\n}`;
     } else if (modalActiveTab === 'markdown') {
       snippet = `![Astro Bot ${item.code} ${item.name}](${fullUrl})`;
     }

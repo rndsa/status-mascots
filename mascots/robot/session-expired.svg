@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="astro-head-expired" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fed7aa"/>
+    </linearGradient>
+    <linearGradient id="astro-visor-expired" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a1205"/>
+      <stop offset="100%" stop-color="#0a0401"/>
+    </linearGradient>
+    <filter id="astro-shadow-exp" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#f97316" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <style>
+    @keyframes sessionNod {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    @keyframes cardFade {
+      0%, 100% { opacity: 0.9; }
+      50% { opacity: 0.3; }
+    }
+    .head-session { animation: sessionNod 2.4s ease-in-out infinite; }
+    .keycard-fade { animation: cardFade 2s infinite; }
+  </style>
+
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="head-session">
+    <rect x="78" y="14" width="4" height="26" rx="2" fill="#f97316"/>
+    <circle cx="80" cy="14" r="7" fill="#f97316"/>
+
+    <rect x="22" y="70" width="8" height="28" rx="4" fill="#f97316"/>
+    <rect x="130" y="70" width="8" height="28" rx="4" fill="#f97316"/>
+
+    <rect x="28" y="38" width="104" height="92" rx="34" fill="url(#astro-head-expired)" stroke="#f97316" stroke-width="2.5" filter="url(#astro-shadow-exp)"/>
+
+    <rect x="38" y="54" width="84" height="60" rx="24" fill="url(#astro-visor-expired)"/>
+
+    <!-- Sad Gentle Eyes -->
+    <path d="M 52 84 Q 62 88 72 84" fill="none" stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 88 84 Q 98 88 108 84" fill="none" stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+
+    <path d="M 75 98 Q 80 94 85 98" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- FOREGROUND DISSOLVING JWT KEYCARD -->
+  <g class="keycard-fade" transform="translate(68, 102)">
+    <rect x="0" y="0" width="24" height="15" rx="3" fill="#ea580c" stroke="#ffffff" stroke-width="1.2"/>
+    <rect x="3" y="3" width="6" height="5" rx="1" fill="#fef08a"/>
+    <line x1="12" y1="5" x2="20" y2="5" stroke="#ffffff" stroke-width="1.2"/>
+    <line x1="12" y1="9" x2="18" y2="9" stroke="#ffffff" stroke-width="1.2"/>
+  </g>
+
+  <text x="80" y="146" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="9" font-weight="800" fill="#f97316" letter-spacing="1" text-anchor="middle">SESSION EXPIRED</text>
+</svg>

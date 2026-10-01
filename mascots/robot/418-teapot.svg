@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="astro-head-418" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fdf4ff"/>
+    </linearGradient>
+    <linearGradient id="astro-visor-418" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2e1065"/>
+      <stop offset="100%" stop-color="#0f051d"/>
+    </linearGradient>
+    <filter id="astro-shadow-418" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#a855f7" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <style>
+    @keyframes teaPour {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-4px) rotate(-6deg); }
+    }
+    @keyframes teaSteam {
+      0% { transform: translateY(0) scale(0.6); opacity: 0; }
+      50% { opacity: 0.8; }
+      100% { transform: translateY(-16px) scale(1.2); opacity: 0; }
+    }
+    .head-tea { animation: teaPour 2.6s ease-in-out infinite; transform-origin: 80px 145px; }
+    .steam-drop { animation: teaSteam 1.6s ease-out infinite; }
+  </style>
+
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <!-- Cyber Tea Steam Rising from Spout -->
+  <g class="steam-drop" transform="translate(18, 56)">
+    <circle cx="0" cy="0" r="4" fill="#a855f7"/>
+  </g>
+
+  <g class="head-tea">
+    <!-- Teapot Handle on Right -->
+    <path d="M 126 60 C 146 60 146 96 126 96" fill="none" stroke="#a855f7" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Teapot Spout on Left -->
+    <path d="M 34 76 Q 16 72 20 62 L 26 62 Q 22 70 34 74 Z" fill="#a855f7" stroke="#7e22ce" stroke-width="1.5"/>
+
+    <!-- Teapot Lid Top Knob -->
+    <ellipse cx="80" cy="38" rx="32" ry="7" fill="#c084fc" stroke="#a855f7" stroke-width="2"/>
+    <circle cx="80" cy="28" r="6" fill="#a855f7" stroke="#ffffff" stroke-width="1.5"/>
+
+    <rect x="28" y="38" width="104" height="92" rx="34" fill="url(#astro-head-418)" stroke="#a855f7" stroke-width="2.5" filter="url(#astro-shadow-418)"/>
+
+    <rect x="38" y="54" width="84" height="60" rx="24" fill="url(#astro-visor-418)"/>
+
+    <!-- Winking Tea Master Eyes (^ ~) -->
+    <path d="M 52 82 Q 62 70 72 82" fill="none" stroke="#c084fc" stroke-width="4.5" stroke-linecap="round"/>
+    <ellipse cx="98" cy="82" rx="7" ry="9" fill="#c084fc"/>
+    <circle cx="101" cy="79" r="2.8" fill="#ffffff"/>
+
+    <ellipse cx="48" cy="98" rx="6" ry="3.5" fill="#f43f5e" opacity="0.6"/>
+    <ellipse cx="112" cy="98" rx="6" ry="3.5" fill="#f43f5e" opacity="0.6"/>
+
+    <!-- Teacup Icon in Mouth -->
+    <path d="M 76 96 Q 80 102 84 96" fill="none" stroke="#c084fc" stroke-width="2.8" stroke-linecap="round"/>
+  </g>
+
+  <text x="80" y="146" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="9" font-weight="800" fill="#a855f7" letter-spacing="1" text-anchor="middle">I'M A TEAPOT • 418</text>
+</svg>

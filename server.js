@@ -13,7 +13,8 @@ const MIME = {
   '.json': 'application/json',
   '.css': 'text/css; charset=UTF-8',
   '.js': 'application/javascript; charset=UTF-8',
-  '.png': 'image/png'
+  '.png': 'image/png',
+  '.zip': 'application/zip'
 };
 
 const server = http.createServer((req, res) => {

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="astro-head-204" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="astro-visor-204" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <filter id="astro-shadow-204" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#020617" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <style>
+    @keyframes innocentFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(-1deg); }
+    }
+    @keyframes boxWobble {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-3px) rotate(2deg); }
+    }
+    .head-empty { animation: innocentFloat 3s ease-in-out infinite; transform-origin: 80px 145px; }
+    .empty-box { animation: boxWobble 2.6s ease-in-out infinite; transform-origin: 80px 115px; }
+  </style>
+
+  <ellipse cx="80" cy="148" rx="34" ry="6" fill="#000000" opacity="0.18"/>
+
+  <g class="head-empty">
+    <!-- Antenna with subtle white/cyan pulse -->
+    <rect x="78" y="14" width="4" height="26" rx="2" fill="#94a3b8"/>
+    <circle cx="80" cy="14" r="7" fill="#38bdf8"/>
+    <circle cx="82" cy="12" r="2.2" fill="#ffffff" opacity="0.8"/>
+
+    <rect x="22" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
+    <rect x="130" y="70" width="8" height="28" rx="4" fill="#94a3b8"/>
+
+    <rect x="28" y="38" width="104" height="92" rx="34" fill="url(#astro-head-204)" stroke="#cbd5e1" stroke-width="2.5" filter="url(#astro-shadow-204)"/>
+
+    <rect x="38" y="54" width="84" height="60" rx="24" fill="url(#astro-visor-204)"/>
+
+    <!-- Innocent Dot Eyes + Happy Small Smile -->
+    <ellipse cx="62" cy="84" rx="6" ry="8" fill="#38bdf8"/>
+    <circle cx="64" cy="81" r="2.2" fill="#ffffff"/>
+
+    <ellipse cx="98" cy="84" rx="6" ry="8" fill="#38bdf8"/>
+    <circle cx="100" cy="81" r="2.2" fill="#ffffff"/>
+
+    <ellipse cx="48" cy="98" rx="5" ry="3" fill="#f43f5e" opacity="0.5"/>
+    <ellipse cx="112" cy="98" rx="5" ry="3" fill="#f43f5e" opacity="0.5"/>
+
+    <path d="M 76 96 Q 80 100 84 96" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- FOREGROUND OPEN EMPTY CARDBOARD BOX (NO DATA / EMPTY STATE) -->
+  <g class="empty-box">
+    <!-- Box Base -->
+    <polygon points="62,108 98,108 104,130 56,130" fill="#d97706" stroke="#b45309" stroke-width="1.5"/>
+    <polygon points="62,108 56,130 50,118" fill="#b45309"/>
+    <!-- Open Flaps -->
+    <polygon points="62,108 52,98 68,102" fill="#f59e0b"/>
+    <polygon points="98,108 108,98 92,102" fill="#f59e0b"/>
+    <!-- Subtle dotted outline inside box showing it's empty -->
+    <line x1="68" y1="120" x2="92" y2="120" stroke="#fef3c7" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.8"/>
+  </g>
+
+  <text x="80" y="146" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="9" font-weight="800" fill="#94a3b8" letter-spacing="1" text-anchor="middle">NO CONTENT • 204</text>
+</svg>
