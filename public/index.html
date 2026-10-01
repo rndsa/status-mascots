@@ -264,30 +264,9 @@
       filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.35));
     }
 
-    .mascot-status-tag {
-      margin-top: 14px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #ffffff;
-      font-family: ui-monospace, monospace;
-      position: relative;
-      z-index: 2;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 12px;
-      border-radius: var(--radius-pill);
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
+    
 
-    .mascot-viewport.alert-mode .mascot-status-tag {
-      color: var(--accent-red);
-      background: rgba(239, 68, 68, 0.12);
-      border-color: rgba(239, 68, 68, 0.3);
-    }
+    .mascot-viewport.alert-mode 
 
     /* Floating Viewport Toolbar */
     .viewport-toolbar {
@@ -1321,8 +1300,7 @@
           <div class="mascot-img-wrap" id="mascot-img-wrap">
             <img id="stage-mascot-img" src="/mascots/robot/200-ok.svg" alt="Astro Bot Mascot Active">
           </div>
-          <div class="mascot-status-tag" id="stage-status-tag">SUCCESS &bull; 200</div>
-        </div>
+                  </div>
 
         <!-- Floating Viewport Controls -->
         <div class="viewport-toolbar">
@@ -1679,13 +1657,10 @@
 
       // Update viewport alert mode
       const viewport = document.getElementById('mascot-viewport');
-      const statusTag = document.getElementById('stage-status-tag');
       if (item.id === "429" || item.id === "banned") {
         viewport.classList.add('alert-mode');
-        statusTag.textContent = `ALERT • ${item.code}`;
       } else {
         viewport.classList.remove('alert-mode');
-        statusTag.textContent = `${item.code} • ${item.label.toUpperCase()}`;
       }
 
       // Update Code Box
