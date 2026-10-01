@@ -6,27 +6,29 @@
   <meta http-equiv="Expires" content="0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Astro Bot — Complete 22 Status Mascots for APIs & Auth</title>
+  <title>Astro Bot — Standalone Status Mascots for APIs & Auth</title>
   <style>
     :root {
       --bg: #0c0d12;
       --surface: #141722;
-      --surface-subtle: #191d2b;
-      --surface-hover: #222738;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.16);
+      --surface-subtle: #0d0f17;
+      --surface-hover: #1b1f2e;
+      --border: rgba(255, 255, 255, 0.07);
+      --border-hover: rgba(255, 255, 255, 0.14);
+      --border-active: rgba(255, 255, 255, 0.24);
       --text: #f4f5f8;
       --text-muted: #8c91a4;
-      --text-dim: #5c6175;
-      --badge-2xx: #34d399;
-      --badge-4xx: #f87171;
-      --badge-5xx: #fbbf24;
-      --badge-ux: #a78bfa;
+      --text-dim: #555a6d;
+      --badge-2xx: #10b981;
+      --badge-4xx: #f43f5e;
+      --badge-5xx: #f59e0b;
+      --badge-ux: #8b5cf6;
       --accent: #38bdf8;
       --accent-red: #ef4444;
       --radius-card: 22px;
-      --radius-inner: 16px;
-      --radius-pill: 100px;
+      --radius-inner: 14px;
+      --radius-pill: 9999px;
+      --radius-sm: 8px;
     }
 
     * {
@@ -34,22 +36,24 @@
       margin: 0;
       padding: 0;
       -webkit-font-smoothing: antialiased;
-      -webkit-tap-highlight-color: transparent;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     body {
       background-color: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-variant-numeric: tabular-nums;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 40px 24px 32px;
+      padding: 40px 24px 36px;
+      line-height: 1.5;
     }
 
     .container {
-      max-width: 1060px;
+      max-width: 1040px;
       margin: 0 auto;
       width: 100%;
     }
@@ -59,23 +63,23 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 36px;
+      margin-bottom: 40px;
     }
 
     .brand-wrap {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       text-decoration: none;
       color: inherit;
     }
 
     .brand-avatar {
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -83,22 +87,21 @@
     }
 
     .brand-avatar img {
-      width: 34px;
-      height: 34px;
+      width: 30px;
+      height: 30px;
     }
 
     .brand-title {
-      font-size: 19px;
+      font-size: 17px;
       font-weight: 700;
       letter-spacing: -0.02em;
     }
 
     .brand-by {
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.02em;
     }
 
     .header-actions {
@@ -110,33 +113,23 @@
     .pill-btn {
       background: var(--surface);
       border: 1px solid var(--border);
-      color: var(--text);
+      color: var(--text-muted);
       padding: 8px 16px;
       border-radius: var(--radius-pill);
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 500;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       transition: all 0.15s ease;
       cursor: pointer;
     }
 
     .pill-btn:hover {
       background: var(--surface-hover);
+      color: var(--text);
       border-color: var(--border-hover);
-    }
-
-    .pill-btn-primary {
-      background: #ffffff;
-      color: #0c0d12;
-      border: none;
-      font-weight: 700;
-    }
-
-    .pill-btn-primary:hover {
-      opacity: 0.9;
     }
 
     /* Page Intro */
@@ -148,66 +141,30 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 12px;
+      padding: 3px 10px;
       border-radius: var(--radius-pill);
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.2);
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.18);
       color: var(--accent);
       font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
     }
 
     .page-title {
       font-size: 32px;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: -0.03em;
-      line-height: 1.15;
+      line-height: 1.2;
       margin-bottom: 10px;
     }
 
     .page-desc {
       font-size: 15px;
       color: var(--text-muted);
-      line-height: 1.5;
-      max-width: 720px;
-    }
-
-    /* Category Filter Tabs */
-    .category-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .cat-tab {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 8px 16px;
-      border-radius: var(--radius-pill);
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .cat-tab:hover {
-      background: var(--surface-hover);
-      color: var(--text);
-    }
-
-    .cat-tab.active {
-      background: #ffffff;
-      color: #0c0d12;
-      border-color: #ffffff;
-      font-weight: 700;
+      line-height: 1.6;
+      max-width: 660px;
     }
 
     /* Main Showcase Stage */
@@ -220,9 +177,8 @@
       grid-template-columns: 340px 1fr;
       gap: 36px;
       align-items: center;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
       position: relative;
-      overflow: hidden;
     }
 
     .mascot-viewport-wrap {
@@ -232,10 +188,10 @@
     }
 
     .mascot-viewport {
-      background: #090a0f;
+      background: var(--surface-subtle);
       border: 1px solid var(--border);
       border-radius: var(--radius-inner);
-      height: 320px;
+      height: 310px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -246,23 +202,23 @@
     }
 
     .mascot-viewport.alert-mode {
-      border-color: rgba(239, 68, 68, 0.4);
-      background: #0e0507;
+      border-color: rgba(239, 68, 68, 0.35);
+      background: #110507;
     }
 
     .mascot-viewport.light-mode {
       background: #ffffff;
-      border-color: #cbd5e1;
+      border-color: #e2e8f0;
     }
 
     .mascot-viewport.slate-mode {
-      background: #1e2433;
-      border-color: #334155;
+      background: #1a1e2b;
+      border-color: #2e3449;
     }
 
     .mascot-img-wrap {
-      width: 240px;
-      height: 240px;
+      width: 220px;
+      height: 220px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -284,50 +240,56 @@
       align-items: center;
       font-size: 11px;
       color: var(--text-dim);
+      padding: 0 4px;
     }
 
     .tuner-group {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
     }
 
     .tuner-btn {
-      background: var(--surface-subtle);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 3px 8px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-dim);
+      padding: 2px 7px;
       border-radius: var(--radius-pill);
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 500;
       cursor: pointer;
+      transition: all 0.15s ease;
     }
 
     .tuner-btn:hover {
-      background: var(--surface-hover);
       color: var(--text);
     }
 
     .tuner-btn.active {
-      background: #ffffff;
-      color: #0c0d12;
-      border-color: #ffffff;
+      background: var(--surface-hover);
+      color: var(--text);
+      border-color: var(--border);
     }
 
     .bg-dot-btn {
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
       border: 1px solid var(--border);
       cursor: pointer;
       display: inline-block;
+      transition: transform 0.15s ease;
+    }
+
+    .bg-dot-btn:hover {
+      transform: scale(1.15);
     }
 
     /* Controls Side */
     .stage-controls {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
     }
 
     .stage-meta-row {
@@ -339,18 +301,18 @@
     .status-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 5px 12px;
+      gap: 6px;
+      padding: 4px 10px;
       border-radius: var(--radius-pill);
       font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
+      font-weight: 600;
+      letter-spacing: 0.01em;
     }
 
-    .badge-2xx { background: rgba(52, 211, 153, 0.12); color: var(--badge-2xx); border: 1px solid rgba(52, 211, 153, 0.25); }
-    .badge-4xx { background: rgba(248, 113, 113, 0.12); color: var(--badge-4xx); border: 1px solid rgba(248, 113, 113, 0.25); }
-    .badge-5xx { background: rgba(251, 191, 36, 0.12); color: var(--badge-5xx); border: 1px solid rgba(251, 191, 36, 0.25); }
-    .badge-ux  { background: rgba(167, 139, 250, 0.12); color: var(--badge-ux); border: 1px solid rgba(167, 139, 250, 0.25); }
+    .badge-2xx { background: rgba(16, 185, 129, 0.1); color: var(--badge-2xx); border: 1px solid rgba(16, 185, 129, 0.2); }
+    .badge-4xx { background: rgba(244, 63, 94, 0.1); color: var(--badge-4xx); border: 1px solid rgba(244, 63, 94, 0.2); }
+    .badge-5xx { background: rgba(245, 158, 11, 0.1); color: var(--badge-5xx); border: 1px solid rgba(245, 158, 11, 0.2); }
+    .badge-ux  { background: rgba(139, 92, 246, 0.1); color: var(--badge-ux); border: 1px solid rgba(139, 92, 246, 0.2); }
 
     .file-ref {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -358,58 +320,92 @@
       color: var(--text-dim);
     }
 
-    /* Status Pills Grid */
-    .status-pills-wrap {
+    /* Category Segmented Control */
+    .segmented-control {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      max-height: 120px;
-      overflow-y: auto;
-      padding-right: 4px;
-    }
-
-    .status-btn {
       background: var(--surface-subtle);
       border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .segmented-item {
+      flex: 1;
+      text-align: center;
+      background: transparent;
+      border: none;
       color: var(--text-muted);
-      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .segmented-item:hover {
+      color: var(--text);
+    }
+
+    .segmented-item.active {
+      background: var(--surface-hover);
+      color: var(--text);
+      font-weight: 600;
+      border: 1px solid var(--border);
+    }
+
+    /* Sub-category Status Pills */
+    .status-sub-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      min-height: 34px;
+    }
+
+    .status-sub-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 5px 11px;
       border-radius: var(--radius-pill);
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 500;
       cursor: pointer;
       transition: all 0.15s ease;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
     }
 
-    .status-btn:hover {
+    .status-sub-btn:hover {
       background: var(--surface-hover);
       color: var(--text);
       border-color: var(--border-hover);
     }
 
-    .status-btn.active {
+    .status-sub-btn.active {
       background: #ffffff;
       color: #0c0d12;
       border-color: #ffffff;
-      font-weight: 700;
+      font-weight: 600;
     }
 
-    .status-btn.active-alert {
+    .status-sub-btn.active-alert {
       background: #ef4444;
       color: #ffffff;
       border-color: #ef4444;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .status-desc {
-      font-size: 14px;
-      line-height: 1.5;
+      font-size: 13.5px;
+      line-height: 1.55;
       color: var(--text);
       background: var(--surface-subtle);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: var(--radius-inner);
       padding: 12px 16px;
     }
 
@@ -417,60 +413,61 @@
     .code-box {
       background: #08090d;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 16px;
+      border-radius: var(--radius-inner);
+      padding: 12px 14px;
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
-      color: #38bdf8;
+      color: var(--accent);
       overflow-x: auto;
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     .stage-actions {
       display: flex;
-      gap: 12px;
+      gap: 10px;
     }
 
     .action-btn-primary {
       background: #ffffff;
       color: #0c0d12;
       border: none;
-      padding: 10px 20px;
-      border-radius: var(--radius-pill);
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: opacity 0.15s ease;
-    }
-
-    .action-btn-primary:hover {
-      opacity: 0.9;
-    }
-
-    .action-btn-secondary {
-      background: var(--surface-subtle);
-      color: var(--text);
-      border: 1px solid var(--border);
-      padding: 10px 18px;
+      padding: 9px 18px;
       border-radius: var(--radius-pill);
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
+      transition: opacity 0.15s ease;
+    }
+
+    .action-btn-primary:hover {
+      opacity: 0.88;
+    }
+
+    .action-btn-secondary {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 9px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
       transition: all 0.15s ease;
     }
 
     .action-btn-secondary:hover {
       background: var(--surface-hover);
+      color: var(--text);
       border-color: var(--border-hover);
     }
 
-    /* Interactive Login Rate-Limit Simulator */
+    /* Sandbox Demo: Rate Limiter */
     .demo-section {
       margin-bottom: 40px;
     }
@@ -479,12 +476,12 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .section-title {
-      font-size: 18px;
-      font-weight: 700;
+      font-size: 16px;
+      font-weight: 600;
       letter-spacing: -0.01em;
     }
 
@@ -497,79 +494,104 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-card);
-      padding: 28px;
+      padding: 24px;
       display: grid;
-      grid-template-columns: 1fr 280px;
-      gap: 32px;
+      grid-template-columns: 1fr 240px;
+      gap: 28px;
       align-items: center;
     }
 
     .auth-form-wrap {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
     }
 
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
     }
 
     .form-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-dim);
+      letter-spacing: 0.01em;
     }
 
     .form-input {
       background: var(--surface-subtle);
       border: 1px solid var(--border);
       color: var(--text);
-      padding: 10px 14px;
-      border-radius: 12px;
-      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
       outline: none;
       transition: border-color 0.15s ease;
+      font-family: inherit;
     }
 
     .form-input:focus {
-      border-color: var(--accent);
+      border-color: var(--border-active);
     }
 
     .auth-btn-row {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
       margin-top: 4px;
     }
 
     .auth-submit-btn {
-      background: var(--accent);
+      background: #ffffff;
       color: #0c0d12;
       border: none;
-      padding: 10px 22px;
+      padding: 8px 18px;
       border-radius: var(--radius-pill);
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 12.5px;
+      font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       transition: opacity 0.15s ease;
     }
 
     .auth-submit-btn:disabled {
-      background: #475569;
-      color: #94a3b8;
+      background: var(--surface-hover);
+      color: var(--text-dim);
+      border: 1px solid var(--border);
       cursor: not-allowed;
     }
 
+    .auth-status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-inner);
+      background: var(--surface-inset);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition-fast);
+    }
+
+    .auth-status-bar.alert-active {
+      background: rgba(244, 63, 94, 0.08);
+      border-color: rgba(244, 63, 94, 0.28);
+    }
+
     .auth-status-msg {
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.2;
     }
 
     .auth-status-msg.error {
@@ -583,11 +605,20 @@
       gap: 6px;
     }
 
+    .auth-counter-badge {
+      font-size: 11.5px;
+      color: var(--text-dim);
+      font-weight: 500;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
     .auth-mascot-box {
-      background: #090a0f;
+      background: var(--surface-subtle);
       border: 1px solid var(--border);
       border-radius: var(--radius-inner);
-      height: 240px;
+      height: 190px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -596,39 +627,66 @@
     }
 
     .auth-mascot-box img {
-      width: 170px;
-      height: 170px;
+      width: 130px;
+      height: 130px;
       object-fit: contain;
     }
 
     .auth-mascot-label {
       position: absolute;
-      bottom: 10px;
+      bottom: 8px;
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--text-dim);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    /* Catalog Sections */
+    .catalog-category-header {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin: 28px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .catalog-cat-title {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .catalog-cat-count {
       font-size: 11px;
-      font-weight: 700;
       color: var(--text-dim);
     }
 
-    /* All 22 Responses Gallery Grid */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 48px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .gallery-grid-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
     }
 
     .gallery-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 16px;
+      border-radius: 16px;
+      padding: 14px 12px;
       display: flex;
       flex-direction: column;
       align-items: center;
       cursor: pointer;
       transition: all 0.15s ease;
       text-align: center;
-      position: relative;
     }
 
     .gallery-card:hover {
@@ -638,14 +696,14 @@
     }
 
     .gallery-card.selected {
-      border-color: var(--accent);
-      background: var(--surface-subtle);
+      border-color: var(--border-active);
+      background: var(--surface-hover);
     }
 
     .gallery-thumb {
-      width: 110px;
-      height: 110px;
-      margin-bottom: 10px;
+      width: 90px;
+      height: 90px;
+      margin-bottom: 8px;
     }
 
     .gallery-thumb img {
@@ -655,13 +713,13 @@
     }
 
     .gallery-code {
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 12.5px;
+      font-weight: 600;
       margin-bottom: 2px;
     }
 
     .gallery-name {
-      font-size: 11px;
+      font-size: 10.5px;
       color: var(--text-dim);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     }
@@ -673,10 +731,10 @@
       right: 24px;
       background: #ffffff;
       color: #0c0d12;
-      padding: 12px 20px;
+      padding: 10px 18px;
       border-radius: var(--radius-pill);
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 12.5px;
+      font-weight: 600;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       transform: translateY(100px);
       opacity: 0;
@@ -684,7 +742,7 @@
       z-index: 1000;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
     }
 
     .toast.show {
@@ -697,7 +755,7 @@
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -717,9 +775,9 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-card);
-      max-width: 580px;
+      max-width: 540px;
       width: 100%;
-      padding: 28px;
+      padding: 24px;
       position: relative;
     }
 
@@ -727,37 +785,42 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .modal-title {
-      font-size: 18px;
-      font-weight: 700;
+      font-size: 16px;
+      font-weight: 600;
     }
 
     .modal-close {
       background: none;
       border: none;
-      color: var(--text-muted);
+      color: var(--text-dim);
       cursor: pointer;
-      font-size: 20px;
+      font-size: 18px;
       padding: 4px;
+      transition: color 0.15s ease;
+    }
+
+    .modal-close:hover {
+      color: var(--text);
     }
 
     .modal-tabs {
       display: flex;
-      gap: 8px;
-      margin-bottom: 14px;
+      gap: 6px;
+      margin-bottom: 12px;
     }
 
     .modal-tab {
-      background: var(--surface-subtle);
+      background: transparent;
       border: 1px solid var(--border);
       color: var(--text-muted);
-      padding: 6px 14px;
+      padding: 5px 12px;
       border-radius: var(--radius-pill);
-      font-size: 12px;
-      font-weight: 600;
+      font-size: 11.5px;
+      font-weight: 500;
       cursor: pointer;
     }
 
@@ -765,27 +828,28 @@
       background: #ffffff;
       color: #0c0d12;
       border-color: #ffffff;
+      font-weight: 600;
     }
 
     .modal-code {
       background: #08090d;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px;
+      border-radius: var(--radius-inner);
+      padding: 12px;
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 12px;
+      font-size: 11.5px;
       color: #f4f5f8;
       white-space: pre-wrap;
       word-break: break-all;
-      margin-bottom: 18px;
-      max-height: 200px;
+      margin-bottom: 16px;
+      max-height: 180px;
       overflow-y: auto;
     }
 
     /* Footer */
     footer {
       text-align: center;
-      font-size: 12px;
+      font-size: 11.5px;
       color: var(--text-dim);
       padding-top: 24px;
       border-top: 1px solid var(--border);
@@ -805,13 +869,16 @@
         grid-template-columns: 1fr;
       }
       .mascot-viewport {
-        height: 260px;
+        height: 250px;
       }
       .auth-demo-card {
         grid-template-columns: 1fr;
       }
-      .auth-mascot-box {
-        order: -1;
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .gallery-grid, .gallery-grid-5 {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   </style>
@@ -819,7 +886,7 @@
 <body>
 
 <div class="container">
-  <!-- Header Bar -->
+  <!-- Top Navigation -->
   <header>
     <a href="#" class="brand-wrap">
       <div class="brand-avatar">
@@ -827,20 +894,20 @@
       </div>
       <div>
         <div class="brand-title">Astro Bot</div>
-        <div class="brand-by">Complete 22 API &amp; Auth Mascots • by ren</div>
+        <div class="brand-by">Status Mascots Library • by ren</div>
       </div>
     </a>
     <div class="header-actions">
-      <a href="/astro-bot-mascots.zip" class="pill-btn pill-btn-primary" download>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <a href="/astro-bot-mascots.zip" class="pill-btn" download>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
           <polyline points="7 10 12 15 17 10"></polyline>
           <line x1="12" y1="15" x2="12" y2="3"></line>
         </svg>
-        Download All (.ZIP)
+        Download ZIP
       </a>
       <a href="https://github.com/rndsa/status-mascots" target="_blank" rel="noopener" class="pill-btn">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
         </svg>
         GitHub
@@ -848,43 +915,34 @@
     </div>
   </header>
 
-  <!-- Intro -->
+  <!-- Hero Intro -->
   <div class="page-intro">
-    <div class="page-tag">HTTP Status • Error Handling • Auth Throttling</div>
+    <div class="page-tag">Status &amp; Auth Mascots</div>
     <h1 class="page-title">Astro Bot Mascot Library</h1>
-    <p class="page-desc">Pustaka 22 maskot animasi SVG mandiri untuk seluruh siklus request HTTP, backend async queue, empty states, error gateway, dan proteksi autentikasi/rate-limiting modern. 100% pure vector tanpa runtime JS eksternal.</p>
+    <p class="page-desc">22 maskot animasi SVG mandiri untuk siklus request HTTP, backend queue, gateway errors, dan proteksi autentikasi/rate-limiting modern. Vektor murni bertenaga CSS keyframes tanpa dependensi JS eksternal.</p>
   </div>
 
-  <!-- Category Navigation Tabs -->
-  <div class="category-tabs">
-    <button class="cat-tab active" onclick="filterCategory('all')">Semua (22 Status)</button>
-    <button class="cat-tab" onclick="filterCategory('2xx')">2xx Success &amp; Jobs (4)</button>
-    <button class="cat-tab" onclick="filterCategory('4xx')">4xx Client Errors (10)</button>
-    <button class="cat-tab" onclick="filterCategory('5xx')">5xx Server &amp; Gateway (4)</button>
-    <button class="cat-tab" onclick="filterCategory('ux')">Auth &amp; Network UX (4)</button>
-  </div>
-
-  <!-- Main Stage Card -->
+  <!-- Main Showcase Stage -->
   <div class="stage-card">
     <!-- Viewport Left -->
     <div class="mascot-viewport-wrap">
       <div class="mascot-viewport" id="stage-viewport" onclick="tapStage()">
         <div class="mascot-img-wrap" id="stage-img-wrap">
-          <img id="stage-img" src="/mascots/robot/200-ok.svg" alt="Astro Bot Live View">
+          <img id="stage-img" src="/mascots/robot/200-ok.svg" alt="Astro Bot Preview">
         </div>
       </div>
       <!-- Viewport Tuner -->
       <div class="viewport-controls-row">
         <div class="tuner-group">
-          <span>Ukuran:</span>
+          <span>Ukuran</span>
           <button class="tuner-btn" onclick="tuneSize(64)">64px</button>
           <button class="tuner-btn" onclick="tuneSize(120)">120px</button>
-          <button class="tuner-btn active" onclick="tuneSize(240)">240px</button>
+          <button class="tuner-btn active" onclick="tuneSize(220)">220px</button>
         </div>
         <div class="tuner-group">
-          <span>Bg:</span>
+          <span>Kontras</span>
           <span class="bg-dot-btn" style="background: #090a0f;" onclick="tuneBg('dark')"></span>
-          <span class="bg-dot-btn" style="background: #1e2433;" onclick="tuneBg('slate')"></span>
+          <span class="bg-dot-btn" style="background: #1a1e2b;" onclick="tuneBg('slate')"></span>
           <span class="bg-dot-btn" style="background: #ffffff;" onclick="tuneBg('light')"></span>
         </div>
       </div>
@@ -897,8 +955,16 @@
         <div id="file-ref" class="file-ref">robot/200-ok.svg</div>
       </div>
 
-      <!-- Filtered Pills Container -->
-      <div class="status-pills-wrap" id="status-pills-container">
+      <!-- Segmented Category Control -->
+      <div class="segmented-control">
+        <button class="segmented-item active" onclick="switchCategory('2xx')">2xx Success</button>
+        <button class="segmented-item" onclick="switchCategory('4xx')">4xx Client</button>
+        <button class="segmented-item" onclick="switchCategory('5xx')">5xx Server</button>
+        <button class="segmented-item" onclick="switchCategory('ux')">Auth &amp; UX</button>
+      </div>
+
+      <!-- Sub-Pills for Active Category -->
+      <div class="status-sub-row" id="status-sub-row">
         <!-- Injected via JS -->
       </div>
 
@@ -918,13 +984,14 @@
       <!-- Action Buttons -->
       <div class="stage-actions">
         <button class="action-btn-primary" onclick="openEmbedModal()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
           </svg>
           Dapatkan Embed Code
         </button>
         <button class="action-btn-secondary" onclick="copyDirectLink()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
             <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
           </svg>
@@ -934,58 +1001,84 @@
     </div>
   </div>
 
-  <!-- Interactive Rate Limit Login Demo -->
+  <!-- Interactive Sandbox: Login Rate Limiter -->
   <div class="demo-section">
     <div class="section-header">
-      <div class="section-title">Demo Real-World: Login Page Rate Limiter</div>
-      <div class="section-sub">Simulasi pembatasan login (3 percobaan gagal memicu HTTP 429)</div>
+      <div class="section-title">Auth Sandbox: Rate Limiting &amp; Lockout</div>
+      <div class="section-sub">Simulasi 3 kali percobaan gagal memicu HTTP 429</div>
     </div>
 
     <div class="auth-demo-card">
       <div class="auth-form-wrap">
-        <div class="form-group">
-          <label class="form-label">Email / Username</label>
-          <input type="text" class="form-input" id="auth-email" value="alex@example.com">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Password</label>
-          <input type="password" class="form-input" id="auth-pass" value="wrong-password">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Email / Pengguna</label>
+            <input type="text" class="form-input" id="auth-email" value="alex@example.com" readonly>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Kata Sandi</label>
+            <input type="password" class="form-input" id="auth-pass" value="wrong-password" readonly>
+          </div>
         </div>
         <div class="auth-btn-row">
           <button class="auth-submit-btn" id="auth-btn" onclick="submitAuthAttempt()">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
               <polyline points="10 17 15 12 10 7"></polyline>
               <line x1="15" y1="12" x2="3" y2="12"></line>
             </svg>
-            <span id="auth-btn-text">Sign In (Coba Login)</span>
+            <span id="auth-btn-text">Uji Percobaan Login</span>
           </button>
           <button class="pill-btn" onclick="resetAuthDemo()">Reset</button>
         </div>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
-          <div id="auth-feedback" class="auth-status-msg">Masukkan sembarang password untuk menguji proteksi limit.</div>
-          <div style="font-size: 12px; color: var(--text-dim); font-weight: 600;">Percobaan: <span id="auth-fail-count" style="color: var(--accent);">0</span>/3</div>
+        <div class="auth-status-bar" id="auth-status-bar">
+          <div id="auth-feedback" class="auth-status-msg">Klik tombol untuk mensimulasikan percobaan login gagal.</div>
+          <div class="auth-counter-badge">Percobaan: <span id="auth-fail-count" style="color: var(--accent);">0</span> / 3</div>
         </div>
       </div>
 
-      <!-- Mascot Auth Reaction Box -->
+      <!-- Mascot Sandbox Card -->
       <div class="auth-mascot-box" id="auth-mascot-box">
         <img id="auth-mascot-img" src="/mascots/robot/200-ok.svg" alt="Auth Reaction Mascot">
-        <div id="auth-mascot-label" class="auth-mascot-label">STATE: NORMAL (200)</div>
+        <div id="auth-mascot-label" class="auth-mascot-label">STATE: 200 OK</div>
       </div>
     </div>
   </div>
 
-  <!-- Catalog Grid of All 22 Responses -->
+  <!-- Complete Catalog Grouped by Semantic Category -->
   <div class="demo-section">
     <div class="section-header">
-      <div class="section-title">Katalog Lengkap 22 Status Respon Astro Bot</div>
-      <div class="section-sub">Klik kartu untuk menguji langsung di panggung preview</div>
+      <div class="section-title">Katalog Lengkap Status Respon</div>
+      <div class="section-sub">Semua 22 file SVG mandiri Astro Bot</div>
     </div>
 
-    <div class="gallery-grid" id="gallery-grid">
-      <!-- Injected via JS -->
+    <!-- Category 1: 2xx Success & Processing -->
+    <div class="catalog-category-header">
+      <div class="catalog-cat-title">2xx Success &amp; Asynchronous Jobs</div>
+      <div class="catalog-cat-count">(4 status)</div>
     </div>
+    <div class="gallery-grid" id="grid-2xx"></div>
+
+    <!-- Category 2: 4xx Client Errors & Throttling -->
+    <div class="catalog-category-header">
+      <div class="catalog-cat-title">4xx Client Errors &amp; Rate Limiting</div>
+      <div class="catalog-cat-count">(10 status)</div>
+    </div>
+    <div class="gallery-grid-5" id="grid-4xx"></div>
+
+    <!-- Category 3: 5xx Server & Gateway Errors -->
+    <div class="catalog-category-header">
+      <div class="catalog-cat-title">5xx Server &amp; Gateway Errors</div>
+      <div class="catalog-cat-count">(4 status)</div>
+    </div>
+    <div class="gallery-grid" id="grid-5xx"></div>
+
+    <!-- Category 4: Auth & Network UX States -->
+    <div class="catalog-category-header">
+      <div class="catalog-cat-title">Auth &amp; Network UX States</div>
+      <div class="catalog-cat-count">(4 status)</div>
+    </div>
+    <div class="gallery-grid" id="grid-ux"></div>
   </div>
 
   <!-- Footer -->
@@ -996,7 +1089,7 @@
 
 <!-- Toast -->
 <div id="toast" class="toast">
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
     <polyline points="20 6 9 17 4 12"></polyline>
   </svg>
   <span id="toast-text">Tautan SVG disalin ke clipboard!</span>
@@ -1018,7 +1111,7 @@
 
     <div class="modal-code" id="modal-code-content">&lt;img src="..." /&gt;</div>
 
-    <div style="display: flex; justify-content: flex-end; gap: 10px;">
+    <div style="display: flex; justify-content: flex-end; gap: 8px;">
       <button class="action-btn-primary" onclick="copyModalSnippet()">Salin Snippet</button>
     </div>
   </div>
@@ -1026,11 +1119,11 @@
 
 <script>
   const STATUS_RESPONSES = [
-    // 2xx Success & Jobs
+    // 2xx
     {
       id: "200",
-      code: 200,
-      name: "OK",
+      code: "200",
+      label: "OK",
       file: "200-ok.svg",
       type: "2xx",
       cat: "2xx",
@@ -1039,8 +1132,8 @@
     },
     {
       id: "201",
-      code: 201,
-      name: "Created",
+      code: "201",
+      label: "Created",
       file: "201-created.svg",
       type: "2xx",
       cat: "2xx",
@@ -1049,8 +1142,8 @@
     },
     {
       id: "202",
-      code: 202,
-      name: "Accepted / Processing",
+      code: "202",
+      label: "Accepted",
       file: "202-accepted.svg",
       type: "2xx",
       cat: "2xx",
@@ -1059,20 +1152,20 @@
     },
     {
       id: "204",
-      code: 204,
-      name: "No Content (Empty)",
+      code: "204",
+      label: "No Content",
       file: "204-no-content.svg",
       type: "2xx",
       cat: "2xx",
-      desc: "Membuka kardus paket kosong melompong dengan senyum polos (cocok untuk empty inbox & empty cart).",
+      desc: "Membuka kardus paket kosong melompong dengan senyum polos (cocok untuk empty state).",
       json: '{\n  "status": 204,\n  "message": "No Content (Empty State)"\n}'
     },
 
-    // 4xx Client Errors
+    // 4xx
     {
       id: "400",
-      code: 400,
-      name: "Bad Request",
+      code: "400",
+      label: "Bad Request",
       file: "400-bad-request.svg",
       type: "4xx",
       cat: "4xx",
@@ -1081,8 +1174,8 @@
     },
     {
       id: "401",
-      code: 401,
-      name: "Unauthorized",
+      code: "401",
+      label: "Unauthorized",
       file: "401-unauthorized.svg",
       type: "4xx",
       cat: "4xx",
@@ -1091,18 +1184,18 @@
     },
     {
       id: "403",
-      code: 403,
-      name: "Forbidden",
+      code: "403",
+      label: "Forbidden",
       file: "403-forbidden.svg",
       type: "4xx",
       cat: "4xx",
-      desc: "Tangan bersilang perisai (🙅) membentuk palang segel merah darurat dengan sirine polisi aktif.",
+      desc: "Tangan bersilang perisai (X) membentuk palang segel merah darurat dengan sirine polisi aktif.",
       json: '{\n  "status": 403,\n  "error": "Forbidden: Access Denied"\n}'
     },
     {
       id: "404",
-      code: 404,
-      name: "Not Found",
+      code: "404",
+      label: "Not Found",
       file: "404-not-found.svg",
       type: "4xx",
       cat: "4xx",
@@ -1111,8 +1204,8 @@
     },
     {
       id: "408",
-      code: 408,
-      name: "Request Timeout",
+      code: "408",
+      label: "Timeout",
       file: "408-request-timeout.svg",
       type: "4xx",
       cat: "4xx",
@@ -1121,8 +1214,8 @@
     },
     {
       id: "409",
-      code: 409,
-      name: "Conflict",
+      code: "409",
+      label: "Conflict",
       file: "409-conflict.svg",
       type: "4xx",
       cat: "4xx",
@@ -1131,8 +1224,8 @@
     },
     {
       id: "413",
-      code: 413,
-      name: "Payload Too Large",
+      code: "413",
+      label: "Too Large",
       file: "413-payload-too-large.svg",
       type: "4xx",
       cat: "4xx",
@@ -1141,8 +1234,8 @@
     },
     {
       id: "418",
-      code: 418,
-      name: "I'm a Teapot",
+      code: "418",
+      label: "Teapot",
       file: "418-teapot.svg",
       type: "4xx",
       cat: "4xx",
@@ -1151,8 +1244,8 @@
     },
     {
       id: "422",
-      code: 422,
-      name: "Unprocessable",
+      code: "422",
+      label: "Unprocessable",
       file: "422-unprocessable.svg",
       type: "4xx",
       cat: "4xx",
@@ -1161,20 +1254,20 @@
     },
     {
       id: "429",
-      code: 429,
-      name: "Rate Limit (Throttle)",
+      code: "429",
+      label: "Rate Limit",
       file: "429-rate-limit.svg",
       type: "4xx",
       cat: "4xx",
-      desc: "Mode ALERT MERAH: Geleng-geleng kepala tegas ke kiri-kanan, sirine darurat berkedip, dan telapak tangan robot disorongkan ke depan menahan aksi user (STOP / HALT).",
+      desc: "Mode Alert Merah: Geleng-geleng kepala tegas ke kiri-kanan, sirine darurat berkedip, dan telapak tangan robot disorongkan ke depan menahan aksi user (STOP / HALT).",
       json: '{\n  "status": 429,\n  "error": "Too Many Requests: Rate limit exceeded (Try again in 30s)"\n}'
     },
 
-    // 5xx Server & Gateway Errors
+    // 5xx
     {
       id: "500",
-      code: 500,
-      name: "Server Error",
+      code: "500",
+      label: "Server Error",
       file: "500-internal-error.svg",
       type: "5xx",
       cat: "5xx",
@@ -1183,8 +1276,8 @@
     },
     {
       id: "502",
-      code: 502,
-      name: "Bad Gateway",
+      code: "502",
+      label: "Bad Gateway",
       file: "502-bad-gateway.svg",
       type: "5xx",
       cat: "5xx",
@@ -1193,8 +1286,8 @@
     },
     {
       id: "503",
-      code: 503,
-      name: "Maintenance",
+      code: "503",
+      label: "Maintenance",
       file: "503-maintenance.svg",
       type: "5xx",
       cat: "5xx",
@@ -1203,8 +1296,8 @@
     },
     {
       id: "504",
-      code: 504,
-      name: "Gateway Timeout",
+      code: "504",
+      label: "Gateway Timeout",
       file: "504-gateway-timeout.svg",
       type: "5xx",
       cat: "5xx",
@@ -1212,11 +1305,11 @@
       json: '{\n  "status": 504,\n  "error": "Gateway Timeout: Upstream Timed Out"\n}'
     },
 
-    // Auth & Network UX States
+    // Auth & UX
     {
       id: "2fa",
       code: "2FA",
-      name: "OTP Verification",
+      label: "OTP Verify",
       file: "auth-2fa.svg",
       type: "ux",
       cat: "ux",
@@ -1226,7 +1319,7 @@
     {
       id: "offline",
       code: "Offline",
-      name: "No Connection",
+      label: "No Network",
       file: "offline.svg",
       type: "ux",
       cat: "ux",
@@ -1236,7 +1329,7 @@
     {
       id: "expired",
       code: "Expired",
-      name: "Session Timeout",
+      label: "Session Timeout",
       file: "session-expired.svg",
       type: "ux",
       cat: "ux",
@@ -1246,7 +1339,7 @@
     {
       id: "banned",
       code: "Banned",
-      name: "Account Suspended",
+      label: "Suspended",
       file: "account-banned.svg",
       type: "ux",
       cat: "ux",
@@ -1256,37 +1349,35 @@
   ];
 
   let currentId = "200";
-  let currentCategory = "all";
+  let activeCategory = "2xx";
   let modalActiveTab = 'html';
 
   function init() {
-    renderStatusPills();
-    renderGalleryGrid();
+    renderCategorySubPills();
+    renderGroupedCatalogs();
     selectStatus("200");
   }
 
-  function filterCategory(cat) {
-    currentCategory = cat;
-    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  function switchCategory(cat) {
+    activeCategory = cat;
+    document.querySelectorAll('.segmented-item').forEach(b => b.classList.remove('active'));
     event.target.classList.add('active');
+    renderCategorySubPills();
 
-    renderStatusPills();
-    renderGalleryGrid();
+    // Select the first item in that category
+    const firstInCat = STATUS_RESPONSES.find(item => item.cat === cat);
+    if (firstInCat) selectStatus(firstInCat.id);
   }
 
-  function getFilteredResponses() {
-    if (currentCategory === 'all') return STATUS_RESPONSES;
-    return STATUS_RESPONSES.filter(item => item.cat === currentCategory);
-  }
+  function renderCategorySubPills() {
+    const container = document.getElementById('status-sub-row');
+    const items = STATUS_RESPONSES.filter(item => item.cat === activeCategory);
 
-  function renderStatusPills() {
-    const container = document.getElementById('status-pills-container');
-    const list = getFilteredResponses();
-
-    container.innerHTML = list.map(item => `
-      <button class="status-btn ${item.id === currentId ? (item.id === "429" || item.id === "banned" ? 'active-alert' : 'active') : ''}" 
+    container.innerHTML = items.map(item => `
+      <button class="status-sub-btn ${item.id === currentId ? (item.id === "429" || item.id === "banned" ? 'active-alert' : 'active') : ''}" 
               onclick="selectStatus('${item.id}')">
-        ${item.id === "429" ? '🛑 ' : item.id === "banned" ? '🔒 ' : ''}${item.code} ${item.name}
+        <span>${item.code}</span>
+        <span>${item.label}</span>
       </button>
     `).join('');
   }
@@ -1295,11 +1386,25 @@
     currentId = id;
     const item = STATUS_RESPONSES.find(s => s.id === id) || STATUS_RESPONSES[0];
 
+    // If item category is different, update active category
+    if (item.cat !== activeCategory) {
+      activeCategory = item.cat;
+      document.querySelectorAll('.segmented-item').forEach(b => {
+        if (b.textContent.toLowerCase().includes(item.cat)) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+      renderCategorySubPills();
+    } else {
+      renderCategorySubPills();
+    }
+
     // Update Stage Image
     const viewport = document.getElementById('stage-viewport');
     const stageImg = document.getElementById('stage-img');
-    const cacheBuster = Date.now();
-    stageImg.src = `/mascots/robot/${item.file}?v=${cacheBuster}`;
+    stageImg.src = `/mascots/robot/${item.file}?v=${Date.now()}`;
 
     if (id === "429" || id === "banned") {
       viewport.classList.add('alert-mode');
@@ -1310,7 +1415,7 @@
     // Update Badge
     const badge = document.getElementById('status-badge');
     badge.className = `status-badge badge-${item.type}`;
-    badge.textContent = `${item.code} ${item.name.toUpperCase()}`;
+    badge.textContent = `${item.code} ${item.label.toUpperCase()}`;
 
     // Update File Reference
     document.getElementById('file-ref').textContent = `robot/${item.file}`;
@@ -1319,10 +1424,7 @@
     document.getElementById('status-desc').textContent = item.desc;
     document.getElementById('status-code-box').textContent = item.json;
 
-    // Refresh Pill active states
-    renderStatusPills();
-
-    // Refresh Gallery Grid highlights
+    // Highlight Gallery Cards
     document.querySelectorAll('.gallery-card').forEach(card => {
       if (card.dataset.id === id) {
         card.classList.add('selected');
@@ -1332,23 +1434,26 @@
     });
   }
 
-  function renderGalleryGrid() {
-    const grid = document.getElementById('gallery-grid');
-    const list = getFilteredResponses();
+  function renderGroupedCatalogs() {
+    const cats = ['2xx', '4xx', '5xx', 'ux'];
+    cats.forEach(cat => {
+      const grid = document.getElementById(`grid-${cat}`);
+      const list = STATUS_RESPONSES.filter(i => i.cat === cat);
 
-    grid.innerHTML = list.map(item => `
-      <div class="gallery-card ${item.id === currentId ? 'selected' : ''}" 
-           data-id="${item.id}" 
-           onclick="selectStatus('${item.id}')">
-        <div class="gallery-thumb">
-          <img src="/mascots/robot/${item.file}" alt="${item.code} ${item.name}">
+      grid.innerHTML = list.map(item => `
+        <div class="gallery-card ${item.id === currentId ? 'selected' : ''}" 
+             data-id="${item.id}" 
+             onclick="selectStatus('${item.id}')">
+          <div class="gallery-thumb">
+            <img src="/mascots/robot/${item.file}" alt="${item.code} ${item.label}">
+          </div>
+          <div class="gallery-code" style="color: ${item.type === '2xx' ? 'var(--badge-2xx)' : item.type === '4xx' ? 'var(--badge-4xx)' : item.type === '5xx' ? 'var(--badge-5xx)' : 'var(--badge-ux)'}">
+            ${item.code} ${item.label}
+          </div>
+          <div class="gallery-name">${item.file}</div>
         </div>
-        <div class="gallery-code" style="color: ${item.type === '2xx' ? 'var(--badge-2xx)' : item.type === '4xx' ? 'var(--badge-4xx)' : item.type === '5xx' ? 'var(--badge-5xx)' : 'var(--badge-ux)'}">
-          ${item.code} ${item.name}
-        </div>
-        <div class="gallery-name">${item.file}</div>
-      </div>
-    `).join('');
+      `).join('');
+    });
   }
 
   function tapStage() {
@@ -1377,7 +1482,7 @@
     if (mode === 'slate') v.classList.add('slate-mode');
   }
 
-  /* --- Interactive Login Demo --- */
+  /* --- Interactive Sandbox --- */
   let authAttempts = 0;
   let authCooldownTimer = null;
 
@@ -1393,25 +1498,27 @@
 
     if (authAttempts === 1) {
       feedback.className = 'auth-status-msg error';
-      feedback.textContent = 'Password salah. Tersisa 2 kesempatan sebelum dibatasi.';
+      feedback.textContent = 'Password tidak cocok. Tersisa 2 kesempatan sebelum dibatasi.';
       mascotImg.src = '/mascots/robot/400-bad-request.svg?v=' + Date.now();
-      mascotLabel.textContent = 'STATE: BAD REQUEST (400)';
+      mascotLabel.textContent = 'STATE: 400 BAD REQUEST';
     } else if (authAttempts === 2) {
       feedback.className = 'auth-status-msg error';
-      feedback.textContent = 'Password salah. Peringatan: 1 percobaan lagi akan memicu Rate Limit!';
+      feedback.textContent = 'Peringatan: 1 percobaan gagal lagi akan memicu penguncian Rate Limit!';
       mascotImg.src = '/mascots/robot/401-unauthorized.svg?v=' + Date.now();
-      mascotLabel.textContent = 'STATE: UNAUTHORIZED (401)';
+      mascotLabel.textContent = 'STATE: 401 UNAUTHORIZED';
     } else if (authAttempts >= 3) {
-      // Trigger Rate Limit 429!
+      // Trigger Rate Limit 429
+      const statusBar = document.getElementById('auth-status-bar');
+      if (statusBar) statusBar.classList.add('alert-active');
       feedback.className = 'auth-status-msg rate-limited';
       mascotImg.src = '/mascots/robot/429-rate-limit.svg?v=' + Date.now();
-      mascotLabel.textContent = 'STATE: RATE LIMIT (429) • STOP!';
+      mascotLabel.textContent = 'STATE: 429 RATE LIMIT (LOCKED)';
       
       btn.disabled = true;
       let countdown = 10;
 
       function updateCountdown() {
-        feedback.innerHTML = `🛑 <strong>Rate Limit Terpicu (HTTP 429):</strong> Harap tunggu <strong>${countdown}s</strong> sebelum mencoba lagi.`;
+        feedback.innerHTML = `Proteksi Rate Limit aktif (HTTP 429). Tunggu <strong>${countdown} detik</strong> sebelum mencoba lagi.`;
         if (countdown <= 0) {
           clearInterval(authCooldownTimer);
           resetAuthDemo();
@@ -1428,17 +1535,18 @@
     if (authCooldownTimer) clearInterval(authCooldownTimer);
     authAttempts = 0;
     document.getElementById('auth-fail-count').textContent = '0';
+    const statusBar = document.getElementById('auth-status-bar');
+    if (statusBar) statusBar.classList.remove('alert-active');
     const feedback = document.getElementById('auth-feedback');
     feedback.className = 'auth-status-msg';
-    feedback.textContent = 'Masukkan sembarang password untuk menguji proteksi limit.';
+    feedback.textContent = 'Klik tombol untuk mensimulasikan percobaan login gagal.';
 
     const btn = document.getElementById('auth-btn');
     btn.disabled = false;
-    document.getElementById('auth-btn-text').textContent = 'Sign In (Coba Login)';
 
     const mascotImg = document.getElementById('auth-mascot-img');
     mascotImg.src = '/mascots/robot/200-ok.svg?v=' + Date.now();
-    document.getElementById('auth-mascot-label').textContent = 'STATE: NORMAL (200)';
+    document.getElementById('auth-mascot-label').textContent = 'STATE: 200 OK';
   }
 
   /* --- Clipboard & Modals --- */
@@ -1478,11 +1586,11 @@
     let snippet = '';
 
     if (modalActiveTab === 'html') {
-      snippet = `<img src="${fullUrl}" alt="Astro Bot ${item.code} ${item.name}" width="160" height="160" />`;
+      snippet = `<img src="${fullUrl}" alt="Astro Bot ${item.code} ${item.label}" width="160" height="160" />`;
     } else if (modalActiveTab === 'react') {
-      snippet = `export function Mascot${item.id}() {\n  return (\n    <img\n      src="${fullUrl}"\n      alt="Astro Bot ${item.name}"\n      width={160}\n      height={160}\n    />\n  );\n}`;
+      snippet = `export function Mascot${item.id}() {\n  return (\n    <img\n      src="${fullUrl}"\n      alt="Astro Bot ${item.label}"\n      width={160}\n      height={160}\n    />\n  );\n}`;
     } else if (modalActiveTab === 'markdown') {
-      snippet = `![Astro Bot ${item.code} ${item.name}](${fullUrl})`;
+      snippet = `![Astro Bot ${item.code} ${item.label}](${fullUrl})`;
     }
 
     document.getElementById('modal-code-content').textContent = snippet;
