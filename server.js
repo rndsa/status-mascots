@@ -20,6 +20,7 @@ const MIME = {
 const server = http.createServer((req, res) => {
   let reqPath = req.url.split('?')[0];
   if (reqPath === '/' || reqPath === '') reqPath = '/index.html';
+  if (reqPath === '/favicon.ico') reqPath = '/mascots/robot/200-ok.svg';
 
   let filePath = '';
   if (reqPath.startsWith('/mascots/')) {

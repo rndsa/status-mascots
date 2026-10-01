@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Astro Bot — Standalone Status Mascots for APIs & Auth</title>
+  <link rel="icon" type="image/svg+xml" href="/mascots/robot/200-ok.svg">
   <style>
     :root {
       --bg: #090a0f;
@@ -1552,34 +1553,34 @@
   <script>
     const STATUS_RESPONSES = [
       // 2xx
-      { id: "200", code: "200", label: "OK", file: "200-ok.svg", type: "2xx", cat: "2xx", desc: "Senyum ceria dengan jempol tangan robot melayang di depan (thumbs up) dan antena cyan berdenyut.", json: '{\\n  "status": 200,\\n  "message": "OK"\\n}' },
-      { id: "201", code: "201", label: "Created", file: "201-created.svg", type: "2xx", cat: "2xx", desc: "Melompat gembira dengan bintang emas menyala di antena dan kedua tangan robot bersorak ke atas.", json: '{\\n  "status": 201,\\n  "message": "Resource Created"\\n}' },
-      { id: "202", code: "202", label: "Accepted", file: "202-accepted.svg", type: "2xx", cat: "2xx", desc: "Duduk tenang menunggu antrean background job dengan roda gigi holografik berputar halus.", json: '{\\n  "status": 202,\\n  "message": "Queued for Background Processing"\\n}' },
-      { id: "204", code: "204", label: "No Content", file: "204-no-content.svg", type: "2xx", cat: "2xx", desc: "Membuka kardus paket kosong melompong dengan senyum polos (cocok untuk empty state).", json: '{\\n  "status": 204,\\n  "message": "No Content (Empty State)"\\n}' },
+      { id: "200", code: "200", label: "OK", file: "200-ok.svg", type: "2xx", cat: "2xx", desc: "Senyum ceria dengan jempol tangan robot melayang di depan (thumbs up) dan antena cyan berdenyut.", json: { status: 200, message: "OK" } },
+      { id: "201", code: "201", label: "Created", file: "201-created.svg", type: "2xx", cat: "2xx", desc: "Melompat gembira dengan bintang emas menyala di antena dan kedua tangan robot bersorak ke atas.", json: { status: 201, message: "Resource Created" } },
+      { id: "202", code: "202", label: "Accepted", file: "202-accepted.svg", type: "2xx", cat: "2xx", desc: "Duduk tenang menunggu antrean background job dengan roda gigi holografik berputar halus.", json: { status: 202, message: "Queued for Background Processing" } },
+      { id: "204", code: "204", label: "No Content", file: "204-no-content.svg", type: "2xx", cat: "2xx", desc: "Membuka kardus paket kosong melompong dengan senyum polos (cocok untuk empty state).", json: { status: 204, message: "No Content (Empty State)" } },
 
       // 4xx
-      { id: "400", code: "400", label: "Bad Request", file: "400-bad-request.svg", type: "4xx", cat: "4xx", desc: "Kepala miring bingung 13 derajat, tangan menggaruk helm, mata spiral (@), dan tanda tanya melayang.", json: '{\\n  "status": 400,\\n  "error": "Bad Request: Invalid Payload"\\n}' },
-      { id: "401", code: "401", label: "Unauthorized", file: "401-unauthorized.svg", type: "4xx", cat: "4xx", desc: "Geleng kepala menolak dengan gembok siber merah dan tatapan mata radar squinting tegas.", json: '{\\n  "status": 401,\\n  "error": "Unauthorized: Missing Token"\\n}' },
-      { id: "403", code: "403", label: "Forbidden", file: "403-forbidden.svg", type: "4xx", cat: "4xx", desc: "Tangan bersilang perisai (X) membentuk palang segel merah darurat dengan sirine polisi aktif.", json: '{\\n  "status": 403,\\n  "error": "Forbidden: Access Denied"\\n}' },
-      { id: "404", code: "404", label: "Not Found", file: "404-not-found.svg", type: "4xx", cat: "4xx", desc: "Piringan radar berputar 360°, mata celingukan kiri-kanan mencari data dengan kaca pembesar digital.", json: '{\\n  "status": 404,\\n  "error": "Not Found: Endpoint Missing"\\n}' },
-      { id: "408", code: "408", label: "Timeout", file: "408-request-timeout.svg", type: "4xx", cat: "4xx", desc: "Terkantuk-kantuk lemas menunggu respon koneksi klien dengan gelembung tidur z Z Z melayang.", json: '{\\n  "status": 408,\\n  "error": "Request Timeout: Client Inactive"\\n}' },
-      { id: "409", code: "409", label: "Conflict", file: "409-conflict.svg", type: "4xx", cat: "4xx", desc: "Kedua tangan memegangi kepala panik, gemetar shiver kencang, mata silang (> <), dan keringat anime mengucur.", json: '{\\n  "status": 409,\\n  "error": "Conflict: Resource State Mismatch"\\n}' },
-      { id: "413", code: "413", label: "Too Large", file: "413-payload-too-large.svg", type: "4xx", cat: "4xx", desc: "Helm gepeng ketiban beban blok arsip 100MB raksasa, mata mengernyit kepayahan (upload over limit).", json: '{\\n  "status": 413,\\n  "error": "Payload Too Large: File Exceeds Max Size"\\n}' },
-      { id: "418", code: "418", label: "Teapot", file: "418-teapot.svg", type: "4xx", cat: "4xx", desc: "Easter egg programmer: Memakai tutup teko, gagang cangkir samping, dan corong menuang uap teh siber.", json: '{\\n  "status": 418,\\n  "message": "I\\'m a teapot (RFC 2324)"\\n}' },
-      { id: "422", code: "422", label: "Unprocessable", file: "422-unprocessable.svg", type: "4xx", cat: "4xx", desc: "Efek chromatic aberration RGB glitch bergeser (cyan & magenta offset) dengan scanline data error.", json: '{\\n  "status": 422,\\n  "error": "Unprocessable Entity: Schema Divergence"\\n}' },
-      { id: "429", code: "429", label: "Rate Limit", file: "429-rate-limit.svg", type: "4xx", cat: "4xx", desc: "Mode Alert Merah: Geleng-geleng kepala tegas ke kiri-kanan, sirine darurat berkedip, dan telapak tangan robot disorongkan ke depan menahan aksi user (STOP / HALT).", json: '{\\n  "status": 429,\\n  "error": "Too Many Requests: Rate limit exceeded (Try again in 30s)"\\n}' },
+      { id: "400", code: "400", label: "Bad Request", file: "400-bad-request.svg", type: "4xx", cat: "4xx", desc: "Kepala miring bingung 13 derajat, tangan menggaruk helm, mata spiral (@), dan tanda tanya melayang.", json: { status: 400, error: "Bad Request: Invalid Payload" } },
+      { id: "401", code: "401", label: "Unauthorized", file: "401-unauthorized.svg", type: "4xx", cat: "4xx", desc: "Geleng kepala menolak dengan gembok siber merah dan tatapan mata radar squinting tegas.", json: { status: 401, error: "Unauthorized: Missing Token" } },
+      { id: "403", code: "403", label: "Forbidden", file: "403-forbidden.svg", type: "4xx", cat: "4xx", desc: "Tangan bersilang perisai (X) membentuk palang segel merah darurat dengan sirine polisi aktif.", json: { status: 403, error: "Forbidden: Access Denied" } },
+      { id: "404", code: "404", label: "Not Found", file: "404-not-found.svg", type: "4xx", cat: "4xx", desc: "Piringan radar berputar 360°, mata celingukan kiri-kanan mencari data dengan kaca pembesar digital.", json: { status: 404, error: "Not Found: Endpoint Missing" } },
+      { id: "408", code: "408", label: "Timeout", file: "408-request-timeout.svg", type: "4xx", cat: "4xx", desc: "Terkantuk-kantuk lemas menunggu respon koneksi klien dengan gelembung tidur z Z Z melayang.", json: { status: 408, error: "Request Timeout: Client Inactive" } },
+      { id: "409", code: "409", label: "Conflict", file: "409-conflict.svg", type: "4xx", cat: "4xx", desc: "Kedua tangan memegangi kepala panik, gemetar shiver kencang, mata silang (> <), dan keringat anime mengucur.", json: { status: 409, error: "Conflict: Resource State Mismatch" } },
+      { id: "413", code: "413", label: "Too Large", file: "413-payload-too-large.svg", type: "4xx", cat: "4xx", desc: "Helm gepeng ketiban beban blok arsip 100MB raksasa, mata mengernyit kepayahan (upload over limit).", json: { status: 413, error: "Payload Too Large: File Exceeds Max Size" } },
+      { id: "418", code: "418", label: "Teapot", file: "418-teapot.svg", type: "4xx", cat: "4xx", desc: "Easter egg programmer: Memakai tutup teko, gagang cangkir samping, dan corong menuang uap teh siber.", json: { status: 418, message: "I am a teapot (RFC 2324)" } },
+      { id: "422", code: "422", label: "Unprocessable", file: "422-unprocessable.svg", type: "4xx", cat: "4xx", desc: "Efek chromatic aberration RGB glitch bergeser (cyan & magenta offset) dengan scanline data error.", json: { status: 422, error: "Unprocessable Entity: Schema Divergence" } },
+      { id: "429", code: "429", label: "Rate Limit", file: "429-rate-limit.svg", type: "4xx", cat: "4xx", desc: "Mode Alert Merah: Geleng-geleng kepala tegas ke kiri-kanan, sirine darurat berkedip, dan telapak tangan robot disorongkan ke depan menahan aksi user (STOP / HALT).", json: { status: 429, error: "Too Many Requests: Rate limit exceeded (Try again in 30s)" } },
 
       // 5xx
-      { id: "500", code: "500", label: "Server Error", file: "500-internal-error.svg", type: "5xx", cat: "5xx", desc: "Helm retak berasap hitam tebal, percikan petir korsleting listrik, antena bengkok, dan mata pusing spiral (@_@).", json: '{\\n  "status": 500,\\n  "error": "Internal Server Error: Uncaught Exception"\\n}' },
-      { id: "502", code: "502", label: "Bad Gateway", file: "502-bad-gateway.svg", type: "5xx", cat: "5xx", desc: "Memegang dua kabel upstream terputus yang saling menyemburkan loncatan bunga api listrik tegangan tinggi.", json: '{\\n  "status": 502,\\n  "error": "Bad Gateway: Upstream Target Severed"\\n}' },
-      { id: "503", code: "503", label: "Maintenance", file: "503-maintenance.svg", type: "5xx", cat: "5xx", desc: "Memakai helm proyek kuning keselamatan dan tangan robot aktif memutar kunci inggris memperbaiki sistem.", json: '{\\n  "status": 503,\\n  "error": "Service Unavailable: Maintenance Underway"\\n}' },
-      { id: "504", code: "504", label: "Gateway Timeout", file: "504-gateway-timeout.svg", type: "5xx", cat: "5xx", desc: "Memandang cemas jam pasir digital berputar 180° karena upstream server tidak kunjung merespon.", json: '{\\n  "status": 504,\\n  "error": "Gateway Timeout: Upstream Timed Out"\\n}' },
+      { id: "500", code: "500", label: "Server Error", file: "500-internal-error.svg", type: "5xx", cat: "5xx", desc: "Helm retak berasap hitam tebal, percikan petir korsleting listrik, antena bengkok, dan mata pusing spiral (@_@).", json: { status: 500, error: "Internal Server Error: Uncaught Exception" } },
+      { id: "502", code: "502", label: "Bad Gateway", file: "502-bad-gateway.svg", type: "5xx", cat: "5xx", desc: "Memegang dua kabel upstream terputus yang saling menyemburkan loncatan bunga api listrik tegangan tinggi.", json: { status: 502, error: "Bad Gateway: Upstream Target Severed" } },
+      { id: "503", code: "503", label: "Maintenance", file: "503-maintenance.svg", type: "5xx", cat: "5xx", desc: "Memakai helm proyek kuning keselamatan dan tangan robot aktif memutar kunci inggris memperbaiki sistem.", json: { status: 503, error: "Service Unavailable: Maintenance Underway" } },
+      { id: "504", code: "504", label: "Gateway Timeout", file: "504-gateway-timeout.svg", type: "5xx", cat: "5xx", desc: "Memandang cemas jam pasir digital berputar 180° karena upstream server tidak kunjung merespon.", json: { status: 504, error: "Gateway Timeout: Upstream Timed Out" } },
 
       // Auth & UX
-      { id: "2fa", code: "2FA", label: "OTP Verify", file: "auth-2fa.svg", type: "ux", cat: "ux", desc: "Tameng pelindung holografik siber dengan gembok kode 6 digit untuk verifikasi autentikasi dua faktor.", json: '{\\n  "action": "require_2fa",\\n  "method": "totp_authenticator"\\n}' },
-      { id: "offline", code: "Offline", label: "No Network", file: "offline.svg", type: "ux", cat: "ux", desc: "Sinyal WiFi tersilang merah di atas antena dengan ekspresi celingukan mencari koneksi internet.", json: '{\\n  "network": "disconnected",\\n  "online": false\\n}' },
-      { id: "expired", code: "Expired", label: "Session Timeout", file: "session-expired.svg", type: "ux", cat: "ux", desc: "Kartu akses JWT pudar dissolving dengan senyum sendu mengajak user login ulang.", json: '{\\n  "auth": "expired",\\n  "code": "token_expired"\\n}' },
-      { id: "banned", code: "Banned", label: "Suspended", file: "account-banned.svg", type: "ux", cat: "ux", desc: "Terkurung di balik jeruji laser merah berdenyut dengan tatapan murung (akun dibekukan admin).", json: '{\\n  "account_status": "suspended",\\n  "appeal": "support@example.com"\\n}' }
+      { id: "2fa", code: "2FA", label: "OTP Verify", file: "auth-2fa.svg", type: "ux", cat: "ux", desc: "Tameng pelindung holografik siber dengan gembok kode 6 digit untuk verifikasi autentikasi dua faktor.", json: { action: "require_2fa", method: "totp_authenticator" } },
+      { id: "offline", code: "Offline", label: "No Network", file: "offline.svg", type: "ux", cat: "ux", desc: "Sinyal WiFi tersilang merah di atas antena dengan ekspresi celingukan mencari koneksi internet.", json: { network: "disconnected", online: false } },
+      { id: "expired", code: "Expired", label: "Session Timeout", file: "session-expired.svg", type: "ux", cat: "ux", desc: "Kartu akses JWT pudar dissolving dengan senyum sendu mengajak user login ulang.", json: { auth: "expired", code: "token_expired" } },
+      { id: "banned", code: "Banned", label: "Suspended", file: "account-banned.svg", type: "ux", cat: "ux", desc: "Terkurung di balik jeruji laser merah berdenyut dengan tatapan murung (akun dibekukan admin).", json: { account_status: "suspended", appeal: "support@example.com" } }
     ];
 
     let currentId = "200";
@@ -1653,7 +1654,7 @@
         statusTag.textContent = `ALERT • ${item.code}`;
       } else {
         viewport.classList.remove('alert-mode');
-        statusTag.textContent = `${item.type.toUpperCase()} • ${item.code}`;
+        statusTag.textContent = `${item.code} • ${item.label.toUpperCase()}`;
       }
 
       // Update Code Box
@@ -1668,9 +1669,9 @@
     function renderCodePreview(item) {
       const codeBox = document.getElementById('code-preview-box');
       if (activeCodeTab === 'json') {
-        codeBox.textContent = item.json;
+        codeBox.textContent = JSON.stringify(item.json, null, 2);
       } else if (activeCodeTab === 'html') {
-        codeBox.textContent = `<img src="https://rndsa.github.io/status-mascots/mascots/robot/${item.file}"\n     alt="Astro Bot ${item.code} ${item.label}"\n     width="160" height="160" />`;
+        codeBox.textContent = `<img src="${window.location.origin}/mascots/robot/${item.file}"\n     alt="Astro Bot ${item.code} ${item.label}"\n     width="160" height="160" />`;
       } else if (activeCodeTab === 'react') {
         codeBox.textContent = `import Image from 'next/image';\n\nexport function StatusIcon() {\n  return (\n    <Image\n      src="/mascots/robot/${item.file}"\n      alt="Astro Bot ${item.code}"\n      width={160}\n      height={160}\n      priority\n    />\n  );\n}`;
       }
