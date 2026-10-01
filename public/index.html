@@ -19,11 +19,11 @@
       --border-active: rgba(255, 255, 255, 0.28);
       --text: #f4f6fa;
       --text-muted: #9ba3b8;
-      --text-dim: #8c93a8;
+      --text-dim: #949ba8;
       --badge-2xx: #10b981;
       --badge-4xx: #f43f5e;
       --badge-5xx: #f59e0b;
-      --badge-ux: #8b5cf6;
+      --badge-ux: #38bdf8;
       --accent: #38bdf8;
       --accent-red: #ef4444;
       --radius-card: 22px;
@@ -40,13 +40,14 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
     body {
       background-color: var(--bg);
-      background-image: 
-        radial-gradient(ellipse 90% 45% at 50% -10%, rgba(56, 189, 248, 0.08), transparent 75%),
-        radial-gradient(ellipse 60% 30% at 50% 100%, rgba(139, 92, 246, 0.04), transparent 80%);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: system-ui, -apple-system, sans-serif;
       font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
       font-variant-numeric: tabular-nums;
       min-height: 100vh;
@@ -199,7 +200,7 @@
       font-size: 15px;
       color: var(--text-muted);
       line-height: 1.6;
-      max-width: 680px;
+      max-width: 65ch;
     }
 
     /* Main Showcase Stage */
@@ -242,13 +243,7 @@
 
     .mascot-viewport::before {
       content: "";
-      position: absolute;
-      inset: 0;
-      background-image: 
-        radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 20px 20px;
-      pointer-events: none;
-      opacity: 0.7;
+      display: none;
     }
 
     .mascot-viewport.alert-mode {
@@ -296,7 +291,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--accent);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: ui-monospace, monospace;
       position: relative;
       z-index: 2;
       display: inline-flex;
@@ -459,7 +454,7 @@
     }
 
     .asset-path-pill {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: ui-monospace, monospace;
       font-size: 12px;
       color: var(--text-dim);
       background: rgba(255, 255, 255, 0.04);
@@ -655,7 +650,7 @@
 
     .code-content-box {
       padding: 14px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: ui-monospace, monospace;
       font-size: 12px;
       line-height: 1.5;
       color: #a5b4fc;
@@ -847,7 +842,7 @@
     }
 
     .auth-counter-badge {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: ui-monospace, monospace;
       font-weight: 600;
       font-size: 11px;
       padding: 2px 8px;
@@ -883,7 +878,7 @@
 
     .auth-mascot-label {
       margin-top: 10px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: ui-monospace, monospace;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.06em;
@@ -896,6 +891,16 @@
     .auth-mascot-box.is-blocked .auth-mascot-label {
       color: var(--accent-red);
       background: rgba(239, 68, 68, 0.12);
+    }
+
+    
+    ::placeholder {
+      color: #949ba8 !important;
+      opacity: 1 !important;
+    }
+    .search-input::placeholder {
+      color: #949ba8 !important;
+      opacity: 1 !important;
     }
 
     /* Catalog Section */
@@ -1050,7 +1055,7 @@
     }
 
     .card-code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: ui-monospace, monospace;
       font-size: 13px;
       font-weight: 700;
       color: #ffffff;
@@ -1134,7 +1139,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-inner);
       padding: 16px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: ui-monospace, monospace;
       font-size: 12px;
       line-height: 1.5;
       color: #a5b4fc;
@@ -1205,8 +1210,15 @@
     /* Responsive */
     @media (max-width: 900px) {
       .stage-card {
-        grid-template-columns: 1fr;
-        gap: 28px;
+        grid-template-columns: 100%;
+        gap: 24px;
+        padding: 24px;
+        box-sizing: border-box;
+      }
+      .mascot-stage-col, .inspector-col {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
       }
       .gallery-grid-5 {
         grid-template-columns: repeat(3, 1fr);
@@ -1215,25 +1227,69 @@
         grid-template-columns: repeat(2, 1fr);
       }
       .auth-demo-card {
-        grid-template-columns: 1fr;
+        grid-template-columns: 100%;
+        padding: 24px;
       }
       .auth-inputs-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       body {
-        padding: 24px 16px 28px;
+        padding: 20px 16px 28px;
       }
-      .gallery-grid-5, .gallery-grid-4 {
-        grid-template-columns: repeat(2, 1fr);
+      .container {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .stage-card {
+        padding: 18px 14px;
+        border-radius: 18px;
       }
       .category-rail {
         grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
+      }
+      .status-sub-row {
+        gap: 4px;
+      }
+      .status-sub-btn {
+        padding: 5px 10px;
+        font-size: 11px;
+      }
+      .viewport-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .toolbar-group {
+        justify-content: space-between;
+      }
+      .gallery-grid-5, .gallery-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
       }
       .inspector-actions-row {
         grid-template-columns: 1fr;
+      }
+      .catalog-search-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .search-box {
+        max-width: 100%;
+      }
+      .mascot-desc-text {
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+      .page-title {
+        font-size: 26px;
+      }
+      .page-desc {
+        font-size: 14px;
       }
     }
   </style>
@@ -1272,10 +1328,6 @@
 
     <!-- Page Intro -->
     <div class="page-intro">
-      <div class="page-tag">
-        <span class="page-tag-dot"></span>
-        Status &amp; Auth Mascots
-      </div>
       <h1 class="page-title">Astro Bot Mascot Library</h1>
       <p class="page-desc">
         22 maskot animasi SVG mandiri untuk siklus request HTTP, backend queue, gateway errors, dan proteksi autentikasi/rate-limiting modern. Vektor murni bertenaga CSS keyframes tanpa dependensi JS eksternal.
